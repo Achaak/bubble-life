@@ -7,7 +7,9 @@ html
         link(rel="stylesheet" type="text/css" href="#{opts.pathCSS}")
         link(rel="stylesheet" type="text/css" href="/build/bubble/main/product.min.css")
         link(rel="stylesheet" type="text/css" href="/build/components.min.css")
-
+        each val, index in opts.components.css
+            link(rel="stylesheet" type="text/css" href="#{val}")
+            
         // META
         meta(charset='utf-8')
         meta(name='description', content='"#{opts.description}')
@@ -31,5 +33,8 @@ html
 
         // Script JS
         script(src="/build/components.min.js")
+        script(src="/build/bubble/main/product.min.js")
         script(src="#{opts.pathJS}")
+        each val, index in opts.components.js
+            script(src="#{val}")
         script(src="reload/reload.js")

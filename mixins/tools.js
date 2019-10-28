@@ -6,7 +6,9 @@ exports.getFiles = async (_folder, _extention, _opts, _filesList = []) => {
     // Extend parameters
     _opts = _GLOBAL._.extend({
         recursive: true,
+        except: []
     }, _opts)
+
 
     // Get files and folders
     var _files = []
@@ -25,7 +27,7 @@ exports.getFiles = async (_folder, _extention, _opts, _filesList = []) => {
             }
             catch(e) {}
         }
-        else if (_GLOBAL._.last(_split) == _extention) {
+        else if (!_opts.except.includes(_split[0]) && _split.length >= 2 && _GLOBAL._.last(_split) == _extention) {
             // Delete last element
             _split.pop();
 

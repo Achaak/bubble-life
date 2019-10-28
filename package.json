@@ -20,7 +20,9 @@
     "nodemon": "^1.19.1",
     "path": "^0.12.7",
     "reload": "^3.0.1",
-    "uglify-js": "^3.5.12",
     "uglifycss": "0.0.29"
+  },
+  "devDependencies": {
+    "uglify-js": "github:mishoo/UglifyJS2#harmony"
   }
 }

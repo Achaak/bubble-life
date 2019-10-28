@@ -2,7 +2,7 @@ exports.getOpts = function(_global) {
     var opts = {
         route: "/",
         title: "test",
-        description: "Hello world"
+        description: "Hello world",
         //hrefIcon   : "",
 
         // Open Graph
@@ -13,6 +13,15 @@ exports.getOpts = function(_global) {
         //    type       : "",
         //    url        : ""
         //}
+
+        
+        // Components
+        components: {
+            css: [],
+            js: [
+                "/build/bubble/animations/jump/product.min.js"
+            ]
+        },
     };
 
     return opts;

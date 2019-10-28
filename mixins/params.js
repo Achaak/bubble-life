@@ -25,8 +25,8 @@ exports.getParams = function(_global, _callback) {
         components: {
             css: [],
             js: [
-                "/jquery/jquery.min.js",
-                "/velocity/velocity.min.js"
+                "components/jquery/jquery.min.js",
+                "components/velocity/velocity.min.js"
             ]
         },
 

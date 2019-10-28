@@ -31,13 +31,14 @@ exports.initBuilder = async (_global, _callback) => {
     
         // Get all path of the jade file
         var _filePathJade = await _GLOBAL.tools.getFiles(
-                _GLOBAL.path.join(__dirname, "../www/src"),
-                "jade",
-                opts = {
-                    recursive: true,
-                    filesName: ["index"]
-                }
-            );
+            _GLOBAL.path.join(__dirname, "../www/src"),
+            "jade",
+            opts = {
+                recursive: true,
+                filesName: ["index"]
+            }
+        );
+
     
         // Prepare all file path for js, css and scss
         var _filePath = [];
@@ -45,13 +46,31 @@ exports.initBuilder = async (_global, _callback) => {
         for (let i = 0; i < _filePathJade.length; i++)
             _filePath.push(_filePathJade[i].folder);
     
+
+        // Get the folder js
+        var _filePathJs = await _GLOBAL.tools.getFiles(
+            _GLOBAL.path.join(__dirname, "../www/src"),
+            "js",
+            opts = {
+                recursive: true
+            }
+        );
+        _filePathJs = _GLOBAL._.map(_filePathJs, 'folder');
+        _filePathJs = _GLOBAL._.uniqWith(_filePathJs, _GLOBAL._.isEqual);
+
+        for (let i = 0; i < _filePathJs.length; i++) {
+            var _folder = _filePathJs[i];
+
+            var _filesJs = await _GLOBAL.tools.getFiles(_folder, "js", opts = { recursive: false, except: ["controller"]});
+            if(_filesJs.length) _FILE ++;
+
+            await minifyProductJs(_filesJs);
+        }
     
+
+        // SCSS
         for (let i = 0; i < _filePath.length; i++) {
             var _folder = _filePath[i];
-    
-            var _filesJs = await _GLOBAL.tools.getFiles(_GLOBAL.path.join(_folder, "/js"), "js", opts = { recursive: false});
-            if(_filesJs.length) _FILE ++;
-            await minifyProductJs(_filesJs);
             
             var _filesScss = await _GLOBAL.tools.getFiles(_GLOBAL.path.join(_folder, "/scss"), "scss", opts = { recursive: false});
             if(_filesScss.length) _FILE ++;
@@ -98,10 +117,10 @@ exports.initBuilder = async (_global, _callback) => {
         var _minifyJs = await _GLOBAL.uglifyJS.minify(_filesContent);
     
         // Create folder
-        await _GLOBAL.asyncMkdir(_GLOBAL.path.join(_GLOBAL._.first(_filesPath).folder.replace("src", "build"), ".."), { recursive: true });
-            
+        await _GLOBAL.asyncMkdir(_GLOBAL._.first(_filesPath).folder.replace("src", "build").replace(_GLOBAL.path.join("/", "js"), ""), { recursive: true });
+        
         // Create file
-        _GLOBAL.fs.writeFile(_GLOBAL.path.join(_GLOBAL._.first(_filesPath).folder.replace("src", "build"), "../product.min.js"), _minifyJs.code, (err) => {
+        _GLOBAL.fs.writeFile(_GLOBAL.path.join(_GLOBAL._.first(_filesPath).folder.replace("src", "build").replace(_GLOBAL.path.join("/", "js"), ""), "/product.min.js"), _minifyJs.code, (err) => {
             if (err) return console.log("[ERROR] "+ JSON.stringify(err).red);
             
             _FILE_COMPILED++;
@@ -134,8 +153,8 @@ exports.initBuilder = async (_global, _callback) => {
     
     
                 // Create folder
-                var _mkdirPath = _GLOBAL.path.join(result.stats.entry, "/../..");
-                _mkdirPath = _mkdirPath.replace(/scss/g, "css");
+                var _mkdirPath = _GLOBAL.path.join(result.stats.entry, "/..");
+                _mkdirPath = _mkdirPath.replace(_GLOBAL.path.join("/", "scss"), "");
                 _mkdirPath = _mkdirPath.replace("src", "build");
                 
                 await _GLOBAL.asyncMkdir(_mkdirPath, { recursive: true });
@@ -198,7 +217,7 @@ exports.initBuilder = async (_global, _callback) => {
         var _filesContent = {};
     
         for (let i = 0; i < _GLOBAL.opts.components.js.length; i++) {
-            _filePath = _GLOBAL.path.join(__dirname, "../www/components", _GLOBAL.opts.components.js[i]);
+            _filePath = _GLOBAL.path.join(__dirname, "../www", _GLOBAL.opts.components.js[i]);
             _filesContent["file"+i] = _GLOBAL.fs.readFileSync(_GLOBAL.path.join(_filePath), "utf8");
         }
 
