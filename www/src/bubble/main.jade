@@ -1,0 +1,35 @@
+doctype html
+html
+    head
+        title #{opts.title}
+
+        // CSS
+        link(rel="stylesheet" type="text/css" href="#{opts.pathCSS}")
+        link(rel="stylesheet" type="text/css" href="/build/bubble/main/product.min.css")
+        link(rel="stylesheet" type="text/css" href="/build/components.min.css")
+
+        // META
+        meta(charset='utf-8')
+        meta(name='description', content='"#{opts.description}')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+        meta(name="robots" content="index,follow")
+
+        // ICON
+        link(rel="icon" href="#{opts.hrefIcon}")
+
+        // OG
+        meta(property="og:title"       content="#{opts.openGraph.title}")
+        meta(property="og:description" content="#{opts.openGraph.description}")
+        meta(property="og:image"       content="#{opts.openGraph.image}")
+        meta(property="og:type"        content="#{opts.openGraph.type}")
+        meta(property="og:url"         content="#{opts.openGraph.url}")
+
+    body
+        // Content
+        |!{ opts.html }
+
+        // Script JS
+        script(src="/build/components.min.js")
+        script(src="#{opts.pathJS}")
+        script(src="reload/reload.js")
