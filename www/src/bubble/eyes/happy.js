@@ -1,0 +1,4 @@
+bubble.setEyes("happy", '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112.03 17.77"><defs><style>.cls-1{fill:#231f20;stroke:#fff;stroke-miterlimit:10;stroke-width:3px;}</style></defs><title>Fichier 6</title><g id="Calque_2" data-name="Calque 2"><g id="Calque_2-2" data-name="Calque 2"><g id="eyes"><g id="happy"><path id="right" class="cls-1" d="M74.39,16.27C74.08,16,80.6,1.43,92.58,1.5S110.85,16,110.52,16.27,102.91,4,92.45,4,74.68,16.55,74.39,16.27Z"/><path id="left" class="cls-1" d="M1.51,16.27C1.2,16,7.73,1.43,19.71,1.5S38,16,37.64,16.27,30,4,19.58,4,1.81,16.55,1.51,16.27Z"/></g></g></g></g></svg>');
+
+// Set eyes
+bubble.setEyesDOM("happy");

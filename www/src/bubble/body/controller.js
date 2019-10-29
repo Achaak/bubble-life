@@ -17,9 +17,21 @@ exports.getOpts = function(_global) {
         
         // Components
         components: {
-            css: [],
+            css: [
+                "/build/bubble/elements/product.min.css",
+                "/build/bubble/mouse/product.min.css",
+            ],
             js: [
-                "/build/bubble/animations/jump/product.min.js"
+                "/module_config.js",
+
+                "/build/bubble/animations/jump/product.min.js",
+
+                "/build/bubble/states/sleep/product.min.js",
+                "/build/bubble/states/eat/product.min.js",
+                
+                "/build/bubble/eyes/product.min.js",
+                "/build/bubble/elements/product.min.js",
+                "/build/bubble/mouse/product.min.js",
             ]
         },
     };

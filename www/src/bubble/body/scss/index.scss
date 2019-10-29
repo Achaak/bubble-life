@@ -42,7 +42,6 @@
             }
 
             .eyes {
-                height: 150px;
                 width: 150px;
                 
                 margin-left: auto;
@@ -51,7 +50,11 @@
                 right: 0;
 
                 position: absolute;
-                bottom: 100px;
+                bottom: 180px;
+            }
+
+            .mouse {
+                position: absolute;
             }
         }
     }

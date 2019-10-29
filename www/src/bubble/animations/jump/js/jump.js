@@ -2,16 +2,16 @@ bubble.jump = () => {
     // Redefined this
     var _this = bubble;
 
-    // Add animation
-    _this.animation.push(_this.jump_up);
+    // Add event
+    _this.event.push(_this.jump_up);
 }
 
 bubble.jump_up = () => {
     // Redefined this
     var _this = bubble;
 
-    // Add animation flag
-    _this.animationFlag = true;
+    // Add event flag
+    _this.eventFlag = true;
 
     // Animation
     _this.bubbleDOM.velocity({
@@ -51,6 +51,6 @@ bubble.jump_down = () => {
     }, {
         duration: 300,
         easing: 'easeOutQuad',
-        complete: function() { _this.animation_end(); }
+        complete: function() { _this.event_end(); }
     })
 }

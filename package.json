@@ -1,28 +1,31 @@
 {
-  "name": "snippet-node-new-website",
-  "version": "1.0.0",
-  "description": "Snippet for start a node project",
-  "main": "app.js",
-  "author": {
-    "name": "Axel Lavoie",
-    "email": "axel.lavoie@gmail.com"
-  },
-  "scripts": {
-    "start": "nodemon --config ./nodemon.json daemon.js",
-    "scss": "node-sass -watch scss -o css"
-  },
-  "dependencies": {
-    "colors": "^1.3.3",
-    "express": "^4.16.4",
-    "jade": "^1.11.0",
-    "lodash": "^4.17.11",
-    "node-sass": "^4.12.0",
-    "nodemon": "^1.19.1",
-    "path": "^0.12.7",
-    "reload": "^3.0.1",
-    "uglifycss": "0.0.29"
-  },
-  "devDependencies": {
-    "uglify-js": "github:mishoo/UglifyJS2#harmony"
-  }
+    "name": "snippet-node-new-website",
+    "version": "1.0.0",
+    "description": "Snippet for start a node project",
+    "main": "app.js",
+    "author": {
+        "name": "Axel Lavoie",
+        "email": "axel.lavoie@gmail.com"
+    },
+    "scripts": {
+        "dev": "nodemon --config ./nodemon.json daemon.js",
+        "start": "start http://localhost:8080 & npm run dev",
+        "open": "open http://localhost:8080 && npm run dev",
+        "xdg-open": "xdg-open http://localhost:8080 && npm run dev",
+        "scss": "node-sass -watch scss -o css"
+    },
+    "dependencies": {
+        "colors": "^1.3.3",
+        "express": "^4.16.4",
+        "jade": "^1.11.0",
+        "lodash": "^4.17.11",
+        "node-sass": "^4.12.0",
+        "nodemon": "^1.19.1",
+        "path": "^0.12.7",
+        "reload": "^3.0.1",
+        "uglifycss": "0.0.29"
+    },
+    "devDependencies": {
+        "uglify-js": "github:mishoo/UglifyJS2#harmony"
+    }
 }

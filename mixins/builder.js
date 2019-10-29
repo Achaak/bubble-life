@@ -68,25 +68,26 @@ exports.initBuilder = async (_global, _callback) => {
         }
     
 
-        // SCSS
-        for (let i = 0; i < _filePath.length; i++) {
-            var _folder = _filePath[i];
+
+        // Get the folder scss
+        var _filePathScss = await _GLOBAL.tools.getFiles(
+            _GLOBAL.path.join(__dirname, "../www/src"),
+            "scss",
+            opts = {
+                recursive: true
+            }
+        );
+        _filePathScss = _GLOBAL._.map(_filePathScss, 'folder');
+        _filePathScss = _GLOBAL._.uniqWith(_filePathScss, _GLOBAL._.isEqual);
+
+        for (let i = 0; i < _filePathScss.length; i++) {
+            var _folder = _filePathScss[i];
             
-            var _filesScss = await _GLOBAL.tools.getFiles(_GLOBAL.path.join(_folder, "/scss"), "scss", opts = { recursive: false});
+            var _filesScss = await _GLOBAL.tools.getFiles(_folder, "scss", opts = { recursive: false});
             if(_filesScss.length) _FILE ++;
+
             await minifyProductScss(_filesScss);
         }
-
-        // Launch SCSS minifier for main js
-        var _filesJs = await _GLOBAL.tools.getFiles(_GLOBAL.path.join(__dirname, MAIN_FOLDER, "/js"), "js", opts = { recursive: false});
-        if(_filesJs.length) _FILE ++;
-        await minifyProductJs(_filesJs);
-    
-        // Launch SCSS minifier for main scss
-        var _filesScss = await _GLOBAL.tools.getFiles( _GLOBAL.path.join(__dirname, MAIN_FOLDER, "/scss"), "scss", opts = { recursive: false});
-        if(_filesScss.length) _FILE ++;
-        await minifyProductScss(_filesScss);
-    
     
     
         // Minify the components files
