@@ -26,7 +26,8 @@ exports.getParams = function(_global, _callback) {
             css: [],
             js: [
                 "components/jquery/jquery.min.js",
-                "components/velocity/velocity.min.js"
+                "components/velocity/velocity.min.js",
+                "components/lodash/lodash.js",
             ]
         },
 

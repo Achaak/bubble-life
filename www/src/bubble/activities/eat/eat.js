@@ -4,11 +4,11 @@ bubble.eat = () => {
 
     console.log("Go to eat !")
 
-    // Start event
-    _this.eventFlag = true;
-
     // Change eyes
     _this.setEyesDOM("happy");
+
+    // Down food
+    _this.counterFood--;
 
     // Change mouse
     _this.setMouseDOM("eat");
@@ -16,25 +16,16 @@ bubble.eat = () => {
     // Add sleep text
     _this.setElementDOM("food_text")
     _this.setElementBubbleDOM("food")
-
-    // Change state
-    bubble.setState({
-        name: "eat",
-        function_end: bubble.stop_eat
-    });
-
-    // End event
-    _this.event_end();
 }
 
 bubble.stop_eat = () => {
     // Redefined this
     var _this = bubble;
 
-    console.log("Stop eat !")
+    // Reset the saturation
+    _this.saturationReset();
 
-    // Start event
-    _this.eventFlag = true;
+    console.log("Stop eat !")
 
     // Change eyes
     _this.setEyesDOM("happy");
@@ -45,17 +36,6 @@ bubble.stop_eat = () => {
     // remove sleep text
     _this.removeElementDOM("food_text")
     _this.removeElementBubbleDOM("food")
-
-    // Change state
-    if(bubble.state.name == "eat") {
-        bubble.setState({
-            name: "happy",
-            function_end: undefined
-        });
-    }
-
-    // End event
-    _this.event_end();
 }
 
 bubble.check_eat = () => {
@@ -68,16 +48,21 @@ bubble.check_eat = () => {
     if(
         (_hour >= 8 && _hour < 9) ||
         (_hour >= 12 && _hour < 13) ||
-        (_hour >= 20 && _hour < 21)
+        (_hour >= 20 && _hour < 23)
     ) {
-        if (_this.state.name != "eat") {
-            // Add sleep event
-            _this.event.push(_this.eat);
+        if (_this.actualTask.name != "eat" && _this.saturation == 0) {
+            // Add sleep task
+            _this.setTask({
+                name: "eat",
+                function_start: _this.eat,
+                task_end: {
+                    name: "stop_eat",
+                    function_start: _this.stop_eat
+                },
+                stoppable: false,
+                duration: 1200000
+            });
         }
-    }
-    else {
-        //if(_this.state.name == "eat") 
-            //_this.event.push(_this.stop_eat);
     }
 }
 bubble.check_eat();
@@ -85,3 +70,20 @@ bubble.checkupList.push({
     "function": [bubble.check_eat],
     "interval": 900000
 });
+
+bubble.saturationDown = () => {
+    bubble.saturation -= 1;
+
+    if (bubble.saturation < 0) bubble.saturation = 0;
+}
+bubble.checkupList.push({
+    "function": [bubble.saturationDown],
+    "interval": 1000
+});
+
+bubble.saturationReset = () => {
+    bubble.saturation = 1000;
+}
+bubble.saturationReset();
+
+

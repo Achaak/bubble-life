@@ -9,3 +9,13 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.floor {
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: calc(50% - 110px);
+    z-index: -2;
+}

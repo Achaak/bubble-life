@@ -3,38 +3,86 @@ class Bubble {
         // DOM
         this.bubbleDOM      = $('.bubble');
         this.bubbleCtnerDOM = $(".bubble-ctner");
+        this.bubbleFrameDOM = $(".bubble-frame");
 
-        //this.stay_down();
-        this.event = [];
-        this.eventFlag = false;
 
+        // TASKS
+        this.taskList = [];
+        this.defaultTask = {
+            name: "stay",
+            task_end: undefined,
+            function_start: () => {},
+            duration: undefined,
+            stoppable: true
+        };
+        this.actualTask = this.defaultTask;
+
+
+        // ANIMATIONS
+        this.animationList = [];
+        this.animationFlag = false;
+
+
+        // ELEMENTS
+        this.eyesList         = [];
+        this.mouseList        = [];
+        this.elementsList     = [];
+        this.environmentsList = [];
+        this.clothesList      = [];
+        this.floorsList       = [];
+
+        this.environment = 'house';
+
+        // LOOP
         this.checkupList = [];
 
-        this.eyesList     = [];
-        this.mouseList    = [];
-        this.elementsList = [];
-
-        this.state = {
-            name: "happy",
-            function_end: undefined
-        }
-
-        // Loop
         this.lastRender = 0;
         window.requestAnimationFrame(this.loop.bind(this));
     }
     
     update(progress) {
-        if(this.event.length == 0 && this.eventFlag == false) {
-            this.stay_down();
+        // TASKS
+        if(this.taskList.length != 0 && this.actualTask.stoppable == true) {
+            // Start task function
+            if(this.taskList[0].function_start.function)
+                this.taskList[0].function_start.function(this.taskList[0].function_start.param.name);
+            else
+                this.taskList[0].function_start();
+
+            // Save the task
+            this.actualTask = this.taskList[0];
+
+            // Set end and start to the task
+            if (this.actualTask.duration != undefined) {
+                this.actualTask = $.extend({
+                    time_end: (new Date().getTime() + this.actualTask.duration),
+                    time_start: new Date().getTime()
+                }, this.actualTask);
+            }
+
+            // Remove the task
+            this.taskList.shift();
         }
-        else if(this.event.length != 0 && this.eventFlag == false) {
-            this.event[0]();
-        }
+        
+        // Check actual task
+        this.check_actual_task();
 
 
-        // Check the list
+        // CHECKUP LIST
         this.checkup(progress);
+
+
+        // ANIMATION
+        if(this.animationList.length == 0 && this.animationFlag == false) {
+            this.setAnimation(this.stay_down.bind(this));
+        }
+
+        if(this.animationList.length != 0 && this.animationFlag == false) {
+            this.animationList[0]();
+
+            // Remove the task
+            this.animationList.shift();
+        }
     }
 
     loop(timestamp) {
@@ -46,24 +94,40 @@ class Bubble {
         window.requestAnimationFrame(this.loop.bind(this));
     }
 
-    event_end() {
-        // Delete first event on the list
-        this.event.shift();
+    setTask(_task) {
+        // Extend with default task
+        _task = $.extend(_.clone(this.defaultTask), _task);
 
-        this.bubbleDOM.velocity("stop")
+        if (_task.duration == undefined) _task.stoppable = true;
 
-        // Remove flag
-        this.eventFlag = false;
+        // Set task in task list
+        this.taskList.push(_task);
     }
-
-    setState(_state) {
-        // Start function end
-        if (this.state.function_end != undefined) {
-            this.event.push(this.state.function_end);
+    check_actual_task() {
+        if(this.actualTask.time_end < new Date().getTime()) {
+            // Call task end
+            this.task_end();
         }
-
-        this.state = _state;
+        else if (this.taskList.length == 0 && 
+            this.actualTask.task_end == undefined && 
+            (this.actualTask.time_end > new Date().getTime() || this.actualTask.time_end == undefined)) {
+                // Set the default task
+                this.setTask(this.defaultTask);
+        }
     }
+    task_end() {
+        if(this.actualTask.time_end < new Date().getTime()) {
+            // Set the end task
+            this.setTask(this.actualTask.task_end);
+
+            // Set stoppable true
+            this.actualTask.stoppable = true;
+        }
+    }
+
+    setAnimation(_animation) { this.animationList.push(_animation) }
+    startAnimation() { this.animationFlag = true;  }
+    endAnimation()   { this.animationFlag = false; }
 
     checkup(progress) {
         for (var i = 0; i < this.checkupList.length; i++) {
@@ -84,9 +148,47 @@ class Bubble {
         }
     }
 
+    // EYES
     setEyes(_name, _svg) { this.eyesList[_name] = _svg.replace(/cls/g, _name + "-cls"); }
     setEyesDOM(_eyes) { this.bubbleDOM.find(".eyes").html(this.eyesList[_eyes]); }
 
+    // CLOTHES
+    setClothes(_name, _svg) { this.clothesList[_name] = _svg.replace(/cls/g, _name + "-cls"); }
+    setClothesDOM(_clothes) { 
+        var _clothesDOM = this.bubbleDOM.find(".clothes");
+        _clothesDOM.html(this.clothesList[_clothes]);
+        
+        _clothesDOM.removeAttr("class");
+        _clothesDOM.addClass("clothes");
+        _clothesDOM.addClass(_clothes);
+    }
+    removeClothesDOM() { 
+        var _clothesDOM = this.bubbleDOM.find(".clothes");
+        
+        _clothesDOM.empty();
+        _clothesDOM.removeAttr("class");
+        _clothesDOM.addClass("clothes");
+    }
+    configClothes() {
+        if (module_administrator.modules.weather == undefined) return false;
+
+        if (module_administrator.modules.weather.weather_data.main.temp <= 288.15) { 
+            // Set coat
+            bubble.setClothesDOM("coat");
+        }
+        
+        if (module_administrator.modules.weather.weather_data.main.temp >= 293.15 && 
+            module_administrator.modules.weather.weather_data.weather[0].main == "Clear" &&
+            module_administrator.modules.weather.weather_data.sys.sunset > new Date().getTime()/1000) {
+            bubble.setEyesDOM("sunglass");
+        }
+        
+        if (module_administrator.modules.weather.weather_data.weather[0].main == "Rain") {
+            bubble.setElementBubbleDOM("umbrella");
+        }
+    }
+
+    // MOUSE
     setMouse(_name, _svg) { this.mouseList[_name] = _svg.replace(/cls/g, _name + "-cls"); }
     setMouseDOM(_mouse) {
         var _mouseDOM = this.bubbleDOM.find(".mouse");
@@ -104,12 +206,52 @@ class Bubble {
         _mouseDOM.addClass("mouse");
     }
 
+    // FLOORS
+    setFloor(_name, _svg) { this.floorsList[_name] = _svg.replace(/cls/g, _name + "-cls"); }
+    setFloorDOM(_floor) {
+        var _floorDOM = this.bubbleFrameDOM.find(".floor");
+        _floorDOM.html(this.floorsList[_floor]);
+        
+        _floorDOM.removeAttr("class");
+        _floorDOM.addClass("floor");
+        _floorDOM.addClass(_floor);
+    }
+    removeFloorDOM() { 
+        var _floorDOM = this.bubbleFrameDOM.find(".floor");
+        
+        _floorDOM.empty();
+        _floorDOM.removeAttr("class");
+        _floorDOM.addClass("floor");
+    }
+
+    // ELEMENTS
     setElement(_name, _svg) { this.elementsList[_name] = _svg.replace(/cls/g, _name + "-cls"); }
     setElementDOM(_element) { this.bubbleCtnerDOM.append('<div class="' + _element + ' element">' + this.elementsList[_element] + '</div>'); }
     removeElementDOM(_element) { this.bubbleCtnerDOM.find('.'+_element).remove(); }
     
+    // ELEMENTS BUBBLE
     setElementBubbleDOM(_element) { this.bubbleDOM.append('<div class="' + _element + ' element">' + this.elementsList[_element] + '</div>'); }
     removeElementBubbleDOM(_element) { this.bubbleDOM.find('.'+_element).remove(); }
+
+    // ENVIRONMENTS
+    setEnvironment(_name, _class) {
+        this.environmentsList[_name] = _class;
+    }
+    goEnvironmentDOM(_name) {
+        console.log("Go to the " + _name);
+
+        var _newEnvironment  = this.environmentsList[_name];
+        var _pastEnvironment = this.environmentsList[this.environment];
+
+        // Exit past environment
+        _pastEnvironment.exit();
+
+        // Set name environment
+        this.environment = _name;
+
+        // Go to the new environment
+        _newEnvironment.go();
+    }
 
     stay_up() {
         // Redefined this
@@ -120,24 +262,27 @@ class Bubble {
             transform: ["scaleY(1)", "scaleY(0.8)"]
          }, {
             duration: 2000,
-            complete: function() { _this.eventFlag = false; }
-         });
+            complete: function() {
+                // End animation
+                _this.endAnimation(); 
+            }
+        });
     }
     
     stay_down() {
         // Redefined this
         var _this = this;
 
-        // Add flag
-        this.eventFlag = true;
+        // Start animation
+        this.startAnimation();
 
         // Animation
         this.bubbleDOM.velocity({
             transform: ["scaleY(0.8)", "scaleY(1)"]
-         }, {
+        }, {
             duration: 2000,
-            complete: function() { _this.stay_up() }
-         })
+            complete: function() { _this.stay_up(); }
+        });
     }
 }
 

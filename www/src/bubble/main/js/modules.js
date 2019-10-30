@@ -1,6 +1,7 @@
 class Module_administrator {
     constructor() {
         this.modules_list = undefined;
+        this.modules = {};
     }
 
     set_modules(modules) {
@@ -19,6 +20,10 @@ class Module_administrator {
                 success: (a)=>{}
             });
         }
+    }
+
+    getConfig(_module) {
+        return _.find(this.modules_list, {"module": _module});
     }
 }
 
