@@ -37,7 +37,8 @@ exports.getParams = function(_global, _callback) {
             "/assets",
             "/fonts",
             "/fonts",
-            "/reload"
+            "/reload",
+            "/socket.io"
         ]
     };
 

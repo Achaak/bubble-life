@@ -10,6 +10,8 @@ global.tools.create(global);
 
 global.params  = require("./mixins/params.js");
 
+global.calendar = require("./mixins/calendar.js");
+
 global.http      = require('http');
 global.fs        = require('fs');
 global.util      = require('util');
@@ -66,6 +68,12 @@ function startServer() {
         port, 
         () => console.log(("[SERVER]      -- Server is started to "+port+" ! --").green)
     );
+
+    // Require Socket.io
+    global.socketIo = require("socket.io").listen(global.server);
+
+    // Get calendar
+    global.calendar.initCalendar(global);
 
     global.reload(global.app);
 }

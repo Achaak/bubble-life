@@ -20,7 +20,6 @@ class Clock {
         // Reset the DOM
         this.DOM.empty();
 
-        console.log("lol")
         // Add date
         this.DOM.append("<div class='date'>"+moment().format('dddd, LL')+"</div>");
         // Add time
