@@ -14,10 +14,21 @@ class Module_administrator {
         for (var i = 0; i < this.modules_list.length; i++) {
             var module = this.modules_list[i];
 
+            // Set DOM module
+            $("body").find("."+module.position).append("<div class='"+module.module+" module-ctner'></div>");
+
             await $.ajax({
-                url: "/src/modules/"+module.module+"/"+module.module+".js",
+                url: "/build/modules/"+module.module+"/product.min.js",
                 dataType: "script",
                 success: (a)=>{}
+            });
+            
+            await $.ajax({
+                url: "/build/modules/"+module.module+"/product.min.css",
+                dataType: "text",
+                success: (data)=>{
+                    $("<style><style>").appendTo("head").html(data);
+                }
             });
         }
     }

@@ -7,7 +7,7 @@ function Market() {
         bubble.configClothes();
 
         // Set elements
-        bubble.setElementDOM("market");
+        bubble.setElementFrameDOM("market");
 
         bubble.counterFood = 3;
     }

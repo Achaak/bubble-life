@@ -1,21 +1,117 @@
 body {
     background-color: black;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
 
-    width: 100%;
-    height: 100vh;
+    overflow: hidden;
 
     margin: 0;
     padding: 0;
-}
 
-.floor {
     position: absolute;
-    height: 3px;
-    width: 100%;
+    top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
-    bottom: calc(50% - 110px);
-    z-index: -2;
+
+    color: white;
+}
+
+.top_left,
+.top_right,
+.bottom_left,
+.bottom_right {
+    width: 50%;
+    height: calc(50% - 70px);
+    z-index: 10;
+}
+
+.top_bar,
+.bottom_bar {
+    width: 100%;
+    height: 70px;
+    z-index: 10;
+}
+
+/*.top_left { background-color: pink; }
+.top_right { background-color: yellow; }
+.bottom_left { background-color: red; }
+.bottom_right { background-color: blue; }
+.top_bar { background-color: green; }
+.bottom_bar { background-color: orange; }*/
+
+.bubble-frame {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+
+    .bubble-ctner {
+        position: absolute;
+        height: 50%;
+        width: 50%;
+        margin: auto;
+        left: 0;
+        right: 0;
+        bottom: 50%;
+        transform: translateY(250px);
+        
+        .bubble {
+            position: absolute;
+            bottom: 0;
+
+            height: 300px;
+            width: 300px;
+            transform-origin: bottom;
+            
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+
+
+            .body {
+                height: 300px;
+                width: 300px;
+                position: absolute;
+                bottom: 0;
+
+                .cls-1 {
+                    fill: black;
+                }
+            }
+
+            .eyes {
+                width: 150px;
+                
+                margin-left: auto;
+                margin-right: auto;
+                left: 0;
+                right: 0;
+
+                position: absolute;
+                bottom: 180px;
+            }
+
+            .mouse {
+                position: absolute;
+            }
+
+            .clothes {
+                position: absolute;
+            }
+        }
+    }
+
+    .floor {
+        position: absolute;
+        height: 3px;
+        left: 0;
+        right: 0;
+        bottom: 50%;
+        z-index: -2;
+        transform: translateY(100px);
+    }
 }

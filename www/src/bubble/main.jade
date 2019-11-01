@@ -28,8 +28,23 @@ html
         meta(property="og:url"         content="#{opts.openGraph.url}")
 
     body
-        // Content
-        |!{ opts.html }
+        .top_bar
+        .top_left
+        .top_right
+
+        // Bubble
+        .bubble-frame
+            .floor
+            .bubble-ctner
+                .bubble
+                    object.body(type="image/svg+xml",data="/ressources/images/bubble/body/body.svg")
+                    .eyes
+                    .mouse
+                    .clothes
+                    
+        .bottom_left
+        .bottom_right
+        .bottom_bar
 
         // Script JS
         script(src="/build/components.min.js")

@@ -172,18 +172,18 @@ class Bubble {
     configClothes() {
         if (module_administrator.modules.weather == undefined) return false;
 
-        if (module_administrator.modules.weather.weather_data.main.temp <= 288.15) { 
+        if (module_administrator.modules.weather.getWeatherDay().main.temp <= 288.15) { 
             // Set coat
             bubble.setClothesDOM("coat");
         }
         
-        if (module_administrator.modules.weather.weather_data.main.temp >= 293.15 && 
-            module_administrator.modules.weather.weather_data.weather[0].main == "Clear" &&
-            module_administrator.modules.weather.weather_data.sys.sunset > new Date().getTime()/1000) {
+        if (module_administrator.modules.weather.getWeatherDay().main.temp >= 293.15 && 
+            module_administrator.modules.weather.getWeatherDay().weather[0].main == "Clear" &&
+            module_administrator.modules.weather.getWeatherDay().sys.sunset > new Date().getTime()/1000) {
             bubble.setEyesDOM("sunglass");
         }
         
-        if (module_administrator.modules.weather.weather_data.weather[0].main == "Rain") {
+        if (module_administrator.modules.weather.getWeatherDay().weather[0].main == "Rain") {
             bubble.setElementBubbleDOM("umbrella");
         }
     }
@@ -232,6 +232,10 @@ class Bubble {
     // ELEMENTS BUBBLE
     setElementBubbleDOM(_element) { this.bubbleDOM.append('<div class="' + _element + ' element">' + this.elementsList[_element] + '</div>'); }
     removeElementBubbleDOM(_element) { this.bubbleDOM.find('.'+_element).remove(); }
+
+    // ELEMENTS FRAME
+    setElementFrameDOM(_element) { this.bubbleFrameDOM.append('<div class="' + _element + ' element">' + this.elementsList[_element] + '</div>'); }
+    removeElementFrameDOM(_element) { this.bubbleFrameDOM.find('.'+_element).remove(); }
 
     // ENVIRONMENTS
     setEnvironment(_name, _class) {

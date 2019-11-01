@@ -28,12 +28,14 @@ exports.getParams = function(_global, _callback) {
                 "components/jquery/jquery.min.js",
                 "components/velocity/velocity.min.js",
                 "components/lodash/lodash.js",
+                "components/moment/moment.js",
             ]
         },
 
         authorizationFolder: [
             "/build",
             "/assets",
+            "/fonts",
             "/fonts",
             "/reload"
         ]
