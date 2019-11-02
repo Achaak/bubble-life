@@ -2,7 +2,7 @@ function Garden() {
 
     function go() {
         // Config clothes
-        bubble.configClothes();
+        bubble.setClothesOutside();
     }
 
     function check() {

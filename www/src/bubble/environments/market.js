@@ -4,7 +4,7 @@ function Market() {
 
     function go() {
         // Config clothes
-        bubble.configClothes();
+        bubble.setClothesOutside();
 
         // Set elements
         bubble.setElementFrameDOM("market");

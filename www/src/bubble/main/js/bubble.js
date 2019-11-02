@@ -171,7 +171,7 @@ class Bubble {
         _clothesDOM.removeAttr("class");
         _clothesDOM.addClass("clothes");
     }
-    configClothes() {
+    setClothesOutside() {
         if (module_administrator.modules.weather == undefined) return false;
 
         if (module_administrator.modules.weather.getWeatherDay().main.temp <= 288.15) { 
