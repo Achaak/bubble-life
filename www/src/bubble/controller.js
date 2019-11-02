@@ -22,10 +22,7 @@ exports.getOpts = function(_global) {
                 "/build/bubble/mouse/product.min.css",
                 "/build/bubble/clothes/product.min.css",
             ],
-            js: [
-                "/config.js",
-                "/module_config.js",
-                
+            js: [                
                 "/build/bubble/eyes/product.min.js",
                 "/build/bubble/floors/product.min.js",
                 "/build/bubble/elements/product.min.js",

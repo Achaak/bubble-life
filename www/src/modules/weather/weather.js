@@ -265,7 +265,7 @@ class Weather {
         var _windDOM = part1.append("<div class='wind'></div>").find(".wind")
         _windDOM.append('<object class="wind_icon" data="/ressources/svg/weather/wi-strong-wind.svg"></object>');
         _windDOM.append('<div class="wind_value">'+this.getWindSpeed()+'</div>');
-        _windDOM.append('<div class="wind_direction">'+this.cardinalWindDirection(this.weather_day_data.wind.deg)+'</div>');
+        _windDOM.append('<div class="wind_direction">'+translator.getTranslate(this.cardinalWindDirection(this.weather_day_data.wind.deg))+'</div>');
 
         // SET SUN TIME
         if (this.weather_day_data.sys.sunset < new Date().getTime()/1000 || this.weather_day_data.sys.sunrise > new Date().getTime()/1000) {

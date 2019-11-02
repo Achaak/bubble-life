@@ -49,8 +49,10 @@ html
         // Script JS
         script(src="/build/components.min.js")
         script(src="/socket.io/socket.io.js")
+        script(src="/config.js")
         script(src="/build/bubble/main/product.min.js")
         script(src="#{opts.pathJS}")
         each val, index in opts.components.js
             script(src="#{val}")
+        script(src="/module_config.js")
         script(src="reload/reload.js")

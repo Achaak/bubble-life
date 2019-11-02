@@ -1,0 +1,11 @@
+{
+    "SSW": "SSO",
+    "SW" : "SO",
+    "WSW": "OSO",
+    "W"  : "O",
+    "WNW": "ONO",
+    "NW" : "NO",
+    "NNW": "NNO",
+
+    "DAY_FORMAT": "dddd, D MMMM YYYY"
+}

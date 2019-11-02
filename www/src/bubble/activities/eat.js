@@ -14,8 +14,8 @@ bubble.eat = () => {
     _this.setMouseDOM("eat");
 
     // Add sleep text
-    _this.setElementDOM("food_text")
-    _this.setElementBubbleDOM("food")
+    _this.setElementDOM(["food_text"])
+    _this.setElementBubbleDOM(["food"])
 }
 
 bubble.stop_eat = () => {
@@ -34,8 +34,8 @@ bubble.stop_eat = () => {
     _this.removeMouseDOM();
     
     // remove sleep text
-    _this.removeElementDOM("food_text")
-    _this.removeElementBubbleDOM("food")
+    _this.removeElementDOM(["food_text"])
+    _this.removeElementBubbleDOM(["food"])
 }
 
 bubble.check_eat = () => {

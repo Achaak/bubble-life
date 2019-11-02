@@ -35,7 +35,7 @@ exports.getParams = function(_global, _callback) {
         authorizationFolder: [
             "/build",
             "/assets",
-            "/fonts",
+            "/translations",
             "/fonts",
             "/reload",
             "/socket.io"

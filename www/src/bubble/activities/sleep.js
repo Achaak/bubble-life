@@ -8,7 +8,7 @@ bubble.sleep = () => {
     _this.setEyesDOM("sleep");
 
     // Add sleep text
-    _this.setElementDOM("sleep_text")
+    _this.setElementDOM(["sleep_text"])
 }
 
 bubble.wake_up = () => {
@@ -21,7 +21,7 @@ bubble.wake_up = () => {
     _this.setEyesDOM("happy");
     
     // remove sleep text
-    _this.removeElementDOM("sleep_text")
+    _this.removeElementDOM(["sleep_text"])
 }
 
 
@@ -50,7 +50,7 @@ bubble.check_sleep = () => {
                     name: "wake_up",
                     function_start: _this.wake_up
                 },
-                stoppable: false,
+                stoppable: true,
                 duration: _wakeUpDate-new Date()
             });
         }

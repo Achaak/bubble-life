@@ -7,7 +7,7 @@ function Market() {
         bubble.setClothesOutside();
 
         // Set elements
-        bubble.setElementFrameDOM("market");
+        bubble.setElementFrameDOM(["market"]);
 
         bubble.counterFood = 3;
     }
@@ -28,8 +28,11 @@ function Market() {
     }
 
     function exit() {
-        // remove elements
-        bubble.removeElementDOM("market");
+        // Remove clothes
+        bubble.setClothesInside();
+
+        // Remove element frame
+        bubble.removeElementFrameDOM(["market"]);
     }
 
     return {

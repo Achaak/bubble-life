@@ -43,8 +43,12 @@ class Bubble {
     update(progress) {
         // TASKS
         if(this.taskList.length != 0 && this.actualTask.stoppable == true) {
+            // If has task end
+            if (this.actualTask.task_end)
+                this.task_end();
+
             // Start task function
-            if(this.taskList[0].function_start.function)
+            if(this.taskList[0].function_start.function) // If function_start has parameters
                 this.taskList[0].function_start.function(this.taskList[0].function_start.param.name);
             else
                 this.taskList[0].function_start();
@@ -94,18 +98,21 @@ class Bubble {
         window.requestAnimationFrame(this.loop.bind(this));
     }
 
-    setTask(_task) {
+    setTask(_task, index = undefined) {
         // Extend with default task
         _task = $.extend(_.clone(this.defaultTask), _task);
 
         if (_task.duration == undefined) _task.stoppable = true;
 
         // Set task in task list
-        this.taskList.push(_task);
+        if (index != undefined)
+            this.taskList.push(_task);
+        else
+            this.taskList.splice(index, 0, _task);
     }
     setCheckup(_checkup) { this.checkupList.push(_checkup); }
     check_actual_task() {
-        if(this.actualTask.time_end < new Date().getTime()) {
+        if (this.actualTask.time_end < new Date().getTime()) {
             // Call task end
             this.task_end();
         }
@@ -117,13 +124,11 @@ class Bubble {
         }
     }
     task_end() {
-        if(this.actualTask.time_end < new Date().getTime()) {
-            // Set the end task
-            this.setTask(this.actualTask.task_end);
+        // Set the end task
+        this.setTask(this.actualTask.task_end, 0);
 
-            // Set stoppable true
-            this.actualTask.stoppable = true;
-        }
+        // Set stoppable true
+        this.actualTask.stoppable = true;
     }
 
     setAnimation(_animation) { this.animationList.push(_animation) }
@@ -171,24 +176,6 @@ class Bubble {
         _clothesDOM.removeAttr("class");
         _clothesDOM.addClass("clothes");
     }
-    setClothesOutside() {
-        if (module_administrator.modules.weather == undefined) return false;
-
-        if (module_administrator.modules.weather.getWeatherDay().main.temp <= 288.15) { 
-            // Set coat
-            bubble.setClothesDOM("coat");
-        }
-        
-        if (module_administrator.modules.weather.getWeatherDay().main.temp >= 293.15 && 
-            module_administrator.modules.weather.getWeatherDay().weather[0].main == "Clear" &&
-            module_administrator.modules.weather.getWeatherDay().sys.sunset > new Date().getTime()/1000) {
-            bubble.setEyesDOM("sunglass");
-        }
-        
-        if (module_administrator.modules.weather.getWeatherDay().weather[0].main == "Rain") {
-            bubble.setElementBubbleDOM("umbrella");
-        }
-    }
 
     // MOUSE
     setMouse(_name, _svg) { this.mouseList[_name] = _svg.replace(/cls/g, _name + "-cls"); }
@@ -222,16 +209,40 @@ class Bubble {
 
     // ELEMENTS
     setElement(_name, _svg) { this.elementsList[_name] = _svg.replace(/cls/g, _name + "-cls"); }
-    setElementDOM(_element) { this.bubbleCtnerDOM.append('<div class="' + _element + ' element">' + this.elementsList[_element] + '</div>'); }
-    removeElementDOM(_element) { this.bubbleCtnerDOM.find('.'+_element).remove(); }
+    setElementDOM(_elements) {
+        _elements.forEach((_element , index) => {
+            this.bubbleCtnerDOM.append('<div class="' + _element + ' element">' + this.elementsList[_element] + '</div>');
+        });
+    }
+    removeElementDOM(_elements) { 
+        _elements.forEach((_element , index) => {
+            this.bubbleCtnerDOM.find('.'+_element).remove();
+        });
+    }
     
     // ELEMENTS BUBBLE
-    setElementBubbleDOM(_element) { this.bubbleDOM.append('<div class="' + _element + ' element">' + this.elementsList[_element] + '</div>'); }
-    removeElementBubbleDOM(_element) { this.bubbleDOM.find('.'+_element).remove(); }
+    setElementBubbleDOM(_elements) {
+        _elements.forEach((_element , index) => {
+            this.bubbleDOM.append('<div class="' + _element + ' element">' + this.elementsList[_element] + '</div>');
+        });
+    }
+    removeElementBubbleDOM(_elements) {
+        _elements.forEach((_element , index) => {
+            this.bubbleDOM.find('.'+_element).remove();
+        });
+    }
 
     // ELEMENTS FRAME
-    setElementFrameDOM(_element) { this.bubbleFrameDOM.append('<div class="' + _element + ' element">' + this.elementsList[_element] + '</div>'); }
-    removeElementFrameDOM(_element) { this.bubbleFrameDOM.find('.'+_element).remove(); }
+    setElementFrameDOM(_elements) {
+        _elements.forEach((_element , index) => {
+            this.bubbleFrameDOM.append('<div class="' + _element + ' element">' + this.elementsList[_element] + '</div>');
+        });
+    }
+    removeElementFrameDOM(_elements) { 
+        _elements.forEach((_element , index) => {
+            this.bubbleFrameDOM.find('.'+_element).remove();
+        });
+    }
 
     // ENVIRONMENTS
     setEnvironment(_name, _class) {

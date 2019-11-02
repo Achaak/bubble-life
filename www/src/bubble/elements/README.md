@@ -23,38 +23,38 @@ If you need to change the style of your element, create a scss file :
 - [bubble.setElementFrameDOM](#setElementFrameDOM)
 - [bubble.removeElementFrameDOM](#removeElementFrameDOM)
 
-### bubble.setElementDOM(string) <a name="setElementDOM"></a>
+### bubble.setElementDOM(array) <a name="setElementDOM"></a>
 Set a element next to Bubble. The element will follow Bubble without being distorted by its displacement.
 ``` js
-bubble.setElementDOM("element_name")
+bubble.setElementDOM(["element_name_1", "element_name_2"])
 ```
 
-### bubble.removeElementDOM(string) <a name="removeElementDOM"></a>
+### bubble.removeElementDOM(array) <a name="removeElementDOM"></a>
 Remove a element next to Bubble.
 ``` js
-bubble.removeElementDOM("element_name")
+bubble.removeElementDOM(["element_name_1", "element_name_2"])
 ```
 
-### bubble.setElementBubbleDOM(string) <a name="setElementBubbleDOM"></a>
+### bubble.setElementBubbleDOM(array) <a name="setElementBubbleDOM"></a>
 Set a element on the background.
 ``` js
-bubble.setElementBubbleDOM("element_name")
+bubble.setElementBubbleDOM(["element_name_1", "element_name_2"])
 ```
 
-### bubble.removeElementBubbleDOM(string) <a name="removeElementBubbleDOM"></a>
+### bubble.removeElementBubbleDOM(array) <a name="removeElementBubbleDOM"></a>
 Remove a element on the Bubble.
 ``` js
-bubble.removeElementBubbleDOM("element_name")
+bubble.removeElementBubbleDOM(["element_name_1", "element_name_2"])
 ```
 
-### bubble.setElementFrameDOM(string) <a name="setElementFrameDOM"></a>
+### bubble.setElementFrameDOM(array) <a name="setElementFrameDOM"></a>
 Set a element on the background.
 ``` js
-bubble.setElementFrameDOM("element_name")
+bubble.setElementFrameDOM(["element_name_1", "element_name_2"])
 ```
 
-### bubble.removeElementFrameDOM(string) <a name="removeElementFrameDOM"></a>
+### bubble.removeElementFrameDOM(array) <a name="removeElementFrameDOM"></a>
 Remove a element on the background.
 ``` js
-bubble.removeElementFrameDOM("element_name")
+bubble.removeElementFrameDOM(["element_name_1", "element_name_2"])
 ```
