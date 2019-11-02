@@ -2,15 +2,16 @@
 
 <img src="illustrations/in_development.png" alt="In development picture" style="height:300px; margin-left:50%; transform: translateX(-50%)"/>
 
+# Summary
+- [Presentation](#Presentation)
+- [Installation](#Installation)
+- [Configure](#Configure)
+- [Module](#Module)
+
 # Presentation 
 Bubble-life is a NodeJs project for various device. He can inform you of the weather, the time or your calendar. All this with Bubble who will live this life according to your modules.
 
 <img src="illustrations/bubble_screen.png" alt="Bubble screen" style="width:300px; margin-left:50%; transform: translateX(-50%)"/>
-
-# Summary
-- [Installation](#Installation)
-- [Configure](#Configure)
-- [Module](#Module)
 
 # Installation <a name="Installation"></a>
 1. Download and install the latest Node.js version :
