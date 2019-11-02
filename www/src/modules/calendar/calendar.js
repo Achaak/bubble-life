@@ -3,7 +3,7 @@ class Calendar {
         this.config = module_administrator.getConfig("calendar");
 
         // Set on Chekuplist of bubble
-        /*bubble.checkupList.push({
+        /*bubble.setCheckup({
             "function": [this.setDateDOM.bind(this)],
             "interval": 1000
         });*/
@@ -37,7 +37,7 @@ class Calendar {
                         end: _event.end,
                     });
                     if (_event.rrule)
-                    console.log(_event, _event.rrule.origOptions)
+                    //console.log(_event, _event.rrule.origOptions)
                 }
             }
 

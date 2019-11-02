@@ -41,7 +41,7 @@ function Market() {
 
 bubble.setEnvironment("market", new Market());
 
-bubble.checkupList.push({
+bubble.setCheckup({
     "function": [bubble.environmentsList["market"].check],
     "interval": 2000
 });

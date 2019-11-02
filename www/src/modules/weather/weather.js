@@ -42,7 +42,7 @@ class Weather {
         this.getWeatherForecastByApi()
 
         // Set on Chekuplist of bubble
-        bubble.checkupList.push({
+        bubble.setCheckup({
             "function": [this.getWeatherDayByApi.bind(this), this.getWeatherForecastByApi.bind(this)],
             "interval": 1800000
         });

@@ -13,3 +13,20 @@ If you need to change the style of your clothes, create a scss file :
 
 }
 ```
+
+## Function to use your clothes
+
+- [bubble.setClothesDOM](#setClothesDOM)
+- [bubble.removeClothesDOM](#removeClothesDOM)
+
+### bubble.setClothesDOM(string) <a name="setClothesDOM"></a>
+Set a clothes on Bubble.
+``` js
+bubble.setClothesDOM("clothes_name")
+```
+
+### bubble.removeClothesDOM(string) <a name="removeClothesDOM"></a>
+Remove a clothes on Bubble.
+``` js
+bubble.removeClothesDOM("clothes_name")
+```

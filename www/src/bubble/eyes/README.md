@@ -14,3 +14,20 @@ If you need to change the style of your eyes, create a scss file :
 
 }
 ```
+
+## Function to use your eyes
+
+- [bubble.setEyesDOM](#setEyesDOM)
+- [bubble.resetEyesDOM](#resetEyesDOM)
+
+### bubble.setEyesDOM(string) <a name="setEyesDOM"></a>
+Set a eyes.
+``` js
+bubble.setEyesDOM("floor_name")
+```
+
+### bubble.resetEyesDOM() <a name="resetEyesDOM"></a>
+Reset the eyes to happy.
+``` js
+bubble.resetEyesDOM()
+```

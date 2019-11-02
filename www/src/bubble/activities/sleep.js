@@ -57,7 +57,7 @@ bubble.check_sleep = () => {
     }
 }
 bubble.check_sleep();
-bubble.checkupList.push({
+bubble.setCheckup({
     "function": [bubble.check_sleep],
     "interval": 900000
 });

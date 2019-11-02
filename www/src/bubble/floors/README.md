@@ -13,3 +13,20 @@ If you need to change the style of your floor, create a scss file :
 
 }
 ```
+
+## Function to use your floor
+
+- [bubble.setFloorDOM](#setFloorDOM)
+- [bubble.resetFloorDOM](#resetFloorDOM)
+
+### bubble.setFloorDOM(string) <a name="setFloorDOM"></a>
+Set a floor.
+``` js
+bubble.setFloorDOM("floor_name")
+```
+
+### bubble.resetFloorDOM() <a name="resetFloorDOM"></a>
+Reset the floor to simple.
+``` js
+bubble.resetFloorDOM()
+```

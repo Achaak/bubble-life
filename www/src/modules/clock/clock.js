@@ -3,7 +3,7 @@ class Clock {
         var _config = module_administrator.getConfig("clock");
 
         // Set on Chekuplist of bubble
-        bubble.checkupList.push({
+        bubble.setCheckup({
             "function": [this.setDateDOM.bind(this)],
             "interval": 1000
         });

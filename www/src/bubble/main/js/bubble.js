@@ -103,6 +103,7 @@ class Bubble {
         // Set task in task list
         this.taskList.push(_task);
     }
+    setCheckup(_checkup) { this.checkupList.push(_checkup); }
     check_actual_task() {
         if(this.actualTask.time_end < new Date().getTime()) {
             // Call task end
@@ -151,6 +152,7 @@ class Bubble {
     // EYES
     setEyes(_name, _svg) { this.eyesList[_name] = _svg.replace(/cls/g, _name + "-cls"); }
     setEyesDOM(_eyes) { this.bubbleDOM.find(".eyes").html(this.eyesList[_eyes]); }
+    resetEyesDOM() { this.setEyesDOM("happy"); }
 
     // CLOTHES
     setClothes(_name, _svg) { this.clothesList[_name] = _svg.replace(/cls/g, _name + "-cls"); }
@@ -216,13 +218,7 @@ class Bubble {
         _floorDOM.addClass("floor");
         _floorDOM.addClass(_floor);
     }
-    removeFloorDOM() { 
-        var _floorDOM = this.bubbleFrameDOM.find(".floor");
-        
-        _floorDOM.empty();
-        _floorDOM.removeAttr("class");
-        _floorDOM.addClass("floor");
-    }
+    resetFloorDOM() { this.setFloorDOM("simple"); }
 
     // ELEMENTS
     setElement(_name, _svg) { this.elementsList[_name] = _svg.replace(/cls/g, _name + "-cls"); }

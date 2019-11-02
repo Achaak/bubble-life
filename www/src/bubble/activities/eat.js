@@ -66,7 +66,7 @@ bubble.check_eat = () => {
     }
 }
 bubble.check_eat();
-bubble.checkupList.push({
+bubble.setCheckup({
     "function": [bubble.check_eat],
     "interval": 900000
 });
@@ -76,7 +76,7 @@ bubble.saturationDown = () => {
 
     if (bubble.saturation < 0) bubble.saturation = 0;
 }
-bubble.checkupList.push({
+bubble.setCheckup({
     "function": [bubble.saturationDown],
     "interval": 1000
 });
