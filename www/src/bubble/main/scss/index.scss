@@ -15,6 +15,8 @@ body {
     right: 0;
 
     color: white;
+    
+    font-family: "Roboto-Regular";
 }
 
 .top_left,
@@ -101,6 +103,8 @@ body {
 
             .clothes {
                 position: absolute;
+                width: 300px;
+                height: 300px;
             }
         }
     }

@@ -23,7 +23,7 @@ class Clock {
         // Add date
         this.DOM.append("<div class='date'>"+moment().format(translate.DAY_FORMAT)+"</div>");
         // Add time
-        this.DOM.append("<div class='time'>"+moment().format('HH:mm')+"</div>");
+        this.DOM.append("<div class='time'><div class='hm'>"+moment().format('HH:mm')+"</div><div class='s'>:"+moment().format('ss')+"</div></div>");
     }
 }
 

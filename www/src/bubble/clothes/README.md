@@ -18,6 +18,7 @@ If you need to change the style of your clothes, create a scss file :
 
 - [bubble.setClothesDOM](#setClothesDOM)
 - [bubble.removeClothesDOM](#removeClothesDOM)
+- [bubble.resetClothesDOM](#resetClothesDOM)
 
 ### bubble.setClothesDOM(string) <a name="setClothesDOM"></a>
 Set a clothes on Bubble.
@@ -29,4 +30,10 @@ bubble.setClothesDOM("clothes_name")
 Remove a clothes on Bubble.
 ``` js
 bubble.removeClothesDOM("clothes_name")
+```
+
+### bubble.resetClothesDOM(string) <a name="resetClothesDOM"></a>
+Remove all clothes on Bubble.
+``` js
+bubble.resetClothesDOM()
 ```

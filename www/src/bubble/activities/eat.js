@@ -8,7 +8,7 @@ bubble.eat = () => {
     _this.setEyesDOM("happy");
 
     // Down food
-    _this.counterFood--;
+    _this.counterFood -= Math.round(Math.random() * (3 - 1) + 1);
 
     // Change mouse
     _this.setMouseDOM("eat");

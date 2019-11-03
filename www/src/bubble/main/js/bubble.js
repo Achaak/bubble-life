@@ -5,6 +5,8 @@ class Bubble {
         this.bubbleCtnerDOM = $(".bubble-ctner");
         this.bubbleFrameDOM = $(".bubble-frame");
 
+        this.name = (config.bubble_name ? config.bubble_name : "Bubble")
+
 
         // TASKS
         this.taskList = [];
@@ -31,7 +33,7 @@ class Bubble {
         this.clothesList      = [];
         this.floorsList       = [];
 
-        this.environment = 'house';
+        this.environment = undefined;
 
         // LOOP
         this.checkupList = [];
@@ -163,19 +165,15 @@ class Bubble {
     setClothes(_name, _svg) { this.clothesList[_name] = _svg.replace(/cls/g, _name + "-cls"); }
     setClothesDOM(_clothes) { 
         var _clothesDOM = this.bubbleDOM.find(".clothes");
-        _clothesDOM.html(this.clothesList[_clothes]);
         
-        _clothesDOM.removeAttr("class");
-        _clothesDOM.addClass("clothes");
-        _clothesDOM.addClass(_clothes);
+        _clothesDOM.append("<div class='"+_clothes+"'>"+this.clothesList[_clothes]+"<div>");
     }
-    removeClothesDOM() { 
+    removeClothesDOM(_clothes) { 
         var _clothesDOM = this.bubbleDOM.find(".clothes");
         
-        _clothesDOM.empty();
-        _clothesDOM.removeAttr("class");
-        _clothesDOM.addClass("clothes");
+        _clothesDOM.find("."+_clothes).remove();
     }
+    resetClothesDOM() { this.bubbleDOM.find(".clothes").empty(); }
 
     // MOUSE
     setMouse(_name, _svg) { this.mouseList[_name] = _svg.replace(/cls/g, _name + "-cls"); }
@@ -255,7 +253,8 @@ class Bubble {
         var _pastEnvironment = this.environmentsList[this.environment];
 
         // Exit past environment
-        _pastEnvironment.exit();
+        if(_pastEnvironment)
+            _pastEnvironment.exit();
 
         // Set name environment
         this.environment = _name;

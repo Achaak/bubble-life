@@ -10,7 +10,6 @@
 
         .part-1 {
             font-size: 2rem;
-            font-family: sans-serif;
             
             .wind {
                 display: flex;
@@ -39,7 +38,6 @@
 
         .part-2 {
             font-size: 3rem;
-            font-family: sans-serif;
 
             object {
                 width: 100px;
@@ -51,7 +49,6 @@
     .weather-forecast {
         display: flex;
         flex-direction: column;
-        font-family: sans-serif;
 
         .day_ctner {
             display: flex;
