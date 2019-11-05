@@ -14,7 +14,7 @@ bubble.your_activity = () => {
 - [bubble.setCheckup](#setCheckup)
 - [bubble.setTask](#setTask)
 
-### bubble.setCheckup <a name="setCheckup"></a>
+### bubble.setCheckup() <a name="setCheckup"></a>
 If you need to set a interval to check a function, use this function.
 ``` js
 bubble.setCheckup({
