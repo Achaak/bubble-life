@@ -1,4 +1,0 @@
-{
-    "ignore": ["*.html", "*.json", "*.jpg", "node_modules/*", "public/*", "www/build/*"],
-    "ext": "js scss jade"
-}
