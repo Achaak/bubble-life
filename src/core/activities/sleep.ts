@@ -1,11 +1,8 @@
 import { SleepConfig } from '@/config/states'
 import { overmind } from '@/store'
-import { dateToMs } from '@/utils/date'
+import { dateToMs, random } from '@/utils'
 import dayjs from 'dayjs'
 import { Actions } from '../actions'
-
-const { actions } = overmind
-const { setActivity, hasActivity } = actions.activities
 
 export class Activity_sleep extends Actions {
   constructor() {
@@ -13,25 +10,37 @@ export class Activity_sleep extends Actions {
   }
 
   update = (timestamp: number): void => {
-    if (timestamp - this.lastRender < dateToMs({ minutes: 1 })) return
+    const { actions } = overmind
+    const { setActivity, hasActivity } = actions.activities
+
+    if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) return
 
     if (hasActivity({ name: 'sleep' }).length === 0) {
       const hourStart = parseInt(SleepConfig.start.split(':')[0]) || 0
       const minuteStart = parseInt(SleepConfig.start.split(':')[1]) || 0
 
       const actualDate = dayjs()
-      const startSleep = dayjs(
+
+      let startSleep = dayjs(
         new Date(
           actualDate.year(),
           actualDate.month(),
           actualDate.date(),
           hourStart,
-          minuteStart,
+          random(minuteStart + SleepConfig.margin, minuteStart - SleepConfig.margin),
           0
         )
       )
-      const endSleep = dayjs(startSleep).add(SleepConfig.duration, 'minute')
+      if (actualDate.valueOf() > startSleep.valueOf()) {
+        startSleep = startSleep.add(1, 'day')
+      }
 
+      const endSleep = dayjs(startSleep).add(
+        random(SleepConfig.margin, SleepConfig.margin),
+        'minute'
+      )
+
+      console.log(startSleep.format())
       setActivity({
         activity: {
           name: 'sleep',

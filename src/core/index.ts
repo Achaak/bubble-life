@@ -3,10 +3,6 @@ import { Actions } from './actions'
 import { Activity_eat } from './activities/eat'
 import { Activity_sleep } from './activities/sleep'
 
-const { actions, state } = overmind
-const { checkActivity } = actions.activities
-const { activityList, currentActivity } = state.activities
-
 const Activities = [Activity_eat, Activity_sleep]
 
 export class Core {
@@ -28,10 +24,15 @@ export class Core {
   }
 
   update = (timestamp: number): void => {
+    const { actions, state } = overmind
+    const { checkActivity } = actions.activities
+    const { activityList, currentActivity } = state.activities
+
     // ACTIVITIES
     for (const activity of this.activities) {
       activity.update(timestamp)
     }
+
     if (activityList.length > 0 || !!currentActivity) checkActivity()
   }
 

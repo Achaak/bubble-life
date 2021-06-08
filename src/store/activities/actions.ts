@@ -14,6 +14,8 @@ export const setActivity: Action<{ activity: Activity }> = ({ state, actions }, 
     },
   ]
 
+  console.log('Add activity:', activity.name)
+
   sortActivity()
 }
 
@@ -57,9 +59,9 @@ export const checkActivity: Action<void> = ({ state }) => {
       state.activities.currentActivity = null
     }
   } else if (activityList.length > 0) {
-    const newActivity = activityList.shift()
+    const newActivity = activityList[0]
 
-    if (newActivity && newActivity.start >= currentDate) {
+    if (newActivity && newActivity.start <= currentDate) {
       // Add new current activity
       state.activities.currentActivity = {
         ...newActivity,
@@ -70,6 +72,7 @@ export const checkActivity: Action<void> = ({ state }) => {
       state.activities.activityList = state.activities.activityList.filter(
         (item) => item.id !== newActivity.id
       )
+
       console.log('Start activity:', newActivity.name)
     }
   }

@@ -1,4 +1,4 @@
-import { dateToMs } from '@/utils/date'
+import { dateToMs } from '@/utils'
 import { Actions } from '../actions'
 
 export class Activity_eat extends Actions {
