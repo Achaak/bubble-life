@@ -1,8 +1,13 @@
 import { overmind } from '@/store'
 import { Actions } from './actions'
 import { Activity_eat } from './activities/eat'
+import { Activity_sleep } from './activities/sleep'
 
-const Activities = [Activity_eat]
+const { actions, state } = overmind
+const { checkActivity } = actions.activities
+const { activityList, currentActivity } = state.activities
+
+const Activities = [Activity_eat, Activity_sleep]
 
 export class Core {
   lastRender: number
@@ -23,9 +28,11 @@ export class Core {
   }
 
   update = (timestamp: number): void => {
+    // ACTIVITIES
     for (const activity of this.activities) {
       activity.update(timestamp)
     }
+    if (activityList.length > 0 || !!currentActivity) checkActivity()
   }
 
   loop = (timestamp?: number): void => {
@@ -51,9 +58,5 @@ export class Core {
     for (const Activity of Activities) {
       this.activities.push(new Activity())
     }
-  }
-
-  setName = (name: string): void => {
-    overmind.actions.bubble.setName({ name: name })
   }
 }

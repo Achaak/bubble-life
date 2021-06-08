@@ -1,5 +1,11 @@
 export class Actions {
+  lastRender: number
+
+  constructor() {
+    this.lastRender = 0
+  }
+
   update = (timestamp: number): void => {
-    console.log(timestamp)
+    this.lastRender = timestamp
   }
 }

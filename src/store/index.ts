@@ -1,10 +1,12 @@
 import { createHook } from 'overmind-react'
 import * as bubble from './bubble'
+import * as activities from './activities'
 import { namespaced } from 'overmind/config'
 import { createOvermind, IConfig } from 'overmind'
 
 export const config = namespaced({
   bubble,
+  activities,
 })
 
 declare module 'overmind' {

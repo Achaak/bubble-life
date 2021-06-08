@@ -1,3 +1,4 @@
+import { dateToMs } from '@/utils/date'
 import { Actions } from '../actions'
 
 export class Activity_eat extends Actions {
@@ -9,9 +10,13 @@ export class Activity_eat extends Actions {
   }
 
   update = (timestamp: number): void => {
+    if (timestamp - this.lastRender < dateToMs({ minutes: 1 })) return
+
     if (timestamp - this.lastEat > Math.random() * (500 - 100) + 100) {
       console.log('eat')
       this.lastEat = timestamp
     }
+
+    this.lastRender = timestamp
   }
 }
