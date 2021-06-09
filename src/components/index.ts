@@ -1,3 +1,6 @@
 export * from './Container'
-export * from './Body'
+export * from './Bodies'
 export * from './Bubble'
+export * from './Eyes'
+export * from './Hats'
+export * from './Clothes'

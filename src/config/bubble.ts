@@ -1,5 +1,7 @@
-import { Clothes, Environments, Eyes } from '@/types/bubble'
+import { Bodies, Clothes, Environments, Eyes, Hats } from '@/types/bubble'
 
-export const EyesDefault: Eyes = 'open'
-export const ClotheDefault: Clothes = null
+export const EyesDefault: Eyes = 'enjoy'
+export const ClotheDefault: Clothes = 'coat'
 export const EnvironmentDefault: Environments = 'home'
+export const HatDefault: Hats = 'cap'
+export const BodyDefault: Bodies = 'default'

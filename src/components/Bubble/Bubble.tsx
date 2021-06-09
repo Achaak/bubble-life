@@ -1,6 +1,9 @@
 import { styled, keyframes } from '@/styles/css'
 import React from 'react'
-import { Body } from '../Body'
+import { Bodies } from '../Bodies'
+import { Clothes } from '../Clothes'
+import { Eyes } from '../Eyes'
+import { Hats } from '../Hats'
 
 const scaleY = keyframes({
   '0%, 100%': { transform: 'scaleY(1)' },
@@ -9,10 +12,9 @@ const scaleY = keyframes({
 
 const Container = styled('div', {
   position: 'absolute',
-  top: '50%',
+  top: '60%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  height: '30%',
   width: '30%',
 })
 
@@ -21,13 +23,18 @@ const Content = styled('div', {
   width: '100%',
   animation: `${scaleY} 2000ms infinite`,
   transformOrigin: 'bottom',
+  position: 'relative',
 })
 
 export const Bubble: React.FC = () => {
   return (
     <Container>
       <Content>
-        <Body />
+        <Bodies>
+          <Eyes />
+        </Bodies>
+        <Hats />
+        <Clothes />
       </Content>
     </Container>
   )

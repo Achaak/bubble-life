@@ -1,6 +1,7 @@
 import { Core } from '@/core'
 import { styled } from '@/styles/css'
 import React, { useEffect } from 'react'
+import { ProviderOvermind } from '../ProviderOvermind'
 
 const ContainerDOM = styled('div', {
   position: 'absolute',
@@ -15,5 +16,9 @@ export const Container: React.FC = ({ children }) => {
     new Core()
   }, [])
 
-  return <ContainerDOM>{children}</ContainerDOM>
+  return (
+    <ProviderOvermind>
+      <ContainerDOM>{children}</ContainerDOM>
+    </ProviderOvermind>
+  )
 }
