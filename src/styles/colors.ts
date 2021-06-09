@@ -15,11 +15,11 @@ export const Colors = {
   SECONDARY_LIGHTEST_2: '#FDF3EB',
   SECONDARY_LIGHTEST_1: '#F5F5F6',
 
-  BLACK: '#292E36',
-  BLACK_LIGHT: 'rgba(34, 40, 49, 0.5)',
-  BLACK_LIGHTER: 'rgba(34, 40, 49, 0.25)',
-  BLACK_LIGHTEST_2: 'rgba(34, 40, 49, 0.1)',
-  BLACK_LIGHTEST_1: 'rgba(34, 40, 49, 0.05)',
+  BLACK: '#000000',
+  BLACK_LIGHT: 'rgba(0, 0, 0, 0.5)',
+  BLACK_LIGHTER: 'rgba(0, 0, 0, 0.25)',
+  BLACK_LIGHTEST_2: 'rgba(0, 0, 0, 0.1)',
+  BLACK_LIGHTEST_1: 'rgba(0, 0, 0, 0.05)',
 
   WHITE: '#FFFFFF',
   WHITE_LIGHT: 'rgba(249, 247, 247, 0.7)',

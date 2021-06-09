@@ -4,6 +4,7 @@ import React from 'react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { NextSeo } from 'next-seo'
 import { useTranslation } from 'next-i18next'
+import { Bubble } from '@/components'
 
 const Home: React.FC = () => {
   const { t } = useTranslation(['common'])
@@ -15,6 +16,8 @@ const Home: React.FC = () => {
         defaultTitle={t('home:seo.defaultTitle')}
         title={t('home:seo.defaultTitle')}
       />
+
+      <Bubble />
     </>
   )
 }

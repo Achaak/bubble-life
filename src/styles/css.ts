@@ -140,7 +140,8 @@ export type CSS = StitchesCss<typeof stitchesConfig>
 export const globalStyles = global({
   h1: { margin: 0 },
   'html, body, #__next': {
-    color: '$BLACK',
+    color: '$WHITE',
+    backgroundColor: '$BLACK',
     fontFamily: '$roboto',
     minWidth: 300,
   },
