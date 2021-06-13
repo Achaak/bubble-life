@@ -1,9 +1,8 @@
 {
-  "private": true,
-  "name": "my-nextron-app",
-  "description": "My application description",
+  "name": "buuble-life",
+  "description": "Bubble-life is a NodeJs project for various device. He can inform you of the weather, the time or your calendar. All this with Bubble who will live this life according to your modules.",
   "version": "1.0.0",
-  "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
+  "author": "Axel Lavoie <axel.lavoi@gmail.com>",
   "main": "app/background.js",
   "scripts": {
     "dev": "nextron",
