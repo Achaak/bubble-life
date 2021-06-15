@@ -1,3 +1,5 @@
+import { increment } from '@src/redux/reducers/counterSlice'
+import { store } from '@src/redux/store'
 import { overmind } from '@src/store'
 import { Actions } from './actions'
 import { Activity_eat } from './activities/eat'
@@ -27,6 +29,10 @@ export class Core {
     const { actions, state } = overmind
     const { checkActivity } = actions.activities
     const { activityList, currentActivity } = state.activities
+
+    console.log('---', store.getState().counter.value)
+
+    const tmp = store.dispatch(increment())
 
     // ACTIVITIES
     for (const activity of this.activities) {

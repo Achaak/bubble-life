@@ -6,6 +6,8 @@ import { Eyes } from '../Eyes'
 import { Hats } from '../Hats'
 import { useOvermind } from '@src/store'
 import { Bubble as BubbleConfig } from '@configs/bubble'
+import { useAppDispatch, useAppSelector } from '@src/redux/hooks'
+import { increment, selectCount } from '@src/redux/reducers/counterSlice'
 
 const scaleY = keyframes({
   '0%, 100%': { transform: 'scaleY(1)' },
@@ -38,12 +40,20 @@ const SCALE_MIN = 0.5
 export const Bubble: React.FC = () => {
   const [scale, setScale] = useState<number>(1)
 
+  const count = useAppSelector(selectCount)
+  const dispatch = useAppDispatch()
+
+  console.log(count)
+
   const { state } = useOvermind()
   const { name, weight } = state.bubble
 
   useEffect(() => {
+    setTimeout(() => dispatch(increment()), 1000)
+  }, [])
+
+  useEffect(() => {
     const getSize = (): number => {
-      console.log('hey')
       const middle =
         BubbleConfig.weight.min + (BubbleConfig.weight.max - BubbleConfig.weight.min) / 2
 
@@ -72,6 +82,7 @@ export const Bubble: React.FC = () => {
     <>
       <span>{name}</span>
       <span>{weight}</span>
+      <span>----{count}----</span>
       <Container>
         <Size
           css={{

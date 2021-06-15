@@ -12,11 +12,13 @@
     "format": "prettier --write \"./**/*.{ts,tsx}\""
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.6.0",
     "dayjs": "^1.10.5",
     "electron-serve": "^1.1.0",
     "electron-store": "^8.0.0",
     "overmind": "^27.0.0",
     "overmind-react": "^28.0.0",
+    "react-redux": "^7.2.4",
     "react-spinners": "^0.11.0",
     "react-toast-notifications": "^2.4.4",
     "shortid": "^2.2.16"
