@@ -1,4 +1,4 @@
-import { increment } from '@src/redux/reducers/counterSlice'
+import { increment } from '@src/redux/reducers/activitiesSlice'
 import { store } from '@src/redux/store'
 import { overmind } from '@src/store'
 import { Actions } from './actions'

@@ -7,7 +7,7 @@ import { Hats } from '../Hats'
 import { useOvermind } from '@src/store'
 import { Bubble as BubbleConfig } from '@configs/bubble'
 import { useAppDispatch, useAppSelector } from '@src/redux/hooks'
-import { increment, selectCount } from '@src/redux/reducers/counterSlice'
+import { increment, selectCount } from '@src/redux/reducers/activitiesSlice'
 
 const scaleY = keyframes({
   '0%, 100%': { transform: 'scaleY(1)' },

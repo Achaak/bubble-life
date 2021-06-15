@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from './reducers/counterSlice'
-import blobReducer from './reducers/bubbleSlice'
+import activitiesReducer from './reducers/activitiesSlice'
+import bubbleReducer from './reducers/bubbleSlice'
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
-    blob: blobReducer,
+    activities: activitiesReducer,
+    bubble: bubbleReducer,
   },
 })
 
