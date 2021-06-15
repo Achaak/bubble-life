@@ -2,7 +2,7 @@ import { BubbleConfig } from '@src/types/bubble'
 
 export const Bubble: BubbleConfig = {
   weight: {
-    start: 20,
+    start: 50,
     min: 5,
     max: 50,
   },
@@ -19,9 +19,9 @@ export const Bubble: BubbleConfig = {
   },
   defaultElements: {
     eyes: 'enjoy',
-    clothe: null,
+    clothe: 'coat',
     environment: 'home',
-    hat: null,
+    hat: 'cap',
     body: 'default',
   },
 }

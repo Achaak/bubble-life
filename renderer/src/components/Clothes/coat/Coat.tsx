@@ -4,7 +4,7 @@ import React from 'react'
 const Clothe = styled('img', {
   position: 'absolute',
   left: '50%',
-  bottom: '-6%',
+  bottom: '-4.5%',
   transform: 'translateX(-50%)',
 })
 
