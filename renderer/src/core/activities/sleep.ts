@@ -33,7 +33,7 @@ export class Activity_sleep extends Actions {
 
       const actualDate = dayjs()
 
-      const startSleep = dayjs(
+      let startSleep = dayjs(
         new Date(
           actualDate.year(),
           actualDate.month(),
@@ -47,6 +47,10 @@ export class Activity_sleep extends Actions {
           0
         )
       )
+      // TODO
+      if (actualDate.valueOf() > startSleep.valueOf()) {
+        startSleep = startSleep.add(1, 'day')
+      }
 
       const endSleep = dayjs(startSleep).add(
         BubbleConfig.sleep.duration +
