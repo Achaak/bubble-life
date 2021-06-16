@@ -4,10 +4,9 @@ import { Bodies } from '../Bodies'
 import { Clothes } from '../Clothes'
 import { Eyes } from '../Eyes'
 import { Hats } from '../Hats'
-import { useOvermind } from '@src/store'
-import { Bubble as BubbleConfig } from '@configs/bubble'
-import { useAppDispatch, useAppSelector } from '@src/redux/hooks'
-import { increment, selectCount } from '@src/redux/reducers/activitiesSlice'
+import { BubbleConfig } from '@configs/bubble'
+import { useAppSelector } from '@src/redux/hooks'
+import { selectName, selectWeight } from '@src/redux/reducers/bubbleSlice'
 
 const scaleY = keyframes({
   '0%, 100%': { transform: 'scaleY(1)' },
@@ -31,6 +30,7 @@ const Content = styled('div', {
   width: '100%',
   animation: `${scaleY} 2000ms infinite`,
   transformOrigin: 'bottom',
+  transition: 'all 300ms',
   position: 'relative',
 })
 
@@ -40,17 +40,8 @@ const SCALE_MIN = 0.5
 export const Bubble: React.FC = () => {
   const [scale, setScale] = useState<number>(1)
 
-  const count = useAppSelector(selectCount)
-  const dispatch = useAppDispatch()
-
-  console.log(count)
-
-  const { state } = useOvermind()
-  const { name, weight } = state.bubble
-
-  useEffect(() => {
-    setTimeout(() => dispatch(increment()), 1000)
-  }, [])
+  const weight = useAppSelector(selectWeight)
+  const name = useAppSelector(selectName)
 
   useEffect(() => {
     const getSize = (): number => {
@@ -82,7 +73,6 @@ export const Bubble: React.FC = () => {
     <>
       <span>{name}</span>
       <span>{weight}</span>
-      <span>----{count}----</span>
       <Container>
         <Size
           css={{

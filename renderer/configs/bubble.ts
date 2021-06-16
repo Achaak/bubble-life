@@ -1,8 +1,8 @@
-import { BubbleConfig } from '@src/types/bubble'
+import { BubbleConfigType } from '@src/types/bubble'
 
-export const Bubble: BubbleConfig = {
+export const BubbleConfig: BubbleConfigType = {
   weight: {
-    start: 50,
+    start: 20,
     min: 5,
     max: 50,
   },
@@ -12,10 +12,15 @@ export const Bubble: BubbleConfig = {
     margin: 30, // minutes
   },
   eat: {
-    duration: 1, // minutes
-    margin: 0, // minutes
-    minWeightToAdd: 5, // kilogram
-    maxWeightToadd: 10, // kilogram
+    duration: 20, // minutes
+    margin: 5, // minutes
+    minWeightToAdd: 1, // kilogram
+    maxWeightToadd: 2, // kilogram
+    saturation: {
+      default: 12000,
+      minDecrease: 1, // Every 1s
+      maxDecrease: 2, // Every 1s
+    },
   },
   defaultElements: {
     eyes: 'enjoy',

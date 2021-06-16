@@ -4,7 +4,7 @@ export type Environments = 'home' | 'market'
 export type Hats = 'cap' | null
 export type Bodies = 'default'
 
-export interface BubbleConfig {
+export interface BubbleConfigType {
   weight: {
     start: number
     min: number
@@ -20,6 +20,11 @@ export interface BubbleConfig {
     margin: number
     minWeightToAdd: number
     maxWeightToadd: number
+    saturation: {
+      default: number
+      minDecrease: number
+      maxDecrease: number
+    }
   }
   defaultElements: {
     eyes: Eyes

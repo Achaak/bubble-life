@@ -1,4 +1,5 @@
-import { useOvermind } from '@src/store'
+import { useAppSelector } from '@src/redux/hooks'
+import { selectBody } from '@src/redux/reducers/bubbleSlice'
 import { styled } from '@src/styles'
 import React, { useEffect } from 'react'
 import { useState } from 'react'
@@ -11,8 +12,7 @@ const Container = styled('div', {
 export const Bodies: React.FC = ({ children }) => {
   const [bodyDOM, setBodyDOM] = useState<React.ReactNode>(null)
 
-  const { state } = useOvermind()
-  const { body } = state.bubble
+  const body = useAppSelector(selectBody)
 
   useEffect(() => {
     const getBody = async (): Promise<void> => {

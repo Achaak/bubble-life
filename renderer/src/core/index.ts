@@ -1,45 +1,59 @@
-import { increment } from '@src/redux/reducers/activitiesSlice'
+import {
+  addCurrentActivity,
+  removeActivityInList,
+  resetCurrentActivity,
+} from '@src/redux/reducers/activitiesSlice'
 import { store } from '@src/redux/store'
-import { overmind } from '@src/store'
+import dayjs from 'dayjs'
 import { Actions } from './actions'
 import { Activity_eat } from './activities/eat'
 import { Activity_sleep } from './activities/sleep'
 
-const Activities = [Activity_eat, Activity_sleep]
+const ActionsList = [Activity_eat, Activity_sleep]
 
-export class Core {
+export class BubbleCore {
   lastRender: number
   loopRunning: boolean
 
   name: string
-  activities: Array<Actions>
+  actions: {
+    name: string
+    class: Actions
+  }[]
 
   constructor() {
     this.lastRender = 0
     this.loopRunning = false
-    this.activities = []
 
-    this.name = ''
+    this.actions = []
 
-    this.initActivities()
+    this.initActionsList()
     this.startLoop()
   }
 
-  update = (timestamp: number): void => {
-    const { actions, state } = overmind
-    const { checkActivity } = actions.activities
-    const { activityList, currentActivity } = state.activities
+  initActionsList = (): void => {
+    for (const _Actions of ActionsList) {
+      const _actions = new _Actions()
 
-    console.log('---', store.getState().counter.value)
+      this.actions.push({
+        name: _actions.name,
+        class: _actions,
+      })
+    }
+  }
 
-    const tmp = store.dispatch(increment())
+  update = async (timestamp: number): Promise<void> => {
+    const { activityList, currentActivity } = store.getState().activities
 
-    // ACTIVITIES
-    for (const activity of this.activities) {
-      activity.update(timestamp)
+    // ACTIONS
+    for (const action of this.actions) {
+      action.class.update(timestamp)
     }
 
-    if (activityList.length > 0 || !!currentActivity) checkActivity()
+    // ACTIVITIES
+    if (activityList.length > 0 || !!currentActivity) {
+      this.checkActivity()
+    }
   }
 
   loop = (timestamp?: number): void => {
@@ -61,9 +75,71 @@ export class Core {
     this.loopRunning = false
   }
 
-  initActivities = (): void => {
-    for (const Activity of Activities) {
-      this.activities.push(new Activity())
+  triggerActionFunction = ({
+    actionName,
+    functionName,
+  }: {
+    actionName: string
+    functionName: string
+  }): void => {
+    const _action = this.actions.find((item) => item.name === actionName)
+
+    if (!_action) return
+
+    const _function = _action.class.actions.find((item) => item.name === functionName)
+
+    if (!_function) return
+
+    _function.function()
+  }
+
+  checkActivity = (): void => {
+    const currentDate = dayjs().valueOf()
+
+    const { currentActivity, activityList } = store.getState().activities
+
+    // Verif current activity
+    if (currentActivity) {
+      if (currentActivity.start + currentActivity.duration < currentDate) {
+        console.log('[End activity]', currentActivity.name)
+
+        // Start function
+        this.triggerActionFunction({
+          actionName: currentActivity.name,
+          functionName: currentActivity.EndFunction,
+        })
+
+        // Remove current activity
+        store.dispatch(resetCurrentActivity())
+      }
+    } else if (activityList.length > 0) {
+      const newActivity = activityList[0]
+
+      if (newActivity && newActivity.start <= currentDate) {
+        // Add new current activity
+        store.dispatch(
+          addCurrentActivity({
+            activity: {
+              ...newActivity,
+              start: dayjs().valueOf(),
+            },
+          })
+        )
+
+        // Start function
+        this.triggerActionFunction({
+          actionName: newActivity.name,
+          functionName: newActivity.startFunction,
+        })
+
+        store.dispatch(
+          removeActivityInList({
+            id: newActivity.id,
+          })
+        )
+
+        console.log('[Start activity]', newActivity.name)
+      }
     }
   }
 }

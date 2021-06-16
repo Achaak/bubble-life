@@ -1,8 +1,12 @@
-import { Module } from '@src/types/module'
+import { ModulesConfigType } from '@src/types/module'
 
-export const Modules: Module[] = [
+export const ModulesConfig: ModulesConfigType[] = [
   {
     name: 'calendar',
     position: 'top-left',
+    config: {
+      dateFormat: 'dddd, D MMMM, YYYY', // https://day.js.org/docs/en/display/format
+      lang: 'fr',
+    },
   },
 ]

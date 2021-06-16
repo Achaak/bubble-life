@@ -1,6 +1,6 @@
 import { styled } from '@src/styles'
 import { ModulePosition } from '@src/types/module'
-import { Modules as ModulesConfig } from '@configs/modules'
+import { ModulesConfig } from '@configs/modules'
 import React, { useEffect, useState } from 'react'
 
 const Container = styled('div', {
@@ -92,7 +92,7 @@ export const Modules: React.FC = () => {
 
       modulesDOM.push(
         <Module key={moduleConfig.name}>
-          <ModuleContent config={moduleConfig.config} />
+          <ModuleContent {...moduleConfig.config} />
         </Module>
       )
     }

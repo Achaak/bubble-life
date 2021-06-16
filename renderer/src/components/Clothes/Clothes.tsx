@@ -1,4 +1,5 @@
-import { useOvermind } from '@src/store'
+import { useAppSelector } from '@src/redux/hooks'
+import { selectClothe } from '@src/redux/reducers/bubbleSlice'
 import { styled } from '@src/styles'
 import React, { useEffect, useState } from 'react'
 
@@ -16,8 +17,7 @@ const Container = styled('div', {
 export const Clothes: React.FC = ({ children }) => {
   const [clotheDOM, setClotheDOM] = useState<React.ReactNode>(null)
 
-  const { state } = useOvermind()
-  const { clothe } = state.bubble
+  const clothe = useAppSelector(selectClothe)
 
   useEffect(() => {
     const getClothe = async (): Promise<void> => {

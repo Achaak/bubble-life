@@ -1,6 +1,7 @@
-import { Bubble } from '@configs/bubble'
+import { BubbleConfig } from '@configs/bubble'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Bodies, Clothes, Environments, Eyes, Hats } from '@src/types/bubble'
+import { RootState } from '../store'
 
 // Define a type for the slice state
 interface BubbleState {
@@ -16,12 +17,12 @@ interface BubbleState {
 // Define the initial state using that type
 const initialState: BubbleState = {
   name: 'Bubble',
-  weight: Bubble.weight.start,
-  eyes: Bubble.defaultElements.eyes,
-  clothe: Bubble.defaultElements.clothe,
-  environment: Bubble.defaultElements.environment,
-  body: Bubble.defaultElements.body,
-  hat: Bubble.defaultElements.hat,
+  weight: BubbleConfig.weight.start,
+  eyes: BubbleConfig.defaultElements.eyes,
+  clothe: BubbleConfig.defaultElements.clothe,
+  environment: BubbleConfig.defaultElements.environment,
+  body: BubbleConfig.defaultElements.body,
+  hat: BubbleConfig.defaultElements.hat,
 }
 
 export const bubbleSlice = createSlice({
@@ -34,19 +35,24 @@ export const bubbleSlice = createSlice({
     addWeight: (state, action: PayloadAction<{ value: number }>) => {
       const newWeight = state.weight + action.payload.value
 
-      state.weight = newWeight > Bubble.weight.max ? Bubble.weight.max : newWeight
+      state.weight = newWeight > BubbleConfig.weight.max ? BubbleConfig.weight.max : newWeight
     },
     removeWeight: (state, action: PayloadAction<{ value: number }>) => {
       const newWeight = state.weight - action.payload.value
 
-      state.weight = newWeight < Bubble.weight.min ? Bubble.weight.min : newWeight
+      state.weight = newWeight < BubbleConfig.weight.min ? BubbleConfig.weight.min : newWeight
     },
   },
 })
 
 export const { setName, addWeight, removeWeight } = bubbleSlice.actions
 
-// Other code such as selectors can use the imported `RootState` type
-//export const selectCount = (state: RootState) => state.bubble.value
+export const selectWeight = (state: RootState) => state.bubble.weight
+export const selectName = (state: RootState) => state.bubble.name
+export const selectEyes = (state: RootState) => state.bubble.eyes
+export const selectClothe = (state: RootState) => state.bubble.clothe
+export const selectEnvironment = (state: RootState) => state.bubble.environment
+export const selectBody = (state: RootState) => state.bubble.body
+export const selectHat = (state: RootState) => state.bubble.hat
 
 export default bubbleSlice.reducer

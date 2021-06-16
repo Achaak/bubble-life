@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Activity } from '@src/types/activity'
-import dayjs from 'dayjs'
 import shortid from 'shortid'
 import { RootState } from '../store'
 
@@ -20,7 +19,7 @@ export const activitiesSlice = createSlice({
   name: 'activities',
   initialState,
   reducers: {
-    setActivity: (state, action: PayloadAction<{ activity: Activity }>) => {
+    addActivityInList: (state, action: PayloadAction<{ activity: Activity }>) => {
       state.activityList = [
         ...state.activityList,
         {
@@ -30,6 +29,13 @@ export const activitiesSlice = createSlice({
       ]
 
       console.log('Add activity:', action.payload.activity.name)
+      // TODO
+      //sortActivity()
+    },
+    removeActivityInList: (state, action: PayloadAction<{ id: string }>) => {
+      state.activityList = state.activityList.filter((item) => item.id !== action.payload.id)
+
+      // TODO
       //sortActivity()
     },
     sortActivity: (state) => {
@@ -53,55 +59,24 @@ export const activitiesSlice = createSlice({
           return 0
         })
     },
-    checkActivity: (state) => {
-      const currentDate = dayjs().valueOf()
-
-      // Verif current activity
-      if (state.currentActivity) {
-        if (state.currentActivity.start + state.currentActivity.duration < currentDate) {
-          console.log('End activity:', state.currentActivity.name)
-
-          // Start function
-          state.currentActivity?.onEnd()
-
-          // Remove current activity
-          state.currentActivity = null
-        }
-      } else if (state.activityList.length > 0) {
-        const newActivity = state.activityList[0]
-
-        if (newActivity && newActivity.start <= currentDate) {
-          // Add new current activity
-          state.currentActivity = {
-            ...newActivity,
-            start: dayjs().valueOf(),
-          }
-
-          // Start function
-          newActivity?.onStart()
-
-          // Remove activity in list
-          state.activityList = state.activityList.filter((item) => item.id !== newActivity.id)
-
-          console.log('Start activity:', newActivity.name)
-        }
-      }
+    addCurrentActivity: (state, action: PayloadAction<{ activity: Activity }>) => {
+      state.currentActivity = action.payload.activity
+    },
+    resetCurrentActivity: (state) => {
+      state.currentActivity = null
     },
   },
 })
 
-export const { setActivity, sortActivity, checkActivity } = activitiesSlice.actions
+export const {
+  addActivityInList,
+  sortActivity,
+  resetCurrentActivity,
+  addCurrentActivity,
+  removeActivityInList,
+} = activitiesSlice.actions
 
-// Other code such as selectors can use the imported `RootState` type
-export const hasActivityInList = (
-  state: RootState,
-  action: PayloadAction<{ name: string }>
-): boolean =>
-  state.activities.activityList.filter((item) => item.name === action.payload.name).length > 0
-
-export const hasActivityInCurrent = (
-  state: RootState,
-  action: PayloadAction<{ name: string }>
-): boolean => state.activities.currentActivity?.name === action.payload.name
+export const selectActivityList = (state: RootState) => state.activities.activityList
+export const selectCurrentActivity = (state: RootState) => state.activities.currentActivity
 
 export default activitiesSlice.reducer

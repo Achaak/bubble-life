@@ -3,7 +3,7 @@ export interface Activity {
   name: string
   start: number
   duration: number
-  onStart?: () => void
-  onEnd?: () => void
+  startFunction?: string
+  EndFunction?: string
   importance: 1 | 2 | 3
 }

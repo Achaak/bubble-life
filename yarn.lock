@@ -1303,11 +1303,6 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-15.12.2.tgz#1f2b42c4be7156ff4a6f914b2fb03d05fa84e38d"
   integrity sha512-zjQ69G564OCIWIOHSXyQEEDpdpGl+G348RAKY0XXy9Z5kU9Vzv1GMNnkar/ZJ8dzXB3COzD9Mo9NtRZ4xfgUww==
 
-"@types/node@^10.5.1":
-  version "10.17.60"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.17.60.tgz#35f3d6213daed95da7f0f73e75bcc6980e90597b"
-  integrity sha512-F0KIgDJfy2nA3zMLmWGKxcH2ZVEtCZXHHdOQs2gSaQ27+lNeEfGxzkIw90aXswATX7AZ33tahPbzy6KAfUreVw==
-
 "@types/node@^14.6.2":
   version "14.17.3"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.17.3.tgz#6d327abaa4be34a74e421ed6409a0ae2f47f4c3d"
@@ -2043,14 +2038,6 @@ base@^0.11.1:
     isobject "^3.0.1"
     mixin-deep "^1.2.0"
     pascalcase "^0.1.1"
-
-betsy@1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/betsy/-/betsy-1.0.2.tgz#e53abc4750d6a6a112a7835f723db0ca01a3b197"
-  integrity sha512-yt/OUTbSeCRj4uwbDnjTbnWgrLsgBl1nzJLdZH2eOtrf3SDH7svdoTMWOvTFhUdIM86pY6k21o/4SCIT6RYjig==
-  dependencies:
-    "@types/node" "^10.5.1"
-    tslib "^1.9.3"
 
 big.js@^5.2.2:
   version "5.2.2"
@@ -4429,11 +4416,6 @@ is-path-inside@^3.0.2:
   resolved "https://registry.yarnpkg.com/is-path-inside/-/is-path-inside-3.0.3.tgz#d231362e53a07ff2b0e0ea7fed049161ffd16283"
   integrity sha512-Fd4gABb+ycGAmKou8eMftCupSir5lRxqf4aD/vd0cD2qc4HL07OjCeuHMr8Ro4CoMaeCKDB0/ECBOVWjTwUvPQ==
 
-is-plain-obj@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/is-plain-obj/-/is-plain-obj-1.1.0.tgz#71a50c8429dfca773c92a390a4a03b39fcd51d3e"
-  integrity sha1-caUMhCnfync8kqOQpKA7OfzVHT4=
-
 is-plain-object@^2.0.3, is-plain-object@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/is-plain-object/-/is-plain-object-2.0.4.tgz#2c163b3fafb1b606d9d17928f05c2a1c38e07677"
@@ -5196,11 +5178,6 @@ node-releases@^1.1.71:
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.73.tgz#dd4e81ddd5277ff846b80b52bb40c49edf7a7b20"
   integrity sha512-uW7fodD6pyW2FZNZnp/Z3hvWKeEW1Y8R1+1CnErE8cXFXzl5blBOoVB41CvMer6P6Q0S5FXDwcHgFd1Wj0U9zg==
 
-non-blocking-json@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/non-blocking-json/-/non-blocking-json-1.1.1.tgz#2180c25ee0330475bdc5e14b27d0750d7c0d73a4"
-  integrity sha512-iweGQWA3+GZkjJEXhvtRh1fjo8DpnotpL8+13NSwaI28X6HaqlYTxAI/ZXawCmva2GS3NaOl5NdNudg3RyQreQ==
-
 normalize-path@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-2.1.1.tgz#1ab28b556e198363a8c1a6f7e6fa20137fe6aed9"
@@ -5347,24 +5324,6 @@ os-browserify@0.3.0, os-browserify@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/os-browserify/-/os-browserify-0.3.0.tgz#854373c7f5c2315914fc9bfc6bd8238fdda1ec27"
   integrity sha1-hUNzx/XCMVkU/Jv8a9gjj92h7Cc=
-
-overmind-react@^28.0.0:
-  version "28.0.0"
-  resolved "https://registry.yarnpkg.com/overmind-react/-/overmind-react-28.0.0.tgz#e5d9af4eb4de2bab9e5d8c0a2c46e5a02d5c7776"
-  integrity sha512-6KNjaB3AUx8ta5xvVvrxb9rcOX2eGkmrSngIlNhBVoZtiD10zspo7sYMJsHewCnbwthXg255BOJUJdg3jl9EuA==
-  dependencies:
-    overmind "27.0.0"
-
-overmind@27.0.0, overmind@^27.0.0:
-  version "27.0.0"
-  resolved "https://registry.yarnpkg.com/overmind/-/overmind-27.0.0.tgz#bebec800ef601521c23ffb72a03622842d60c600"
-  integrity sha512-Olh3Ckb+KJcYIBun+ZP0PU5bEPkdAIXt/uNtBWx6C9nfpX+dndTb1VSaEpA69diNGE3V38GnNnynd7K41ruiqA==
-  dependencies:
-    betsy "1.0.2"
-    is-plain-obj "^1.1.0"
-    non-blocking-json "1.1.1"
-    proxy-state-tree "6.2.0"
-    tslib "^1.10.0"
 
 p-cancelable@^1.0.0:
   version "1.1.0"
@@ -5648,13 +5607,6 @@ proto-list@~1.2.1:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/proto-list/-/proto-list-1.2.4.tgz#212d5bfe1318306a420f6402b8e26ff39647a849"
   integrity sha1-IS1b/hMYMGpCD2QCuOJv85ZHqEk=
-
-proxy-state-tree@6.2.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/proxy-state-tree/-/proxy-state-tree-6.2.0.tgz#24e253a7539162a350dcfedbc8ba4952a00d1bc4"
-  integrity sha512-6xbFPeUArtx6eR3vmDJPEUhHLJebpKvceMe5DVClCF7ZHge8tVghbmPqJP4KZLmXMY3orHdFNA5blbFQkB5a+Q==
-  dependencies:
-    is-plain-obj "^1.1.0"
 
 prr@~1.0.1:
   version "1.0.1"
@@ -6813,7 +6765,7 @@ ts-pnp@^1.1.6:
   resolved "https://registry.yarnpkg.com/ts-pnp/-/ts-pnp-1.2.0.tgz#a500ad084b0798f1c3071af391e65912c86bca92"
   integrity sha512-csd+vJOb/gkzvcCHgTGSChYpy5f1/XKNsmvBGO4JXS+z1v2HobugDz4s1IeFXM3wZB44uczs+eazB5Q/ccdhQw==
 
-tslib@^1.10.0, tslib@^1.8.1, tslib@^1.9.3:
+tslib@^1.8.1:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==

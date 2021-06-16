@@ -9,7 +9,7 @@ export type ModulePosition =
   | 'bottom-left'
   | 'bottom-right'
 
-export interface Module {
+export interface ModulesConfigType {
   name: string
   position?: ModulePosition
   config?: Record<string, unknown>

@@ -1,57 +1,86 @@
-import { Bubble } from '@configs/bubble'
-import { overmind } from '@src/store'
+import { BubbleConfig } from '@configs/bubble'
+import { addActivityInList } from '@src/redux/reducers/activitiesSlice'
+import { addWeight } from '@src/redux/reducers/bubbleSlice'
+import { store } from '@src/redux/store'
+import { hasActivityInCurrent } from '@src/redux/utils/activities'
 import { dateToMs, random } from '@src/utils'
 import dayjs from 'dayjs'
 import { Actions } from '../actions'
 
-const DEFAULT_SATURATION = 10
+const DEFAULT_SATURATION = BubbleConfig.eat.saturation.default
 
 export class Activity_eat extends Actions {
   saturation: number
 
   constructor() {
     super()
+
+    this.name = 'eat'
+    this.actions = [
+      {
+        name: 'eat:start',
+        function: this.handleStartEat,
+      },
+      {
+        name: 'eat:end',
+        function: this.handleEndEat,
+      },
+    ]
+
     this.saturation = DEFAULT_SATURATION
   }
 
   update = (timestamp: number): void => {
-    const { actions } = overmind
-    const { setActivity, hasActivityInCurrent } = actions.activities
-    const { addWeight } = actions.bubble
-
+    console.log(this.saturation)
     if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) return
 
     const hasActivity = hasActivityInCurrent({ name: 'eat' })
 
     if (!hasActivity) {
-      this.saturation -= random({ min: 1, max: 2 })
+      this.saturation -= random({
+        min: BubbleConfig.eat.saturation.minDecrease,
+        max: BubbleConfig.eat.saturation.maxDecrease,
+      })
     }
 
     if (this.saturation <= 0 && !hasActivity) {
       const startEat = dayjs()
       const endEat = dayjs(startEat).add(
-        Bubble.eat.duration +
-          random({ min: Bubble.eat.margin * -1, max: Bubble.eat.margin, round: true }),
+        BubbleConfig.eat.duration +
+          random({ min: BubbleConfig.eat.margin * -1, max: BubbleConfig.eat.margin, round: true }),
         'minute'
       )
 
-      setActivity({
-        activity: {
-          name: 'eat',
-          start: startEat.valueOf(),
-          duration: endEat.valueOf() - startEat.valueOf(),
-          onStart: () => console.log('eat'),
-          onEnd: () => {
-            this.saturation = DEFAULT_SATURATION
-            addWeight({
-              value: random({ min: Bubble.eat.minWeightToAdd, max: Bubble.eat.maxWeightToadd }),
-            })
+      store.dispatch(
+        addActivityInList({
+          activity: {
+            name: 'eat',
+            start: startEat.valueOf(),
+            duration: endEat.valueOf() - startEat.valueOf(),
+            startFunction: 'eat:start',
+            EndFunction: 'eat:end',
+            importance: 2,
           },
-          importance: 2,
-        },
-      })
+        })
+      )
     }
 
     this.lastRender = timestamp
+  }
+
+  handleStartEat = (): void => {
+    console.log('Start eat')
+  }
+
+  handleEndEat = (): void => {
+    this.saturation = DEFAULT_SATURATION
+    store.dispatch(
+      addWeight({
+        value: random({
+          min: BubbleConfig.eat.minWeightToAdd,
+          max: BubbleConfig.eat.maxWeightToadd,
+        }),
+      })
+    )
   }
 }

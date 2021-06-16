@@ -1,5 +1,7 @@
-import { Bubble } from '@configs/bubble'
-import { overmind } from '@src/store'
+import { BubbleConfig } from '@configs/bubble'
+import { addActivityInList } from '@src/redux/reducers/activitiesSlice'
+import { store } from '@src/redux/store'
+import { hasActivityInList } from '@src/redux/utils/activities'
 import { dateToMs, random } from '@src/utils'
 import dayjs from 'dayjs'
 import { Actions } from '../actions'
@@ -7,17 +9,26 @@ import { Actions } from '../actions'
 export class Activity_sleep extends Actions {
   constructor() {
     super()
+
+    this.name = 'sleep'
+    this.actions = [
+      {
+        name: 'sleep:start',
+        function: this.handleStartSleep,
+      },
+      {
+        name: 'sleep:end',
+        function: this.handleEndSleep,
+      },
+    ]
   }
 
   update = (timestamp: number): void => {
-    const { actions } = overmind
-    const { setActivity, hasActivityInList } = actions.activities
-
     if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) return
 
     if (hasActivityInList({ name: 'sleep' })) {
-      const hourStart = parseInt(Bubble.sleep.start.split(':')[0]) || 0
-      const minuteStart = parseInt(Bubble.sleep.start.split(':')[1]) || 0
+      const hourStart = parseInt(BubbleConfig.sleep.start.split(':')[0]) || 0
+      const minuteStart = parseInt(BubbleConfig.sleep.start.split(':')[1]) || 0
 
       const actualDate = dayjs()
 
@@ -28,8 +39,8 @@ export class Activity_sleep extends Actions {
           actualDate.date(),
           hourStart,
           random({
-            min: minuteStart + Bubble.sleep.margin,
-            max: minuteStart - Bubble.sleep.margin,
+            min: minuteStart + BubbleConfig.sleep.margin,
+            max: minuteStart - BubbleConfig.sleep.margin,
             round: true,
           }),
           0
@@ -40,22 +51,36 @@ export class Activity_sleep extends Actions {
       }
 
       const endSleep = dayjs(startSleep).add(
-        Bubble.sleep.duration +
-          random({ min: Bubble.sleep.margin * -1, max: Bubble.sleep.margin, round: true }),
+        BubbleConfig.sleep.duration +
+          random({
+            min: BubbleConfig.sleep.margin * -1,
+            max: BubbleConfig.sleep.margin,
+            round: true,
+          }),
         'minute'
       )
 
-      setActivity({
-        activity: {
-          name: 'sleep',
-          start: startSleep.valueOf(),
-          duration: endSleep.valueOf() - startSleep.valueOf(),
-          onStart: () => console.log('dodo'),
-          importance: 2,
-        },
-      })
+      store.dispatch(
+        addActivityInList({
+          activity: {
+            name: 'sleep',
+            start: startSleep.valueOf(),
+            duration: endSleep.valueOf() - startSleep.valueOf(),
+            startFunction: 'sleep:start',
+            EndFunction: 'sleep:end',
+            importance: 2,
+          },
+        })
+      )
     }
 
     this.lastRender = timestamp
+  }
+
+  handleStartSleep = (): void => {
+    console.log('Start sleep')
+  }
+  handleEndSleep = (): void => {
+    console.log('End sleep')
   }
 }
