@@ -1,3 +1,9 @@
+import { Activity } from '@src/types/activity'
+import {
+  addActivityInListReducer,
+  removeActivityInListReducer,
+  sortActivity,
+} from '../reducers/activitiesSlice'
 import { store } from '../store'
 
 export const hasActivityInList = ({ name }: { name: string }): boolean => {
@@ -10,4 +16,14 @@ export const hasActivityInCurrent = ({ name }: { name: string }): boolean => {
   const currentActivity = store.getState().activities.currentActivity
 
   return currentActivity?.name === name
+}
+
+export const addActivityInList = ({ activity }: { activity: Activity }): void => {
+  store.dispatch(addActivityInListReducer({ activity }))
+  store.dispatch(sortActivity())
+}
+
+export const removeActivityInList = ({ id }: { id: string }): void => {
+  store.dispatch(removeActivityInListReducer({ id }))
+  store.dispatch(sortActivity())
 }

@@ -19,7 +19,7 @@ export const activitiesSlice = createSlice({
   name: 'activities',
   initialState,
   reducers: {
-    addActivityInList: (state, action: PayloadAction<{ activity: Activity }>) => {
+    addActivityInListReducer: (state, action: PayloadAction<{ activity: Activity }>) => {
       state.activityList = [
         ...state.activityList,
         {
@@ -29,14 +29,9 @@ export const activitiesSlice = createSlice({
       ]
 
       console.log('Add activity:', action.payload.activity.name)
-      // TODO
-      //sortActivity()
     },
-    removeActivityInList: (state, action: PayloadAction<{ id: string }>) => {
+    removeActivityInListReducer: (state, action: PayloadAction<{ id: string }>) => {
       state.activityList = state.activityList.filter((item) => item.id !== action.payload.id)
-
-      // TODO
-      //sortActivity()
     },
     sortActivity: (state) => {
       state.activityList = state.activityList
@@ -69,11 +64,11 @@ export const activitiesSlice = createSlice({
 })
 
 export const {
-  addActivityInList,
+  addActivityInListReducer,
   sortActivity,
   resetCurrentActivity,
   addCurrentActivity,
-  removeActivityInList,
+  removeActivityInListReducer,
 } = activitiesSlice.actions
 
 export const selectActivityList = (state: RootState) => state.activities.activityList

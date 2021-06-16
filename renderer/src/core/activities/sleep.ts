@@ -1,5 +1,6 @@
 import { BubbleConfig } from '@configs/bubble'
-import { addActivityInList } from '@src/redux/reducers/activitiesSlice'
+import { addActivityInList } from '@src/redux/utils/activities'
+import { resetEyes, setEyes } from '@src/redux/reducers/bubbleSlice'
 import { store } from '@src/redux/store'
 import { hasActivityInList } from '@src/redux/utils/activities'
 import { dateToMs, random } from '@src/utils'
@@ -26,13 +27,13 @@ export class Activity_sleep extends Actions {
   update = (timestamp: number): void => {
     if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) return
 
-    if (hasActivityInList({ name: 'sleep' })) {
+    if (!hasActivityInList({ name: 'sleep' })) {
       const hourStart = parseInt(BubbleConfig.sleep.start.split(':')[0]) || 0
       const minuteStart = parseInt(BubbleConfig.sleep.start.split(':')[1]) || 0
 
       const actualDate = dayjs()
 
-      let startSleep = dayjs(
+      const startSleep = dayjs(
         new Date(
           actualDate.year(),
           actualDate.month(),
@@ -46,9 +47,6 @@ export class Activity_sleep extends Actions {
           0
         )
       )
-      if (actualDate.valueOf() > startSleep.valueOf()) {
-        startSleep = startSleep.add(1, 'day')
-      }
 
       const endSleep = dayjs(startSleep).add(
         BubbleConfig.sleep.duration +
@@ -60,27 +58,25 @@ export class Activity_sleep extends Actions {
         'minute'
       )
 
-      store.dispatch(
-        addActivityInList({
-          activity: {
-            name: 'sleep',
-            start: startSleep.valueOf(),
-            duration: endSleep.valueOf() - startSleep.valueOf(),
-            startFunction: 'sleep:start',
-            EndFunction: 'sleep:end',
-            importance: 2,
-          },
-        })
-      )
+      addActivityInList({
+        activity: {
+          name: 'sleep',
+          start: startSleep.valueOf(),
+          duration: endSleep.valueOf() - startSleep.valueOf(),
+          startFunction: 'sleep:start',
+          EndFunction: 'sleep:end',
+          importance: 2,
+        },
+      })
     }
 
     this.lastRender = timestamp
   }
 
   handleStartSleep = (): void => {
-    console.log('Start sleep')
+    store.dispatch(setEyes({ value: 'sleep' }))
   }
   handleEndSleep = (): void => {
-    console.log('End sleep')
+    store.dispatch(resetEyes())
   }
 }

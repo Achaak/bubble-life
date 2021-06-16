@@ -7,7 +7,7 @@ export const BubbleConfig: BubbleConfigType = {
     max: 50,
   },
   sleep: {
-    start: '23:00', // HH:mm
+    start: '00:00', // HH:mm
     duration: 540, // minutes
     margin: 30, // minutes
   },
@@ -24,9 +24,10 @@ export const BubbleConfig: BubbleConfigType = {
   },
   defaultElements: {
     eyes: 'enjoy',
-    clothe: 'coat',
+    clothe: null,
     environment: 'home',
-    hat: 'cap',
+    hat: null,
     body: 'default',
+    onomatopoeia: null,
   },
 }

@@ -1,8 +1,7 @@
 import { BubbleConfig } from '@configs/bubble'
-import { addActivityInList } from '@src/redux/reducers/activitiesSlice'
 import { addWeight } from '@src/redux/reducers/bubbleSlice'
 import { store } from '@src/redux/store'
-import { hasActivityInCurrent } from '@src/redux/utils/activities'
+import { addActivityInList, hasActivityInCurrent } from '@src/redux/utils/activities'
 import { dateToMs, random } from '@src/utils'
 import dayjs from 'dayjs'
 import { Actions } from '../actions'
@@ -31,7 +30,6 @@ export class Activity_eat extends Actions {
   }
 
   update = (timestamp: number): void => {
-    console.log(this.saturation)
     if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) return
 
     const hasActivity = hasActivityInCurrent({ name: 'eat' })
@@ -51,18 +49,16 @@ export class Activity_eat extends Actions {
         'minute'
       )
 
-      store.dispatch(
-        addActivityInList({
-          activity: {
-            name: 'eat',
-            start: startEat.valueOf(),
-            duration: endEat.valueOf() - startEat.valueOf(),
-            startFunction: 'eat:start',
-            EndFunction: 'eat:end',
-            importance: 2,
-          },
-        })
-      )
+      addActivityInList({
+        activity: {
+          name: 'eat',
+          start: startEat.valueOf(),
+          duration: endEat.valueOf() - startEat.valueOf(),
+          startFunction: 'eat:start',
+          EndFunction: 'eat:end',
+          importance: 2,
+        },
+      })
     }
 
     this.lastRender = timestamp

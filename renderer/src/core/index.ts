@@ -1,9 +1,6 @@
-import {
-  addCurrentActivity,
-  removeActivityInList,
-  resetCurrentActivity,
-} from '@src/redux/reducers/activitiesSlice'
+import { addCurrentActivity, resetCurrentActivity } from '@src/redux/reducers/activitiesSlice'
 import { store } from '@src/redux/store'
+import { removeActivityInList } from '@src/redux/utils/activities'
 import dayjs from 'dayjs'
 import { Actions } from './actions'
 import { Activity_eat } from './activities/eat'
@@ -132,11 +129,9 @@ export class BubbleCore {
           functionName: newActivity.startFunction,
         })
 
-        store.dispatch(
-          removeActivityInList({
-            id: newActivity.id,
-          })
-        )
+        removeActivityInList({
+          id: newActivity.id,
+        })
 
         console.log('[Start activity]', newActivity.name)
       }

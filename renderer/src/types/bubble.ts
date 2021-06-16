@@ -3,6 +3,7 @@ export type Clothes = 'coat' | null
 export type Environments = 'home' | 'market'
 export type Hats = 'cap' | null
 export type Bodies = 'default'
+export type Onomatopoeia = null
 
 export interface BubbleConfigType {
   weight: {
@@ -32,5 +33,6 @@ export interface BubbleConfigType {
     environment: Environments
     hat: Hats
     body: Bodies
+    onomatopoeia: Onomatopoeia
   }
 }
