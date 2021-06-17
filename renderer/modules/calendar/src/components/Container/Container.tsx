@@ -33,7 +33,7 @@ export const Container: React.FC<CustomProps> = ({ dateFormat }) => {
   const [date, setDate] = useState<string | null>(null)
 
   const convertToLocale = async (date: Date, locale: string): Promise<dayjs.Dayjs> => {
-    await require(`dayjs/locale/${locale}`)
+    await require(`dayjs/locale/${locale}.js`)
 
     return dayjs(date).locale(locale)
   }
