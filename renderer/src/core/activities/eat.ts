@@ -1,5 +1,5 @@
 import { BubbleConfig } from '@configs/bubble'
-import { addWeight } from '@src/redux/reducers/bubbleSlice'
+import { addWeight, resetOnomatopoeia, setOnomatopoeia } from '@src/redux/reducers/bubbleSlice'
 import { store } from '@src/redux/store'
 import { addActivityInList, hasActivityInCurrent } from '@src/redux/utils/activities'
 import { dateToMs, random } from '@src/utils'
@@ -65,11 +65,12 @@ export class Activity_eat extends Actions {
   }
 
   handleStartEat = (): void => {
-    console.log('Start eat')
+    store.dispatch(setOnomatopoeia({ value: 'eat' }))
   }
 
   handleEndEat = (): void => {
     this.saturation = DEFAULT_SATURATION
+
     store.dispatch(
       addWeight({
         value: random({
@@ -78,5 +79,6 @@ export class Activity_eat extends Actions {
         }),
       })
     )
+    store.dispatch(resetOnomatopoeia())
   }
 }

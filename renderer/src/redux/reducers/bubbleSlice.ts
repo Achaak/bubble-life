@@ -71,10 +71,10 @@ export const bubbleSlice = createSlice({
     },
 
     setOnomatopoeia: (state, action: PayloadAction<{ value: Onomatopoeia }>) => {
-      state.body = action.payload.value
+      state.onomatopoeia = action.payload.value
     },
     resetOnomatopoeia: (state) => {
-      state.body = BubbleConfig.defaultElements.onomatopoeia
+      state.onomatopoeia = BubbleConfig.defaultElements.onomatopoeia
     },
 
     addWeight: (state, action: PayloadAction<{ value: number }>) => {
@@ -115,5 +115,6 @@ export const selectClothe = (state: RootState) => state.bubble.clothe
 export const selectEnvironment = (state: RootState) => state.bubble.environment
 export const selectBody = (state: RootState) => state.bubble.body
 export const selectHat = (state: RootState) => state.bubble.hat
+export const selectOnomatopoeia = (state: RootState) => state.bubble.onomatopoeia
 
 export default bubbleSlice.reducer

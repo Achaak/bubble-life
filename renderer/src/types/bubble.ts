@@ -3,7 +3,7 @@ export type Clothes = 'coat' | null
 export type Environments = 'home' | 'market'
 export type Hats = 'cap' | null
 export type Bodies = 'default'
-export type Onomatopoeia = null
+export type Onomatopoeia = 'sleep' | 'eat' | null
 
 export interface BubbleConfigType {
   weight: {

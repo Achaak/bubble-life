@@ -1,6 +1,11 @@
 import { BubbleConfig } from '@configs/bubble'
 import { addActivityInList } from '@src/redux/utils/activities'
-import { resetEyes, setEyes } from '@src/redux/reducers/bubbleSlice'
+import {
+  resetEyes,
+  resetOnomatopoeia,
+  setEyes,
+  setOnomatopoeia,
+} from '@src/redux/reducers/bubbleSlice'
 import { store } from '@src/redux/store'
 import { hasActivityInList } from '@src/redux/utils/activities'
 import { dateToMs, random } from '@src/utils'
@@ -79,8 +84,10 @@ export class Activity_sleep extends Actions {
 
   handleStartSleep = (): void => {
     store.dispatch(setEyes({ value: 'sleep' }))
+    store.dispatch(setOnomatopoeia({ value: 'sleep' }))
   }
   handleEndSleep = (): void => {
     store.dispatch(resetEyes())
+    store.dispatch(resetOnomatopoeia())
   }
 }

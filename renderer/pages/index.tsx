@@ -1,12 +1,25 @@
 import React from 'react'
-import { Bubble } from '@src/components'
-import { Modules } from '@src/components/Modules'
+import { Bubble, Stats, Modules } from '@src/components'
+import { styled } from '@src/styles'
+
+const Overlay = styled('div', {
+  position: 'absolute',
+  top: 0,
+  bottom: 0,
+  right: 0,
+  left: 0,
+  display: 'flex',
+  flexDirection: 'column',
+})
 
 const Home: React.FC = () => {
   return (
     <>
       <Bubble />
-      <Modules />
+      <Overlay>
+        <Modules />
+        <Stats />
+      </Overlay>
     </>
   )
 }

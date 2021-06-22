@@ -6,7 +6,8 @@ import { Eyes } from '../Eyes'
 import { Hats } from '../Hats'
 import { BubbleConfig } from '@configs/bubble'
 import { useAppSelector } from '@src/redux/hooks'
-import { selectName, selectWeight } from '@src/redux/reducers/bubbleSlice'
+import { selectWeight } from '@src/redux/reducers/bubbleSlice'
+import { Onomatopoeias } from '../Onomatopoeias'
 
 const scaleY = keyframes({
   '0%, 100%': { transform: 'scaleY(1)' },
@@ -41,7 +42,6 @@ export const Bubble: React.FC = () => {
   const [scale, setScale] = useState<number>(1)
 
   const weight = useAppSelector(selectWeight)
-  const name = useAppSelector(selectName)
 
   useEffect(() => {
     const getSize = (): number => {
@@ -68,26 +68,22 @@ export const Bubble: React.FC = () => {
     setScale(getSize())
   }, [weight])
 
-  console.log(scale, weight)
   return (
-    <>
-      <span>{name}</span>
-      <span>{weight}</span>
-      <Container>
-        <Size
-          css={{
-            transform: `scale(${scale})`,
-          }}
-        >
-          <Content>
-            <Bodies>
-              <Eyes />
-            </Bodies>
-            <Hats />
-            <Clothes />
-          </Content>
-        </Size>
-      </Container>
-    </>
+    <Container>
+      <Size
+        css={{
+          transform: `scale(${scale})`,
+        }}
+      >
+        <Content>
+          <Bodies>
+            <Eyes />
+          </Bodies>
+          <Hats />
+          <Clothes />
+          <Onomatopoeias />
+        </Content>
+      </Size>
+    </Container>
   )
 }
