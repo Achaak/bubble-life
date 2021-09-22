@@ -1,3 +1,6 @@
 {
-  
+  "saturation": "saturation",
+  "happiness": "joie",
+  "tiredness": "fatigue",
+  "health": "santé"
 }

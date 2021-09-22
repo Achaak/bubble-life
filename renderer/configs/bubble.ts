@@ -18,6 +18,7 @@ export const BubbleConfig: BubbleConfigType = {
     maxWeightToadd: 2, // kilogram
     saturation: {
       default: 12000,
+      max: 12000,
       minDecrease: 1, // Every 1s
       maxDecrease: 2, // Every 1s
     },

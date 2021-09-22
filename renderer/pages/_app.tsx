@@ -1,8 +1,8 @@
-import { AppProps } from 'next/app'
-import React from 'react'
-import Head from 'next/head'
-import { globalStyles } from '@src/styles/css'
 import { App } from '@src/components/_app'
+import { globalStyles } from '@src/styles/css'
+import { AppProps } from 'next/app'
+import Head from 'next/head'
+import React from 'react'
 
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   globalStyles()

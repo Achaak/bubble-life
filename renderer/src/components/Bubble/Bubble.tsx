@@ -1,13 +1,13 @@
-import { styled, keyframes } from '@src/styles/css'
-import React, { useEffect, useState } from 'react'
 import { Bodies } from '../Bodies'
 import { Clothes } from '../Clothes'
 import { Eyes } from '../Eyes'
 import { Hats } from '../Hats'
+import { Onomatopoeias } from '../Onomatopoeias'
 import { BubbleConfig } from '@configs/bubble'
 import { useAppSelector } from '@src/redux/hooks'
 import { selectWeight } from '@src/redux/reducers/bubbleSlice'
-import { Onomatopoeias } from '../Onomatopoeias'
+import { styled, keyframes } from '@src/styles/css'
+import React, { useEffect, useState } from 'react'
 
 const scaleY = keyframes({
   '0%, 100%': { transform: 'scaleY(1)' },

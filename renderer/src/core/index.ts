@@ -1,10 +1,10 @@
+import { Actions } from './actions'
+import { Activity_eat } from './activities/eat'
+import { Activity_sleep } from './activities/sleep'
 import { addCurrentActivity, resetCurrentActivity } from '@src/redux/reducers/activitiesSlice'
 import { store } from '@src/redux/store'
 import { removeActivityInList } from '@src/redux/utils/activities'
 import dayjs from 'dayjs'
-import { Actions } from './actions'
-import { Activity_eat } from './activities/eat'
-import { Activity_sleep } from './activities/sleep'
 
 const ActionsList = [Activity_eat, Activity_sleep]
 

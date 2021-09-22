@@ -10,6 +10,8 @@ const ContainerDOM = styled('div', {
   bottom: 0,
   right: 0,
   left: 0,
+  cursor: 'none',
+  userSelect: 'none',
 })
 
 export const Container: React.FC = ({ children }) => {

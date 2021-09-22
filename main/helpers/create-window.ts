@@ -81,6 +81,7 @@ export default (windowName: string, options: BrowserWindowConstructorOptions): B
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
+      devTools: process.env.NODE_ENV === 'development',
       ...options.webPreferences,
     },
   }

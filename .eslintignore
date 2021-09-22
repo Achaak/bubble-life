@@ -2,3 +2,5 @@ node_modules
 .next
 .vscode
 public
+dist
+app

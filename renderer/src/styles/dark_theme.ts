@@ -1,6 +1,6 @@
-import { theme } from './css'
+import { createTheme } from './css'
 
-export const darkTheme = theme({
+export const darkTheme = createTheme({
   colors: {
     PRIMARY_DARKER: '#083358',
     PRIMARY_DARK: '#0D4C84',

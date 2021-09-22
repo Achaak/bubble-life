@@ -1,7 +1,7 @@
+import { RootState } from '../store'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Activity } from '@src/types/activity'
 import shortid from 'shortid'
-import { RootState } from '../store'
 
 // Define a type for the slice state
 interface ActivitiesState {
@@ -71,7 +71,8 @@ export const {
   removeActivityInListReducer,
 } = activitiesSlice.actions
 
-export const selectActivityList = (state: RootState) => state.activities.activityList
-export const selectCurrentActivity = (state: RootState) => state.activities.currentActivity
+export const selectActivityList = (state: RootState): Activity[] => state.activities.activityList
+export const selectCurrentActivity = (state: RootState): Activity =>
+  state.activities.currentActivity
 
 export default activitiesSlice.reducer

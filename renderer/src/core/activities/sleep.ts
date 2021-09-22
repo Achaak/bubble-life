@@ -1,5 +1,5 @@
+import { Actions } from '../actions'
 import { BubbleConfig } from '@configs/bubble'
-import { addActivityInList } from '@src/redux/utils/activities'
 import {
   resetEyes,
   resetOnomatopoeia,
@@ -7,10 +7,10 @@ import {
   setOnomatopoeia,
 } from '@src/redux/reducers/bubbleSlice'
 import { store } from '@src/redux/store'
+import { addActivityInList } from '@src/redux/utils/activities'
 import { hasActivityInList } from '@src/redux/utils/activities'
 import { dateToMs, random } from '@src/utils'
 import dayjs from 'dayjs'
-import { Actions } from '../actions'
 
 export class Activity_sleep extends Actions {
   constructor() {

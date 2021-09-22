@@ -1,6 +1,6 @@
-import React from 'react'
 import { Bubble, Stats, Modules } from '@src/components'
 import { styled } from '@src/styles'
+import React from 'react'
 
 const Overlay = styled('div', {
   position: 'absolute',

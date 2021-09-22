@@ -1,16 +1,19 @@
+import { Actions } from '../actions'
 import { BubbleConfig } from '@configs/bubble'
-import { addWeight, resetOnomatopoeia, setOnomatopoeia } from '@src/redux/reducers/bubbleSlice'
+import {
+  addWeight,
+  resetOnomatopoeia,
+  setOnomatopoeia,
+  setSaturation,
+} from '@src/redux/reducers/bubbleSlice'
 import { store } from '@src/redux/store'
 import { addActivityInList, hasActivityInCurrent } from '@src/redux/utils/activities'
 import { dateToMs, random } from '@src/utils'
 import dayjs from 'dayjs'
-import { Actions } from '../actions'
 
-const DEFAULT_SATURATION = BubbleConfig.eat.saturation.default
+const RESET_SATURATION = BubbleConfig.eat.saturation.max
 
 export class Activity_eat extends Actions {
-  saturation: number
-
   constructor() {
     super()
 
@@ -25,8 +28,6 @@ export class Activity_eat extends Actions {
         function: this.handleEndEat,
       },
     ]
-
-    this.saturation = DEFAULT_SATURATION
   }
 
   update = (timestamp: number): void => {
@@ -34,14 +35,18 @@ export class Activity_eat extends Actions {
 
     const hasActivity = hasActivityInCurrent({ name: 'eat' })
 
+    let saturation = store.getState().bubble.saturation
+
     if (!hasActivity) {
-      this.saturation -= random({
+      saturation -= random({
         min: BubbleConfig.eat.saturation.minDecrease,
         max: BubbleConfig.eat.saturation.maxDecrease,
       })
+
+      store.dispatch(setSaturation({ value: saturation }))
     }
 
-    if (this.saturation <= 0 && !hasActivity) {
+    if (saturation <= 0 && !hasActivity) {
       const startEat = dayjs()
       const endEat = dayjs(startEat).add(
         BubbleConfig.eat.duration +
@@ -69,7 +74,7 @@ export class Activity_eat extends Actions {
   }
 
   handleEndEat = (): void => {
-    this.saturation = DEFAULT_SATURATION
+    store.dispatch(setSaturation({ value: RESET_SATURATION }))
 
     store.dispatch(
       addWeight({

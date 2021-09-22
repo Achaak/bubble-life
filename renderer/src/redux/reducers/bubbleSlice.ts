@@ -1,12 +1,13 @@
+import { RootState } from '../store'
 import { BubbleConfig } from '@configs/bubble'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Bodies, Clothes, Environments, Eyes, Hats, Onomatopoeia } from '@src/types/bubble'
-import { RootState } from '../store'
 
 // Define a type for the slice state
 interface BubbleState {
   name: string
   weight: number
+  saturation: number
   eyes: Eyes
   environment: Environments
   clothe: Clothes
@@ -19,6 +20,7 @@ interface BubbleState {
 const initialState: BubbleState = {
   name: 'Bubble',
   weight: BubbleConfig.weight.start,
+  saturation: BubbleConfig.eat.saturation.default,
   eyes: BubbleConfig.defaultElements.eyes,
   clothe: BubbleConfig.defaultElements.clothe,
   environment: BubbleConfig.defaultElements.environment,
@@ -33,6 +35,10 @@ export const bubbleSlice = createSlice({
   reducers: {
     setName: (state, action: PayloadAction<{ value: string }>) => {
       state.name = action.payload.value
+    },
+
+    setSaturation: (state, action: PayloadAction<{ value: number }>) => {
+      state.saturation = action.payload.value
     },
 
     setEyes: (state, action: PayloadAction<{ value: Eyes }>) => {
@@ -93,6 +99,7 @@ export const bubbleSlice = createSlice({
 export const {
   setName,
   addWeight,
+  setSaturation,
   removeWeight,
   setBody,
   setClothe,
@@ -108,13 +115,14 @@ export const {
   setOnomatopoeia,
 } = bubbleSlice.actions
 
-export const selectWeight = (state: RootState) => state.bubble.weight
-export const selectName = (state: RootState) => state.bubble.name
-export const selectEyes = (state: RootState) => state.bubble.eyes
-export const selectClothe = (state: RootState) => state.bubble.clothe
-export const selectEnvironment = (state: RootState) => state.bubble.environment
-export const selectBody = (state: RootState) => state.bubble.body
-export const selectHat = (state: RootState) => state.bubble.hat
-export const selectOnomatopoeia = (state: RootState) => state.bubble.onomatopoeia
+export const selectWeight = (state: RootState): number => state.bubble.weight
+export const selectSaturation = (state: RootState): number => state.bubble.saturation
+export const selectName = (state: RootState): string => state.bubble.name
+export const selectEyes = (state: RootState): Eyes => state.bubble.eyes
+export const selectClothe = (state: RootState): Clothes => state.bubble.clothe
+export const selectEnvironment = (state: RootState): Environments => state.bubble.environment
+export const selectBody = (state: RootState): Bodies => state.bubble.body
+export const selectHat = (state: RootState): Hats => state.bubble.hat
+export const selectOnomatopoeia = (state: RootState): Onomatopoeia => state.bubble.onomatopoeia
 
 export default bubbleSlice.reducer

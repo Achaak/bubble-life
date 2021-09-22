@@ -1,9 +1,10 @@
+import { GlobalConfig } from '@configs/global'
 import { styled } from '@src/styles'
 import dayjs from 'dayjs'
-import updateLocale from 'dayjs/plugin/updateLocale'
 import 'dayjs/locale'
+import updateLocale from 'dayjs/plugin/updateLocale'
 import React, { useEffect, useState } from 'react'
-import { GlobalConfig } from '@configs/global'
+
 dayjs.extend(updateLocale)
 dayjs.locale(GlobalConfig.lang)
 

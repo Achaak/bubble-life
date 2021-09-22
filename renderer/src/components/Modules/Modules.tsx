@@ -1,6 +1,6 @@
+import { ModulesConfig } from '@configs/modules'
 import { styled } from '@src/styles'
 import { ModulePosition } from '@src/types/module'
-import { ModulesConfig } from '@configs/modules'
 import React, { useEffect, useState } from 'react'
 
 const Container = styled('div', {

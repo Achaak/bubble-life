@@ -1,10 +1,10 @@
-import { Activity } from '@src/types/activity'
 import {
   addActivityInListReducer,
   removeActivityInListReducer,
   sortActivity,
 } from '../reducers/activitiesSlice'
 import { store } from '../store'
+import { Activity } from '@src/types/activity'
 
 export const hasActivityInList = ({ name }: { name: string }): boolean => {
   const activityList = store.getState().activities.activityList

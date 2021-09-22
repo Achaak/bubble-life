@@ -23,6 +23,7 @@ export interface BubbleConfigType {
     maxWeightToadd: number
     saturation: {
       default: number
+      max: number
       minDecrease: number
       maxDecrease: number
     }
