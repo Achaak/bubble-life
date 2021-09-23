@@ -44,6 +44,7 @@ export const Stats: React.FC = () => {
   const saturation = useAppSelector(selectSaturation)
   const name = useAppSelector(selectName)
 
+  console.log(saturation)
   const { t } = useTranslation(['words'], { i18n: i18n, useSuspense: false })
 
   return (

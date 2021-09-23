@@ -1,8 +1,9 @@
 import { BubbleCore } from '@src/core'
-import { store } from '@src/redux/store'
+import { persistor, store } from '@src/redux/store'
 import { styled } from '@src/styles/css'
 import React, { useEffect } from 'react'
 import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
 
 const ContainerDOM = styled('div', {
   position: 'absolute',
@@ -21,7 +22,9 @@ export const Container: React.FC = ({ children }) => {
 
   return (
     <Provider store={store}>
-      <ContainerDOM>{children}</ContainerDOM>
+      <PersistGate loading={null} persistor={persistor}>
+        <ContainerDOM>{children}</ContainerDOM>
+      </PersistGate>
     </Provider>
   )
 }
