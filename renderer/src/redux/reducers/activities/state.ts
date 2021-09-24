@@ -1,8 +1,8 @@
-import { Activity } from '@src/types/activity'
+import { Action } from '@src/types/action'
 
 export interface ActivitiesState {
-  activityList: Activity[]
-  currentActivity: Activity | null
+  activityList: Action[]
+  currentActivity: Action | null
 }
 
 export const initialActivitiesState: ActivitiesState = {

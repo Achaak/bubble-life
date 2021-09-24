@@ -2,7 +2,7 @@ import anime from 'animejs'
 
 export interface Animation {
   id: string
-  name: 'default' | 'bounce'
+  name: 'default' | 'bounce' | 'shake'
   importance: 1 | 2 | 3
 }
 

@@ -2,6 +2,7 @@ import { Action } from '../action'
 import { BubbleConfig } from '@configs/bubble'
 import { addActivityInList, hasActivityInCurrent } from '@src/redux/reducers/activities/utils'
 import {
+  addSaturationAction,
   addWeightAction,
   resetOnomatopoeiaAction,
   resetSaturationAction,
@@ -20,6 +21,10 @@ export class Activity_eat extends Action {
       {
         name: 'eat:start',
         function: this.handleStartEat,
+      },
+      {
+        name: 'eat:update',
+        function: this.handleUpdateEat,
       },
       {
         name: 'eat:end',
@@ -51,7 +56,8 @@ export class Activity_eat extends Action {
           start: startEat.valueOf(),
           duration: endEat.valueOf() - startEat.valueOf(),
           startFunction: 'eat:start',
-          EndFunction: 'eat:end',
+          updateFunction: 'eat:update',
+          endFunction: 'eat:end',
           importance: 2,
         },
       })
@@ -62,6 +68,11 @@ export class Activity_eat extends Action {
 
   handleStartEat = (): void => {
     store.dispatch(setOnomatopoeiaAction({ value: 'eat' }))
+  }
+
+  handleUpdateEat = (): void => {
+    console.log('eat')
+    store.dispatch(addSaturationAction({ value: 1 }))
   }
 
   handleEndEat = (): void => {

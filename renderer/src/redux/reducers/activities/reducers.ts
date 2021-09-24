@@ -1,6 +1,6 @@
 import { ActivitiesState, initialActivitiesState } from './state'
 import { PayloadAction } from '@reduxjs/toolkit'
-import { Activity } from '@src/types/activity'
+import { Action } from '@src/types/action'
 import shortid from 'shortid'
 
 export const resetActivitiesReducer = (state: ActivitiesState): void => {
@@ -10,7 +10,7 @@ export const resetActivitiesReducer = (state: ActivitiesState): void => {
 
 export const addActivityInListReducer = (
   state: ActivitiesState,
-  action: PayloadAction<{ activity: Activity }>
+  action: PayloadAction<{ activity: Action }>
 ): void => {
   state.activityList = [
     ...state.activityList,
@@ -54,7 +54,7 @@ export const sortActivityReducer = (state: ActivitiesState): void => {
 
 export const addCurrentActivityReducer = (
   state: ActivitiesState,
-  action: PayloadAction<{ activity: Activity }>
+  action: PayloadAction<{ activity: Action }>
 ): void => {
   state.currentActivity = action.payload.activity
 }

@@ -1,6 +1,6 @@
 import { addActivityInListAction, removeActivityInListAction, sortActivityAction } from '.'
 import { store } from '@src/redux/store'
-import { Activity } from '@src/types/activity'
+import { Action } from '@src/types/action'
 
 export const hasActivityInList = ({ name }: { name: string }): boolean => {
   const activityList = store.getState().activities.activityList
@@ -14,7 +14,7 @@ export const hasActivityInCurrent = ({ name }: { name: string }): boolean => {
   return currentActivity?.name === name
 }
 
-export const addActivityInList = ({ activity }: { activity: Activity }): void => {
+export const addActivityInList = ({ activity }: { activity: Action }): void => {
   store.dispatch(addActivityInListAction({ activity }))
   store.dispatch(sortActivityAction())
 }

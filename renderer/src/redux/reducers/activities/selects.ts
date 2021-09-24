@@ -1,6 +1,5 @@
 import { RootState } from '@src/redux/store'
-import { Activity } from '@src/types/activity'
+import { Action } from '@src/types/action'
 
-export const selectActivityList = (state: RootState): Activity[] => state.activities.activityList
-export const selectCurrentActivity = (state: RootState): Activity =>
-  state.activities.currentActivity
+export const selectActivityList = (state: RootState): Action[] => state.activities.activityList
+export const selectCurrentActivity = (state: RootState): Action => state.activities.currentActivity

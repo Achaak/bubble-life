@@ -1,12 +1,14 @@
 import { Animation } from './animation'
 
-export interface Activity {
+export interface Action {
   id?: string
   name: string
   start: number
   duration: number
   startFunction?: string
-  EndFunction?: string
+  updateFunction?: string
+  endFunction?: string
+  cancelFunction?: string
   importance: 1 | 2 | 3
   animation?: Animation
 }

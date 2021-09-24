@@ -72,7 +72,7 @@ export class Activity_sleep extends Action {
           start: startSleep.valueOf(),
           duration: endSleep.valueOf() - startSleep.valueOf(),
           startFunction: 'sleep:start',
-          EndFunction: 'sleep:end',
+          endFunction: 'sleep:end',
           importance: 2,
         },
       })

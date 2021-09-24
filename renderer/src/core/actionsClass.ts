@@ -6,6 +6,7 @@ import {
 } from '@src/redux/reducers/activities'
 import { removeActivityInList } from '@src/redux/reducers/activities/utils'
 import { store } from '@src/redux/store'
+import { Action as ActionType } from '@src/types/action'
 import dayjs from 'dayjs'
 
 const ActionsList = [...ActivitiesList]
@@ -50,9 +51,11 @@ export class Actions {
   triggerActionFunction = ({
     actionName,
     functionName,
+    action,
   }: {
     actionName: string
     functionName: string
+    action: ActionType
   }): void => {
     const _action = this.actions.find((item) => item.name === actionName)
 
@@ -62,7 +65,7 @@ export class Actions {
 
     if (!_function) return
 
-    _function.function()
+    _function.function(action)
   }
 
   checkActivity = (): void => {
@@ -75,14 +78,22 @@ export class Actions {
       if (currentActivity.start + currentActivity.duration < currentDate) {
         console.log('[End activity]', currentActivity.name)
 
-        // Start function
+        // End function
         this.triggerActionFunction({
+          action: currentActivity,
           actionName: currentActivity.name,
-          functionName: currentActivity.EndFunction,
+          functionName: currentActivity.endFunction,
         })
 
         // Remove current activity
         store.dispatch(resetCurrentActivityAction())
+      } else {
+        // Update function
+        this.triggerActionFunction({
+          action: currentActivity,
+          actionName: currentActivity.name,
+          functionName: currentActivity.updateFunction,
+        })
       }
     } else if (activityList.length > 0) {
       const newActivity = activityList[0]
@@ -100,6 +111,7 @@ export class Actions {
 
         // Start function
         this.triggerActionFunction({
+          action: currentActivity,
           actionName: newActivity.name,
           functionName: newActivity.startFunction,
         })

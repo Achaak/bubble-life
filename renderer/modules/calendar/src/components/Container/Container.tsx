@@ -22,6 +22,7 @@ const DateDOM = styled('span', {
   fontSize: '1.5em',
   lineHeight: '1em',
   textTransform: 'capitalize',
+  marginBottom: 4,
 })
 
 interface CustomProps {

@@ -1,0 +1,5 @@
+cancel action
+
+store activities to action ?
+
+update eat and update sleep

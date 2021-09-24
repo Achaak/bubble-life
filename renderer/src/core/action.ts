@@ -1,9 +1,11 @@
+import { Action as ActionType } from '@src/types/action'
+
 export class Action {
   lastRender: number
   name: string
   actions: {
     name: string
-    function: () => void
+    function: (action: ActionType) => void
   }[]
 
   constructor() {
