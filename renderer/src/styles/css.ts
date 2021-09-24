@@ -1,6 +1,6 @@
 import { Colors } from './colors'
 import { Shadows } from './shadows'
-import { createStitches } from '@stitches/react'
+import { createStitches, CSS as CSSStitches } from '@stitches/react'
 
 export const stitchesConfig = createStitches({
   prefix: '',
@@ -132,6 +132,8 @@ export const stitchesConfig = createStitches({
     },
   },
 })
+
+export type CSS = CSSStitches<typeof stitchesConfig>
 
 export const {
   styled,

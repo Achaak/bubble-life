@@ -1,9 +1,5 @@
-import {
-  addActivityInListReducer,
-  removeActivityInListReducer,
-  sortActivity,
-} from '../reducers/activitiesSlice'
-import { store } from '../store'
+import { addActivityInListAction, removeActivityInListAction, sortActivityAction } from '.'
+import { store } from '@src/redux/store'
 import { Activity } from '@src/types/activity'
 
 export const hasActivityInList = ({ name }: { name: string }): boolean => {
@@ -19,11 +15,11 @@ export const hasActivityInCurrent = ({ name }: { name: string }): boolean => {
 }
 
 export const addActivityInList = ({ activity }: { activity: Activity }): void => {
-  store.dispatch(addActivityInListReducer({ activity }))
-  store.dispatch(sortActivity())
+  store.dispatch(addActivityInListAction({ activity }))
+  store.dispatch(sortActivityAction())
 }
 
 export const removeActivityInList = ({ id }: { id: string }): void => {
-  store.dispatch(removeActivityInListReducer({ id }))
-  store.dispatch(sortActivity())
+  store.dispatch(removeActivityInListAction({ id }))
+  store.dispatch(sortActivityAction())
 }

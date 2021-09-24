@@ -1,3 +1,5 @@
+import { Animation } from './animation'
+
 export interface Activity {
   id?: string
   name: string
@@ -6,4 +8,5 @@ export interface Activity {
   startFunction?: string
   EndFunction?: string
   importance: 1 | 2 | 3
+  animation?: Animation
 }

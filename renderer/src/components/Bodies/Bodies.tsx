@@ -1,5 +1,5 @@
 import { useAppSelector } from '@src/redux/hooks'
-import { selectBody } from '@src/redux/reducers/bubbleSlice'
+import { selectElements } from '@src/redux/reducers/bubble'
 import { styled } from '@src/styles'
 import React, { useEffect } from 'react'
 import { useState } from 'react'
@@ -12,11 +12,14 @@ const Container = styled('div', {
 export const Bodies: React.FC = ({ children }) => {
   const [bodyDOM, setBodyDOM] = useState<React.ReactNode>(null)
 
-  const body = useAppSelector(selectBody)
+  const { body } = useAppSelector(selectElements)
 
   useEffect(() => {
     const getBody = async (): Promise<void> => {
-      if (!body) return null
+      if (!body) {
+        setBodyDOM(null)
+        return null
+      }
 
       const { default: Body } = await require(`./${body}/index`)
 

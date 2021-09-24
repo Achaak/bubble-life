@@ -1,7 +1,7 @@
 import { Bar } from '../Bar'
 import { BubbleConfig } from '@configs/bubble'
 import { useAppSelector } from '@src/redux/hooks'
-import { selectName, selectSaturation } from '@src/redux/reducers/bubbleSlice'
+import { selectName, selectVitals } from '@src/redux/reducers/bubble'
 import { styled } from '@src/styles'
 import i18n from '@src/utils/i18n'
 import React from 'react'
@@ -41,10 +41,10 @@ const Right = styled('div', {
 
 export const Stats: React.FC = () => {
   //const weight = useAppSelector(selectWeight)
-  const saturation = useAppSelector(selectSaturation)
+  const { saturation, happiness, health, tiredness } = useAppSelector(selectVitals)
   const name = useAppSelector(selectName)
 
-  console.log(saturation)
+  //console.log(useAppSelector(selectVitals))
   const { t } = useTranslation(['words'], { i18n: i18n, useSuspense: false })
 
   return (
@@ -52,16 +52,25 @@ export const Stats: React.FC = () => {
       <Left>
         <Bar
           label={t('words:saturation')}
-          percentage={(100 / BubbleConfig.eat.saturation.max) * saturation}
+          percentage={(100 / BubbleConfig.vitals.saturation.max) * saturation}
         />
-        <Bar label={t('words:happiness')} percentage={100} />
+        <Bar
+          label={t('words:happiness')}
+          percentage={(100 / BubbleConfig.vitals.happiness.max) * happiness}
+        />
       </Left>
       <Center>
         <Name>{name}</Name>
       </Center>
       <Right>
-        <Bar label={t('words:tiredness')} percentage={100} />
-        <Bar label={t('words:health')} percentage={100} />
+        <Bar
+          label={t('words:tiredness')}
+          percentage={(100 / BubbleConfig.vitals.tiredness.max) * tiredness}
+        />
+        <Bar
+          label={t('words:health')}
+          percentage={(100 / BubbleConfig.vitals.health.max) * health}
+        />
       </Right>
     </Container>
   )

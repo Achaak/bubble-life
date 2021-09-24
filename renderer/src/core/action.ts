@@ -1,4 +1,4 @@
-export class Actions {
+export class Action {
   lastRender: number
   name: string
   actions: {

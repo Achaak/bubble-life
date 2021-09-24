@@ -1,5 +1,5 @@
 import { useAppSelector } from '@src/redux/hooks'
-import { selectOnomatopoeia } from '@src/redux/reducers/bubbleSlice'
+import { selectElements } from '@src/redux/reducers/bubble'
 import { styled } from '@src/styles'
 import React, { useEffect, useState } from 'react'
 
@@ -14,11 +14,14 @@ const Container = styled('div', {
 export const Onomatopoeias: React.FC = ({ children }) => {
   const [onomatopoeiaDOM, setOnomatopoeiaDOM] = useState<React.ReactNode>(null)
 
-  const onomatopoeia = useAppSelector(selectOnomatopoeia)
+  const { onomatopoeia } = useAppSelector(selectElements)
 
   useEffect(() => {
     const getOnomatopoeia = async (): Promise<void> => {
-      if (!onomatopoeia) return null
+      if (!onomatopoeia) {
+        setOnomatopoeiaDOM(null)
+        return null
+      }
 
       const { default: Onomatopoeia } = await require(`./${onomatopoeia}/index`)
 

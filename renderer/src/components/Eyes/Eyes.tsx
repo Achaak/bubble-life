@@ -1,5 +1,5 @@
 import { useAppSelector } from '@src/redux/hooks'
-import { selectEyes } from '@src/redux/reducers/bubbleSlice'
+import { selectElements } from '@src/redux/reducers/bubble'
 import { styled } from '@src/styles'
 import React, { useEffect, useState } from 'react'
 
@@ -14,11 +14,14 @@ const Container = styled('div', {
 export const Eyes: React.FC = ({ children }) => {
   const [eyesDOM, setEyesDOM] = useState<React.ReactNode>(null)
 
-  const eyes = useAppSelector(selectEyes)
+  const { eyes } = useAppSelector(selectElements)
 
   useEffect(() => {
     const getEyes = async (): Promise<void> => {
-      if (!eyes) return null
+      if (!eyes) {
+        setEyesDOM(null)
+        return null
+      }
 
       const { default: Eyes } = await require(`./${eyes}/index`)
 

@@ -11,7 +11,7 @@ const ContainerDOM = styled('div', {
   bottom: 0,
   right: 0,
   left: 0,
-  cursor: 'none',
+  cursor: process.env.NODE_ENV === 'development' ? 'default' : 'none',
   userSelect: 'none',
 })
 

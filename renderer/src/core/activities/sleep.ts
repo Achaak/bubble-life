@@ -1,18 +1,17 @@
-import { Actions } from '../actions'
+import { Action } from '../action'
 import { BubbleConfig } from '@configs/bubble'
+import { addActivityInList, hasActivityInList } from '@src/redux/reducers/activities/utils'
 import {
-  resetEyes,
-  resetOnomatopoeia,
-  setEyes,
-  setOnomatopoeia,
-} from '@src/redux/reducers/bubbleSlice'
+  resetEyesAction,
+  resetOnomatopoeiaAction,
+  setEyesAction,
+  setOnomatopoeiaAction,
+} from '@src/redux/reducers/bubble'
 import { store } from '@src/redux/store'
-import { addActivityInList } from '@src/redux/utils/activities'
-import { hasActivityInList } from '@src/redux/utils/activities'
 import { dateToMs, random } from '@src/utils'
 import dayjs from 'dayjs'
 
-export class Activity_sleep extends Actions {
+export class Activity_sleep extends Action {
   constructor() {
     super()
 
@@ -33,8 +32,8 @@ export class Activity_sleep extends Actions {
     if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) return
 
     if (!hasActivityInList({ name: 'sleep' })) {
-      const hourStart = parseInt(BubbleConfig.sleep.start.split(':')[0]) || 0
-      const minuteStart = parseInt(BubbleConfig.sleep.start.split(':')[1]) || 0
+      const hourStart = parseInt(BubbleConfig.activities.sleep.start.split(':')[0]) || 0
+      const minuteStart = parseInt(BubbleConfig.activities.sleep.start.split(':')[1]) || 0
 
       const actualDate = dayjs()
 
@@ -45,8 +44,8 @@ export class Activity_sleep extends Actions {
           actualDate.date(),
           hourStart,
           random({
-            min: minuteStart + BubbleConfig.sleep.margin,
-            max: minuteStart - BubbleConfig.sleep.margin,
+            min: minuteStart + BubbleConfig.activities.sleep.margin,
+            max: minuteStart - BubbleConfig.activities.sleep.margin,
             round: true,
           }),
           0
@@ -58,10 +57,10 @@ export class Activity_sleep extends Actions {
       }
 
       const endSleep = dayjs(startSleep).add(
-        BubbleConfig.sleep.duration +
+        BubbleConfig.activities.sleep.duration +
           random({
-            min: BubbleConfig.sleep.margin * -1,
-            max: BubbleConfig.sleep.margin,
+            min: BubbleConfig.activities.sleep.margin * -1,
+            max: BubbleConfig.activities.sleep.margin,
             round: true,
           }),
         'minute'
@@ -83,11 +82,11 @@ export class Activity_sleep extends Actions {
   }
 
   handleStartSleep = (): void => {
-    store.dispatch(setEyes({ value: 'sleep' }))
-    store.dispatch(setOnomatopoeia({ value: 'sleep' }))
+    store.dispatch(setEyesAction({ value: 'sleep' }))
+    store.dispatch(setOnomatopoeiaAction({ value: 'sleep' }))
   }
   handleEndSleep = (): void => {
-    store.dispatch(resetEyes())
-    store.dispatch(resetOnomatopoeia())
+    store.dispatch(resetEyesAction())
+    store.dispatch(resetOnomatopoeiaAction())
   }
 }

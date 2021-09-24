@@ -1,5 +1,5 @@
-import activitiesReducer from './reducers/activitiesSlice'
-import bubbleReducer from './reducers/bubbleSlice'
+import activitiesReducer from './reducers/activities'
+import bubbleReducer from './reducers/bubble'
 import { configureStore } from '@reduxjs/toolkit'
 import { combineReducers } from 'redux'
 import {

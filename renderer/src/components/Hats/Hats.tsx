@@ -1,5 +1,5 @@
 import { useAppSelector } from '@src/redux/hooks'
-import { selectHat } from '@src/redux/reducers/bubbleSlice'
+import { selectElements } from '@src/redux/reducers/bubble'
 import { styled } from '@src/styles'
 import React, { useEffect, useState } from 'react'
 
@@ -16,11 +16,14 @@ const Container = styled('div', {
 export const Hats: React.FC = ({ children }) => {
   const [hatDOM, setHatDOM] = useState<React.ReactNode>(null)
 
-  const hat = useAppSelector(selectHat)
+  const { hat } = useAppSelector(selectElements)
 
   useEffect(() => {
     const getHat = async (): Promise<void> => {
-      if (!hat) return null
+      if (!hat) {
+        setHatDOM(null)
+        return null
+      }
 
       const { default: Hat } = await require(`./${hat}/index`)
 

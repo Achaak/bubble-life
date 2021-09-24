@@ -1,5 +1,5 @@
 import { useAppSelector } from '@src/redux/hooks'
-import { selectClothe } from '@src/redux/reducers/bubbleSlice'
+import { selectElements } from '@src/redux/reducers/bubble'
 import { styled } from '@src/styles'
 import React, { useEffect, useState } from 'react'
 
@@ -17,11 +17,14 @@ const Container = styled('div', {
 export const Clothes: React.FC = ({ children }) => {
   const [clotheDOM, setClotheDOM] = useState<React.ReactNode>(null)
 
-  const clothe = useAppSelector(selectClothe)
+  const { clothe } = useAppSelector(selectElements)
 
   useEffect(() => {
     const getClothe = async (): Promise<void> => {
-      if (!clothe) return null
+      if (!clothe) {
+        setClotheDOM(null)
+        return null
+      }
 
       const { default: Clothe } = await require(`./${clothe}/index`)
 

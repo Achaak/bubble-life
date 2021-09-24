@@ -1,19 +1,17 @@
-import { Actions } from '../actions'
+import { Action } from '../action'
 import { BubbleConfig } from '@configs/bubble'
+import { addActivityInList, hasActivityInCurrent } from '@src/redux/reducers/activities/utils'
 import {
-  addWeight,
-  resetOnomatopoeia,
-  setOnomatopoeia,
-  setSaturation,
-} from '@src/redux/reducers/bubbleSlice'
+  addWeightAction,
+  resetOnomatopoeiaAction,
+  resetSaturationAction,
+  setOnomatopoeiaAction,
+} from '@src/redux/reducers/bubble'
 import { store } from '@src/redux/store'
-import { addActivityInList, hasActivityInCurrent } from '@src/redux/utils/activities'
 import { dateToMs, random } from '@src/utils'
 import dayjs from 'dayjs'
 
-const RESET_SATURATION = BubbleConfig.eat.saturation.max
-
-export class Activity_eat extends Actions {
+export class Activity_eat extends Action {
   constructor() {
     super()
 
@@ -35,22 +33,15 @@ export class Activity_eat extends Actions {
 
     const hasActivity = hasActivityInCurrent({ name: 'eat' })
 
-    let saturation = store.getState().bubble.saturation
-
-    if (!hasActivity) {
-      saturation -= random({
-        min: BubbleConfig.eat.saturation.minDecrease,
-        max: BubbleConfig.eat.saturation.maxDecrease,
-      })
-
-      store.dispatch(setSaturation({ value: saturation }))
-    }
-
-    if (saturation <= 0 && !hasActivity) {
+    if (store.getState().bubble.vitals.saturation <= 0 && !hasActivity) {
       const startEat = dayjs()
       const endEat = dayjs(startEat).add(
-        BubbleConfig.eat.duration +
-          random({ min: BubbleConfig.eat.margin * -1, max: BubbleConfig.eat.margin, round: true }),
+        BubbleConfig.activities.eat.duration +
+          random({
+            min: BubbleConfig.activities.eat.margin * -1,
+            max: BubbleConfig.activities.eat.margin,
+            round: true,
+          }),
         'minute'
       )
 
@@ -70,20 +61,20 @@ export class Activity_eat extends Actions {
   }
 
   handleStartEat = (): void => {
-    store.dispatch(setOnomatopoeia({ value: 'eat' }))
+    store.dispatch(setOnomatopoeiaAction({ value: 'eat' }))
   }
 
   handleEndEat = (): void => {
-    store.dispatch(setSaturation({ value: RESET_SATURATION }))
+    store.dispatch(resetSaturationAction())
 
     store.dispatch(
-      addWeight({
+      addWeightAction({
         value: random({
-          min: BubbleConfig.eat.minWeightToAdd,
-          max: BubbleConfig.eat.maxWeightToadd,
+          min: BubbleConfig.activities.eat.minWeightToAdd,
+          max: BubbleConfig.activities.eat.maxWeightToadd,
         }),
       })
     )
-    store.dispatch(resetOnomatopoeia())
+    store.dispatch(resetOnomatopoeiaAction())
   }
 }

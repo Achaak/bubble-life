@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.1",
+    "animejs": "^3.2.1",
     "dayjs": "^1.10.7",
     "electron-serve": "^1.1.0",
     "electron-store": "^8.0.1",
@@ -36,6 +37,7 @@
   "devDependencies": {
     "@stitches/react": "^1.2.0",
     "@trivago/prettier-plugin-sort-imports": "^2.0.4",
+    "@types/animejs": "^3.1.4",
     "@types/node": "^16.9.6",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
