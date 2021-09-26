@@ -15,8 +15,8 @@ export const {
 
   addActionInListReducer: addActionInListAction,
   sortActionReducer: sortActionAction,
-  resetCurrentActionReducer: resetCurrentActionAction,
-  addCurrentActionReducer: addCurrentActionAction,
+  resetcurrentReducer: resetcurrentAction,
+  addcurrentReducer: addcurrentAction,
   removeActionInListReducer: removeActionInListAction,
 } = actionsSlice.actions
 

@@ -1,6 +1,6 @@
 import { Action } from './action'
 import { ActionsList } from './actions'
-import { addCurrentActionAction, resetCurrentActionAction } from '@src/redux/reducers/actions'
+import { addcurrentAction, resetcurrentAction } from '@src/redux/reducers/actions'
 import { removeActionInList } from '@src/redux/reducers/actions/utils'
 import { store } from '@src/redux/store'
 import { Action as ActionType } from '@src/types/action'
@@ -30,7 +30,7 @@ export class Actions {
   }
 
   update = (timestamp: number): void => {
-    const { actionList, currentAction } = store.getState().actions
+    const { list, current } = store.getState().actions
 
     // ACTIONS
     for (const action of this.actions) {
@@ -38,7 +38,7 @@ export class Actions {
     }
 
     // ACTIONS
-    if (actionList.length > 0 || !!currentAction) {
+    if (list.length > 0 || !!current) {
       this.checkAction()
     }
   }
@@ -66,37 +66,37 @@ export class Actions {
   checkAction = (): void => {
     const currentDate = dayjs().valueOf()
 
-    const { currentAction, actionList } = store.getState().actions
+    const { current, list } = store.getState().actions
 
     // Verif current action
-    if (currentAction) {
-      if (currentAction.start + currentAction.duration < currentDate) {
-        console.log('[End action]', currentAction.name)
+    if (current) {
+      if (current.start + current.duration < currentDate) {
+        console.log('[End action]', current.name)
 
         // End function
         this.triggerActionFunction({
-          action: currentAction,
-          actionName: currentAction.name,
-          functionName: currentAction.endFunction,
+          action: current,
+          actionName: current.name,
+          functionName: current.endFunction,
         })
 
         // Remove current action
-        store.dispatch(resetCurrentActionAction())
+        store.dispatch(resetcurrentAction())
       } else {
         // Update function
         this.triggerActionFunction({
-          action: currentAction,
-          actionName: currentAction.name,
-          functionName: currentAction.updateFunction,
+          action: current,
+          actionName: current.name,
+          functionName: current.updateFunction,
         })
       }
-    } else if (actionList.length > 0) {
-      const newAction = actionList[0]
+    } else if (list.length > 0) {
+      const newAction = list[0]
 
       if (newAction && newAction.start <= currentDate) {
         // Add new current action
         store.dispatch(
-          addCurrentActionAction({
+          addcurrentAction({
             action: {
               ...newAction,
               start: dayjs().valueOf(),
@@ -106,7 +106,7 @@ export class Actions {
 
         // Start function
         this.triggerActionFunction({
-          action: currentAction,
+          action: current,
           actionName: newAction.name,
           functionName: newAction.startFunction,
         })

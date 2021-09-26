@@ -10,25 +10,92 @@ export interface BubbleStateVitals {
   health: number
 }
 
+export interface AnimationtListItem {
+  id: string
+  importance: 1 | 2 | 3
+  name: Animation
+}
+
+export interface ElementListItem {
+  id: string
+  importance: 1 | 2 | 3
+}
+
+export interface EyesElementListItem extends ElementListItem {
+  name: Eyes
+}
+
+export interface ClothesElementListItem extends ElementListItem {
+  name: Clothes
+}
+
+export interface EnvironmentsElementListItem extends ElementListItem {
+  name: Environments
+}
+
+export interface HatsElementListItem extends ElementListItem {
+  name: Hats
+}
+
+export interface BodiesElementListItem extends ElementListItem {
+  name: Bodies
+}
+
+export interface OnomatopoeiaElementListItem extends ElementListItem {
+  name: Onomatopoeia
+}
+
 export interface BubbleStateElements {
-  eyes: Eyes
-  environment: Environments
-  clothe: Clothes
-  hat: Hats
-  body: Bodies
-  onomatopoeia: Onomatopoeia
+  eyes: {
+    default: Eyes
+    current: Eyes
+    list: EyesElementListItem[]
+  }
+  clothe: {
+    default: Clothes
+    current: Clothes
+    list: ClothesElementListItem[]
+  }
+  environment: {
+    default: Environments
+    current: Environments
+    list: EnvironmentsElementListItem[]
+  }
+  hat: {
+    default: Hats
+    current: Hats
+    list: HatsElementListItem[]
+  }
+  body: {
+    default: Bodies
+    current: Bodies
+    list: BodiesElementListItem[]
+  }
+  onomatopoeia: {
+    default: Onomatopoeia
+    current: Onomatopoeia
+    list: OnomatopoeiaElementListItem[]
+  }
 }
 
 export interface BubbleState {
   name: string
-  animationList: Animation[]
+  animation: {
+    default: Animation
+    current: Animation
+    list: AnimationtListItem[]
+  }
   vitals: BubbleStateVitals
   elements: BubbleStateElements
 }
 
 export const initialBubbleState: BubbleState = {
   name: 'Bubble',
-  animationList: [],
+  animation: {
+    current: 'default',
+    default: 'default',
+    list: [],
+  },
   vitals: {
     weight: BubbleConfig.vitals.weight.start,
     saturation: BubbleConfig.vitals.saturation.default,
@@ -37,11 +104,35 @@ export const initialBubbleState: BubbleState = {
     health: BubbleConfig.vitals.health.default,
   },
   elements: {
-    eyes: BubbleConfig.defaultElements.eyes,
-    clothe: BubbleConfig.defaultElements.clothe,
-    environment: BubbleConfig.defaultElements.environment,
-    body: BubbleConfig.defaultElements.body,
-    hat: BubbleConfig.defaultElements.hat,
-    onomatopoeia: BubbleConfig.defaultElements.onomatopoeia,
+    eyes: {
+      default: BubbleConfig.defaultElements.eyes,
+      current: BubbleConfig.defaultElements.eyes,
+      list: [],
+    },
+    clothe: {
+      default: BubbleConfig.defaultElements.clothe,
+      current: BubbleConfig.defaultElements.clothe,
+      list: [],
+    },
+    environment: {
+      default: BubbleConfig.defaultElements.environment,
+      current: BubbleConfig.defaultElements.environment,
+      list: [],
+    },
+    body: {
+      default: BubbleConfig.defaultElements.body,
+      current: BubbleConfig.defaultElements.body,
+      list: [],
+    },
+    hat: {
+      default: BubbleConfig.defaultElements.hat,
+      current: BubbleConfig.defaultElements.hat,
+      list: [],
+    },
+    onomatopoeia: {
+      default: BubbleConfig.defaultElements.onomatopoeia,
+      current: BubbleConfig.defaultElements.onomatopoeia,
+      list: [],
+    },
   },
 }

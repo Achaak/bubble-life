@@ -1,11 +1,11 @@
 import { Action } from '@src/types/action'
 
 export interface ActionsState {
-  actionList: Action[]
-  currentAction: Action | null
+  list: Action[]
+  current: Action | null
 }
 
 export const initialActionsState: ActionsState = {
-  actionList: [],
-  currentAction: null,
+  list: [],
+  current: null,
 }

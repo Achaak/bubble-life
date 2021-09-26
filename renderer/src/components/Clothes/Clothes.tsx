@@ -21,12 +21,12 @@ export const Clothes: React.FC = ({ children }) => {
 
   useEffect(() => {
     const getClothe = async (): Promise<void> => {
-      if (!clothe) {
+      if (!clothe.current) {
         setClotheDOM(null)
         return null
       }
 
-      const { default: Clothe } = await require(`./${clothe}/index`)
+      const { default: Clothe } = await require(`./${clothe.current}/index`)
 
       setClotheDOM(<Clothe />)
     }

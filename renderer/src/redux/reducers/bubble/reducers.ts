@@ -1,51 +1,51 @@
-import { BubbleState, initialBubbleState } from './state'
+import {
+  AnimationtListItem,
+  BodiesElementListItem,
+  BubbleState,
+  ClothesElementListItem,
+  EnvironmentsElementListItem,
+  EyesElementListItem,
+  HatsElementListItem,
+  initialBubbleState,
+  OnomatopoeiaElementListItem,
+} from './state'
 import { BubbleConfig } from '@configs/bubble'
 import { PayloadAction } from '@reduxjs/toolkit'
-import { Animation } from '@src/types/animation'
-import { Bodies, Clothes, Environments, Eyes, Hats, Onomatopoeia } from '@src/types/bubble'
 
 export const resetBubbleReducer = (state: BubbleState): void => {
+  for (const key in state) {
+    delete state[key]
+  }
+
   state.vitals = initialBubbleState.vitals
   state.elements = initialBubbleState.elements
   state.name = initialBubbleState.name
-  state.animationList = initialBubbleState.animationList
+  state.animation = initialBubbleState.animation
 }
 
-export const setNameReducer = (
-  state: BubbleState,
-  action: PayloadAction<{ value: string }>
-): void => {
-  state.name = action.payload.value
+export const setNameReducer = (state: BubbleState, action: PayloadAction<string>): void => {
+  state.name = action.payload
 }
 
 /* -------------------- VITALS -------------------- */
 /* ---------- WEIGHT ---------- */
-export const setWeightReducer = (
-  state: BubbleState,
-  action: PayloadAction<{ value: number }>
-): void => {
-  if (action.payload.value < 0) {
+export const setWeightReducer = (state: BubbleState, action: PayloadAction<number>): void => {
+  if (action.payload < 0) {
     state.vitals.weight = 0
-  } else if (action.payload.value > BubbleConfig.vitals.weight.max) {
+  } else if (action.payload > BubbleConfig.vitals.weight.max) {
     state.vitals.weight = BubbleConfig.vitals.weight.max
   } else {
-    state.vitals.weight = action.payload.value
+    state.vitals.weight = action.payload
   }
 }
-export const addWeightReducer = (
-  state: BubbleState,
-  action: PayloadAction<{ value: number }>
-): void => {
-  const newValue = state.vitals.weight + action.payload.value
+export const addWeightReducer = (state: BubbleState, action: PayloadAction<number>): void => {
+  const newValue = state.vitals.weight + action.payload
 
   state.vitals.weight =
     newValue > BubbleConfig.vitals.weight.max ? BubbleConfig.vitals.weight.max : newValue
 }
-export const removeWeightReducer = (
-  state: BubbleState,
-  action: PayloadAction<{ value: number }>
-): void => {
-  const newValue = state.vitals.weight - action.payload.value
+export const removeWeightReducer = (state: BubbleState, action: PayloadAction<number>): void => {
+  const newValue = state.vitals.weight - action.payload
 
   state.vitals.weight =
     newValue < BubbleConfig.vitals.weight.min ? BubbleConfig.vitals.weight.min : newValue
@@ -55,32 +55,26 @@ export const resetWeightReducer = (state: BubbleState): void => {
 }
 
 /* ---------- SATURATION ---------- */
-export const setSaturationReducer = (
-  state: BubbleState,
-  action: PayloadAction<{ value: number }>
-): void => {
-  if (action.payload.value < 0) {
+export const setSaturationReducer = (state: BubbleState, action: PayloadAction<number>): void => {
+  if (action.payload < 0) {
     state.vitals.saturation = 0
-  } else if (action.payload.value > BubbleConfig.vitals.saturation.max) {
+  } else if (action.payload > BubbleConfig.vitals.saturation.max) {
     state.vitals.saturation = BubbleConfig.vitals.saturation.max
   } else {
-    state.vitals.saturation = action.payload.value
+    state.vitals.saturation = action.payload
   }
 }
-export const addSaturationReducer = (
-  state: BubbleState,
-  action: PayloadAction<{ value: number }>
-): void => {
-  const newValue = state.vitals.saturation + action.payload.value
+export const addSaturationReducer = (state: BubbleState, action: PayloadAction<number>): void => {
+  const newValue = state.vitals.saturation + action.payload
 
   state.vitals.saturation =
     newValue > BubbleConfig.vitals.saturation.max ? BubbleConfig.vitals.saturation.max : newValue
 }
 export const removeSaturationReducer = (
   state: BubbleState,
-  action: PayloadAction<{ value: number }>
+  action: PayloadAction<number>
 ): void => {
-  const newValue = state.vitals.saturation - action.payload.value
+  const newValue = state.vitals.saturation - action.payload
 
   state.vitals.saturation = newValue < 0 ? 0 : newValue
 }
@@ -89,32 +83,23 @@ export const resetSaturationReducer = (state: BubbleState): void => {
 }
 
 /* ---------- HAPPINESS ---------- */
-export const setHappinessReducer = (
-  state: BubbleState,
-  action: PayloadAction<{ value: number }>
-): void => {
-  if (action.payload.value < 0) {
+export const setHappinessReducer = (state: BubbleState, action: PayloadAction<number>): void => {
+  if (action.payload < 0) {
     state.vitals.happiness = 0
-  } else if (action.payload.value > BubbleConfig.vitals.happiness.max) {
+  } else if (action.payload > BubbleConfig.vitals.happiness.max) {
     state.vitals.happiness = BubbleConfig.vitals.happiness.max
   } else {
-    state.vitals.happiness = action.payload.value
+    state.vitals.happiness = action.payload
   }
 }
-export const addHappinessReducer = (
-  state: BubbleState,
-  action: PayloadAction<{ value: number }>
-): void => {
-  const newValue = state.vitals.happiness + action.payload.value
+export const addHappinessReducer = (state: BubbleState, action: PayloadAction<number>): void => {
+  const newValue = state.vitals.happiness + action.payload
 
   state.vitals.happiness =
     newValue > BubbleConfig.vitals.happiness.max ? BubbleConfig.vitals.happiness.max : newValue
 }
-export const removeHappinessReducer = (
-  state: BubbleState,
-  action: PayloadAction<{ value: number }>
-): void => {
-  const newValue = state.vitals.happiness - action.payload.value
+export const removeHappinessReducer = (state: BubbleState, action: PayloadAction<number>): void => {
+  const newValue = state.vitals.happiness - action.payload
 
   state.vitals.happiness = newValue < 0 ? 0 : newValue
 }
@@ -123,32 +108,23 @@ export const resetHappinessReducer = (state: BubbleState): void => {
 }
 
 /* ---------- TIREDNESS ---------- */
-export const setTirednessReducer = (
-  state: BubbleState,
-  action: PayloadAction<{ value: number }>
-): void => {
-  if (action.payload.value < 0) {
+export const setTirednessReducer = (state: BubbleState, action: PayloadAction<number>): void => {
+  if (action.payload < 0) {
     state.vitals.tiredness = 0
-  } else if (action.payload.value > BubbleConfig.vitals.tiredness.max) {
+  } else if (action.payload > BubbleConfig.vitals.tiredness.max) {
     state.vitals.tiredness = BubbleConfig.vitals.tiredness.max
   } else {
-    state.vitals.tiredness = action.payload.value
+    state.vitals.tiredness = action.payload
   }
 }
-export const addTirednessReducer = (
-  state: BubbleState,
-  action: PayloadAction<{ value: number }>
-): void => {
-  const newValue = state.vitals.tiredness + action.payload.value
+export const addTirednessReducer = (state: BubbleState, action: PayloadAction<number>): void => {
+  const newValue = state.vitals.tiredness + action.payload
 
   state.vitals.tiredness =
     newValue > BubbleConfig.vitals.tiredness.max ? BubbleConfig.vitals.tiredness.max : newValue
 }
-export const removeTirednessReducer = (
-  state: BubbleState,
-  action: PayloadAction<{ value: number }>
-): void => {
-  const newValue = state.vitals.tiredness - action.payload.value
+export const removeTirednessReducer = (state: BubbleState, action: PayloadAction<number>): void => {
+  const newValue = state.vitals.tiredness - action.payload
 
   state.vitals.tiredness = newValue < 0 ? 0 : newValue
 }
@@ -157,32 +133,23 @@ export const resetTirednessReducer = (state: BubbleState): void => {
 }
 
 /* ---------- HEALTH ---------- */
-export const setHealthReducer = (
-  state: BubbleState,
-  action: PayloadAction<{ value: number }>
-): void => {
-  if (action.payload.value < 0) {
+export const setHealthReducer = (state: BubbleState, action: PayloadAction<number>): void => {
+  if (action.payload < 0) {
     state.vitals.health = 0
-  } else if (action.payload.value > BubbleConfig.vitals.health.max) {
+  } else if (action.payload > BubbleConfig.vitals.health.max) {
     state.vitals.health = BubbleConfig.vitals.health.max
   } else {
-    state.vitals.health = action.payload.value
+    state.vitals.health = action.payload
   }
 }
-export const addHealthReducer = (
-  state: BubbleState,
-  action: PayloadAction<{ value: number }>
-): void => {
-  const newValue = state.vitals.health + action.payload.value
+export const addHealthReducer = (state: BubbleState, action: PayloadAction<number>): void => {
+  const newValue = state.vitals.health + action.payload
 
   state.vitals.health =
     newValue > BubbleConfig.vitals.health.max ? BubbleConfig.vitals.health.max : newValue
 }
-export const removeHealthReducer = (
-  state: BubbleState,
-  action: PayloadAction<{ value: number }>
-): void => {
-  const newValue = state.vitals.health - action.payload.value
+export const removeHealthReducer = (state: BubbleState, action: PayloadAction<number>): void => {
+  const newValue = state.vitals.health - action.payload
 
   state.vitals.health = newValue < 0 ? 0 : newValue
 }
@@ -192,83 +159,86 @@ export const resetHealthReducer = (state: BubbleState): void => {
 
 /* -------------------- ELEMENTS -------------------- */
 /* ---------- EYES ---------- */
-export const setEyesReducer = (
+export const addEyesInListReducer = (
   state: BubbleState,
-  action: PayloadAction<{ value: Eyes }>
+  action: PayloadAction<EyesElementListItem>
 ): void => {
-  state.elements.eyes = action.payload.value
+  state.elements.eyes.list = [...state.elements.eyes.list, action.payload]
 }
 export const resetEyesReducer = (state: BubbleState): void => {
-  state.elements.eyes = BubbleConfig.defaultElements.eyes
+  state.elements.eyes = initialBubbleState.elements.eyes
 }
 
 /* ---------- ENVIRONMENT ---------- */
-export const setEnvironmentReducer = (
+export const addEnvironmentInListReducer = (
   state: BubbleState,
-  action: PayloadAction<{ value: Environments }>
+  action: PayloadAction<EnvironmentsElementListItem>
 ): void => {
-  state.elements.environment = action.payload.value
+  state.elements.environment.list = [...state.elements.environment.list, action.payload]
 }
 export const resetEnvironmentReducer = (state: BubbleState): void => {
-  state.elements.environment = BubbleConfig.defaultElements.environment
+  state.elements.environment = initialBubbleState.elements.environment
 }
 
 /* ---------- CLOTHE ---------- */
-export const setClotheReducer = (
+export const addClotheInListReducer = (
   state: BubbleState,
-  action: PayloadAction<{ value: Clothes }>
+  action: PayloadAction<ClothesElementListItem>
 ): void => {
-  state.elements.clothe = action.payload.value
+  state.elements.clothe.list = [...state.elements.clothe.list, action.payload]
 }
 export const resetClotheReducer = (state: BubbleState): void => {
-  state.elements.clothe = BubbleConfig.defaultElements.clothe
+  state.elements.clothe = initialBubbleState.elements.clothe
 }
 
 /* ---------- HAT ---------- */
-export const setHatReducer = (state: BubbleState, action: PayloadAction<{ value: Hats }>): void => {
-  state.elements.hat = action.payload.value
+export const addHatInListReducer = (
+  state: BubbleState,
+  action: PayloadAction<HatsElementListItem>
+): void => {
+  state.elements.hat.list = [...state.elements.hat.list, action.payload]
 }
 export const resetHatReducer = (state: BubbleState): void => {
-  state.elements.hat = BubbleConfig.defaultElements.hat
+  state.elements.hat = initialBubbleState.elements.hat
 }
 
 /* ---------- BODY ---------- */
-export const setBodyReducer = (
+export const addBodyInListReducer = (
   state: BubbleState,
-  action: PayloadAction<{ value: Bodies }>
+  action: PayloadAction<BodiesElementListItem>
 ): void => {
-  state.elements.body = action.payload.value
+  state.elements.body.list = [...state.elements.body.list, action.payload]
 }
 export const resetBodyReducer = (state: BubbleState): void => {
-  state.elements.body = BubbleConfig.defaultElements.body
+  state.elements.body = initialBubbleState.elements.body
 }
 
 /* ---------- ONOMATOPOEIA ---------- */
-export const setOnomatopoeiaReducer = (
+export const addOnomatopoeiaInListReducer = (
   state: BubbleState,
-  action: PayloadAction<{ value: Onomatopoeia }>
+  action: PayloadAction<OnomatopoeiaElementListItem>
 ): void => {
-  state.elements.onomatopoeia = action.payload.value
+  state.elements.onomatopoeia.list = [...state.elements.onomatopoeia.list, action.payload]
 }
 export const resetOnomatopoeiaReducer = (state: BubbleState): void => {
-  state.elements.onomatopoeia = BubbleConfig.defaultElements.onomatopoeia
+  state.elements.onomatopoeia = initialBubbleState.elements.onomatopoeia
 }
 
 /* -------------------- ANIMATIONS -------------------- */
 export const addAnimationInListReducer = (
   state: BubbleState,
-  action: PayloadAction<{ animation: Animation }>
+  action: PayloadAction<AnimationtListItem>
 ): void => {
-  state.animationList = [...state.animationList, action.payload.animation]
+  state.animation.list = [...state.animation.list, action.payload]
 }
 export const removeAnimationInListReducer = (
   state: BubbleState,
   action: PayloadAction<{ id: string }>
 ): void => {
-  state.animationList = state.animationList.filter((item) => item.id !== action.payload.id)
+  state.animation.list = state.animation.list.filter((item) => item.id !== action.payload.id)
 }
 export const sortAnimationReducer = (state: BubbleState): void => {
-  state.animationList = state.animationList.sort((a, b) => {
+  state.animation.list = state.animation.list.sort((a, b) => {
     if (a.importance < b.importance) {
       return -1
     }
@@ -277,4 +247,7 @@ export const sortAnimationReducer = (state: BubbleState): void => {
     }
     return 0
   })
+}
+export const resetAnimationReducer = (state: BubbleState): void => {
+  state.animation = initialBubbleState.animation
 }

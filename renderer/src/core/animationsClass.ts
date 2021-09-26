@@ -5,28 +5,28 @@ import { AnimationConfig } from '@src/types/animation'
 import anime from 'animejs'
 
 export class Animations {
-  actualAnimation: AnimationConfig | null
+  currentAnimation: AnimationConfig | null
 
   constructor() {
-    this.actualAnimation = null
+    this.currentAnimation = null
   }
 
   update = (): void => {
-    if (!this.actualAnimation && document.getElementById('bubble-content')) {
+    if (!this.currentAnimation && document.getElementById('bubble-content')) {
       this.onStartAnimation()
     }
   }
 
   onStartAnimation = (): void => {
-    this.actualAnimation = Animation_Default
+    this.currentAnimation = Animation_Default
 
-    const storeAnimation = store.getState().bubble.animationList?.[0]
+    const storeAnimation = store.getState().bubble.animation
 
     if (storeAnimation) {
-      const animationFind = AnimationList.find((item) => item.name === storeAnimation.name)
+      const animationFind = AnimationList.find((item) => item.name === storeAnimation.current)
 
       if (animationFind) {
-        this.actualAnimation = animationFind
+        this.currentAnimation = animationFind
       }
     }
 
@@ -34,7 +34,7 @@ export class Animations {
   }
 
   onEndAnimation = (): void => {
-    this.actualAnimation = null
+    this.currentAnimation = null
   }
 
   onAnimation = (): void => {
@@ -42,14 +42,14 @@ export class Animations {
       autoplay: true,
     })
 
-    for (let i = 0; i < this.actualAnimation.configs.length; i++) {
-      const config = this.actualAnimation.configs[i]
+    for (let i = 0; i < this.currentAnimation.configs.length; i++) {
+      const config = this.currentAnimation.configs[i]
 
       timeline.add({
         targets: '#bubble-content',
         ...config,
         complete:
-          this.actualAnimation.configs.length - 1 === i ? () => this.onEndAnimation() : undefined,
+          this.currentAnimation.configs.length - 1 === i ? () => this.onEndAnimation() : undefined,
       })
     }
   }

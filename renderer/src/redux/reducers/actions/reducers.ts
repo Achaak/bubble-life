@@ -4,16 +4,20 @@ import { Action } from '@src/types/action'
 import shortid from 'shortid'
 
 export const resetActionsReducer = (state: ActionsState): void => {
-  state.actionList = initialActionsState.actionList
-  state.currentAction = initialActionsState.currentAction
+  for (const key in state) {
+    delete state[key]
+  }
+
+  state.list = initialActionsState.list
+  state.current = initialActionsState.current
 }
 
 export const addActionInListReducer = (
   state: ActionsState,
   action: PayloadAction<{ action: Action }>
 ): void => {
-  state.actionList = [
-    ...state.actionList,
+  state.list = [
+    ...state.list,
     {
       ...action.payload.action,
       id: shortid(),
@@ -27,11 +31,11 @@ export const removeActionInListReducer = (
   state: ActionsState,
   action: PayloadAction<{ id: string }>
 ): void => {
-  state.actionList = state.actionList.filter((item) => item.id !== action.payload.id)
+  state.list = state.list.filter((item) => item.id !== action.payload.id)
 }
 
 export const sortActionReducer = (state: ActionsState): void => {
-  state.actionList = state.actionList
+  state.list = state.list
     .sort((a, b) => {
       if (a.start < b.start) {
         return -1
@@ -52,13 +56,13 @@ export const sortActionReducer = (state: ActionsState): void => {
     })
 }
 
-export const addCurrentActionReducer = (
+export const addcurrentReducer = (
   state: ActionsState,
   action: PayloadAction<{ action: Action }>
 ): void => {
-  state.currentAction = action.payload.action
+  state.current = action.payload.action
 }
 
-export const resetCurrentActionReducer = (state: ActionsState): void => {
-  state.currentAction = null
+export const resetcurrentReducer = (state: ActionsState): void => {
+  state.current = null
 }

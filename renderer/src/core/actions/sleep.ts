@@ -35,13 +35,13 @@ export class Action_sleep extends Action {
       const hourStart = parseInt(BubbleConfig.actions.sleep.start.split(':')[0]) || 0
       const minuteStart = parseInt(BubbleConfig.actions.sleep.start.split(':')[1]) || 0
 
-      const actualDate = dayjs()
+      const currentDate = dayjs()
 
       let startSleep = dayjs(
         new Date(
-          actualDate.year(),
-          actualDate.month(),
-          actualDate.date(),
+          currentDate.year(),
+          currentDate.month(),
+          currentDate.date(),
           hourStart,
           random({
             min: minuteStart + BubbleConfig.actions.sleep.margin,
@@ -52,7 +52,7 @@ export class Action_sleep extends Action {
         )
       )
       // TODO
-      if (actualDate.valueOf() > startSleep.valueOf()) {
+      if (currentDate.valueOf() > startSleep.valueOf()) {
         startSleep = startSleep.add(1, 'day')
       }
 

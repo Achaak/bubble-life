@@ -38,23 +38,24 @@ export const {
   resetHealthReducer: resetHealthAction,
 
   // Elements
-  setBodyReducer: setBodyAction,
-  setClotheReducer: setClotheAction,
-  setEnvironmentReducer: setEnvironmentAction,
-  setEyesReducer: setEyesAction,
-  setHatReducer: setHatAction,
+  addBodyInListReducer: addBodyInListAction,
+  addClotheInListReducer: addClotheInListAction,
+  addEnvironmentInListReducer: addEnvironmentInListAction,
+  addEyesInListReducer: addEyesInListAction,
+  addOnomatopoeiaInListReducer: addOnomatopoeiaInListAction,
+  addHatInListReducer: addHatInListAction,
   resetBodyReducer: resetBodyAction,
   resetClotheReducer: resetClotheAction,
   resetEnvironmentReducer: resetEnvironmentAction,
   resetEyesReducer: resetEyesAction,
   resetHatReducer: resetHatAction,
   resetOnomatopoeiaReducer: resetOnomatopoeiaAction,
-  setOnomatopoeiaReducer: setOnomatopoeiaAction,
 
   // Animations
   addAnimationInListReducer: addAnimationInListAction,
   removeAnimationInListReducer: removeAnimationInListAction,
   sortAnimationReducer: sortAnimationAction,
+  resetAnimationReducer: resetAnimationAction,
 } = bubbleSlice.actions
 
 export default bubbleSlice.reducer

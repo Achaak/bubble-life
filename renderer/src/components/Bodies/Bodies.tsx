@@ -16,12 +16,12 @@ export const Bodies: React.FC = ({ children }) => {
 
   useEffect(() => {
     const getBody = async (): Promise<void> => {
-      if (!body) {
+      if (!body.current) {
         setBodyDOM(null)
         return null
       }
 
-      const { default: Body } = await require(`./${body}/index`)
+      const { default: Body } = await require(`./${body.current}/index`)
 
       setBodyDOM(<Body />)
     }

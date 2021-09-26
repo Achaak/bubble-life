@@ -3,15 +3,15 @@ import { store } from '@src/redux/store'
 import { Action } from '@src/types/action'
 
 export const hasActionInList = ({ name }: { name: string }): boolean => {
-  const actionList = store.getState().actions.actionList
+  const list = store.getState().actions.list
 
-  return actionList.filter((item) => item.name === name).length > 0
+  return list.filter((item) => item.name === name).length > 0
 }
 
 export const hasActionInCurrent = ({ name }: { name: string }): boolean => {
-  const currentAction = store.getState().actions.currentAction
+  const current = store.getState().actions.current
 
-  return currentAction?.name === name
+  return current?.name === name
 }
 
 export const addActionInList = ({ action }: { action: Action }): void => {

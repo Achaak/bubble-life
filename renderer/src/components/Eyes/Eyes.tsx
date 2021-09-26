@@ -18,12 +18,12 @@ export const Eyes: React.FC = ({ children }) => {
 
   useEffect(() => {
     const getEyes = async (): Promise<void> => {
-      if (!eyes) {
+      if (!eyes.current) {
         setEyesDOM(null)
         return null
       }
 
-      const { default: Eyes } = await require(`./${eyes}/index`)
+      const { default: Eyes } = await require(`./${eyes.current}/index`)
 
       setEyesDOM(<Eyes />)
     }

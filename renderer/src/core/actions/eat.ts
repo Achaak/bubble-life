@@ -72,19 +72,19 @@ export class Action_eat extends Action {
 
   handleUpdateEat = (): void => {
     console.log('eat')
-    store.dispatch(addSaturationAction({ value: 1 }))
+    store.dispatch(addSaturationAction(1))
   }
 
   handleEndEat = (): void => {
     store.dispatch(resetSaturationAction())
 
     store.dispatch(
-      addWeightAction({
-        value: random({
+      addWeightAction(
+        random({
           min: BubbleConfig.actions.eat.minWeightToAdd,
           max: BubbleConfig.actions.eat.maxWeightToadd,
-        }),
-      })
+        })
+      )
     )
     store.dispatch(resetOnomatopoeiaAction())
   }
