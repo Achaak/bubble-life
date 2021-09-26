@@ -1,6 +1,6 @@
 import { Action } from '../action'
 import { BubbleConfig } from '@configs/bubble'
-import { addActivityInList, hasActivityInList } from '@src/redux/reducers/activities/utils'
+import { addActionInList, hasActionInList } from '@src/redux/reducers/actions/utils'
 import {
   resetEyesAction,
   resetOnomatopoeiaAction,
@@ -11,7 +11,7 @@ import { store } from '@src/redux/store'
 import { dateToMs, random } from '@src/utils'
 import dayjs from 'dayjs'
 
-export class Activity_sleep extends Action {
+export class Action_sleep extends Action {
   constructor() {
     super()
 
@@ -31,9 +31,9 @@ export class Activity_sleep extends Action {
   update = (timestamp: number): void => {
     if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) return
 
-    if (!hasActivityInList({ name: 'sleep' })) {
-      const hourStart = parseInt(BubbleConfig.activities.sleep.start.split(':')[0]) || 0
-      const minuteStart = parseInt(BubbleConfig.activities.sleep.start.split(':')[1]) || 0
+    if (!hasActionInList({ name: 'sleep' })) {
+      const hourStart = parseInt(BubbleConfig.actions.sleep.start.split(':')[0]) || 0
+      const minuteStart = parseInt(BubbleConfig.actions.sleep.start.split(':')[1]) || 0
 
       const actualDate = dayjs()
 
@@ -44,8 +44,8 @@ export class Activity_sleep extends Action {
           actualDate.date(),
           hourStart,
           random({
-            min: minuteStart + BubbleConfig.activities.sleep.margin,
-            max: minuteStart - BubbleConfig.activities.sleep.margin,
+            min: minuteStart + BubbleConfig.actions.sleep.margin,
+            max: minuteStart - BubbleConfig.actions.sleep.margin,
             round: true,
           }),
           0
@@ -57,17 +57,17 @@ export class Activity_sleep extends Action {
       }
 
       const endSleep = dayjs(startSleep).add(
-        BubbleConfig.activities.sleep.duration +
+        BubbleConfig.actions.sleep.duration +
           random({
-            min: BubbleConfig.activities.sleep.margin * -1,
-            max: BubbleConfig.activities.sleep.margin,
+            min: BubbleConfig.actions.sleep.margin * -1,
+            max: BubbleConfig.actions.sleep.margin,
             round: true,
           }),
         'minute'
       )
 
-      addActivityInList({
-        activity: {
+      addActionInList({
+        action: {
           name: 'sleep',
           start: startSleep.valueOf(),
           duration: endSleep.valueOf() - startSleep.valueOf(),

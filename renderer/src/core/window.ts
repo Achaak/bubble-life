@@ -1,4 +1,4 @@
-import { resetActivitiesAction } from '@src/redux/reducers/activities'
+import { resetActionsAction } from '@src/redux/reducers/actions'
 import {
   resetBodyAction,
   resetBubbleAction,
@@ -73,14 +73,14 @@ declare global {
 
     /* ----- STATS ----- */
     bubble: () => void
-    activities: () => void
+    actions: () => void
   }
 }
 
 export const initWindow = (): void => {
   window.resetBubble = () => {
     store.dispatch(resetBubbleAction())
-    store.dispatch(resetActivitiesAction())
+    store.dispatch(resetActionsAction())
   }
 
   window.setWeight = ({ value }) => store.dispatch(setWeightAction({ value }))
@@ -119,5 +119,5 @@ export const initWindow = (): void => {
   window.addAnimationInList = ({ animation }) => addAnimationInList({ animation })
 
   window.bubble = () => store.getState().bubble
-  window.activities = () => store.getState().activities
+  window.actions = () => store.getState().actions
 }

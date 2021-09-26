@@ -1,6 +1,6 @@
 import { Action } from '../action'
 import { BubbleConfig } from '@configs/bubble'
-import { addActivityInList, hasActivityInCurrent } from '@src/redux/reducers/activities/utils'
+import { addActionInList, hasActionInCurrent } from '@src/redux/reducers/actions/utils'
 import {
   addSaturationAction,
   addWeightAction,
@@ -12,7 +12,7 @@ import { store } from '@src/redux/store'
 import { dateToMs, random } from '@src/utils'
 import dayjs from 'dayjs'
 
-export class Activity_eat extends Action {
+export class Action_eat extends Action {
   constructor() {
     super()
 
@@ -36,22 +36,22 @@ export class Activity_eat extends Action {
   update = (timestamp: number): void => {
     if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) return
 
-    const hasActivity = hasActivityInCurrent({ name: 'eat' })
+    const hasAction = hasActionInCurrent({ name: 'eat' })
 
-    if (store.getState().bubble.vitals.saturation <= 0 && !hasActivity) {
+    if (store.getState().bubble.vitals.saturation <= 0 && !hasAction) {
       const startEat = dayjs()
       const endEat = dayjs(startEat).add(
-        BubbleConfig.activities.eat.duration +
+        BubbleConfig.actions.eat.duration +
           random({
-            min: BubbleConfig.activities.eat.margin * -1,
-            max: BubbleConfig.activities.eat.margin,
+            min: BubbleConfig.actions.eat.margin * -1,
+            max: BubbleConfig.actions.eat.margin,
             round: true,
           }),
         'minute'
       )
 
-      addActivityInList({
-        activity: {
+      addActionInList({
+        action: {
           name: 'eat',
           start: startEat.valueOf(),
           duration: endEat.valueOf() - startEat.valueOf(),
@@ -81,8 +81,8 @@ export class Activity_eat extends Action {
     store.dispatch(
       addWeightAction({
         value: random({
-          min: BubbleConfig.activities.eat.minWeightToAdd,
-          max: BubbleConfig.activities.eat.maxWeightToadd,
+          min: BubbleConfig.actions.eat.minWeightToAdd,
+          max: BubbleConfig.actions.eat.maxWeightToadd,
         }),
       })
     )

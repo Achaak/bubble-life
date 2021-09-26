@@ -32,7 +32,7 @@ export const BubbleConfig: BubbleConfigType = {
       maxDecrease: 2, // Every 1s
     },
   },
-  activities: {
+  actions: {
     sleep: {
       start: '00:00', // HH:mm
       duration: 540, // minutes

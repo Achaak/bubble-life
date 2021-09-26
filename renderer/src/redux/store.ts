@@ -1,4 +1,4 @@
-import activitiesReducer from './reducers/activities'
+import actionsReducer from './reducers/actions'
 import bubbleReducer from './reducers/bubble'
 import { configureStore } from '@reduxjs/toolkit'
 import { combineReducers } from 'redux'
@@ -23,7 +23,7 @@ const persistConfig = {
 const persistedReducer = persistReducer(
   persistConfig,
   combineReducers({
-    activities: activitiesReducer,
+    actions: actionsReducer,
     bubble: bubbleReducer,
   })
 )

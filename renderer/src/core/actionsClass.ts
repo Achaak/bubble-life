@@ -1,15 +1,10 @@
 import { Action } from './action'
-import { ActivitiesList } from './activities'
-import {
-  addCurrentActivityAction,
-  resetCurrentActivityAction,
-} from '@src/redux/reducers/activities'
-import { removeActivityInList } from '@src/redux/reducers/activities/utils'
+import { ActionsList } from './actions'
+import { addCurrentActionAction, resetCurrentActionAction } from '@src/redux/reducers/actions'
+import { removeActionInList } from '@src/redux/reducers/actions/utils'
 import { store } from '@src/redux/store'
 import { Action as ActionType } from '@src/types/action'
 import dayjs from 'dayjs'
-
-const ActionsList = [...ActivitiesList]
 
 export class Actions {
   actions: {
@@ -35,16 +30,16 @@ export class Actions {
   }
 
   update = (timestamp: number): void => {
-    const { activityList, currentActivity } = store.getState().activities
+    const { actionList, currentAction } = store.getState().actions
 
     // ACTIONS
     for (const action of this.actions) {
       action.class.update(timestamp)
     }
 
-    // ACTIVITIES
-    if (activityList.length > 0 || !!currentActivity) {
-      this.checkActivity()
+    // ACTIONS
+    if (actionList.length > 0 || !!currentAction) {
+      this.checkAction()
     }
   }
 
@@ -68,42 +63,42 @@ export class Actions {
     _function.function(action)
   }
 
-  checkActivity = (): void => {
+  checkAction = (): void => {
     const currentDate = dayjs().valueOf()
 
-    const { currentActivity, activityList } = store.getState().activities
+    const { currentAction, actionList } = store.getState().actions
 
-    // Verif current activity
-    if (currentActivity) {
-      if (currentActivity.start + currentActivity.duration < currentDate) {
-        console.log('[End activity]', currentActivity.name)
+    // Verif current action
+    if (currentAction) {
+      if (currentAction.start + currentAction.duration < currentDate) {
+        console.log('[End action]', currentAction.name)
 
         // End function
         this.triggerActionFunction({
-          action: currentActivity,
-          actionName: currentActivity.name,
-          functionName: currentActivity.endFunction,
+          action: currentAction,
+          actionName: currentAction.name,
+          functionName: currentAction.endFunction,
         })
 
-        // Remove current activity
-        store.dispatch(resetCurrentActivityAction())
+        // Remove current action
+        store.dispatch(resetCurrentActionAction())
       } else {
         // Update function
         this.triggerActionFunction({
-          action: currentActivity,
-          actionName: currentActivity.name,
-          functionName: currentActivity.updateFunction,
+          action: currentAction,
+          actionName: currentAction.name,
+          functionName: currentAction.updateFunction,
         })
       }
-    } else if (activityList.length > 0) {
-      const newActivity = activityList[0]
+    } else if (actionList.length > 0) {
+      const newAction = actionList[0]
 
-      if (newActivity && newActivity.start <= currentDate) {
-        // Add new current activity
+      if (newAction && newAction.start <= currentDate) {
+        // Add new current action
         store.dispatch(
-          addCurrentActivityAction({
-            activity: {
-              ...newActivity,
+          addCurrentActionAction({
+            action: {
+              ...newAction,
               start: dayjs().valueOf(),
             },
           })
@@ -111,16 +106,16 @@ export class Actions {
 
         // Start function
         this.triggerActionFunction({
-          action: currentActivity,
-          actionName: newActivity.name,
-          functionName: newActivity.startFunction,
+          action: currentAction,
+          actionName: newAction.name,
+          functionName: newAction.startFunction,
         })
 
-        removeActivityInList({
-          id: newActivity.id,
+        removeActionInList({
+          id: newAction.id,
         })
 
-        console.log('[Start activity]', newActivity.name)
+        console.log('[Start action]', newAction.name)
       }
     }
   }

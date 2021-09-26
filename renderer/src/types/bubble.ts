@@ -37,7 +37,7 @@ export interface BubbleConfigType {
       maxDecrease: number
     }
   }
-  activities: {
+  actions: {
     sleep: {
       start: string
       duration: number
