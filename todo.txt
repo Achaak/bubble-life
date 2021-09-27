@@ -4,3 +4,4 @@ Add shopping
 Add inventory
 Add weather report module
 Add bubble state ?
+Add shape
