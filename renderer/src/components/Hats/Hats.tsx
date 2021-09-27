@@ -20,12 +20,12 @@ export const Hats: React.FC = ({ children }) => {
 
   useEffect(() => {
     const getHat = async (): Promise<void> => {
-      if (!hat.current) {
+      if (!hat.current.name) {
         setHatDOM(null)
         return null
       }
 
-      const { default: Hat } = await require(`./${hat.current}/index`)
+      const { default: Hat } = await require(`./${hat.current.name}/index`)
 
       setHatDOM(<Hat />)
     }

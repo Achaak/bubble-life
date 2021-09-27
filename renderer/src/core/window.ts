@@ -20,11 +20,11 @@ import {
 } from '@src/redux/reducers/bubble'
 import {
   AnimationtListItem,
-  BodiesElementListItem,
-  ClothesElementListItem,
-  EnvironmentsElementListItem,
+  BodyElementListItem,
+  ClotheElementListItem,
+  EnvironmentElementListItem,
   EyesElementListItem,
-  HatsElementListItem,
+  HatElementListItem,
   OnomatopoeiaElementListItem,
 } from '@src/redux/reducers/bubble/state'
 import {
@@ -65,19 +65,19 @@ declare global {
     resetEyes: () => void
 
     /* ---------- HAT ---------- */
-    addHatInList: (hatsElementListItem: HatsElementListItem) => void
+    addHatInList: (HatElementListItem: HatElementListItem) => void
     resetHat: () => void
 
     /* ---------- CLOTHE ---------- */
-    addClotheInList: (clothesElementListItem: ClothesElementListItem) => void
+    addClotheInList: (ClotheElementListItem: ClotheElementListItem) => void
     resetClothe: () => void
 
     /* ---------- BODY ---------- */
-    addBodyInList: (bodiesElementListItem: BodiesElementListItem) => void
+    addBodyInList: (BodyElementListItem: BodyElementListItem) => void
     resetBody: () => void
 
     /* ---------- ENVIRONMENT ---------- */
-    addEnvironmentInList: (environmentsElementListItem: EnvironmentsElementListItem) => void
+    addEnvironmentInList: (EnvironmentElementListItem: EnvironmentElementListItem) => void
     resetEnvironment: () => void
 
     /* ---------- ONOMATOPOEIA ---------- */
@@ -122,20 +122,20 @@ export const initWindow = (): void => {
   window.resetEyes = () => store.dispatch(resetEyesAction())
 
   /* ---------- HAT ---------- */
-  window.addHatInList = (hatsElementListItem) => addHatInList(hatsElementListItem)
+  window.addHatInList = (HatElementListItem) => addHatInList(HatElementListItem)
   window.resetHat = () => store.dispatch(resetHatAction())
 
   /* ---------- CLOTHE ---------- */
-  window.addClotheInList = (clothesElementListItem) => addClotheInList(clothesElementListItem)
+  window.addClotheInList = (ClotheElementListItem) => addClotheInList(ClotheElementListItem)
   window.resetClothe = () => store.dispatch(resetClotheAction())
 
   /* ---------- BODY ---------- */
-  window.addBodyInList = (bodiesElementListItem) => addBodyInList(bodiesElementListItem)
+  window.addBodyInList = (BodyElementListItem) => addBodyInList(BodyElementListItem)
   window.resetBody = () => store.dispatch(resetBodyAction())
 
   /* ---------- ENVIRONMENT ---------- */
-  window.addEnvironmentInList = (environmentsElementListItem) =>
-    addEnvironmentInList(environmentsElementListItem)
+  window.addEnvironmentInList = (EnvironmentElementListItem) =>
+    addEnvironmentInList(EnvironmentElementListItem)
   window.resetEnvironment = () => store.dispatch(resetEnvironmentAction())
 
   /* ---------- ONOMATOPOEIA ---------- */

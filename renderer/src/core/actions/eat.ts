@@ -1,14 +1,17 @@
 import { Action } from '../action'
 import { BubbleConfig } from '@configs/bubble'
-import { addActionInList, hasActionInCurrent } from '@src/redux/reducers/actions/utils'
+import {
+  addActionInAwaitList,
+  addActionInCancelList,
+  hasActionInCurrent,
+} from '@src/redux/reducers/actions/utils'
 import {
   addSaturationAction,
   addWeightAction,
-  resetOnomatopoeiaAction,
   resetSaturationAction,
-  setOnomatopoeiaAction,
 } from '@src/redux/reducers/bubble'
 import { store } from '@src/redux/store'
+import { Action as ActionType } from '@src/types/action'
 import { dateToMs, random } from '@src/utils'
 import dayjs from 'dayjs'
 
@@ -30,6 +33,10 @@ export class Action_eat extends Action {
         name: 'eat:end',
         function: this.handleEndEat,
       },
+      {
+        name: 'eat:cancel',
+        function: this.handleCancelEat,
+      },
     ]
   }
 
@@ -50,15 +57,18 @@ export class Action_eat extends Action {
         'minute'
       )
 
-      addActionInList({
-        action: {
-          name: 'eat',
-          start: startEat.valueOf(),
-          duration: endEat.valueOf() - startEat.valueOf(),
-          startFunction: 'eat:start',
-          updateFunction: 'eat:update',
-          endFunction: 'eat:end',
-          importance: 2,
+      addActionInAwaitList({
+        name: 'eat',
+        start: startEat.valueOf(),
+        duration: endEat.valueOf() - startEat.valueOf(),
+        startFunction: 'eat:start',
+        updateFunction: 'eat:update',
+        endFunction: 'eat:end',
+        importance: 2,
+        elements: {
+          onomatopoeia: {
+            name: 'eat',
+          },
         },
       })
     }
@@ -67,12 +77,15 @@ export class Action_eat extends Action {
   }
 
   handleStartEat = (): void => {
-    store.dispatch(setOnomatopoeiaAction({ value: 'eat' }))
+    // NOTHING
   }
 
-  handleUpdateEat = (): void => {
-    console.log('eat')
-    store.dispatch(addSaturationAction(1))
+  handleUpdateEat = (action: ActionType): void => {
+    if (store.getState().bubble.vitals.saturation >= BubbleConfig.vitals.saturation.max) {
+      addActionInCancelList({ id: action.id })
+    } else {
+      store.dispatch(addSaturationAction(1))
+    }
   }
 
   handleEndEat = (): void => {
@@ -86,6 +99,9 @@ export class Action_eat extends Action {
         })
       )
     )
-    store.dispatch(resetOnomatopoeiaAction())
+  }
+
+  handleCancelEat = (): void => {
+    // NOTHING
   }
 }

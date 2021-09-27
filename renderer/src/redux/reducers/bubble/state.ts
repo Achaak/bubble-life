@@ -1,6 +1,7 @@
 import { BubbleConfig } from '@configs/bubble'
 import { Animation } from '@src/types/animation'
 import { Bodies, Clothes, Environments, Eyes, Hats, Onomatopoeia } from '@src/types/bubble'
+import shortid from 'shortid'
 
 export interface BubbleStateVitals {
   weight: number
@@ -20,60 +21,54 @@ export interface ElementListItem {
   id: string
   importance: 1 | 2 | 3
 }
-
 export interface EyesElementListItem extends ElementListItem {
   name: Eyes
 }
-
-export interface ClothesElementListItem extends ElementListItem {
+export interface ClotheElementListItem extends ElementListItem {
   name: Clothes
 }
-
-export interface EnvironmentsElementListItem extends ElementListItem {
+export interface EnvironmentElementListItem extends ElementListItem {
   name: Environments
 }
-
-export interface HatsElementListItem extends ElementListItem {
+export interface HatElementListItem extends ElementListItem {
   name: Hats
 }
-
-export interface BodiesElementListItem extends ElementListItem {
+export interface BodyElementListItem extends ElementListItem {
   name: Bodies
 }
-
 export interface OnomatopoeiaElementListItem extends ElementListItem {
   name: Onomatopoeia
 }
 
 export interface BubbleStateElements {
   eyes: {
-    default: Eyes
-    current: Eyes
+    default: EyesElementListItem
+    current: EyesElementListItem
     list: EyesElementListItem[]
   }
   clothe: {
-    default: Clothes
-    current: Clothes
-    list: ClothesElementListItem[]
+    default: ClotheElementListItem
+    current: ClotheElementListItem
+    list: ClotheElementListItem[]
   }
   environment: {
-    default: Environments
-    current: Environments
-    list: EnvironmentsElementListItem[]
+    default: EnvironmentElementListItem
+    current: EnvironmentElementListItem
+    list: EnvironmentElementListItem[]
   }
   hat: {
-    default: Hats
-    current: Hats
-    list: HatsElementListItem[]
+    default: HatElementListItem
+    current: HatElementListItem
+    list: HatElementListItem[]
   }
   body: {
-    default: Bodies
-    current: Bodies
-    list: BodiesElementListItem[]
+    default: BodyElementListItem
+    current: BodyElementListItem
+    list: BodyElementListItem[]
   }
   onomatopoeia: {
-    default: Onomatopoeia
-    current: Onomatopoeia
+    default: OnomatopoeiaElementListItem
+    current: OnomatopoeiaElementListItem
     list: OnomatopoeiaElementListItem[]
   }
 }
@@ -81,8 +76,8 @@ export interface BubbleStateElements {
 export interface BubbleState {
   name: string
   animation: {
-    default: Animation
-    current: Animation
+    default: AnimationtListItem
+    current: AnimationtListItem
     list: AnimationtListItem[]
   }
   vitals: BubbleStateVitals
@@ -92,8 +87,16 @@ export interface BubbleState {
 export const initialBubbleState: BubbleState = {
   name: 'Bubble',
   animation: {
-    current: 'default',
-    default: 'default',
+    current: {
+      id: shortid(),
+      importance: 3,
+      name: 'default',
+    },
+    default: {
+      id: shortid(),
+      importance: 3,
+      name: 'default',
+    },
     list: [],
   },
   vitals: {
@@ -105,33 +108,81 @@ export const initialBubbleState: BubbleState = {
   },
   elements: {
     eyes: {
-      default: BubbleConfig.defaultElements.eyes,
-      current: BubbleConfig.defaultElements.eyes,
+      default: {
+        id: shortid(),
+        importance: 3,
+        name: BubbleConfig.defaultElements.eyes,
+      },
+      current: {
+        id: shortid(),
+        importance: 3,
+        name: BubbleConfig.defaultElements.eyes,
+      },
       list: [],
     },
     clothe: {
-      default: BubbleConfig.defaultElements.clothe,
-      current: BubbleConfig.defaultElements.clothe,
+      default: {
+        id: shortid(),
+        importance: 3,
+        name: BubbleConfig.defaultElements.clothe,
+      },
+      current: {
+        id: shortid(),
+        importance: 3,
+        name: BubbleConfig.defaultElements.clothe,
+      },
       list: [],
     },
     environment: {
-      default: BubbleConfig.defaultElements.environment,
-      current: BubbleConfig.defaultElements.environment,
+      default: {
+        id: shortid(),
+        importance: 3,
+        name: BubbleConfig.defaultElements.environment,
+      },
+      current: {
+        id: shortid(),
+        importance: 3,
+        name: BubbleConfig.defaultElements.environment,
+      },
       list: [],
     },
     body: {
-      default: BubbleConfig.defaultElements.body,
-      current: BubbleConfig.defaultElements.body,
+      default: {
+        id: shortid(),
+        importance: 3,
+        name: BubbleConfig.defaultElements.body,
+      },
+      current: {
+        id: shortid(),
+        importance: 3,
+        name: BubbleConfig.defaultElements.body,
+      },
       list: [],
     },
     hat: {
-      default: BubbleConfig.defaultElements.hat,
-      current: BubbleConfig.defaultElements.hat,
+      default: {
+        id: shortid(),
+        importance: 3,
+        name: BubbleConfig.defaultElements.hat,
+      },
+      current: {
+        id: shortid(),
+        importance: 3,
+        name: BubbleConfig.defaultElements.hat,
+      },
       list: [],
     },
     onomatopoeia: {
-      default: BubbleConfig.defaultElements.onomatopoeia,
-      current: BubbleConfig.defaultElements.onomatopoeia,
+      default: {
+        id: shortid(),
+        importance: 3,
+        name: BubbleConfig.defaultElements.onomatopoeia,
+      },
+      current: {
+        id: shortid(),
+        importance: 3,
+        name: BubbleConfig.defaultElements.onomatopoeia,
+      },
       list: [],
     },
   },

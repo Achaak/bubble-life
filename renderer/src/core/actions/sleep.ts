@@ -1,13 +1,6 @@
 import { Action } from '../action'
 import { BubbleConfig } from '@configs/bubble'
-import { addActionInList, hasActionInList } from '@src/redux/reducers/actions/utils'
-import {
-  resetEyesAction,
-  resetOnomatopoeiaAction,
-  setEyesAction,
-  setOnomatopoeiaAction,
-} from '@src/redux/reducers/bubble'
-import { store } from '@src/redux/store'
+import { addActionInAwaitList, hasActionInAwaitList } from '@src/redux/reducers/actions/utils'
 import { dateToMs, random } from '@src/utils'
 import dayjs from 'dayjs'
 
@@ -31,7 +24,7 @@ export class Action_sleep extends Action {
   update = (timestamp: number): void => {
     if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) return
 
-    if (!hasActionInList({ name: 'sleep' })) {
+    if (!hasActionInAwaitList({ name: 'sleep' })) {
       const hourStart = parseInt(BubbleConfig.actions.sleep.start.split(':')[0]) || 0
       const minuteStart = parseInt(BubbleConfig.actions.sleep.start.split(':')[1]) || 0
 
@@ -66,15 +59,21 @@ export class Action_sleep extends Action {
         'minute'
       )
 
-      addActionInList({
-        action: {
-          name: 'sleep',
-          start: startSleep.valueOf(),
-          duration: endSleep.valueOf() - startSleep.valueOf(),
-          startFunction: 'sleep:start',
-          endFunction: 'sleep:end',
-          importance: 2,
+      addActionInAwaitList({
+        name: 'sleep',
+        start: startSleep.valueOf(),
+        duration: endSleep.valueOf() - startSleep.valueOf(),
+        startFunction: 'sleep:start',
+        endFunction: 'sleep:end',
+        elements: {
+          eyes: {
+            name: 'sleep',
+          },
+          onomatopoeia: {
+            name: 'sleep',
+          },
         },
+        importance: 2,
       })
     }
 
@@ -82,11 +81,9 @@ export class Action_sleep extends Action {
   }
 
   handleStartSleep = (): void => {
-    store.dispatch(setEyesAction({ value: 'sleep' }))
-    store.dispatch(setOnomatopoeiaAction({ value: 'sleep' }))
+    // NOTHING
   }
   handleEndSleep = (): void => {
-    store.dispatch(resetEyesAction())
-    store.dispatch(resetOnomatopoeiaAction())
+    // NOTHING
   }
 }

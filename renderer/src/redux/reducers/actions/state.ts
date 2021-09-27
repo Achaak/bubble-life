@@ -1,11 +1,13 @@
 import { Action } from '@src/types/action'
 
 export interface ActionsState {
-  list: Action[]
+  waitList: Action[]
+  cancelList: Action[]
   current: Action | null
 }
 
 export const initialActionsState: ActionsState = {
-  list: [],
+  waitList: [],
+  cancelList: [],
   current: null,
 }

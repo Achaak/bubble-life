@@ -15,12 +15,12 @@ export class Vital_Health extends Vital {
     if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) return
 
     store.dispatch(
-      removeHealthAction({
-        value: random({
+      removeHealthAction(
+        random({
           min: BubbleConfig.vitals.health.minDecrease,
           max: BubbleConfig.vitals.health.maxDecrease,
-        }),
-      })
+        })
+      )
     )
 
     this.lastRender = timestamp

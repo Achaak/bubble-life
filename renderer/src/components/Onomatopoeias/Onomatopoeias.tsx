@@ -18,12 +18,12 @@ export const Onomatopoeias: React.FC = ({ children }) => {
 
   useEffect(() => {
     const getOnomatopoeia = async (): Promise<void> => {
-      if (!onomatopoeia.current) {
+      if (!onomatopoeia.current.name) {
         setOnomatopoeiaDOM(null)
         return null
       }
 
-      const { default: Onomatopoeia } = await require(`./${onomatopoeia.current}/index`)
+      const { default: Onomatopoeia } = await require(`./${onomatopoeia.current.name}/index`)
 
       setOnomatopoeiaDOM(<Onomatopoeia />)
     }

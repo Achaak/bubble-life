@@ -1,6 +1,33 @@
 import { Animation } from './animation'
 import { Bodies, Clothes, Environments, Eyes, Hats, Onomatopoeia } from './bubble'
 
+export interface ActionElement {
+  id?: string
+}
+export interface ActionElementEyes extends ActionElement {
+  name: Eyes
+}
+export interface ActionElementClothe extends ActionElement {
+  name: Clothes
+}
+export interface ActionElementEnvironment extends ActionElement {
+  name: Environments
+}
+export interface ActionElementHat extends ActionElement {
+  name: Hats
+}
+export interface ActionElementBody extends ActionElement {
+  name: Bodies
+}
+export interface ActionElementOnomatopoeia extends ActionElement {
+  name: Onomatopoeia
+}
+
+export interface ActionAnimation {
+  id?: string
+  name: Animation
+}
+
 export interface Action {
   id?: string
   name: string
@@ -12,30 +39,12 @@ export interface Action {
   cancelFunction?: string
   importance: 1 | 2 | 3
   elements?: {
-    eyes?: {
-      id: string
-      name: Eyes
-    }
-    clothe?: {
-      id: string
-      name: Clothes
-    }
-    environment?: {
-      id: string
-      name: Environments
-    }
-    hat?: {
-      id: string
-      name: Hats
-    }
-    body?: {
-      id: string
-      name: Bodies
-    }
-    onomatopoeia?: {
-      id: string
-      name: Onomatopoeia
-    }
+    eyes?: ActionElementEyes
+    clothe?: ActionElementClothe
+    environment?: ActionElementEnvironment
+    hat?: ActionElementHat
+    body?: ActionElementBody
+    onomatopoeia?: ActionElementOnomatopoeia
   }
-  animation?: Animation
+  animation?: ActionAnimation
 }

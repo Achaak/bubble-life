@@ -15,12 +15,12 @@ export class Vital_Saturation extends Vital {
     if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) return
 
     store.dispatch(
-      removeSaturationAction({
-        value: random({
+      removeSaturationAction(
+        random({
           min: BubbleConfig.vitals.saturation.minDecrease,
           max: BubbleConfig.vitals.saturation.maxDecrease,
-        }),
-      })
+        })
+      )
     )
 
     this.lastRender = timestamp

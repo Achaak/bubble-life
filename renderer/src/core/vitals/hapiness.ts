@@ -15,12 +15,12 @@ export class Vital_Happiness extends Vital {
     if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) return
 
     store.dispatch(
-      removeHappinessAction({
-        value: random({
+      removeHappinessAction(
+        random({
           min: BubbleConfig.vitals.saturation.minDecrease,
           max: BubbleConfig.vitals.saturation.maxDecrease,
-        }),
-      })
+        })
+      )
     )
 
     this.lastRender = timestamp

@@ -23,7 +23,7 @@ export class Animations {
     const storeAnimation = store.getState().bubble.animation
 
     if (storeAnimation) {
-      const animationFind = AnimationList.find((item) => item.name === storeAnimation.current)
+      const animationFind = AnimationList.find((item) => item.name === storeAnimation.current.name)
 
       if (animationFind) {
         this.currentAnimation = animationFind

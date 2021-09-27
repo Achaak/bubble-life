@@ -15,12 +15,12 @@ export class Vital_Tiredness extends Vital {
     if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) return
 
     store.dispatch(
-      removeTirednessAction({
-        value: random({
+      removeTirednessAction(
+        random({
           min: BubbleConfig.vitals.tiredness.minDecrease,
           max: BubbleConfig.vitals.tiredness.maxDecrease,
-        }),
-      })
+        })
+      )
     )
 
     this.lastRender = timestamp

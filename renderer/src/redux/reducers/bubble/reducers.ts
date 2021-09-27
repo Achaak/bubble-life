@@ -1,11 +1,11 @@
 import {
   AnimationtListItem,
-  BodiesElementListItem,
+  BodyElementListItem,
   BubbleState,
-  ClothesElementListItem,
-  EnvironmentsElementListItem,
+  ClotheElementListItem,
+  EnvironmentElementListItem,
   EyesElementListItem,
-  HatsElementListItem,
+  HatElementListItem,
   initialBubbleState,
   OnomatopoeiaElementListItem,
 } from './state'
@@ -165,52 +165,245 @@ export const addEyesInListReducer = (
 ): void => {
   state.elements.eyes.list = [...state.elements.eyes.list, action.payload]
 }
+export const removeEyesInListReducer = (
+  state: BubbleState,
+  action: PayloadAction<{ id: string }>
+): void => {
+  state.elements.eyes.list = state.elements.eyes.list.filter(
+    (item) => item.id !== action.payload.id
+  )
+}
+export const sortEyesInListReducer = (state: BubbleState): void => {
+  state.elements.eyes.list = state.elements.eyes.list.sort((a, b) => {
+    if (a.importance < b.importance) {
+      return -1
+    }
+    if (a.importance > b.importance) {
+      return 1
+    }
+    return 0
+  })
+}
 export const resetEyesReducer = (state: BubbleState): void => {
   state.elements.eyes = initialBubbleState.elements.eyes
+}
+export const setCurrentEyesReducer = (
+  state: BubbleState,
+  action: PayloadAction<EyesElementListItem>
+): void => {
+  state.elements.eyes.current = action.payload
+}
+export const resetCurrentEyesReducer = (state: BubbleState): void => {
+  state.elements.eyes.current = initialBubbleState.elements.eyes.default
+}
+export const transferEyesInListToCurrentReducer = (state: BubbleState): void => {
+  if (!state.elements.eyes.list.length) return
+
+  const newCurrent = state.elements.eyes.list[0]
+
+  state.elements.eyes = {
+    ...state.elements.eyes,
+    current: newCurrent,
+    list: state.elements.eyes.list.filter((item) => item.id !== newCurrent.id),
+  }
 }
 
 /* ---------- ENVIRONMENT ---------- */
 export const addEnvironmentInListReducer = (
   state: BubbleState,
-  action: PayloadAction<EnvironmentsElementListItem>
+  action: PayloadAction<EnvironmentElementListItem>
 ): void => {
   state.elements.environment.list = [...state.elements.environment.list, action.payload]
 }
+export const removeEnvironmentInListReducer = (
+  state: BubbleState,
+  action: PayloadAction<{ id: string }>
+): void => {
+  state.elements.environment.list = state.elements.environment.list.filter(
+    (item) => item.id !== action.payload.id
+  )
+}
+export const sortEnvironmentsInListReducer = (state: BubbleState): void => {
+  state.elements.environment.list = state.elements.environment.list.sort((a, b) => {
+    if (a.importance < b.importance) {
+      return -1
+    }
+    if (a.importance > b.importance) {
+      return 1
+    }
+    return 0
+  })
+}
 export const resetEnvironmentReducer = (state: BubbleState): void => {
   state.elements.environment = initialBubbleState.elements.environment
+}
+export const setCurrentEnvironmentReducer = (
+  state: BubbleState,
+  action: PayloadAction<EnvironmentElementListItem>
+): void => {
+  state.elements.environment.current = action.payload
+}
+export const resetCurrentEnvironmentReducer = (state: BubbleState): void => {
+  state.elements.environment.current = initialBubbleState.elements.environment.default
+}
+export const transferEnvironmentInListToCurrentReducer = (state: BubbleState): void => {
+  if (!state.elements.environment.list.length) return
+
+  const newCurrent = state.elements.environment.list[0]
+
+  state.elements.environment = {
+    ...state.elements.environment,
+    current: newCurrent,
+    list: state.elements.environment.list.filter((item) => item.id !== newCurrent.id),
+  }
 }
 
 /* ---------- CLOTHE ---------- */
 export const addClotheInListReducer = (
   state: BubbleState,
-  action: PayloadAction<ClothesElementListItem>
+  action: PayloadAction<ClotheElementListItem>
 ): void => {
   state.elements.clothe.list = [...state.elements.clothe.list, action.payload]
 }
+export const removeClotheInListReducer = (
+  state: BubbleState,
+  action: PayloadAction<{ id: string }>
+): void => {
+  state.elements.clothe.list = state.elements.clothe.list.filter(
+    (item) => item.id !== action.payload.id
+  )
+}
+export const sortClothesInListReducer = (state: BubbleState): void => {
+  state.elements.clothe.list = state.elements.clothe.list.sort((a, b) => {
+    if (a.importance < b.importance) {
+      return -1
+    }
+    if (a.importance > b.importance) {
+      return 1
+    }
+    return 0
+  })
+}
 export const resetClotheReducer = (state: BubbleState): void => {
   state.elements.clothe = initialBubbleState.elements.clothe
+}
+export const setCurrentClotheReducer = (
+  state: BubbleState,
+  action: PayloadAction<ClotheElementListItem>
+): void => {
+  state.elements.clothe.current = action.payload
+}
+export const resetCurrentClotheReducer = (state: BubbleState): void => {
+  state.elements.clothe.current = initialBubbleState.elements.clothe.default
+}
+export const transferClotheInListToCurrentReducer = (state: BubbleState): void => {
+  if (!state.elements.clothe.list.length) return
+
+  const newCurrent = state.elements.clothe.list[0]
+
+  state.elements.clothe = {
+    ...state.elements.clothe,
+    current: newCurrent,
+    list: state.elements.clothe.list.filter((item) => item.id !== newCurrent.id),
+  }
 }
 
 /* ---------- HAT ---------- */
 export const addHatInListReducer = (
   state: BubbleState,
-  action: PayloadAction<HatsElementListItem>
+  action: PayloadAction<HatElementListItem>
 ): void => {
   state.elements.hat.list = [...state.elements.hat.list, action.payload]
 }
+export const removeHatInListReducer = (
+  state: BubbleState,
+  action: PayloadAction<{ id: string }>
+): void => {
+  state.elements.hat.list = state.elements.hat.list.filter((item) => item.id !== action.payload.id)
+}
+export const sortHatsInListReducer = (state: BubbleState): void => {
+  state.elements.hat.list = state.elements.hat.list.sort((a, b) => {
+    if (a.importance < b.importance) {
+      return -1
+    }
+    if (a.importance > b.importance) {
+      return 1
+    }
+    return 0
+  })
+}
 export const resetHatReducer = (state: BubbleState): void => {
   state.elements.hat = initialBubbleState.elements.hat
+}
+export const setCurrentHatReducer = (
+  state: BubbleState,
+  action: PayloadAction<HatElementListItem>
+): void => {
+  state.elements.hat.current = action.payload
+}
+export const resetCurrentHatReducer = (state: BubbleState): void => {
+  state.elements.hat.current = initialBubbleState.elements.hat.default
+}
+export const transferHatInListToCurrentReducer = (state: BubbleState): void => {
+  if (!state.elements.hat.list.length) return
+
+  const newCurrent = state.elements.hat.list[0]
+
+  state.elements.hat = {
+    ...state.elements.hat,
+    current: newCurrent,
+    list: state.elements.hat.list.filter((item) => item.id !== newCurrent.id),
+  }
 }
 
 /* ---------- BODY ---------- */
 export const addBodyInListReducer = (
   state: BubbleState,
-  action: PayloadAction<BodiesElementListItem>
+  action: PayloadAction<BodyElementListItem>
 ): void => {
   state.elements.body.list = [...state.elements.body.list, action.payload]
 }
+export const removeBodyInListReducer = (
+  state: BubbleState,
+  action: PayloadAction<{ id: string }>
+): void => {
+  state.elements.body.list = state.elements.body.list.filter(
+    (item) => item.id !== action.payload.id
+  )
+}
+export const sortBodiesInListReducer = (state: BubbleState): void => {
+  state.elements.body.list = state.elements.body.list.sort((a, b) => {
+    if (a.importance < b.importance) {
+      return -1
+    }
+    if (a.importance > b.importance) {
+      return 1
+    }
+    return 0
+  })
+}
 export const resetBodyReducer = (state: BubbleState): void => {
   state.elements.body = initialBubbleState.elements.body
+}
+export const setCurrentBodyReducer = (
+  state: BubbleState,
+  action: PayloadAction<BodyElementListItem>
+): void => {
+  state.elements.body.current = action.payload
+}
+export const resetCurrentBodyReducer = (state: BubbleState): void => {
+  state.elements.body.current = initialBubbleState.elements.body.default
+}
+export const transferBodyInListToCurrentReducer = (state: BubbleState): void => {
+  if (!state.elements.body.list.length) return
+
+  const newCurrent = state.elements.body.list[0]
+
+  state.elements.body = {
+    ...state.elements.body,
+    current: newCurrent,
+    list: state.elements.body.list.filter((item) => item.id !== newCurrent.id),
+  }
 }
 
 /* ---------- ONOMATOPOEIA ---------- */
@@ -220,8 +413,47 @@ export const addOnomatopoeiaInListReducer = (
 ): void => {
   state.elements.onomatopoeia.list = [...state.elements.onomatopoeia.list, action.payload]
 }
+export const removeOnomatopoeiaInListReducer = (
+  state: BubbleState,
+  action: PayloadAction<{ id: string }>
+): void => {
+  state.elements.onomatopoeia.list = state.elements.onomatopoeia.list.filter(
+    (item) => item.id !== action.payload.id
+  )
+}
+export const sortOnomatopoeiasInListReducer = (state: BubbleState): void => {
+  state.elements.onomatopoeia.list = state.elements.onomatopoeia.list.sort((a, b) => {
+    if (a.importance < b.importance) {
+      return -1
+    }
+    if (a.importance > b.importance) {
+      return 1
+    }
+    return 0
+  })
+}
 export const resetOnomatopoeiaReducer = (state: BubbleState): void => {
   state.elements.onomatopoeia = initialBubbleState.elements.onomatopoeia
+}
+export const setCurrentOnomatopoeiaReducer = (
+  state: BubbleState,
+  action: PayloadAction<OnomatopoeiaElementListItem>
+): void => {
+  state.elements.onomatopoeia.current = action.payload
+}
+export const resetCurrentOnomatopoeiaReducer = (state: BubbleState): void => {
+  state.elements.onomatopoeia.current = initialBubbleState.elements.onomatopoeia.default
+}
+export const transferOnomatopoeiaInListToCurrentReducer = (state: BubbleState): void => {
+  if (!state.elements.onomatopoeia.list.length) return
+
+  const newCurrent = state.elements.onomatopoeia.list[0]
+
+  state.elements.onomatopoeia = {
+    ...state.elements.onomatopoeia,
+    current: newCurrent,
+    list: state.elements.onomatopoeia.list.filter((item) => item.id !== newCurrent.id),
+  }
 }
 
 /* -------------------- ANIMATIONS -------------------- */
@@ -237,7 +469,7 @@ export const removeAnimationInListReducer = (
 ): void => {
   state.animation.list = state.animation.list.filter((item) => item.id !== action.payload.id)
 }
-export const sortAnimationReducer = (state: BubbleState): void => {
+export const sortAnimationsInListReducer = (state: BubbleState): void => {
   state.animation.list = state.animation.list.sort((a, b) => {
     if (a.importance < b.importance) {
       return -1
@@ -250,4 +482,24 @@ export const sortAnimationReducer = (state: BubbleState): void => {
 }
 export const resetAnimationReducer = (state: BubbleState): void => {
   state.animation = initialBubbleState.animation
+}
+export const setCurrentAnimationReducer = (
+  state: BubbleState,
+  action: PayloadAction<AnimationtListItem>
+): void => {
+  state.animation.current = action.payload
+}
+export const resetCurrentAnimationReducer = (state: BubbleState): void => {
+  state.animation.current = initialBubbleState.animation.default
+}
+export const transferAnimationInListToCurrentReducer = (state: BubbleState): void => {
+  if (!state.elements.eyes.list.length) return
+
+  const newCurrent = state.elements.eyes.list[0]
+
+  state.elements.eyes = {
+    ...state.elements.eyes,
+    current: newCurrent,
+    list: state.elements.eyes.list.filter((item) => item.id !== newCurrent.id),
+  }
 }
