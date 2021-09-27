@@ -16,22 +16,24 @@ const Container = styled('div', {
 export const Hats: React.FC = ({ children }) => {
   const [hatDOM, setHatDOM] = useState<React.ReactNode>(null)
 
-  const { hat } = useAppSelector(selectElements)
+  const {
+    hat: { current },
+  } = useAppSelector(selectElements)
 
   useEffect(() => {
     const getHat = async (): Promise<void> => {
-      if (!hat.current.name) {
+      if (!current.name) {
         setHatDOM(null)
         return null
       }
 
-      const { default: Hat } = await require(`./${hat.current.name}/index`)
+      const { default: Hat } = await require(`./${current.name}/index`)
 
       setHatDOM(<Hat />)
     }
 
     getHat()
-  }, [hat])
+  }, [current])
 
   return (
     <Container>

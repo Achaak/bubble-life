@@ -12,22 +12,24 @@ const Container = styled('div', {
 export const Bodies: React.FC = ({ children }) => {
   const [bodyDOM, setBodyDOM] = useState<React.ReactNode>(null)
 
-  const { body } = useAppSelector(selectElements)
+  const {
+    body: { current },
+  } = useAppSelector(selectElements)
 
   useEffect(() => {
     const getBody = async (): Promise<void> => {
-      if (!body.current.name) {
+      if (!current.name) {
         setBodyDOM(null)
         return null
       }
 
-      const { default: Body } = await require(`./${body.current.name}/index`)
+      const { default: Body } = await require(`./${current.name}/index`)
 
       setBodyDOM(<Body />)
     }
 
     getBody()
-  }, [body])
+  }, [current])
 
   return (
     <Container>

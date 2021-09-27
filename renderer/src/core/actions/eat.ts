@@ -1,23 +1,21 @@
 import { Action } from '../action'
 import { BubbleConfig } from '@configs/bubble'
-import {
-  addActionInAwaitList,
-  addActionInCancelList,
-  hasActionInCurrent,
-} from '@src/redux/reducers/actions/utils'
-import {
-  addSaturationAction,
-  addWeightAction,
-  resetSaturationAction,
-} from '@src/redux/reducers/bubble'
+import { addActionInAwaitList, hasAction } from '@src/redux/reducers/actions/utils'
+import { addSaturationAction, addWeightAction } from '@src/redux/reducers/bubble'
 import { store } from '@src/redux/store'
 import { Action as ActionType } from '@src/types/action'
 import { dateToMs, random } from '@src/utils'
 import dayjs from 'dayjs'
 
+const SATURATION_INCREASE_DELAY = dateToMs({ seconds: 1 })
+
 export class Action_eat extends Action {
+  lastRenderUpdateEat: number
+
   constructor() {
     super()
+
+    this.lastRenderUpdateEat = 0
 
     this.name = 'eat'
     this.actions = [
@@ -43,15 +41,13 @@ export class Action_eat extends Action {
   update = (timestamp: number): void => {
     if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) return
 
-    const hasAction = hasActionInCurrent({ name: 'eat' })
-
-    if (store.getState().bubble.vitals.saturation <= 0 && !hasAction) {
+    if (store.getState().bubble.vitals.saturation <= 0 && !hasAction({ name: 'eat' })) {
       const startEat = dayjs()
       const endEat = dayjs(startEat).add(
         BubbleConfig.actions.eat.duration +
           random({
-            min: BubbleConfig.actions.eat.margin * -1,
-            max: BubbleConfig.actions.eat.margin,
+            min: BubbleConfig.actions.eat.durationMargin * -1,
+            max: BubbleConfig.actions.eat.durationMargin,
             round: true,
           }),
         'minute'
@@ -64,6 +60,7 @@ export class Action_eat extends Action {
         startFunction: 'eat:start',
         updateFunction: 'eat:update',
         endFunction: 'eat:end',
+        cancelFunction: 'eat:cancel',
         importance: 2,
         elements: {
           onomatopoeia: {
@@ -76,21 +73,31 @@ export class Action_eat extends Action {
     this.lastRender = timestamp
   }
 
+  getSaturationPerSecond = (action: ActionType): number => {
+    const timestamp = Date.now()
+
+    const saturationMissing =
+      BubbleConfig.vitals.saturation.max - store.getState().bubble.vitals.saturation
+
+    return (
+      saturationMissing / ((action.start + action.duration - timestamp) / SATURATION_INCREASE_DELAY)
+    )
+  }
+
   handleStartEat = (): void => {
     // NOTHING
   }
 
   handleUpdateEat = (action: ActionType): void => {
-    if (store.getState().bubble.vitals.saturation >= BubbleConfig.vitals.saturation.max) {
-      addActionInCancelList({ id: action.id })
-    } else {
-      store.dispatch(addSaturationAction(1))
-    }
+    const timestamp = Date.now()
+    if (timestamp - this.lastRenderUpdateEat < SATURATION_INCREASE_DELAY) return
+
+    store.dispatch(addSaturationAction(this.getSaturationPerSecond(action)))
+
+    this.lastRenderUpdateEat = timestamp
   }
 
   handleEndEat = (): void => {
-    store.dispatch(resetSaturationAction())
-
     store.dispatch(
       addWeightAction(
         random({

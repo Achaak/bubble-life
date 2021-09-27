@@ -14,22 +14,24 @@ const Container = styled('div', {
 export const Eyes: React.FC = ({ children }) => {
   const [eyesDOM, setEyesDOM] = useState<React.ReactNode>(null)
 
-  const { eyes } = useAppSelector(selectElements)
+  const {
+    eyes: { current },
+  } = useAppSelector(selectElements)
 
   useEffect(() => {
     const getEyes = async (): Promise<void> => {
-      if (!eyes.current.name) {
+      if (!current.name) {
         setEyesDOM(null)
         return null
       }
 
-      const { default: Eyes } = await require(`./${eyes.current.name}/index`)
+      const { default: Eyes } = await require(`./${current.name}/index`)
 
       setEyesDOM(<Eyes />)
     }
 
     getEyes()
-  }, [eyes])
+  }, [current])
 
   return (
     <Container>

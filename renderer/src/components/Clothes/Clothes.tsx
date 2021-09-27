@@ -17,22 +17,24 @@ const Container = styled('div', {
 export const Clothes: React.FC = ({ children }) => {
   const [clotheDOM, setClotheDOM] = useState<React.ReactNode>(null)
 
-  const { clothe } = useAppSelector(selectElements)
+  const {
+    clothe: { current },
+  } = useAppSelector(selectElements)
 
   useEffect(() => {
     const getClothe = async (): Promise<void> => {
-      if (!clothe.current.name) {
+      if (!current.name) {
         setClotheDOM(null)
         return null
       }
 
-      const { default: Clothe } = await require(`./${clothe.current.name}/index`)
+      const { default: Clothe } = await require(`./${current.name}/index`)
 
       setClotheDOM(<Clothe />)
     }
 
     getClothe()
-  }, [clothe])
+  }, [current])
 
   return (
     <Container>

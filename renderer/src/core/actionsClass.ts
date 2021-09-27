@@ -99,8 +99,8 @@ export class Actions {
   }
 
   onStartAction = (): void => {
-    const { current, waitList } = store.getState().actions
-    const newAction = waitList[0]
+    const { waitList } = store.getState().actions
+    const newAction = { ...waitList[0] }
 
     // Add new current action
     store.dispatch(
@@ -117,7 +117,7 @@ export class Actions {
 
     // Start function
     this.triggerActionFunction({
-      action: current,
+      action: newAction,
       actionName: newAction.name,
       functionName: newAction.startFunction,
     })
@@ -243,6 +243,7 @@ export class Actions {
   onUpdateAction = (): void => {
     const { current } = store.getState().actions
 
+    // Update function
     this.triggerActionFunction({
       action: current,
       actionName: current.name,
@@ -274,7 +275,7 @@ export class Actions {
 
   onCancelAction = (): void => {
     const { cancelList } = store.getState().actions
-    const cancelAction = cancelList[0]
+    const cancelAction = { ...cancelList[0] }
 
     // End function
     this.triggerActionFunction({

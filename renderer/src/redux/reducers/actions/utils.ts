@@ -9,6 +9,10 @@ import {
 import { store } from '@src/redux/store'
 import { Action } from '@src/types/action'
 
+export const hasAction = ({ name }: { name: string }): boolean => {
+  return hasActionInAwaitList({ name }) || hasActionInCurrent({ name })
+}
+
 /* ---------- ACTIONS LIST ---------- */
 export const hasActionInAwaitList = ({ name }: { name: string }): boolean => {
   const list = store.getState().actions.waitList

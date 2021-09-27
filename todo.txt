@@ -1,6 +1,6 @@
-cancel action
-
-update eat and update sleep
-
-add sort element
-add new action system
+Add object
+Add environment
+Add shopping
+Add inventory
+Add weather report module
+Add bubble state ?

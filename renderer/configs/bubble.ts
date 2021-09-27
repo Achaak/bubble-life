@@ -10,37 +10,39 @@ export const BubbleConfig: BubbleConfigType = {
     saturation: {
       default: 12000,
       max: 12000,
-      minDecrease: 1, // Every 1s
-      maxDecrease: 2, // Every 1s
+      decrease: 1, // Every 1s
     },
     happiness: {
       default: 12000,
       max: 12000,
-      minDecrease: 1, // Every 1s
-      maxDecrease: 2, // Every 1s
+      decrease: 1, // Every 1s
     },
     tiredness: {
-      default: 12000,
-      max: 12000,
-      minDecrease: 1, // Every 1s
-      maxDecrease: 2, // Every 1s
+      default: 86400,
+      max: 86400,
+      decrease: 1, // Every 1s
     },
     health: {
       default: 12000,
       max: 12000,
-      minDecrease: 1, // Every 1s
-      maxDecrease: 2, // Every 1s
+      decrease: 1, // Every 1s
     },
   },
   actions: {
     sleep: {
-      start: '00:00', // HH:mm
+      startAt: '00:00', // HH:mm
       duration: 540, // minutes
-      margin: 30, // minutes
+      durationMargin: 30, // minutes
+    },
+    nap: {
+      duration: 1, // minutes
+      durationMargin: 0, // minutes
+      recover: 0.2, // Between 0 and 1
+      recoverMargin: 0.05, // Between 0 and 1
     },
     eat: {
-      duration: 20, // minutes
-      margin: 5, // minutes
+      duration: 1, // minutes
+      durationMargin: 5, // minutes
       minWeightToAdd: 1, // kilogram
       maxWeightToadd: 2, // kilogram
     },

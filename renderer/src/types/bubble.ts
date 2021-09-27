@@ -15,37 +15,39 @@ export interface BubbleConfigType {
     saturation: {
       default: number
       max: number
-      minDecrease: number
-      maxDecrease: number
+      decrease: number
     }
     happiness: {
       default: number
       max: number
-      minDecrease: number
-      maxDecrease: number
+      decrease: number
     }
     tiredness: {
       default: number
       max: number
-      minDecrease: number
-      maxDecrease: number
+      decrease: number
     }
     health: {
       default: number
       max: number
-      minDecrease: number
-      maxDecrease: number
+      decrease: number
     }
   }
   actions: {
     sleep: {
-      start: string
+      startAt: string
       duration: number
-      margin: number
+      durationMargin: number
+    }
+    nap: {
+      duration: number
+      durationMargin: number
+      recover: number
+      recoverMargin: number
     }
     eat: {
       duration: number
-      margin: number
+      durationMargin: number
       minWeightToAdd: number
       maxWeightToadd: number
     }
