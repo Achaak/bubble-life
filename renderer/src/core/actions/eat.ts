@@ -2,6 +2,7 @@ import { Action } from '../action'
 import { BubbleConfig } from '@configs/bubble'
 import { addActionInAwaitList, hasAction } from '@src/redux/reducers/actions/utils'
 import { addSaturationAction, addWeightAction } from '@src/redux/reducers/bubble'
+import { removeInventoryItem } from '@src/redux/reducers/bubble/utils'
 import { store } from '@src/redux/store'
 import { Action as ActionType } from '@src/types/action'
 import { dateToMs, random } from '@src/utils'
@@ -106,9 +107,11 @@ export class Action_eat extends Action {
         })
       )
     )
+
+    removeInventoryItem({ type: 'food', number: 1 })
   }
 
   handleCancelEat = (): void => {
-    // NOTHING
+    removeInventoryItem({ type: 'food', number: 1 })
   }
 }

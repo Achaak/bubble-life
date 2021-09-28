@@ -1,3 +1,5 @@
+import { InventoryItem } from '@src/redux/reducers/bubble/state'
+
 export type Eyes = 'enjoy' | 'sleep' | 'afraid' | 'sunglass'
 export type Clothes = 'coat' | null
 export type Environments = 'home' | 'market'
@@ -51,6 +53,10 @@ export interface BubbleConfigType {
       minWeightToAdd: number
       maxWeightToadd: number
     }
+    shopping: {
+      duration: number
+      durationMargin: number
+    }
   }
   defaultElements: {
     eyes: Eyes
@@ -60,4 +66,5 @@ export interface BubbleConfigType {
     body: Bodies
     onomatopoeia: Onomatopoeia
   }
+  defaultInventory: InventoryItem[]
 }
