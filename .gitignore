@@ -3,3 +3,11 @@ node_modules
 .next
 app
 dist
+
+# Yarn Berry
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
