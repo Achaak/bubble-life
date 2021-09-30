@@ -5,6 +5,7 @@ import {
   addEnvironmentInListAction,
   addEyesInListAction,
   addHatInListAction,
+  addInventoryItemAction,
   addOnomatopoeiaInListAction,
   removeAnimationInListAction,
   removeBodyInListAction,
@@ -12,6 +13,7 @@ import {
   removeEnvironmentInListAction,
   removeEyesInListAction,
   removeHatInListAction,
+  removeInventoryItemAction,
   removeOnomatopoeiaInListAction,
   resetCurrentBodyAction,
   resetCurrentClotheAction,
@@ -49,6 +51,7 @@ import {
   EnvironmentElementListItem,
   EyesElementListItem,
   HatElementListItem,
+  InventoryItemType,
   OnomatopoeiaElementListItem,
 } from './state'
 import { store } from '@src/redux/store'
@@ -280,4 +283,23 @@ export const removeAnimationAllOver = ({ id }: { id: string }): void => {
   removeAnimationInList({ id })
   resetCurrentAnimation()
   store.dispatch(transferAnimationInListToCurrentAction())
+}
+
+/* -------------------- INVENTORY -------------------- */
+export const addInventoryItem = (params: { type: InventoryItemType; number: number }): void => {
+  store.dispatch(addInventoryItemAction(params))
+}
+export const removeInventoryItem = (params: { type: InventoryItemType; number: number }): void => {
+  store.dispatch(removeInventoryItemAction(params))
+}
+export const hasInventoryItem = ({
+  number,
+  type,
+}: {
+  type: InventoryItemType
+  number: number
+}): boolean => {
+  return store
+    .getState()
+    .bubble.inventory.some((item) => item.type === type && item.stock >= number)
 }

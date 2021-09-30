@@ -73,6 +73,13 @@ export interface BubbleStateElements {
   }
 }
 
+export type InventoryItemType = 'food'
+
+export interface InventoryItem {
+  type: InventoryItemType
+  stock: number
+}
+
 export interface BubbleState {
   name: string
   animation: {
@@ -82,10 +89,7 @@ export interface BubbleState {
   }
   vitals: BubbleStateVitals
   elements: BubbleStateElements
-  inventory: {
-    type: 'food'
-    stock: number
-  }[]
+  inventory: InventoryItem[]
 }
 
 export const initialBubbleState: BubbleState = {
@@ -103,7 +107,7 @@ export const initialBubbleState: BubbleState = {
     },
     list: [],
   },
-  inventory: [],
+  inventory: BubbleConfig.defaultInventory,
   vitals: {
     weight: BubbleConfig.vitals.weight.start,
     saturation: BubbleConfig.vitals.saturation.default,

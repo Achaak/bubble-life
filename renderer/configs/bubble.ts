@@ -35,16 +35,20 @@ export const BubbleConfig: BubbleConfigType = {
       durationMargin: 30, // minutes
     },
     nap: {
-      duration: 1, // minutes
-      durationMargin: 0, // minutes
+      duration: 20, // minutes
+      durationMargin: 5, // minutes
       recover: 0.2, // Between 0 and 1
       recoverMargin: 0.05, // Between 0 and 1
     },
     eat: {
-      duration: 1, // minutes
+      duration: 20, // minutes
       durationMargin: 5, // minutes
       minWeightToAdd: 1, // kilogram
       maxWeightToadd: 2, // kilogram
+    },
+    shopping: {
+      duration: 20, // minutes
+      durationMargin: 5, // minutes
     },
   },
   defaultElements: {
@@ -55,4 +59,10 @@ export const BubbleConfig: BubbleConfigType = {
     body: 'default',
     onomatopoeia: null,
   },
+  defaultInventory: [
+    {
+      type: 'food',
+      stock: 1,
+    },
+  ],
 }

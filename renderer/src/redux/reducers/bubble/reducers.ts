@@ -7,6 +7,7 @@ import {
   EyesElementListItem,
   HatElementListItem,
   initialBubbleState,
+  InventoryItemType,
   OnomatopoeiaElementListItem,
 } from './state'
 import { BubbleConfig } from '@configs/bubble'
@@ -21,6 +22,7 @@ export const resetBubbleReducer = (state: BubbleState): void => {
   state.elements = initialBubbleState.elements
   state.name = initialBubbleState.name
   state.animation = initialBubbleState.animation
+  state.inventory = initialBubbleState.inventory
 }
 
 export const setNameReducer = (state: BubbleState, action: PayloadAction<string>): void => {
@@ -30,8 +32,8 @@ export const setNameReducer = (state: BubbleState, action: PayloadAction<string>
 /* -------------------- VITALS -------------------- */
 /* ---------- WEIGHT ---------- */
 export const setWeightReducer = (state: BubbleState, action: PayloadAction<number>): void => {
-  if (action.payload < 0) {
-    state.vitals.weight = 0
+  if (action.payload < BubbleConfig.vitals.weight.min) {
+    state.vitals.weight = BubbleConfig.vitals.weight.min
   } else if (action.payload > BubbleConfig.vitals.weight.max) {
     state.vitals.weight = BubbleConfig.vitals.weight.max
   } else {
@@ -502,4 +504,60 @@ export const transferAnimationInListToCurrentReducer = (state: BubbleState): voi
     current: newCurrent,
     list: state.elements.eyes.list.filter((item) => item.id !== newCurrent.id),
   }
+}
+
+/* -------------------- INVENTORY -------------------- */
+export const addInventoryItemReducer = (
+  state: BubbleState,
+  action: PayloadAction<{
+    type: InventoryItemType
+    number: number
+  }>
+): void => {
+  // If inventory item exist
+  if (state.inventory.some((item) => item.type === action.payload.type)) {
+    state.inventory = state.inventory.map((item) => {
+      if (item.type === action.payload.type) {
+        return {
+          ...item,
+          stock: item.stock + action.payload.number,
+        }
+      }
+
+      return item
+    })
+  } else {
+    // If inventory item not exist
+    state.inventory = [
+      ...state.inventory,
+      {
+        stock: action.payload.number,
+        type: action.payload.type,
+      },
+    ]
+  }
+}
+export const removeInventoryItemReducer = (
+  state: BubbleState,
+  action: PayloadAction<{
+    type: InventoryItemType
+    number: number
+  }>
+): void => {
+  // Remove stock
+  state.inventory = state.inventory.map((item) => {
+    if (item.type === action.payload.type) {
+      return {
+        ...item,
+        stock: item.stock - action.payload.number,
+      }
+    }
+
+    return item
+  })
+
+  // Remove stock under 0
+  state.inventory = state.inventory.filter((item) => {
+    return item.stock > 0
+  })
 }

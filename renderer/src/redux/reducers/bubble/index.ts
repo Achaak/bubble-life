@@ -109,6 +109,10 @@ export const {
   setCurrentAnimationReducer: setCurrentAnimationAction,
   resetCurrentAnimationReducer: resetCurrentAnimationAction,
   transferAnimationInListToCurrentReducer: transferAnimationInListToCurrentAction,
+
+  /* -------------------- INVENTORY -------------------- */
+  addInventoryItemReducer: addInventoryItemAction,
+  removeInventoryItemReducer: removeInventoryItemAction,
 } = bubbleSlice.actions
 
 export default bubbleSlice.reducer
