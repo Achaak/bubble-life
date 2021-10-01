@@ -15,7 +15,7 @@ export const InfoIcon: React.FC<SVGComponentIcon> = ({
         width={size}
         height={size}
         viewBox="0 0 512 512"
-        css={{ ...style }}
+        css={style}
         {...props}
       >
         <Path
