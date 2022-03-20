@@ -1,3 +1,3 @@
-import { Container } from './src/components'
+import { Container } from './src/components/Container'
 
 export default Container

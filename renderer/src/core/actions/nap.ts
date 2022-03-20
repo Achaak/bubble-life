@@ -1,7 +1,7 @@
 import { Action } from '../action'
 import { BubbleConfig } from '@configs/bubble'
-import { addActionInAwaitList, hasAction } from '@src/redux/reducers/actions/utils'
-import { addTirednessAction } from '@src/redux/reducers/bubble'
+import { addActionInAwaitList, hasAction } from '@src/redux/reducers/actions/actions'
+import { bubbleActions } from '@src/redux/reducers/bubble'
 import { store } from '@src/redux/store'
 import { Action as ActionType } from '@src/types/action'
 import { dateToMs, random } from '@src/utils'
@@ -97,11 +97,6 @@ export class Action_nap extends Action {
       BubbleConfig.vitals.tiredness.max * this.recoverValue -
       store.getState().bubble.vitals.tiredness
 
-    console.log(
-      tirednessMissing,
-      action.start + action.duration - timestamp,
-      TIREDNESS_INCREASE_DELAY
-    )
     return (
       tirednessMissing / ((action.start + action.duration - timestamp) / TIREDNESS_INCREASE_DELAY)
     )
@@ -119,7 +114,7 @@ export class Action_nap extends Action {
     // Init recover value
     if (!this.recoverValue) this.initNapRecoverValue()
 
-    store.dispatch(addTirednessAction(this.getTirednessPerSecond(action)))
+    store.dispatch(bubbleActions.addTiredness(this.getTirednessPerSecond(action)))
 
     this.lastRenderUpdateNap = timestamp
   }

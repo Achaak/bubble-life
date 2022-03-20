@@ -1,7 +1,7 @@
 import { Action } from '../action'
 import { BubbleConfig } from '@configs/bubble'
-import { addActionInAwaitList, hasAction } from '@src/redux/reducers/actions/utils'
-import { addInventoryItem, hasInventoryItem } from '@src/redux/reducers/bubble/utils'
+import { addActionInAwaitList, hasAction } from '@src/redux/reducers/actions/actions'
+import { addInventoryItem, hasInventoryItem } from '@src/redux/reducers/bubble/actions'
 import { dateToMs, random } from '@src/utils'
 import dayjs from 'dayjs'
 

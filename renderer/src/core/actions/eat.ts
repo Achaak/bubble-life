@@ -1,8 +1,8 @@
 import { Action } from '../action'
 import { BubbleConfig } from '@configs/bubble'
-import { addActionInAwaitList, hasAction } from '@src/redux/reducers/actions/utils'
-import { addSaturationAction, addWeightAction } from '@src/redux/reducers/bubble'
-import { removeInventoryItem } from '@src/redux/reducers/bubble/utils'
+import { addActionInAwaitList, hasAction } from '@src/redux/reducers/actions/actions'
+import { bubbleActions } from '@src/redux/reducers/bubble'
+import { removeInventoryItem } from '@src/redux/reducers/bubble/actions'
 import { store } from '@src/redux/store'
 import { Action as ActionType } from '@src/types/action'
 import { dateToMs, random } from '@src/utils'
@@ -54,20 +54,10 @@ export class Action_eat extends Action {
         'minute'
       )
 
-      addActionInAwaitList({
-        name: 'eat',
+      addEatActionInAwaitList({
         start: startEat.valueOf(),
         duration: endEat.valueOf() - startEat.valueOf(),
-        startFunction: 'eat:start',
-        updateFunction: 'eat:update',
-        endFunction: 'eat:end',
-        cancelFunction: 'eat:cancel',
         importance: 2,
-        elements: {
-          onomatopoeia: {
-            name: 'eat',
-          },
-        },
       })
     }
 
@@ -93,14 +83,14 @@ export class Action_eat extends Action {
     const timestamp = Date.now()
     if (timestamp - this.lastRenderUpdateEat < SATURATION_INCREASE_DELAY) return
 
-    store.dispatch(addSaturationAction(this.getSaturationPerSecond(action)))
+    store.dispatch(bubbleActions.addSaturation(this.getSaturationPerSecond(action)))
 
     this.lastRenderUpdateEat = timestamp
   }
 
   handleEndEat = (): void => {
     store.dispatch(
-      addWeightAction(
+      bubbleActions.addWeight(
         random({
           min: BubbleConfig.actions.eat.minWeightToAdd,
           max: BubbleConfig.actions.eat.maxWeightToadd,
@@ -114,4 +104,30 @@ export class Action_eat extends Action {
   handleCancelEat = (): void => {
     removeInventoryItem({ type: 'food', number: 1 })
   }
+}
+
+export const addEatActionInAwaitList = ({
+  start,
+  duration,
+  importance,
+}: {
+  start: number
+  duration: number
+  importance: 1 | 2 | 3
+}): void => {
+  addActionInAwaitList({
+    name: 'eat',
+    start: start,
+    duration: duration,
+    startFunction: 'eat:start',
+    updateFunction: 'eat:update',
+    endFunction: 'eat:end',
+    cancelFunction: 'eat:cancel',
+    importance: importance,
+    elements: {
+      onomatopoeia: {
+        name: 'eat',
+      },
+    },
+  })
 }

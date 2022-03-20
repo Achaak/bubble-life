@@ -29,7 +29,7 @@ interface CustomProps {
   dateFormat: string
 }
 
-export const Container: React.FC<CustomProps> = ({ dateFormat }) => {
+export const Container = ({ dateFormat }: CustomProps): JSX.Element => {
   const [loaded, setLoaded] = useState(false)
   const [timer, setTimer] = useState<string | null>(null)
   const [date, setDate] = useState<string | null>(null)
@@ -53,6 +53,7 @@ export const Container: React.FC<CustomProps> = ({ dateFormat }) => {
     }, 1000)
 
     return () => clearInterval(timer)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   if (!loaded) return null

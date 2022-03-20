@@ -1,11 +1,13 @@
-import { Bar } from '../Bar'
+import { BxBaguette } from '../Icons/bx-baguette'
+import { BxBed } from '../Icons/bx-bed'
+import { BxDroplet } from '../Icons/bx-droplet'
+import { BxHeart } from '../Icons/bx-heart'
+import { Bar } from './Bar'
 import { BubbleConfig } from '@configs/bubble'
 import { useAppSelector } from '@src/redux/hooks'
 import { selectName, selectVitals } from '@src/redux/reducers/bubble'
 import { styled } from '@src/styles'
-import i18n from '@src/utils/i18n'
 import React from 'react'
-import { useTranslation } from 'react-i18next'
 
 const Container = styled('div', {
   display: 'flex',
@@ -45,32 +47,22 @@ export const Stats: React.FC = () => {
   const name = useAppSelector(selectName)
 
   //console.log(useAppSelector(selectVitals))
-  const { t } = useTranslation(['words'], { i18n: i18n, useSuspense: false })
 
   return (
     <Container>
       <Left>
         <Bar
-          label={t('words:saturation')}
           percentage={(100 / BubbleConfig.vitals.saturation.max) * saturation}
+          Icon={BxBaguette}
         />
-        <Bar
-          label={t('words:happiness')}
-          percentage={(100 / BubbleConfig.vitals.happiness.max) * happiness}
-        />
+        <Bar percentage={(100 / BubbleConfig.vitals.happiness.max) * happiness} Icon={BxDroplet} />
       </Left>
       <Center>
         <Name>{name}</Name>
       </Center>
       <Right>
-        <Bar
-          label={t('words:tiredness')}
-          percentage={(100 / BubbleConfig.vitals.tiredness.max) * tiredness}
-        />
-        <Bar
-          label={t('words:health')}
-          percentage={(100 / BubbleConfig.vitals.health.max) * health}
-        />
+        <Bar percentage={(100 / BubbleConfig.vitals.tiredness.max) * tiredness} Icon={BxBed} />
+        <Bar percentage={(100 / BubbleConfig.vitals.health.max) * health} Icon={BxHeart} />
       </Right>
     </Container>
   )

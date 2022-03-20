@@ -1,11 +1,4 @@
-import {
-  addActionInAwaitListAction,
-  addActionInCancelListAction,
-  removeActionInAwaitListAction,
-  removeActionInCancelListAction,
-  resetCurrentActionAction,
-  sortActionsInAwaitListAction,
-} from '.'
+import { actionsActions } from '.'
 import { store } from '@src/redux/store'
 import { Action } from '@src/types/action'
 
@@ -20,12 +13,12 @@ export const hasActionInAwaitList = ({ name }: { name: string }): boolean => {
   return list.filter((item) => item.name === name).length > 0
 }
 export const addActionInAwaitList = (action: Action): void => {
-  store.dispatch(addActionInAwaitListAction(action))
-  store.dispatch(sortActionsInAwaitListAction())
+  store.dispatch(actionsActions.addActionInAwaitList(action))
+  store.dispatch(actionsActions.sortActionsInAwaitList())
 }
 export const removeActionInAwaitList = ({ id }: { id: string }): void => {
-  store.dispatch(removeActionInAwaitListAction({ id }))
-  store.dispatch(sortActionsInAwaitListAction())
+  store.dispatch(actionsActions.removeActionInAwaitList({ id }))
+  store.dispatch(actionsActions.sortActionsInAwaitList())
 }
 
 /* ---------- CANCEL ACTION ---------- */
@@ -45,17 +38,17 @@ export const addActionInCancelList = ({ id }: { id: string }): void => {
 
   if (!action) return
 
-  store.dispatch(addActionInCancelListAction(action))
+  store.dispatch(actionsActions.addActionInCancelList(action))
 }
 export const removeActionInCancelList = ({ id }: { id: string }): void => {
-  store.dispatch(removeActionInCancelListAction({ id }))
+  store.dispatch(actionsActions.removeActionInCancelList({ id }))
   removeActionInAwaitList({ id })
   resetCurrentAction()
 }
 
 /* ---------- CURRENT ACTION ---------- */
 export const resetCurrentAction = (): void => {
-  store.dispatch(resetCurrentActionAction())
+  store.dispatch(actionsActions.resetCurrentAction())
 }
 export const hasActionInCurrent = ({ name }: { name: string }): boolean => {
   const current = store.getState().actions.current

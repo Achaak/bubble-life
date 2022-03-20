@@ -1,6 +1,20 @@
+import { borderRadius } from './borderRadius'
+import { BorderStyles } from './borderStyles'
+import { BorderWidths } from './borderWidths'
 import { Colors } from './colors'
+import { FontSizes } from './fontSizes'
+import { FontWeights } from './fontWeights'
+import { gap } from './gap'
+import { LetterSpacings } from './letterSpacings'
+import { LineHeights } from './lineHeights'
+import { Radii } from './radii'
 import { Shadows } from './shadows'
-import { createStitches, CSS as CSSStitches } from '@stitches/react'
+import { Sizes } from './sizes'
+import { Space } from './space'
+import { Transitions } from './transitions'
+import { ZIndices } from './zIndices'
+import type { CSS as CSSStitches } from '@stitches/react'
+import { createStitches } from '@stitches/react'
 
 export const stitchesConfig = createStitches({
   prefix: '',
@@ -10,81 +24,28 @@ export const stitchesConfig = createStitches({
       roboto: 'Roboto',
     },
     shadows: Shadows,
-    fontSizes: {},
-    space: {},
-    sizes: {},
-    fontWeights: {},
-    lineHeights: {},
-    letterSpacings: {},
-    borderWidths: {},
-    borderStyles: {},
-    radii: {},
-    zIndices: {},
-    transitions: {},
+    fontSizes: FontSizes,
+    space: Space,
+    sizes: Sizes,
+    fontWeights: FontWeights,
+    lineHeights: LineHeights,
+    letterSpacings: LetterSpacings,
+    borderWidths: BorderWidths,
+    borderStyles: BorderStyles,
+    radii: Radii,
+    zIndices: ZIndices,
+    transitions: Transitions,
   },
   media: {
+    xs: '(min-width: 480px)',
     sm: '(min-width: 640px)',
     md: '(min-width: 768px)',
     lg: '(min-width: 1024px)',
     xl: '(min-width: 1280px)',
   },
   utils: {
-    customGap: (value: number) => ({
-      '@supports not (gap: 10px)': {
-        '& > *': {
-          margin: value / 2,
-        },
-      },
-      '@supports (gap: 10px)': {
-        gap: value,
-      },
-    }),
-    customColumnGap: (value: number) => ({
-      '@supports not (gap: 10px)': {
-        '& > *': {
-          marginLeft: value / 2,
-          marginRight: value / 2,
-        },
-      },
-      '@supports (gap: 10px)': {
-        columnGap: `${value}px`,
-      },
-    }),
-    customRowGap: (value: number) => ({
-      '@supports not (gap: 10px)': {
-        '& > *': {
-          marginTop: value / 2,
-          marginBottom: value / 2,
-        },
-      },
-      '@supports (gap: 10px)': {
-        gap: value,
-      },
-    }),
-    br: (value: 1 | 2 | 3 | 4 | 'round') => {
-      switch (value) {
-        case 1:
-          return {
-            borderRadius: 4,
-          }
-        case 2:
-          return {
-            borderRadius: 8,
-          }
-        case 3:
-          return {
-            borderRadius: 16,
-          }
-        case 4:
-          return {
-            borderRadius: 32,
-          }
-        case 'round':
-          return {
-            borderRadius: 5000,
-          }
-      }
-    },
+    ...gap,
+    ...borderRadius,
     m: (value: number | string) => ({
       marginTop: value,
       marginBottom: value,
@@ -122,7 +83,9 @@ export const stitchesConfig = createStitches({
       height: 'auto',
     }),
     col: (value: number | string) => {
-      if (!value) return {}
+      if (!value) {
+        return {}
+      }
 
       const split = value.toString().split(' ')
 
@@ -133,20 +96,20 @@ export const stitchesConfig = createStitches({
   },
 })
 
-export type CSS = CSSStitches<typeof stitchesConfig>
-
 export const {
   styled,
   css,
-  createTheme,
-  getCssText,
   globalCss,
+  keyframes,
+  getCssText,
+  config,
+  createTheme,
   prefix,
   reset,
-  keyframes,
-  config,
   theme,
 } = stitchesConfig
+
+export type CSS = CSSStitches<typeof stitchesConfig>
 
 export const globalStyles = globalCss({
   h1: { margin: 0 },
@@ -155,6 +118,7 @@ export const globalStyles = globalCss({
     backgroundColor: '$BLACK',
     fontFamily: '$roboto',
     minWidth: 300,
+    scrollBehavior: 'smooth',
   },
   '*': {
     margin: 0,

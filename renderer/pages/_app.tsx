@@ -1,11 +1,37 @@
-import { App } from '@src/components/_app'
+import TypesafeI18n from '@src/i18n/i18n-react'
+import { Locales } from '@src/i18n/i18n-types'
+import { detectLocale } from '@src/i18n/i18n-util'
+import { loadLocaleAsync } from '@src/i18n/i18n-util.async'
+import { persistor, store } from '@src/redux/store'
 import { globalStyles } from '@src/styles/css'
+import { NextPage } from 'next'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
 
-const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
+export type NextPageWithLayout<T extends Record<string, unknown> = Record<string, unknown>> =
+  NextPage<T> & {
+    getLayout?: (page: React.ReactElement) => React.ReactNode
+  }
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+}
+
+const MyApp = ({ Component, pageProps, router }: AppPropsWithLayout): JSX.Element => {
+  const getLayout = Component.getLayout ?? ((page: React.ReactElement): React.ReactElement => page)
+
+  const [locale, setLocale] = useState<Locales | undefined>(undefined)
+
   globalStyles()
+
+  useEffect(() => {
+    const l = detectLocale(() => [router.locale || 'en'])
+
+    loadLocaleAsync(l).then(() => setLocale(l))
+  }, [router.locale])
 
   return (
     <>
@@ -22,9 +48,15 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
 
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
-      <App>
-        <Component {...pageProps} />
-      </App>
+      {locale && (
+        <TypesafeI18n locale={locale}>
+          <Provider store={store}>
+            <PersistGate loading={null} persistor={persistor}>
+              {getLayout(<Component {...pageProps} />)}
+            </PersistGate>
+          </Provider>
+        </TypesafeI18n>
+      )}
     </>
   )
 }

@@ -4,8 +4,11 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "../i18n-generate.ts"  ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "compilerOptions": {
+    "incremental": true
+  }
 }

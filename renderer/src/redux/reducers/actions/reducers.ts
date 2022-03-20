@@ -12,7 +12,7 @@ import {
 } from '@src/types/action'
 import shortid from 'shortid'
 
-export const resetActionsReducer = (state: ActionsState): void => {
+export const resetActions = (state: ActionsState): void => {
   for (const key in state) {
     delete state[key]
   }
@@ -23,10 +23,7 @@ export const resetActionsReducer = (state: ActionsState): void => {
 }
 
 /* ---------- ACTIONS LIST ---------- */
-export const addActionInAwaitListReducer = (
-  state: ActionsState,
-  action: PayloadAction<Action>
-): void => {
+export const addActionInAwaitList = (state: ActionsState, action: PayloadAction<Action>): void => {
   state.waitList = [
     ...state.waitList,
     {
@@ -37,13 +34,13 @@ export const addActionInAwaitListReducer = (
 
   console.log('Add action:', action.payload.name)
 }
-export const removeActionInAwaitListReducer = (
+export const removeActionInAwaitList = (
   state: ActionsState,
   action: PayloadAction<{ id: string }>
 ): void => {
   state.waitList = state.waitList.filter((item) => item.id !== action.payload.id)
 }
-export const sortActionsInAwaitListReducer = (state: ActionsState): void => {
+export const sortActionsInAwaitList = (state: ActionsState): void => {
   state.waitList = state.waitList
     .sort((a, b) => {
       if (a.start < b.start) {
@@ -66,13 +63,10 @@ export const sortActionsInAwaitListReducer = (state: ActionsState): void => {
 }
 
 /* ---------- CANCEL ACTION ---------- */
-export const addActionInCancelListReducer = (
-  state: ActionsState,
-  action: PayloadAction<Action>
-): void => {
+export const addActionInCancelList = (state: ActionsState, action: PayloadAction<Action>): void => {
   state.cancelList = [...state.cancelList, action.payload]
 }
-export const removeActionInCancelListReducer = (
+export const removeActionInCancelList = (
   state: ActionsState,
   action: PayloadAction<{ id: string }>
 ): void => {
@@ -80,52 +74,49 @@ export const removeActionInCancelListReducer = (
 }
 
 /* ---------- CURRENT ACTION ---------- */
-export const setCurrentActionReducer = (
-  state: ActionsState,
-  action: PayloadAction<Action>
-): void => {
+export const setCurrentAction = (state: ActionsState, action: PayloadAction<Action>): void => {
   state.current = action.payload
 }
-export const resetCurrentActionReducer = (state: ActionsState): void => {
+export const resetCurrentAction = (state: ActionsState): void => {
   state.current = null
 }
-export const updateCurrentActionElementEyesReducer = (
+export const updateCurrentActionElementEyes = (
   state: ActionsState,
   action: PayloadAction<ActionElementEyes>
 ): void => {
   state.current.elements.eyes = action.payload
 }
-export const updateCurrentActionElementClotheReducer = (
+export const updateCurrentActionElementClothe = (
   state: ActionsState,
   action: PayloadAction<ActionElementClothe>
 ): void => {
   state.current.elements.clothe = action.payload
 }
-export const updateCurrentActionElementEnvironmentReducer = (
+export const updateCurrentActionElementEnvironment = (
   state: ActionsState,
   action: PayloadAction<ActionElementEnvironment>
 ): void => {
   state.current.elements.environment = action.payload
 }
-export const updateCurrentActionElementHatReducer = (
+export const updateCurrentActionElementHat = (
   state: ActionsState,
   action: PayloadAction<ActionElementHat>
 ): void => {
   state.current.elements.hat = action.payload
 }
-export const updateCurrentActionElementBodyReducer = (
+export const updateCurrentActionElementBody = (
   state: ActionsState,
   action: PayloadAction<ActionElementBody>
 ): void => {
   state.current.elements.body = action.payload
 }
-export const updateCurrentActionElementOnomatopoeiaReducer = (
+export const updateCurrentActionElementOnomatopoeia = (
   state: ActionsState,
   action: PayloadAction<ActionElementOnomatopoeia>
 ): void => {
   state.current.elements.onomatopoeia = action.payload
 }
-export const updateCurrentActionAnimationReducer = (
+export const updateCurrentActionAnimation = (
   state: ActionsState,
   action: PayloadAction<ActionAnimation>
 ): void => {

@@ -1,20 +1,11 @@
 import { Action } from './action'
 import { ActionsList } from './actions'
-import {
-  setCurrentActionAction,
-  resetCurrentActionAction,
-  updateCurrentActionElementEyesAction,
-  updateCurrentActionElementOnomatopoeiaAction,
-  updateCurrentActionElementEnvironmentAction,
-  updateCurrentActionElementClotheAction,
-  updateCurrentActionElementHatAction,
-  updateCurrentActionElementBodyAction,
-  updateCurrentActionAnimationAction,
-} from '@src/redux/reducers/actions'
+import '@src/redux/reducers/actions'
+import { actionsActions } from '@src/redux/reducers/actions'
 import {
   removeActionInAwaitList,
   removeActionInCancelList,
-} from '@src/redux/reducers/actions/utils'
+} from '@src/redux/reducers/actions/actions'
 import {
   addAnimationInList,
   addBodyInList,
@@ -30,7 +21,7 @@ import {
   removeEyesAllOver,
   removeHatAllOver,
   removeOnomatopoeiaAllOver,
-} from '@src/redux/reducers/bubble/utils'
+} from '@src/redux/reducers/bubble/actions'
 import { store } from '@src/redux/store'
 import { Action as ActionType } from '@src/types/action'
 import dayjs from 'dayjs'
@@ -104,7 +95,7 @@ export class Actions {
 
     // Add new current action
     store.dispatch(
-      setCurrentActionAction({
+      actionsActions.setCurrentAction({
         ...newAction,
         start: dayjs().valueOf(),
       })
@@ -133,7 +124,7 @@ export class Actions {
         name: newAction.elements.eyes.name,
       })
       store.dispatch(
-        updateCurrentActionElementEyesAction({
+        actionsActions.updateCurrentActionElementEyes({
           id,
           name: newAction.elements.eyes.name,
         })
@@ -149,7 +140,7 @@ export class Actions {
         name: newAction.elements.environment.name,
       })
       store.dispatch(
-        updateCurrentActionElementEnvironmentAction({
+        actionsActions.updateCurrentActionElementEnvironment({
           id,
           name: newAction.elements.environment.name,
         })
@@ -165,7 +156,7 @@ export class Actions {
         name: newAction.elements.clothe.name,
       })
       store.dispatch(
-        updateCurrentActionElementClotheAction({
+        actionsActions.updateCurrentActionElementClothe({
           id,
           name: newAction.elements.clothe.name,
         })
@@ -181,7 +172,7 @@ export class Actions {
         name: newAction.elements.hat.name,
       })
       store.dispatch(
-        updateCurrentActionElementHatAction({
+        actionsActions.updateCurrentActionElementHat({
           id,
           name: newAction.elements.hat.name,
         })
@@ -197,7 +188,7 @@ export class Actions {
         name: newAction.elements.body.name,
       })
       store.dispatch(
-        updateCurrentActionElementBodyAction({
+        actionsActions.updateCurrentActionElementBody({
           id,
           name: newAction.elements.body.name,
         })
@@ -213,7 +204,7 @@ export class Actions {
         name: newAction.elements.onomatopoeia.name,
       })
       store.dispatch(
-        updateCurrentActionElementOnomatopoeiaAction({
+        actionsActions.updateCurrentActionElementOnomatopoeia({
           id,
           name: newAction.elements.onomatopoeia.name,
         })
@@ -230,7 +221,7 @@ export class Actions {
         name: newAction.animation.name,
       })
       store.dispatch(
-        updateCurrentActionAnimationAction({
+        actionsActions.updateCurrentActionAnimation({
           id,
           name: newAction.animation.name,
         })
@@ -270,7 +261,7 @@ export class Actions {
     console.log('[End action]', current.name)
 
     // Remove current action
-    store.dispatch(resetCurrentActionAction())
+    store.dispatch(actionsActions.resetCurrentAction())
   }
 
   onCancelAction = (): void => {

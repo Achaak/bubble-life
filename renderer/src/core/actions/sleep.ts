@@ -1,7 +1,7 @@
 import { Action } from '../action'
 import { BubbleConfig } from '@configs/bubble'
-import { addActionInAwaitList, hasAction } from '@src/redux/reducers/actions/utils'
-import { addTirednessAction } from '@src/redux/reducers/bubble'
+import { addActionInAwaitList, hasAction } from '@src/redux/reducers/actions/actions'
+import { bubbleActions } from '@src/redux/reducers/bubble'
 import { store } from '@src/redux/store'
 import { Action as ActionType } from '@src/types/action'
 import { dateToMs, random } from '@src/utils'
@@ -119,7 +119,7 @@ export class Action_sleep extends Action {
     const timestamp = Date.now()
     if (timestamp - this.lastRenderUpdateSleep < TIREDNESS_INCREASE_DELAY) return
 
-    store.dispatch(addTirednessAction(this.getTirednessPerSecond(action)))
+    store.dispatch(bubbleActions.addTiredness(this.getTirednessPerSecond(action)))
 
     this.lastRenderUpdateSleep = timestamp
   }

@@ -9,4 +9,8 @@ export const ModulesConfig: ModulesConfigType[] = [
       lang: 'fr',
     },
   },
+  {
+    name: 'devtool',
+    position: 'top-right',
+  },
 ]

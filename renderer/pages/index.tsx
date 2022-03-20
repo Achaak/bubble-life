@@ -1,6 +1,12 @@
-import { Bubble, Stats, Modules } from '@src/components'
+import { NextPageWithLayout } from './_app'
+import { GlobalConfig } from '@configs/global'
+import { Bubble } from '@src/components/Bubble'
+import { Modules } from '@src/components/Modules'
+import { Stats } from '@src/components/Stats'
+import { DefaultLayout } from '@src/components/layouts/default'
 import { styled } from '@src/styles'
 import React from 'react'
+import FPSStats from 'react-fps-stats'
 
 const Overlay = styled('div', {
   position: 'absolute',
@@ -12,16 +18,22 @@ const Overlay = styled('div', {
   flexDirection: 'column',
 })
 
-const Home: React.FC = () => {
+const Home: NextPageWithLayout = () => {
   return (
     <>
-      <Bubble />
+      {GlobalConfig.development.showFPS ? <FPSStats /> : null}
+
       <Overlay>
         <Modules />
         <Stats />
       </Overlay>
+      <Bubble />
     </>
   )
+}
+
+Home.getLayout = (page: React.ReactElement): React.ReactElement => {
+  return <DefaultLayout>{page}</DefaultLayout>
 }
 
 export default Home

@@ -1,9 +1,12 @@
+import { SVGComponentIcon } from '@src/components/Icons/types'
 import { styled } from '@src/styles/css'
 import React from 'react'
 
 const Container = styled('div', {
   display: 'flex',
-  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  customColumnGap: 12,
   width: '100%',
 })
 
@@ -15,6 +18,7 @@ const BarContainer = styled('div', {
   borderRadius: 50,
   overflow: 'hidden',
   position: 'relative',
+  flex: 1,
 })
 
 const BarContent = styled('div', {
@@ -36,11 +40,6 @@ const BarItem = styled('div', {
   backgroundColor: '$WHITE',
 })
 
-const Label = styled('span', {
-  textTransform: 'capitalize',
-  marginBottom: 4,
-})
-
 const HideElement = styled('div', {
   position: 'absolute',
   right: 0,
@@ -52,10 +51,10 @@ const HideElement = styled('div', {
 
 interface CustomProps {
   percentage: number
-  label: string
+  Icon: React.FC<SVGComponentIcon>
 }
 
-export const Bar: React.FC<CustomProps> = ({ percentage, label }) => {
+export const Bar: React.FC<CustomProps> = ({ percentage, Icon }) => {
   const getBarItems = (): React.ReactNode => {
     const bars = []
 
@@ -68,7 +67,7 @@ export const Bar: React.FC<CustomProps> = ({ percentage, label }) => {
 
   return (
     <Container>
-      <Label>{label}</Label>
+      <Icon size={24} colorName="WHITE" />
 
       <BarContainer>
         <BarContent>

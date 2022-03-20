@@ -4,6 +4,7 @@ import { Eyes } from '../Eyes'
 import { Hats } from '../Hats'
 import { Onomatopoeias } from '../Onomatopoeias'
 import { BubbleConfig } from '@configs/bubble'
+import { addEatActionInAwaitList } from '@src/core/actions/eat'
 import { useAppSelector } from '@src/redux/hooks'
 import { selectVitals } from '@src/redux/reducers/bubble'
 import { styled } from '@src/styles/css'
@@ -62,8 +63,17 @@ export const Bubble: React.FC = () => {
     setScale(getSize())
   }, [weight])
 
+  const handleClickOnBubble = (): void => {
+    console.log('click on bubble')
+    addEatActionInAwaitList({
+      duration: 1000,
+      importance: 1,
+      start: Date.now(),
+    })
+  }
+
   return (
-    <Container>
+    <Container onClick={handleClickOnBubble}>
       <Size
         css={{
           transform: `scale(${scale})`,
