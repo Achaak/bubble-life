@@ -1,0 +1,44 @@
+{
+  "name": "@bubble/translate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "source": "./src/index.ts",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write \"**/*.{ts,tsx}\" && npx sort-package-json",
+    "i18n": "typesafe-i18n",
+    "i18n:generate": "ts-node i18n-generate",
+    "lint": "cross-env TIMING=1 eslint src --fix"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "typesafe-i18n": "^4.4.2"
+  },
+  "devDependencies": {
+    "@bubble/config": "*",
+    "@bubble/tsconfig": "*",
+    "@types/node": "^17.0.21",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.11.0",
+    "prettier": "^2.6.0",
+    "ts-node": "^10.7.0",
+    "typescript": "4.6.2"
+  },
+  "node": "12.20.0 || 14.13.1 || >=16.0.0"
+}

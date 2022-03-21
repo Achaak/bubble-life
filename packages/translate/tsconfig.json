@@ -1,0 +1,18 @@
+{
+  "extends": "@bubble/tsconfig/base.json",
+  "include": ["src"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "module": "commonjs",
+    "jsx": "react",
+    "suppressImplicitAnyIndexErrors": true,
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  }
+}
