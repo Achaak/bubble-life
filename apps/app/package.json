@@ -2,6 +2,7 @@
   "name": "@bubble/app",
   "description": "Bubble-life is a NodeJs project for various device. He can inform you of the weather, the time or your calendar. All this with Bubble who will live this life according to your modules.",
   "main": "app/background.js",
+  "version": "0.0.1",
   "scripts": {
     "build": "nextron build",
     "build:all": "nextron build --all",
