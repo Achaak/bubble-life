@@ -20,7 +20,7 @@ export const Bodies: React.FC = ({ children }) => {
     const getBody = async (): Promise<void> => {
       if (!current.name) {
         setBodyDOM(null)
-        return null
+        return
       }
 
       const { default: Body } = await require(`./${current.name}/index`)

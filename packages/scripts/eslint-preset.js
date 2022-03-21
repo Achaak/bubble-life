@@ -2,7 +2,7 @@ module.exports = {
   env: {
     es6: true,
     browser: true,
-    node: true
+    node: true,
   },
   parser: "@typescript-eslint/parser",
   extends: [
@@ -10,15 +10,15 @@ module.exports = {
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
   ],
   plugins: ["@typescript-eslint", "prettier"],
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: "module",
     ecmaFeatures: {
-      jsx: true
-    }
+      jsx: true,
+    },
   },
   rules: {
     "prettier/prettier": "error",
@@ -39,30 +39,27 @@ module.exports = {
       "warn",
       {
         selector: "default",
-        format: ["camelCase"]
+        format: ["camelCase"],
       },
-
       {
         selector: "variable",
-        format: ["camelCase", "UPPER_CASE", "PascalCase", "snake_case"]
+        format: ["camelCase", "UPPER_CASE", "PascalCase", "snake_case"],
       },
       {
         selector: "parameter",
         format: ["camelCase", "PascalCase"],
-        leadingUnderscore: "allow"
+        leadingUnderscore: "allow",
       },
-
       {
         selector: "memberLike",
         modifiers: ["private"],
         format: ["camelCase"],
-        leadingUnderscore: "require"
+        leadingUnderscore: "require",
       },
-
       {
         selector: "typeLike",
-        format: ["PascalCase"]
-      }
-    ]
-  }
+        format: ["PascalCase"],
+      },
+    ],
+  },
 };

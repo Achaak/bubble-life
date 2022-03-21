@@ -22,7 +22,7 @@ export const Onomatopoeias: React.FC = ({ children }) => {
     const getOnomatopoeia = async (): Promise<void> => {
       if (!current.name) {
         setOnomatopoeiaDOM(null)
-        return null
+        return
       }
 
       const { default: Onomatopoeia } = await require(`./${current.name}/index`)

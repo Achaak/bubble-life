@@ -25,7 +25,7 @@ export const Clothes: React.FC = ({ children }) => {
     const getClothe = async (): Promise<void> => {
       if (!current.name) {
         setClotheDOM(null)
-        return null
+        return
       }
 
       const { default: Clothe } = await require(`./${current.name}/index`)

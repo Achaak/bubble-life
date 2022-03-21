@@ -9,5 +9,5 @@ const Clothe = styled('img', {
 })
 
 export const ClotheCoat: React.FC = () => {
-  return <Clothe src="/svg/clothes/coat.svg" width="105%" />
+  return <Clothe src="/svg/clothes/coat.svg" width="104%" />
 }

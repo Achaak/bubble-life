@@ -10,7 +10,7 @@ import {
   addOnomatopoeiaInList,
   resetAnimation,
 } from '@src/redux/reducers/bubble/actions'
-import {
+import type {
   AnimationtListItem,
   BodyElementListItem,
   ClotheElementListItem,
@@ -77,59 +77,109 @@ declare global {
 }
 
 export const initWindow = (): void => {
-  window.resetBubble = () => {
+  window.resetBubble = (): void => {
     store.dispatch(bubbleActions.resetBubble())
     store.dispatch(actionsActions.resetActions())
   }
 
   /* -------------------- VITALS -------------------- */
-  window.setWeight = (value) => store.dispatch(bubbleActions.setWeight(value))
-  window.resetWeight = () => store.dispatch(bubbleActions.resetWeight())
+  window.setWeight = (value): void => {
+    store.dispatch(bubbleActions.setWeight(value))
+  }
+  window.resetWeight = (): void => {
+    store.dispatch(bubbleActions.resetWeight())
+  }
 
-  window.setSaturation = (value) => store.dispatch(bubbleActions.setSaturation(value))
-  window.resetSaturation = () => store.dispatch(bubbleActions.resetSaturation())
+  window.setSaturation = (value): void => {
+    store.dispatch(bubbleActions.setSaturation(value))
+  }
+  window.resetSaturation = (): void => {
+    store.dispatch(bubbleActions.resetSaturation())
+  }
 
-  window.setHappiness = (value) => store.dispatch(bubbleActions.setHappiness(value))
-  window.resetHappiness = () => store.dispatch(bubbleActions.resetHappiness())
+  window.setHappiness = (value): void => {
+    store.dispatch(bubbleActions.setHappiness(value))
+  }
+  window.resetHappiness = (): void => {
+    store.dispatch(bubbleActions.resetHappiness())
+  }
 
-  window.setTiredness = (value) => store.dispatch(bubbleActions.setTiredness(value))
-  window.resetTiredness = () => store.dispatch(bubbleActions.resetTiredness())
+  window.setTiredness = (value): void => {
+    store.dispatch(bubbleActions.setTiredness(value))
+  }
+  window.resetTiredness = (): void => {
+    store.dispatch(bubbleActions.resetTiredness())
+  }
 
-  window.setHealth = (value) => store.dispatch(bubbleActions.setHealth(value))
-  window.resetHealth = () => store.dispatch(bubbleActions.resetHealth())
+  window.setHealth = (value): void => {
+    store.dispatch(bubbleActions.setHealth(value))
+  }
+  window.resetHealth = (): void => {
+    store.dispatch(bubbleActions.resetHealth())
+  }
 
   /* -------------------- ELEMENTS -------------------- */
   /* ---------- EYES ---------- */
-  window.addEyesInList = (eyesElementListItem) => addEyesInList(eyesElementListItem)
-  window.resetEyes = () => store.dispatch(bubbleActions.resetEyes())
+  window.addEyesInList = (eyesElementListItem): void => {
+    addEyesInList(eyesElementListItem)
+  }
+  window.resetEyes = (): void => {
+    store.dispatch(bubbleActions.resetEyes())
+  }
 
   /* ---------- HAT ---------- */
-  window.addHatInList = (HatElementListItem) => addHatInList(HatElementListItem)
-  window.resetHat = () => store.dispatch(bubbleActions.resetHat())
+  window.addHatInList = (HatElementListItem): void => {
+    addHatInList(HatElementListItem)
+  }
+  window.resetHat = (): void => {
+    store.dispatch(bubbleActions.resetHat())
+  }
 
   /* ---------- CLOTHE ---------- */
-  window.addClotheInList = (ClotheElementListItem) => addClotheInList(ClotheElementListItem)
-  window.resetClothe = () => store.dispatch(bubbleActions.resetClothe())
+  window.addClotheInList = (ClotheElementListItem): void => {
+    addClotheInList(ClotheElementListItem)
+  }
+  window.resetClothe = (): void => {
+    store.dispatch(bubbleActions.resetClothe())
+  }
 
   /* ---------- BODY ---------- */
-  window.addBodyInList = (BodyElementListItem) => addBodyInList(BodyElementListItem)
-  window.resetBody = () => store.dispatch(bubbleActions.resetBody())
+  window.addBodyInList = (BodyElementListItem): void => {
+    addBodyInList(BodyElementListItem)
+  }
+  window.resetBody = (): void => {
+    store.dispatch(bubbleActions.resetBody())
+  }
 
   /* ---------- ENVIRONMENT ---------- */
-  window.addEnvironmentInList = (EnvironmentElementListItem) =>
+  window.addEnvironmentInList = (EnvironmentElementListItem): void => {
     addEnvironmentInList(EnvironmentElementListItem)
-  window.resetEnvironment = () => store.dispatch(bubbleActions.resetEnvironment())
+  }
+  window.resetEnvironment = (): void => {
+    store.dispatch(bubbleActions.resetEnvironment())
+  }
 
   /* ---------- ONOMATOPOEIA ---------- */
-  window.addOnomatopoeiaInList = (onomatopoeiaElementListItem) =>
+  window.addOnomatopoeiaInList = (onomatopoeiaElementListItem): void => {
     addOnomatopoeiaInList(onomatopoeiaElementListItem)
-  window.resetOnomatopoeia = () => store.dispatch(bubbleActions.resetOnomatopoeia())
+  }
+  window.resetOnomatopoeia = (): void => {
+    store.dispatch(bubbleActions.resetOnomatopoeia())
+  }
 
   /* -------------------- ANIMATIONS -------------------- */
-  window.addAnimationInList = (animationListItem) => addAnimationInList(animationListItem)
-  window.resetAnimation = () => resetAnimation()
+  window.addAnimationInList = (animationListItem): void => {
+    addAnimationInList(animationListItem)
+  }
+  window.resetAnimation = (): void => {
+    resetAnimation()
+  }
 
   /* -------------------- STATS -------------------- */
-  window.bubble = () => store.getState().bubble
-  window.actions = () => store.getState().actions
+  window.bubble = (): void => {
+    store.getState().bubble
+  }
+  window.actions = (): void => {
+    store.getState().actions
+  }
 }

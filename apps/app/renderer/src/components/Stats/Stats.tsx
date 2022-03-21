@@ -1,13 +1,12 @@
+import { BubbleConfig } from '@bubble/configs/bubble'
 import { styled } from '@bubble/styles'
 import { BxBaguette } from '@bubble/ui/src/Icons/bx-baguette'
 import { BxBed } from '@bubble/ui/src/Icons/bx-bed'
 import { BxDroplet } from '@bubble/ui/src/Icons/bx-droplet'
 import { BxHeart } from '@bubble/ui/src/Icons/bx-heart'
-import { BubbleConfig } from '@configs/bubble'
 import { useAppSelector } from '@src/redux/hooks'
 import { selectName, selectVitals } from '@src/redux/reducers/bubble'
 import React from 'react'
-
 import { Bar } from './Bar'
 
 const Container = styled('div', {
@@ -43,11 +42,8 @@ const Right = styled('div', {
 })
 
 export const Stats: React.FC = () => {
-  //const weight = useAppSelector(selectWeight)
   const { saturation, happiness, health, tiredness } = useAppSelector(selectVitals)
   const name = useAppSelector(selectName)
-
-  //console.log(useAppSelector(selectVitals))
 
   return (
     <Container>

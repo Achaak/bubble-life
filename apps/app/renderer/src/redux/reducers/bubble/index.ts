@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-
 import * as reducers from './reducers'
 import { initialBubbleState } from './state'
 

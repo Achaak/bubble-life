@@ -1,10 +1,9 @@
+import { BubbleConfig } from '@bubble/configs/bubble'
 import { styled } from '@bubble/styles'
-import { BubbleConfig } from '@configs/bubble'
-import { addEatActionInAwaitList } from '@src/core/actions/eat'
+import { addPlayActionInAwaitList } from '@src/core/actions/play'
 import { useAppSelector } from '@src/redux/hooks'
 import { selectVitals } from '@src/redux/reducers/bubble'
 import React, { useEffect, useState } from 'react'
-
 import { Bodies } from '../Bodies'
 import { Clothes } from '../Clothes'
 import { Eyes } from '../Eyes'
@@ -65,9 +64,8 @@ export const Bubble: React.FC = () => {
   }, [weight])
 
   const handleClickOnBubble = (): void => {
-    console.log('click on bubble')
-    addEatActionInAwaitList({
-      duration: 1000,
+    addPlayActionInAwaitList({
+      duration: 10000,
       importance: 1,
       start: Date.now(),
     })

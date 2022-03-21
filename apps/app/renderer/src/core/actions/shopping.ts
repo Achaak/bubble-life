@@ -1,12 +1,12 @@
-import { BubbleConfig } from '@configs/bubble'
+import { BubbleConfig } from '@bubble/configs/bubble'
 import { addActionInAwaitList, hasAction } from '@src/redux/reducers/actions/actions'
 import { addInventoryItem, hasInventoryItem } from '@src/redux/reducers/bubble/actions'
-import { dateToMs, random } from '@src/utils'
+import { dateToMs } from '@src/utils/date'
+import { random } from '@src/utils/random'
 import dayjs from 'dayjs'
-
 import { Action } from '../action'
 
-export class Action_shopping extends Action {
+export class ActionShopping extends Action {
   constructor() {
     super()
 
@@ -32,7 +32,9 @@ export class Action_shopping extends Action {
   }
 
   update = (timestamp: number): void => {
-    if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) return
+    if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) {
+      return
+    }
 
     if (!hasInventoryItem({ type: 'food', number: 1 }) && !hasAction({ name: 'shopping' })) {
       const startShopping = dayjs()

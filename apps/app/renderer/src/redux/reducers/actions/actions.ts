@@ -1,9 +1,13 @@
+import type { Action } from '@bubble/types/src/action'
 import { store } from '@src/redux/store'
-import { Action } from '@src/types/action'
-
 import { actionsActions } from '.'
 
+export const resetActions = (): void => {
+  store.dispatch(actionsActions.resetActions())
+}
+
 export const hasAction = ({ name }: { name: string }): boolean => {
+  // eslint-disable-next-line @typescript-eslint/no-use-before-define
   return hasActionInAwaitList({ name }) || hasActionInCurrent({ name })
 }
 
@@ -24,26 +28,31 @@ export const removeActionInAwaitList = ({ id }: { id: string }): void => {
 
 /* ---------- CANCEL ACTION ---------- */
 export const addActionInCancelList = ({ id }: { id: string }): void => {
-  let action: Action
+  let action: Action | null | undefined = undefined
 
   //console.log(store.getState().actions.cancelList.some((item) => item.id === id))
-  if (store.getState().actions.cancelList.some((item) => item.id === id)) return
+  if (store.getState().actions.cancelList.some((item) => item.id === id)) {
+    return
+  }
 
   // Verify in current action
-  if (store.getState().actions.current.id === id) {
+  if (store.getState().actions.current?.id === id) {
     action = store.getState().actions.current
   } else {
     // Verify in await list action
     action = store.getState().actions.waitList.find((item) => item.id === id)
   }
 
-  if (!action) return
+  if (!action) {
+    return
+  }
 
   store.dispatch(actionsActions.addActionInCancelList(action))
 }
 export const removeActionInCancelList = ({ id }: { id: string }): void => {
   store.dispatch(actionsActions.removeActionInCancelList({ id }))
   removeActionInAwaitList({ id })
+  // eslint-disable-next-line @typescript-eslint/no-use-before-define
   resetCurrentAction()
 }
 

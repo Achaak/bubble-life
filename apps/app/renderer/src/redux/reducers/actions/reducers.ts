@@ -1,5 +1,4 @@
-import { PayloadAction } from '@reduxjs/toolkit'
-import {
+import type {
   Action,
   ActionAnimation,
   ActionElementBody,
@@ -8,13 +7,15 @@ import {
   ActionElementEyes,
   ActionElementHat,
   ActionElementOnomatopoeia,
-} from '@src/types/action'
+} from '@bubble/types/src/action'
+import type { PayloadAction } from '@reduxjs/toolkit'
 import shortid from 'shortid'
-
-import { ActionsState, initialActionsState } from './state'
+import type { ActionsState } from './state'
+import { initialActionsState } from './state'
 
 export const resetActions = (state: ActionsState): void => {
   for (const key in state) {
+    // @ts-expect-error Never
     delete state[key]
   }
 
@@ -32,8 +33,6 @@ export const addActionInAwaitList = (state: ActionsState, action: PayloadAction<
       id: shortid(),
     },
   ]
-
-  console.log('Add action:', action.payload.name)
 }
 export const removeActionInAwaitList = (
   state: ActionsState,
@@ -85,41 +84,62 @@ export const updateCurrentActionElementEyes = (
   state: ActionsState,
   action: PayloadAction<ActionElementEyes>
 ): void => {
+  if (!state.current?.elements) {
+    return
+  }
   state.current.elements.eyes = action.payload
 }
 export const updateCurrentActionElementClothe = (
   state: ActionsState,
   action: PayloadAction<ActionElementClothe>
 ): void => {
+  if (!state.current?.elements) {
+    return
+  }
   state.current.elements.clothe = action.payload
 }
 export const updateCurrentActionElementEnvironment = (
   state: ActionsState,
   action: PayloadAction<ActionElementEnvironment>
 ): void => {
+  if (!state.current?.elements) {
+    return
+  }
   state.current.elements.environment = action.payload
 }
 export const updateCurrentActionElementHat = (
   state: ActionsState,
   action: PayloadAction<ActionElementHat>
 ): void => {
+  if (!state.current?.elements) {
+    return
+  }
   state.current.elements.hat = action.payload
 }
 export const updateCurrentActionElementBody = (
   state: ActionsState,
   action: PayloadAction<ActionElementBody>
 ): void => {
+  if (!state.current?.elements) {
+    return
+  }
   state.current.elements.body = action.payload
 }
 export const updateCurrentActionElementOnomatopoeia = (
   state: ActionsState,
   action: PayloadAction<ActionElementOnomatopoeia>
 ): void => {
+  if (!state.current?.elements) {
+    return
+  }
   state.current.elements.onomatopoeia = action.payload
 }
 export const updateCurrentActionAnimation = (
   state: ActionsState,
   action: PayloadAction<ActionAnimation>
 ): void => {
+  if (!state.current?.elements) {
+    return
+  }
   state.current.animation = action.payload
 }

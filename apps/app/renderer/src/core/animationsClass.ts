@@ -1,9 +1,8 @@
+import type { AnimationConfig } from '@bubble/types/src/animation'
 import { store } from '@src/redux/store'
-import { AnimationConfig } from '@src/types/animation'
 import anime from 'animejs'
-
 import { AnimationList } from './animations'
-import { Animation_Default } from './animations/default'
+import { AnimationDefault } from './animations/default'
 
 export class Animations {
   currentAnimation: AnimationConfig | null
@@ -19,16 +18,13 @@ export class Animations {
   }
 
   onStartAnimation = (): void => {
-    this.currentAnimation = Animation_Default
-
     const storeAnimation = store.getState().bubble.animation
+    const animationFind = AnimationList.find((item) => item.name === storeAnimation.current?.name)
 
-    if (storeAnimation) {
-      const animationFind = AnimationList.find((item) => item.name === storeAnimation.current.name)
-
-      if (animationFind) {
-        this.currentAnimation = animationFind
-      }
+    if (animationFind) {
+      this.currentAnimation = animationFind
+    } else {
+      this.currentAnimation = AnimationDefault
     }
 
     this.onAnimation()
@@ -39,6 +35,10 @@ export class Animations {
   }
 
   onAnimation = (): void => {
+    if (!this.currentAnimation) {
+      return
+    }
+
     const timeline = anime.timeline({
       autoplay: true,
     })
@@ -50,7 +50,9 @@ export class Animations {
         targets: '#bubble-content',
         ...config,
         complete:
-          this.currentAnimation.configs.length - 1 === i ? () => this.onEndAnimation() : undefined,
+          this.currentAnimation.configs.length - 1 === i
+            ? (): void => this.onEndAnimation()
+            : undefined,
       })
     }
   }

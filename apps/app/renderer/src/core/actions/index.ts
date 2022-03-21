@@ -1,6 +1,7 @@
-import { Action_eat } from './eat'
-import { Action_nap } from './nap'
-import { Action_shopping } from './shopping'
-import { Action_sleep } from './sleep'
+import { ActionEat } from './eat'
+import { ActionNap } from './nap'
+import { ActionPlay } from './play'
+import { ActionShopping } from './shopping'
+import { ActionSleep } from './sleep'
 
-export const ActionsList = [Action_eat, Action_sleep, Action_nap, Action_shopping]
+export const ActionsList = [ActionEat, ActionSleep, ActionNap, ActionShopping, ActionPlay]

@@ -1,11 +1,10 @@
-import { BubbleConfig } from '@configs/bubble'
+import { BubbleConfig } from '@bubble/configs/bubble'
 import { bubbleActions } from '@src/redux/reducers/bubble'
 import { store } from '@src/redux/store'
-import { dateToMs } from '@src/utils'
-
+import { dateToMs } from '@src/utils/date'
 import { Vital } from './vital'
 
-export class Vital_Health extends Vital {
+export class VitalHealth extends Vital {
   constructor() {
     super()
 
@@ -13,7 +12,9 @@ export class Vital_Health extends Vital {
   }
 
   update = (timestamp: number): void => {
-    if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) return
+    if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) {
+      return
+    }
 
     store.dispatch(bubbleActions.removeHealth(BubbleConfig.vitals.health.decrease))
 

@@ -1,5 +1,6 @@
 export class Vital {
   lastRender: number
+
   name: string
 
   constructor() {

@@ -1,6 +1,6 @@
+import { ModulesConfig } from '@bubble/configs/modules'
 import { styled } from '@bubble/styles'
-import { ModulesConfig } from '@configs/modules'
-import type { ModulePosition } from '@src/types/module'
+import type { ModulePosition } from '@bubble/types/src/module'
 import React, { useEffect, useState } from 'react'
 
 const Container = styled('div', {

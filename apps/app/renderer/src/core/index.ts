@@ -5,11 +5,13 @@ import { initWindow } from './window'
 
 export class BubbleCore {
   lastRender: number
+
   loopRunning: boolean
 
-  name: string
   actions: Actions
+
   animations: Animations
+
   vitals: Vitals
 
   constructor() {
@@ -41,7 +43,9 @@ export class BubbleCore {
 
     this.lastRender = timestamp || 0
 
-    if (this.loopRunning) requestAnimationFrame(this.loop.bind(this))
+    if (this.loopRunning) {
+      requestAnimationFrame(this.loop.bind(this))
+    }
   }
 
   // Start the loop

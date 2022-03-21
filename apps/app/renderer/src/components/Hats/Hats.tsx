@@ -24,7 +24,7 @@ export const Hats: React.FC = ({ children }) => {
     const getHat = async (): Promise<void> => {
       if (!current.name) {
         setHatDOM(null)
-        return null
+        return
       }
 
       const { default: Hat } = await require(`./${current.name}/index`)

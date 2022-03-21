@@ -1,6 +1,6 @@
-import { Vital_Happiness } from './hapiness'
-import { Vital_Health } from './health'
-import { Vital_Saturation } from './saturation'
-import { Vital_Tiredness } from './tiredness'
+import { VitalHappiness } from './hapiness'
+import { VitalHealth } from './health'
+import { VitalSaturation } from './saturation'
+import { VitalTiredness } from './tiredness'
 
-export const VitalsList = [Vital_Saturation, Vital_Happiness, Vital_Health, Vital_Tiredness]
+export const VitalsList = [VitalSaturation, VitalHappiness, VitalHealth, VitalTiredness]

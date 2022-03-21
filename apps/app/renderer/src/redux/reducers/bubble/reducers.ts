@@ -1,7 +1,7 @@
-import { BubbleConfig } from '@configs/bubble'
-import { PayloadAction } from '@reduxjs/toolkit'
-
-import {
+import { BubbleConfig } from '@bubble/configs/bubble'
+import type { InventoryItemType } from '@bubble/types/src/inventory'
+import type { PayloadAction } from '@reduxjs/toolkit'
+import type {
   AnimationtListItem,
   BodyElementListItem,
   BubbleState,
@@ -9,13 +9,13 @@ import {
   EnvironmentElementListItem,
   EyesElementListItem,
   HatElementListItem,
-  initialBubbleState,
-  InventoryItemType,
   OnomatopoeiaElementListItem,
 } from './state'
+import { initialBubbleState } from './state'
 
 export const resetBubble = (state: BubbleState): void => {
   for (const key in state) {
+    // @ts-expect-error Never
     delete state[key]
   }
 
@@ -197,7 +197,9 @@ export const resetCurrentEyes = (state: BubbleState): void => {
   state.elements.eyes.current = initialBubbleState.elements.eyes.default
 }
 export const transferEyesInListToCurrent = (state: BubbleState): void => {
-  if (!state.elements.eyes.list.length) return
+  if (!state.elements.eyes.list.length) {
+    return
+  }
 
   const newCurrent = state.elements.eyes.list[0]
 
@@ -247,7 +249,9 @@ export const resetCurrentEnvironment = (state: BubbleState): void => {
   state.elements.environment.current = initialBubbleState.elements.environment.default
 }
 export const transferEnvironmentInListToCurrent = (state: BubbleState): void => {
-  if (!state.elements.environment.list.length) return
+  if (!state.elements.environment.list.length) {
+    return
+  }
 
   const newCurrent = state.elements.environment.list[0]
 
@@ -297,7 +301,9 @@ export const resetCurrentClothe = (state: BubbleState): void => {
   state.elements.clothe.current = initialBubbleState.elements.clothe.default
 }
 export const transferClotheInListToCurrent = (state: BubbleState): void => {
-  if (!state.elements.clothe.list.length) return
+  if (!state.elements.clothe.list.length) {
+    return
+  }
 
   const newCurrent = state.elements.clothe.list[0]
 
@@ -345,7 +351,9 @@ export const resetCurrentHat = (state: BubbleState): void => {
   state.elements.hat.current = initialBubbleState.elements.hat.default
 }
 export const transferHatInListToCurrent = (state: BubbleState): void => {
-  if (!state.elements.hat.list.length) return
+  if (!state.elements.hat.list.length) {
+    return
+  }
 
   const newCurrent = state.elements.hat.list[0]
 
@@ -395,7 +403,9 @@ export const resetCurrentBody = (state: BubbleState): void => {
   state.elements.body.current = initialBubbleState.elements.body.default
 }
 export const transferBodyInListToCurrent = (state: BubbleState): void => {
-  if (!state.elements.body.list.length) return
+  if (!state.elements.body.list.length) {
+    return
+  }
 
   const newCurrent = state.elements.body.list[0]
 
@@ -445,7 +455,9 @@ export const resetCurrentOnomatopoeia = (state: BubbleState): void => {
   state.elements.onomatopoeia.current = initialBubbleState.elements.onomatopoeia.default
 }
 export const transferOnomatopoeiaInListToCurrent = (state: BubbleState): void => {
-  if (!state.elements.onomatopoeia.list.length) return
+  if (!state.elements.onomatopoeia.list.length) {
+    return
+  }
 
   const newCurrent = state.elements.onomatopoeia.list[0]
 
@@ -490,17 +502,19 @@ export const setCurrentAnimation = (
   state.animation.current = action.payload
 }
 export const resetCurrentAnimation = (state: BubbleState): void => {
-  state.animation.current = initialBubbleState.animation.default
+  state.animation.current = null
 }
 export const transferAnimationInListToCurrent = (state: BubbleState): void => {
-  if (!state.elements.eyes.list.length) return
+  if (!state.animation.list.length) {
+    return
+  }
 
-  const newCurrent = state.elements.eyes.list[0]
+  const newCurrent = state.animation.list[0]
 
-  state.elements.eyes = {
-    ...state.elements.eyes,
+  state.animation = {
+    ...state.animation,
     current: newCurrent,
-    list: state.elements.eyes.list.filter((item) => item.id !== newCurrent.id),
+    list: state.animation.list.filter((item) => item.id !== newCurrent.id),
   }
 }
 

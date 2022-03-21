@@ -1,1 +1,1 @@
-module.exports = require("@bubble/config/prettier-preset");
+module.exports = require("@bubble/scripts/prettier-preset");

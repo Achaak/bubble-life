@@ -1,5 +1,5 @@
 import { VitalsList } from './vitals'
-import { Vital } from './vitals/vital'
+import type { Vital } from './vitals/vital'
 
 export class Vitals {
   vitals: {
@@ -14,12 +14,12 @@ export class Vitals {
   }
 
   initVitalsList = (): void => {
-    for (const _Vital of VitalsList) {
-      const _vital = new _Vital()
+    for (const V of VitalsList) {
+      const v = new V()
 
       this.vitals.push({
-        name: _vital.name,
-        class: _vital,
+        name: v.name,
+        class: v,
       })
     }
   }

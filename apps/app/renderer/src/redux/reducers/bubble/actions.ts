@@ -1,15 +1,13 @@
+import type { InventoryItemType } from '@bubble/types/src/inventory'
 import { store } from '@src/redux/store'
-
 import { bubbleActions } from '.'
-import { actionsActions } from '../actions'
-import {
+import type {
   AnimationtListItem,
   BodyElementListItem,
   ClotheElementListItem,
   EnvironmentElementListItem,
   EyesElementListItem,
   HatElementListItem,
-  InventoryItemType,
   OnomatopoeiaElementListItem,
 } from './state'
 
@@ -30,13 +28,16 @@ export const removeEyesInList = ({ id }: { id: string }): void => {
   store.dispatch(bubbleActions.transferEyesInListToCurrent())
 }
 export const resetEyes = (): void => {
-  store.dispatch(actionsActions.resetActions())
+  store.dispatch(bubbleActions.resetEyes())
   store.dispatch(bubbleActions.transferEyesInListToCurrent())
 }
 export const setCurrentEyes = ({ id }: { id: string }): void => {
   const list = store.getState().bubble.elements.eyes.list
   const eyes = list.find((item) => item.id === id)
 
+  if (!eyes) {
+    return
+  }
   store.dispatch(bubbleActions.setCurrentEyes(eyes))
   store.dispatch(bubbleActions.removeEyesInList({ id }))
 }
@@ -64,13 +65,16 @@ export const removeEnvironmentInList = ({ id }: { id: string }): void => {
   store.dispatch(bubbleActions.transferEnvironmentInListToCurrent())
 }
 export const resetEnvironment = (): void => {
-  store.dispatch(actionsActions.resetActions())
+  store.dispatch(bubbleActions.resetEnvironment())
   store.dispatch(bubbleActions.transferEnvironmentInListToCurrent())
 }
 export const setCurrentEnvironment = ({ id }: { id: string }): void => {
   const list = store.getState().bubble.elements.environment.list
   const environment = list.find((item) => item.id === id)
 
+  if (!environment) {
+    return
+  }
   store.dispatch(bubbleActions.setCurrentEnvironment(environment))
   store.dispatch(bubbleActions.removeEnvironmentInList({ id }))
 }
@@ -96,13 +100,16 @@ export const removeClotheInList = ({ id }: { id: string }): void => {
   store.dispatch(bubbleActions.transferClotheInListToCurrent())
 }
 export const resetClothe = (): void => {
-  store.dispatch(actionsActions.resetActions())
+  store.dispatch(bubbleActions.resetClothe())
   store.dispatch(bubbleActions.transferClotheInListToCurrent())
 }
 export const setCurrentClothe = ({ id }: { id: string }): void => {
   const list = store.getState().bubble.elements.clothe.list
   const clothe = list.find((item) => item.id === id)
 
+  if (!clothe) {
+    return
+  }
   store.dispatch(bubbleActions.setCurrentClothe(clothe))
   store.dispatch(bubbleActions.removeClotheInList({ id }))
 }
@@ -128,13 +135,16 @@ export const removeHatInList = ({ id }: { id: string }): void => {
   store.dispatch(bubbleActions.transferHatInListToCurrent())
 }
 export const resetHat = (): void => {
-  store.dispatch(actionsActions.resetActions())
+  store.dispatch(bubbleActions.resetHat())
   store.dispatch(bubbleActions.transferHatInListToCurrent())
 }
 export const setCurrentHat = ({ id }: { id: string }): void => {
   const list = store.getState().bubble.elements.hat.list
   const hat = list.find((item) => item.id === id)
 
+  if (!hat) {
+    return
+  }
   store.dispatch(bubbleActions.setCurrentHat(hat))
   store.dispatch(bubbleActions.removeHatInList({ id }))
 }
@@ -160,13 +170,16 @@ export const removeBodyInList = ({ id }: { id: string }): void => {
   store.dispatch(bubbleActions.transferBodyInListToCurrent())
 }
 export const resetBody = (): void => {
-  store.dispatch(actionsActions.resetActions())
+  store.dispatch(bubbleActions.resetBody())
   store.dispatch(bubbleActions.transferBodyInListToCurrent())
 }
 export const setCurrentBody = ({ id }: { id: string }): void => {
   const list = store.getState().bubble.elements.body.list
   const body = list.find((item) => item.id === id)
 
+  if (!body) {
+    return
+  }
   store.dispatch(bubbleActions.setCurrentBody(body))
   store.dispatch(bubbleActions.removeBodyInList({ id }))
 }
@@ -194,13 +207,16 @@ export const removeOnomatopoeiaInList = ({ id }: { id: string }): void => {
   store.dispatch(bubbleActions.transferOnomatopoeiaInListToCurrent())
 }
 export const resetOnomatopoeia = (): void => {
-  store.dispatch(actionsActions.resetActions())
+  store.dispatch(bubbleActions.resetOnomatopoeia())
   store.dispatch(bubbleActions.transferOnomatopoeiaInListToCurrent())
 }
 export const setCurrentOnomatopoeia = ({ id }: { id: string }): void => {
   const list = store.getState().bubble.elements.onomatopoeia.list
   const onomatopoeia = list.find((item) => item.id === id)
 
+  if (!onomatopoeia) {
+    return
+  }
   store.dispatch(bubbleActions.setCurrentOnomatopoeia(onomatopoeia))
   store.dispatch(bubbleActions.removeOnomatopoeiaInList({ id }))
 }
@@ -226,18 +242,21 @@ export const removeAnimationInList = ({ id }: { id: string }): void => {
   store.dispatch(bubbleActions.transferAnimationInListToCurrent())
 }
 export const resetAnimation = (): void => {
-  store.dispatch(actionsActions.resetActions())
+  store.dispatch(bubbleActions.resetAnimation())
   store.dispatch(bubbleActions.transferAnimationInListToCurrent())
 }
 export const setCurrentAnimation = ({ id }: { id: string }): void => {
   const list = store.getState().bubble.animation.list
   const animation = list.find((item) => item.id === id)
 
+  if (!animation) {
+    return
+  }
   store.dispatch(bubbleActions.setCurrentAnimation(animation))
   store.dispatch(bubbleActions.removeAnimationInList({ id }))
 }
 export const resetCurrentAnimation = (): void => {
-  store.dispatch(actionsActions.resetCurrentAction())
+  store.dispatch(bubbleActions.resetCurrentAnimation())
   store.dispatch(bubbleActions.transferAnimationInListToCurrent())
 }
 export const removeAnimationAllOver = ({ id }: { id: string }): void => {

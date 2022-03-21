@@ -1,4 +1,4 @@
-import anime from 'animejs'
+import type anime from 'animejs'
 
 export type Animation = 'default' | 'bounce' | 'shake'
 

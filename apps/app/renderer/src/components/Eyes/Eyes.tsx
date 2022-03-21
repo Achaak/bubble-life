@@ -22,7 +22,7 @@ export const Eyes: React.FC = ({ children }) => {
     const getEyes = async (): Promise<void> => {
       if (!current.name) {
         setEyesDOM(null)
-        return null
+        return
       }
 
       const { default: Eyes } = await require(`./${current.name}/index`)

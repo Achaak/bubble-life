@@ -31,7 +31,7 @@
     "typesafe-i18n": "^4.4.2"
   },
   "devDependencies": {
-    "@bubble/config": "*",
+    "@bubble/scripts": "*",
     "@bubble/tsconfig": "*",
     "@types/node": "^17.0.21",
     "cross-env": "^7.0.3",

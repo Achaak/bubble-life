@@ -17,8 +17,10 @@
     "start": "set NODE_ENV=production && nextron"
   },
   "dependencies": {
+    "@bubble/configs": "*",
     "@bubble/styles": "*",
     "@bubble/translate": "*",
+    "@bubble/types": "*",
     "@bubble/ui": "*",
     "@reduxjs/toolkit": "^1.8.0",
     "animejs": "^3.2.1",
@@ -33,7 +35,7 @@
     "shortid": "^2.2.16"
   },
   "devDependencies": {
-    "@bubble/config": "*",
+    "@bubble/scripts": "*",
     "@bubble/tsconfig": "*",
     "@types/animejs": "^3.1.4",
     "@types/node": "^17.0.21",

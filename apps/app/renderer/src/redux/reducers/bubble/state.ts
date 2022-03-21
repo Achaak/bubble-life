@@ -1,6 +1,14 @@
-import { BubbleConfig } from '@configs/bubble'
-import { Animation } from '@src/types/animation'
-import { Bodies, Clothes, Environments, Eyes, Hats, Onomatopoeia } from '@src/types/bubble'
+import { BubbleConfig } from '@bubble/configs/bubble'
+import type { Animation } from '@bubble/types/src/animation'
+import type {
+  Bodies,
+  Clothes,
+  Environments,
+  Eyes,
+  Hats,
+  Onomatopoeia,
+} from '@bubble/types/src/bubble'
+import type { InventoryItem } from '@bubble/types/src/inventory'
 import shortid from 'shortid'
 
 export interface BubbleStateVitals {
@@ -73,18 +81,11 @@ export interface BubbleStateElements {
   }
 }
 
-export type InventoryItemType = 'food'
-
-export interface InventoryItem {
-  type: InventoryItemType
-  stock: number
-}
-
 export interface BubbleState {
   name: string
   animation: {
     default: AnimationtListItem
-    current: AnimationtListItem
+    current: AnimationtListItem | null
     list: AnimationtListItem[]
   }
   vitals: BubbleStateVitals
@@ -95,11 +96,7 @@ export interface BubbleState {
 export const initialBubbleState: BubbleState = {
   name: 'Bubble',
   animation: {
-    current: {
-      id: shortid(),
-      importance: 3,
-      name: 'default',
-    },
+    current: null,
     default: {
       id: shortid(),
       importance: 3,

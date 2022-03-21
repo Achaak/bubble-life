@@ -1,10 +1,11 @@
+import { GlobalConfig } from '@bubble/configs/global'
 import { styled } from '@bubble/styles'
-import { GlobalConfig } from '@configs/global'
 import { Bubble } from '@src/components/Bubble'
 import { DefaultLayout } from '@src/components/layouts/default'
 import { Modules } from '@src/components/Modules'
 import { Stats } from '@src/components/Stats'
 import React from 'react'
+// @ts-expect-error No types available for 'react-fps-stats'
 import FPSStats from 'react-fps-stats'
 import type { NextPageWithLayout } from './_app'
 

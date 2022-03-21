@@ -1,6 +1,6 @@
-import { AnimationConfig } from '@src/types/animation'
+import type { AnimationConfig } from '@bubble/types/src/animation'
 
-export const Animation_Bounce: AnimationConfig = {
+export const AnimationBounce: AnimationConfig = {
   name: 'bounce',
   configs: [
     {

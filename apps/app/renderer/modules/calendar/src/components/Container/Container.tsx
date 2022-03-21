@@ -1,5 +1,5 @@
+import { GlobalConfig } from '@bubble/configs/global'
 import { styled } from '@bubble/styles'
-import { GlobalConfig } from '@configs/global'
 import dayjs from 'dayjs'
 import 'dayjs/locale'
 import updateLocale from 'dayjs/plugin/updateLocale'
@@ -56,7 +56,9 @@ export const Container = ({ dateFormat }: CustomProps): JSX.Element => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  if (!loaded) return null
+  if (!loaded) {
+    return <></>
+  }
   return (
     <ContainerDOM>
       <DateDOM>{date}</DateDOM>

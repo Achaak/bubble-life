@@ -1,17 +1,43 @@
-import { BubbleConfig } from '@configs/bubble'
+import { BubbleConfig } from '@bubble/configs/bubble'
+import type { Action as ActionType } from '@bubble/types/src/action'
 import { addActionInAwaitList, hasAction } from '@src/redux/reducers/actions/actions'
 import { bubbleActions } from '@src/redux/reducers/bubble'
 import { removeInventoryItem } from '@src/redux/reducers/bubble/actions'
 import { store } from '@src/redux/store'
-import { Action as ActionType } from '@src/types/action'
-import { dateToMs, random } from '@src/utils'
+import { dateToMs } from '@src/utils/date'
+import { random } from '@src/utils/random'
 import dayjs from 'dayjs'
-
 import { Action } from '../action'
 
 const SATURATION_INCREASE_DELAY = dateToMs({ seconds: 1 })
 
-export class Action_eat extends Action {
+export const addEatActionInAwaitList = ({
+  start,
+  duration,
+  importance,
+}: {
+  start: number
+  duration: number
+  importance: 1 | 2 | 3
+}): void => {
+  addActionInAwaitList({
+    name: 'eat',
+    start: start,
+    duration: duration,
+    startFunction: 'eat:start',
+    updateFunction: 'eat:update',
+    endFunction: 'eat:end',
+    cancelFunction: 'eat:cancel',
+    importance: importance,
+    elements: {
+      onomatopoeia: {
+        name: 'eat',
+      },
+    },
+  })
+}
+
+export class ActionEat extends Action {
   lastRenderUpdateEat: number
 
   constructor() {
@@ -41,7 +67,9 @@ export class Action_eat extends Action {
   }
 
   update = (timestamp: number): void => {
-    if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) return
+    if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) {
+      return
+    }
 
     if (store.getState().bubble.vitals.saturation <= 0 && !hasAction({ name: 'eat' })) {
       const startEat = dayjs()
@@ -82,7 +110,9 @@ export class Action_eat extends Action {
 
   handleUpdateEat = (action: ActionType): void => {
     const timestamp = Date.now()
-    if (timestamp - this.lastRenderUpdateEat < SATURATION_INCREASE_DELAY) return
+    if (timestamp - this.lastRenderUpdateEat < SATURATION_INCREASE_DELAY) {
+      return
+    }
 
     store.dispatch(bubbleActions.addSaturation(this.getSaturationPerSecond(action)))
 
@@ -105,30 +135,4 @@ export class Action_eat extends Action {
   handleCancelEat = (): void => {
     removeInventoryItem({ type: 'food', number: 1 })
   }
-}
-
-export const addEatActionInAwaitList = ({
-  start,
-  duration,
-  importance,
-}: {
-  start: number
-  duration: number
-  importance: 1 | 2 | 3
-}): void => {
-  addActionInAwaitList({
-    name: 'eat',
-    start: start,
-    duration: duration,
-    startFunction: 'eat:start',
-    updateFunction: 'eat:update',
-    endFunction: 'eat:end',
-    cancelFunction: 'eat:cancel',
-    importance: importance,
-    elements: {
-      onomatopoeia: {
-        name: 'eat',
-      },
-    },
-  })
 }

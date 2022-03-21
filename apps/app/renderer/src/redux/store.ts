@@ -1,17 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { combineReducers } from 'redux'
 import {
-  persistStore,
-  persistReducer,
   FLUSH,
-  REHYDRATE,
   PAUSE,
   PERSIST,
+  persistReducer,
+  persistStore,
   PURGE,
   REGISTER,
+  REHYDRATE,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-
 import actionsReducer from './reducers/actions'
 import bubbleReducer from './reducers/bubble'
 

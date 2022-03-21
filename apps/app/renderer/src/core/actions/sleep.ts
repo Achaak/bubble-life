@@ -1,16 +1,16 @@
-import { BubbleConfig } from '@configs/bubble'
+import { BubbleConfig } from '@bubble/configs/bubble'
+import type { Action as ActionType } from '@bubble/types/src/action'
 import { addActionInAwaitList, hasAction } from '@src/redux/reducers/actions/actions'
 import { bubbleActions } from '@src/redux/reducers/bubble'
 import { store } from '@src/redux/store'
-import { Action as ActionType } from '@src/types/action'
-import { dateToMs, random } from '@src/utils'
+import { dateToMs } from '@src/utils/date'
+import { random } from '@src/utils/random'
 import dayjs from 'dayjs'
-
 import { Action } from '../action'
 
 const TIREDNESS_INCREASE_DELAY = dateToMs({ seconds: 1 })
 
-export class Action_sleep extends Action {
+export class ActionSleep extends Action {
   lastRenderUpdateSleep: number
 
   constructor() {
@@ -40,7 +40,9 @@ export class Action_sleep extends Action {
   }
 
   update = (timestamp: number): void => {
-    if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) return
+    if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) {
+      return
+    }
 
     if (!hasAction({ name: 'sleep' })) {
       const hourStart = parseInt(BubbleConfig.actions.sleep.startAt.split(':')[0]) || 0
@@ -118,7 +120,9 @@ export class Action_sleep extends Action {
 
   handleUpdateSleep = (action: ActionType): void => {
     const timestamp = Date.now()
-    if (timestamp - this.lastRenderUpdateSleep < TIREDNESS_INCREASE_DELAY) return
+    if (timestamp - this.lastRenderUpdateSleep < TIREDNESS_INCREASE_DELAY) {
+      return
+    }
 
     store.dispatch(bubbleActions.addTiredness(this.getTirednessPerSecond(action)))
 

@@ -1,4 +1,4 @@
-import '@src/redux/reducers/actions'
+import type { Action as ActionType } from '@bubble/types/src/action'
 import { actionsActions } from '@src/redux/reducers/actions'
 import {
   removeActionInAwaitList,
@@ -21,11 +21,9 @@ import {
   removeOnomatopoeiaAllOver,
 } from '@src/redux/reducers/bubble/actions'
 import { store } from '@src/redux/store'
-import { Action as ActionType } from '@src/types/action'
 import dayjs from 'dayjs'
 import shortid from 'shortid'
-
-import { Action } from './action'
+import type { Action } from './action'
 import { ActionsList } from './actions'
 
 export class Actions {
@@ -41,12 +39,12 @@ export class Actions {
   }
 
   initActionsList = (): void => {
-    for (const _Action of ActionsList) {
-      const _action = new _Action()
+    for (const A of ActionsList) {
+      const a = new A()
 
       this.actions.push({
-        name: _action.name,
-        class: _action,
+        name: a.name,
+        class: a,
       })
     }
   }
@@ -79,154 +77,168 @@ export class Actions {
     functionName: string
     action: ActionType
   }): void => {
-    const _action = this.actions.find((item) => item.name === actionName)
+    const a = this.actions.find((item) => item.name === actionName)
 
-    if (!_action) return
+    if (!a) {
+      return
+    }
 
-    const _function = _action.class.actions.find((item) => item.name === functionName)
+    const f = a.class.actions.find((item) => item.name === functionName)
 
-    if (!_function) return
+    if (!f) {
+      return
+    }
 
-    _function.function(action)
+    f.function(action)
   }
 
   onStartAction = (): void => {
     const { waitList } = store.getState().actions
-    const newAction = { ...waitList[0] }
+    const waitListItem = waitList[0]
+    const newAction: ActionType = {
+      ...waitListItem,
+      start: dayjs().valueOf(),
+      id: waitListItem.id || shortid(),
+      elements: {
+        ...(waitListItem.elements?.body
+          ? {
+              body: {
+                id: shortid(),
+                ...waitListItem.elements.body,
+              },
+            }
+          : {}),
+        ...(waitListItem.elements?.clothe
+          ? {
+              clothe: {
+                id: shortid(),
+                ...waitListItem.elements.clothe,
+              },
+            }
+          : {}),
+        ...(waitListItem.elements?.eyes
+          ? {
+              eyes: {
+                id: shortid(),
+                ...waitListItem.elements.eyes,
+              },
+            }
+          : {}),
+        ...(waitListItem.elements?.hat
+          ? {
+              hat: {
+                id: shortid(),
+                ...waitListItem.elements.hat,
+              },
+            }
+          : {}),
+        ...(waitListItem.elements?.environment
+          ? {
+              environment: {
+                id: shortid(),
+                ...waitListItem.elements.environment,
+              },
+            }
+          : {}),
+        ...(waitListItem.elements?.onomatopoeia
+          ? {
+              onomatopoeia: {
+                id: shortid(),
+                ...waitListItem.elements.onomatopoeia,
+              },
+            }
+          : {}),
+      },
+      ...(waitListItem.animation
+        ? {
+            animation: {
+              id: shortid(),
+              ...waitListItem.animation,
+            },
+          }
+        : {}),
+    }
 
     // Add new current action
     store.dispatch(
       actionsActions.setCurrentAction({
         ...newAction,
-        start: dayjs().valueOf(),
       })
     )
 
     // Remove action in list
-    removeActionInAwaitList({
-      id: newAction.id,
-    })
+    if (newAction.id) {
+      removeActionInAwaitList({
+        id: newAction.id,
+      })
+    }
 
     // Start function
-    this.triggerActionFunction({
-      action: newAction,
-      actionName: newAction.name,
-      functionName: newAction.startFunction,
-    })
+    if (newAction.startFunction) {
+      this.triggerActionFunction({
+        action: newAction,
+        actionName: newAction.name,
+        functionName: newAction.startFunction,
+      })
+    }
 
     // Add elements
     // EYES
-    if (newAction.elements.eyes) {
-      const id = shortid()
-
+    if (newAction.elements?.eyes?.id) {
       addEyesInList({
-        id,
+        id: newAction.elements.eyes.id,
         importance: 1,
         name: newAction.elements.eyes.name,
       })
-      store.dispatch(
-        actionsActions.updateCurrentActionElementEyes({
-          id,
-          name: newAction.elements.eyes.name,
-        })
-      )
     }
     // ENVIRONMENT
-    if (newAction.elements.environment) {
-      const id = shortid()
-
+    if (newAction.elements?.environment?.id) {
       addEnvironmentInList({
-        id,
+        id: newAction.elements.environment.id,
         importance: 1,
         name: newAction.elements.environment.name,
       })
-      store.dispatch(
-        actionsActions.updateCurrentActionElementEnvironment({
-          id,
-          name: newAction.elements.environment.name,
-        })
-      )
     }
     // CLOTHE
-    if (newAction.elements.clothe) {
-      const id = shortid()
-
+    if (newAction.elements?.clothe?.id) {
       addClotheInList({
-        id,
+        id: newAction.elements.clothe.id,
         importance: 1,
         name: newAction.elements.clothe.name,
       })
-      store.dispatch(
-        actionsActions.updateCurrentActionElementClothe({
-          id,
-          name: newAction.elements.clothe.name,
-        })
-      )
     }
     // HAT
-    if (newAction.elements.hat) {
-      const id = shortid()
-
+    if (newAction.elements?.hat?.id) {
       addHatInList({
-        id,
+        id: newAction.elements.hat.id,
         importance: 1,
         name: newAction.elements.hat.name,
       })
-      store.dispatch(
-        actionsActions.updateCurrentActionElementHat({
-          id,
-          name: newAction.elements.hat.name,
-        })
-      )
     }
     // BODY
-    if (newAction.elements.body) {
-      const id = shortid()
-
+    if (newAction.elements?.body?.id) {
       addBodyInList({
-        id,
+        id: newAction.elements.body.id,
         importance: 1,
         name: newAction.elements.body.name,
       })
-      store.dispatch(
-        actionsActions.updateCurrentActionElementBody({
-          id,
-          name: newAction.elements.body.name,
-        })
-      )
     }
     // ONOMATOPOEIA
-    if (newAction.elements.onomatopoeia) {
-      const id = shortid()
-
+    if (newAction.elements?.onomatopoeia?.id) {
       addOnomatopoeiaInList({
-        id,
+        id: newAction.elements.onomatopoeia.id,
         importance: 1,
         name: newAction.elements.onomatopoeia.name,
       })
-      store.dispatch(
-        actionsActions.updateCurrentActionElementOnomatopoeia({
-          id,
-          name: newAction.elements.onomatopoeia.name,
-        })
-      )
     }
 
     // Add animation
-    if (newAction.animation) {
-      const id = shortid()
-
+    if (newAction.animation?.id) {
       addAnimationInList({
-        id,
+        id: newAction.animation.id,
         importance: 1,
         name: newAction.animation.name,
       })
-      store.dispatch(
-        actionsActions.updateCurrentActionAnimation({
-          id,
-          name: newAction.animation.name,
-        })
-      )
     }
 
     console.log('[Start action]', newAction.name)
@@ -235,23 +247,35 @@ export class Actions {
   onUpdateAction = (): void => {
     const { current } = store.getState().actions
 
-    // Update function
-    this.triggerActionFunction({
-      action: current,
-      actionName: current.name,
-      functionName: current.updateFunction,
-    })
+    if (!current) {
+      return
+    }
+
+    if (current.updateFunction) {
+      // Update function
+      this.triggerActionFunction({
+        action: current,
+        actionName: current.name,
+        functionName: current.updateFunction,
+      })
+    }
   }
 
   onEndAction = (): void => {
     const { current } = store.getState().actions
 
+    if (!current) {
+      return
+    }
+
     // End function
-    this.triggerActionFunction({
-      action: current,
-      actionName: current.name,
-      functionName: current.endFunction,
-    })
+    if (current.endFunction) {
+      this.triggerActionFunction({
+        action: current,
+        actionName: current.name,
+        functionName: current.endFunction,
+      })
+    }
 
     // Remove element
     this.onRemoveElement(current)
@@ -269,15 +293,23 @@ export class Actions {
     const { cancelList } = store.getState().actions
     const cancelAction = { ...cancelList[0] }
 
-    // End function
-    this.triggerActionFunction({
-      action: cancelAction,
-      actionName: cancelAction.name,
-      functionName: cancelAction.cancelFunction,
-    })
+    if (!cancelAction) {
+      return
+    }
 
-    // Remove cancel action
-    removeActionInCancelList({ id: cancelAction.id })
+    // End function
+    if (cancelAction.cancelFunction) {
+      this.triggerActionFunction({
+        action: cancelAction,
+        actionName: cancelAction.name,
+        functionName: cancelAction.cancelFunction,
+      })
+    }
+
+    if (cancelAction.id) {
+      // Remove cancel action
+      removeActionInCancelList({ id: cancelAction.id })
+    }
 
     // Remove element
     this.onRemoveElement(cancelAction)
@@ -290,37 +322,37 @@ export class Actions {
 
   onRemoveElement = (action: ActionType): void => {
     // EYES
-    if (action.elements.eyes) {
+    if (action.elements?.eyes?.id) {
       removeEyesAllOver({
         id: action.elements.eyes.id,
       })
     }
     // ENVIRONMENT
-    if (action.elements.environment) {
+    if (action.elements?.environment?.id) {
       removeEnvironmentAllOver({
         id: action.elements.environment.id,
       })
     }
     // CLOTHE
-    if (action.elements.clothe) {
+    if (action.elements?.clothe?.id) {
       removeClotheAllOver({
         id: action.elements.clothe.id,
       })
     }
     // HAT
-    if (action.elements.hat) {
+    if (action.elements?.hat?.id) {
       removeHatAllOver({
         id: action.elements.hat.id,
       })
     }
     // BODY
-    if (action.elements.body) {
+    if (action.elements?.body?.id) {
       removeBodyAllOver({
         id: action.elements.body.id,
       })
     }
     // ONOMATOPOEIA
-    if (action.elements.onomatopoeia) {
+    if (action.elements?.onomatopoeia?.id) {
       removeOnomatopoeiaAllOver({
         id: action.elements.onomatopoeia.id,
       })
@@ -328,7 +360,8 @@ export class Actions {
   }
 
   onRemoveAnimation = (action: ActionType): void => {
-    if (action.animation) {
+    console.log('[Remove animation]', action.animation)
+    if (action.animation?.id) {
       removeAnimationAllOver({
         id: action.animation.id,
       })

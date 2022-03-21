@@ -8,25 +8,23 @@ module.exports = {
       "warn",
       {
         selector: "variable",
-        format: ["camelCase", "UPPER_CASE", "PascalCase", "snake_case"]
+        format: ["camelCase", "UPPER_CASE", "PascalCase", "snake_case"],
       },
       {
         selector: "parameter",
         format: ["camelCase", "PascalCase"],
-        leadingUnderscore: "allow"
+        leadingUnderscore: "allow",
       },
-
       {
         selector: "memberLike",
         modifiers: ["private"],
         format: ["camelCase", "PascalCase"],
-        leadingUnderscore: "require"
+        leadingUnderscore: "require",
       },
-
       {
         selector: "typeLike",
-        format: ["PascalCase"]
-      }
-    ]
-  }
+        format: ["PascalCase"],
+      },
+    ],
+  },
 };

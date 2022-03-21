@@ -1,4 +1,4 @@
-import { BubbleConfigType } from '@src/types/bubble'
+import { BubbleConfigType } from "@bubble/types/src/bubble";
 
 export const BubbleConfig: BubbleConfigType = {
   vitals: {
@@ -30,7 +30,7 @@ export const BubbleConfig: BubbleConfigType = {
   },
   actions: {
     sleep: {
-      startAt: '00:00', // HH:mm
+      startAt: "00:00", // HH:mm
       duration: 540, // minutes
       durationMargin: 30, // minutes
     },
@@ -52,17 +52,17 @@ export const BubbleConfig: BubbleConfigType = {
     },
   },
   defaultElements: {
-    eyes: 'enjoy',
+    eyes: "enjoy",
     clothe: null,
-    environment: 'home',
+    environment: "home",
     hat: null,
-    body: 'default',
+    body: "default",
     onomatopoeia: null,
   },
   defaultInventory: [
     {
-      type: 'food',
+      type: "food",
       stock: 1,
     },
   ],
-}
+};

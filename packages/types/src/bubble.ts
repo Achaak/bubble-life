@@ -1,4 +1,4 @@
-import { InventoryItem } from '@src/redux/reducers/bubble/state'
+import type { InventoryItem } from './inventory'
 
 export type Eyes = 'enjoy' | 'sleep' | 'afraid' | 'sunglass'
 export type Clothes = 'coat' | null

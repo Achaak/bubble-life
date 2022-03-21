@@ -1,10 +1,10 @@
-import { GlobalConfigType } from '@src/types/global'
+import { GlobalConfigType } from "@bubble/types/src/global";
 
 export const GlobalConfig: GlobalConfigType = {
-  lang: 'fr',
+  lang: "fr",
   clickable: true,
 
   development: {
     showFPS: true,
   },
-}
+};
