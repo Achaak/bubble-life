@@ -1,8 +1,9 @@
 import { BubbleConfig } from '@bubble/configs/bubble'
+import { GlobalConfig } from '@bubble/configs/global'
+import { addPlayActionInAwaitList } from '@bubble/core/src/actions/play'
+import { useAppSelector } from '@bubble/store/src/hooks'
+import { selectVitals } from '@bubble/store/src/reducers/bubble'
 import { styled } from '@bubble/styles'
-import { addPlayActionInAwaitList } from '@src/core/actions/play'
-import { useAppSelector } from '@src/redux/hooks'
-import { selectVitals } from '@src/redux/reducers/bubble'
 import React, { useEffect, useState } from 'react'
 import { Bodies } from '../Bodies'
 import { Clothes } from '../Clothes'
@@ -16,6 +17,7 @@ const Container = styled('div', {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: '30%',
+  cursor: GlobalConfig.clickable ? 'pointer' : 'default',
 })
 
 const Size = styled('div', {
@@ -64,6 +66,10 @@ export const Bubble: React.FC = () => {
   }, [weight])
 
   const handleClickOnBubble = (): void => {
+    if (!GlobalConfig.clickable) {
+      return
+    }
+
     addPlayActionInAwaitList({
       duration: 10000,
       importance: 1,

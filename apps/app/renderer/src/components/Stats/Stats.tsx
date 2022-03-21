@@ -1,11 +1,11 @@
 import { BubbleConfig } from '@bubble/configs/bubble'
+import { useAppSelector } from '@bubble/store/src/hooks'
+import { selectName, selectVitals } from '@bubble/store/src/reducers/bubble'
 import { styled } from '@bubble/styles'
 import { BxBaguette } from '@bubble/ui/src/Icons/bx-baguette'
 import { BxBed } from '@bubble/ui/src/Icons/bx-bed'
 import { BxDroplet } from '@bubble/ui/src/Icons/bx-droplet'
 import { BxHeart } from '@bubble/ui/src/Icons/bx-heart'
-import { useAppSelector } from '@src/redux/hooks'
-import { selectName, selectVitals } from '@src/redux/reducers/bubble'
 import React from 'react'
 import { Bar } from './Bar'
 
@@ -20,7 +20,11 @@ const Left = styled('div', {
   alignItems: 'center',
   justifyContent: 'space-evenly',
   flex: 1,
-  customColumnGap: 32,
+  customColumnGap: 16,
+
+  '@md': {
+    customColumnGap: 24,
+  },
 })
 
 const Center = styled('div', {
@@ -38,7 +42,11 @@ const Right = styled('div', {
   alignItems: 'center',
   justifyContent: 'space-evenly',
   flex: 1,
-  customColumnGap: 32,
+  customColumnGap: 16,
+
+  '@md': {
+    customColumnGap: 24,
+  },
 })
 
 export const Stats: React.FC = () => {

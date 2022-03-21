@@ -31,24 +31,30 @@ export const BubbleConfig: BubbleConfigType = {
   actions: {
     sleep: {
       startAt: "00:00", // HH:mm
-      duration: 540, // minutes
-      durationMargin: 30, // minutes
+      duration: 540, // Minutes
+      durationMargin: 30, // Minutes
     },
     nap: {
-      duration: 20, // minutes
-      durationMargin: 5, // minutes
+      duration: 20, // Minutes
+      durationMargin: 5, // Minutes
       recover: 0.2, // Between 0 and 1
       recoverMargin: 0.05, // Between 0 and 1
     },
     eat: {
-      duration: 20, // minutes
-      durationMargin: 5, // minutes
+      duration: 20, // Minutes
+      durationMargin: 5, // Minutes
       minWeightToAdd: 1, // kilogram
       maxWeightToadd: 2, // kilogram
     },
     shopping: {
       duration: 20, // minutes
       durationMargin: 5, // minutes
+    },
+    play: {
+      duration: 10, // minutes
+      durationMargin: 5, // minutes
+      recover: 0.5, // Between 0 and 1
+      recoverMargin: 0.1, // Between 0 and 1
     },
   },
   defaultElements: {

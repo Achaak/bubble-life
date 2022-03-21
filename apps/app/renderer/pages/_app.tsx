@@ -1,14 +1,13 @@
+import { StorePersistGate, StoreProvider } from '@bubble/store/src/hooks'
+import { persistor, store } from '@bubble/store/src/store'
 import { globalStyles } from '@bubble/styles'
 import type { Locales } from '@bubble/translate'
 import { detectLocale, TypesafeI18n } from '@bubble/translate'
 import { loadLocaleAsync } from '@bubble/translate/dist/i18n/i18n-util.async'
-import { persistor, store } from '@src/redux/store'
 import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import React, { useEffect, useState } from 'react'
-import { Provider } from 'react-redux'
-import { PersistGate } from 'redux-persist/integration/react'
 
 export type NextPageWithLayout<T extends Record<string, unknown> = Record<string, unknown>> =
   NextPage<T> & {
@@ -49,11 +48,11 @@ const MyApp = ({ Component, pageProps, router }: AppPropsWithLayout): JSX.Elemen
       </Head>
       {locale && (
         <TypesafeI18n locale={locale}>
-          <Provider store={store}>
-            <PersistGate loading={null} persistor={persistor}>
+          <StoreProvider store={store}>
+            <StorePersistGate loading={null} persistor={persistor}>
               {getLayout(<Component {...pageProps} />)}
-            </PersistGate>
-          </Provider>
+            </StorePersistGate>
+          </StoreProvider>
         </TypesafeI18n>
       )}
     </>

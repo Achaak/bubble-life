@@ -57,6 +57,12 @@ export interface BubbleConfigType {
       duration: number
       durationMargin: number
     }
+    play: {
+      duration: number
+      durationMargin: number
+      recover: number
+      recoverMargin: number
+    }
   }
   defaultElements: {
     eyes: Eyes

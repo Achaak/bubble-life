@@ -1,5 +1,5 @@
+import { BubbleCore } from '@bubble/core/src'
 import { styled } from '@bubble/styles'
-import { BubbleCore } from '@src/core'
 import { useEffect } from 'react'
 
 const Container = styled('div', {

@@ -32,7 +32,11 @@ const BarContent = styled('div', {
   bottom: 0,
   borderRadius: 50,
   overflow: 'hidden',
-  customColumnGap: 4,
+  customColumnGap: 2,
+
+  '@md': {
+    customColumnGap: 4,
+  },
 })
 
 const BarItem = styled('div', {

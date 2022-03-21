@@ -1,6 +1,6 @@
+import { useAppSelector } from '@bubble/store/src/hooks'
+import { selectElements } from '@bubble/store/src/reducers/bubble'
 import { styled } from '@bubble/styles'
-import { useAppSelector } from '@src/redux/hooks'
-import { selectElements } from '@src/redux/reducers/bubble'
 import React, { useEffect, useState } from 'react'
 
 const Container = styled('div', {

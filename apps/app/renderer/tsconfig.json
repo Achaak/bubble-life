@@ -4,7 +4,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "../../../packages/common/src/date.ts"  ],
   "exclude": [
     "node_modules"
   ]

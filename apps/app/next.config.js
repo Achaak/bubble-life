@@ -5,6 +5,10 @@ const withTM = require('next-transpile-modules')([
   '@bubble/styles',
   '@bubble/configs',
   '@bubble/types',
+  '@bubble/common',
+  '@bubble/store',
+  '@bubble/core',
+  '@bubble/modules',
 ])
 
 const plugins = [withTM]
