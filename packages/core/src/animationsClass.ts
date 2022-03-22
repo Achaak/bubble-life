@@ -1,6 +1,7 @@
 import { store } from '@bubble/store/src/store'
 import type { AnimationConfig } from '@bubble/types/src/animation'
 import anime from 'animejs'
+
 import { AnimationList } from './animations'
 import { AnimationDefault } from './animations/default'
 

@@ -1,5 +1,4 @@
-import { resetActions } from '@bubble/store/src/reducers/actions/actions'
-import { resetBubble } from '@bubble/store/src/reducers/bubble/actions'
+import { resetActions, resetBubble } from '@bubble/store'
 import { styled } from '@bubble/styles'
 import { Button } from '@bubble/ui/src/components/Inputs/Button'
 import 'dayjs/locale'

@@ -1,11 +1,12 @@
 import { dateToMs } from '@bubble/common/src/date'
 import { random } from '@bubble/common/src/random'
 import { BubbleConfig } from '@bubble/configs/bubble'
-import { addActionInAwaitList, hasAction } from '@bubble/store/src/reducers/actions/actions'
+import { addActionInAwaitList, hasAction } from '@bubble/store'
 import { bubbleActions } from '@bubble/store/src/reducers/bubble'
 import { store } from '@bubble/store/src/store'
 import type { Action as ActionType } from '@bubble/types/src/action'
 import dayjs from 'dayjs'
+
 import { Action } from '../action'
 
 const TIREDNESS_INCREASE_DELAY = dateToMs({ seconds: 1 })
@@ -89,7 +90,7 @@ export class ActionNap extends Action {
       random({
         min: BubbleConfig.actions.nap.recoverMargin * -1,
         max: BubbleConfig.actions.nap.recoverMargin,
-        round: true,
+        round: false,
       })
   }
 

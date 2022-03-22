@@ -1,8 +1,3 @@
-import { actionsActions } from '@bubble/store/src/reducers/actions'
-import {
-  removeActionInAwaitList,
-  removeActionInCancelList,
-} from '@bubble/store/src/reducers/actions/actions'
 import {
   addAnimationInList,
   addBodyInList,
@@ -11,6 +6,8 @@ import {
   addEyesInList,
   addHatInList,
   addOnomatopoeiaInList,
+  removeActionInAwaitList,
+  removeActionInCancelList,
   removeAnimationAllOver,
   removeBodyAllOver,
   removeClotheAllOver,
@@ -18,11 +15,13 @@ import {
   removeEyesAllOver,
   removeHatAllOver,
   removeOnomatopoeiaAllOver,
-} from '@bubble/store/src/reducers/bubble/actions'
+} from '@bubble/store'
+import { actionsActions } from '@bubble/store/src/reducers/actions'
 import { store } from '@bubble/store/src/store'
 import type { Action as ActionType } from '@bubble/types/src/action'
 import dayjs from 'dayjs'
 import shortid from 'shortid'
+
 import type { Action } from './action'
 import { ActionsList } from './actions'
 

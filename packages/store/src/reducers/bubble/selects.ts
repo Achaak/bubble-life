@@ -1,4 +1,5 @@
 import type { RootState } from '@bubble/store/src/store'
+
 import type { AnimationtListItem, BubbleStateElements, BubbleStateVitals } from './state'
 
 export const selectName = (state: RootState): string => state.bubble.name

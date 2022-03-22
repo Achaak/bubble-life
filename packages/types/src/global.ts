@@ -4,5 +4,8 @@ export interface GlobalConfigType {
 
   development: {
     showFPS: boolean
+    devTools: boolean
+    kiosk: boolean
+    menuBar: boolean
   }
 }

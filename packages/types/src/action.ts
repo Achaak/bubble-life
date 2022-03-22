@@ -47,4 +47,7 @@ export interface Action {
     onomatopoeia?: ActionElementOnomatopoeia
   }
   animation?: ActionAnimation
+  memory?: {
+    [key: string]: unknown
+  }
 }

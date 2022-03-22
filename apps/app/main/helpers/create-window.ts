@@ -1,7 +1,9 @@
-import { screen, BrowserWindow, BrowserWindowConstructorOptions } from 'electron'
+import { GlobalConfig } from '@bubble/configs/global'
+import type { BrowserWindowConstructorOptions } from 'electron'
+import { BrowserWindow, screen } from 'electron'
 import Store from 'electron-store'
 
-export default (windowName: string, options: BrowserWindowConstructorOptions): BrowserWindow => {
+const window = (windowName: string, options: BrowserWindowConstructorOptions): BrowserWindow => {
   const key = 'window-state'
   const name = `window-state-${windowName}`
   const store = new Store({ name })
@@ -77,18 +79,21 @@ export default (windowName: string, options: BrowserWindowConstructorOptions): B
   const browserOptions: BrowserWindowConstructorOptions = {
     ...options,
     ...state,
-    fullscreen: process.env.NODE_ENV !== 'development',
+    kiosk: GlobalConfig.development.kiosk,
+    darkTheme: true,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
-      devTools: process.env.NODE_ENV === 'development',
+      devTools: GlobalConfig.development.devTools,
       ...options.webPreferences,
     },
   }
   win = new BrowserWindow(browserOptions)
-  win.setMenuBarVisibility(process.env.NODE_ENV === 'development')
+  win.setMenuBarVisibility(GlobalConfig.development.menuBar)
 
   win.on('close', saveState)
 
   return win
 }
+
+export default window

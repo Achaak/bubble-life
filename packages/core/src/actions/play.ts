@@ -1,23 +1,28 @@
 import { dateToMs } from '@bubble/common/src/date'
 import { random } from '@bubble/common/src/random'
 import { BubbleConfig } from '@bubble/configs/bubble'
-import { addActionInAwaitList, hasAction } from '@bubble/store/src/reducers/actions/actions'
+import { addActionInAwaitList, hasAction, updateMemoryValue } from '@bubble/store'
 import { bubbleActions } from '@bubble/store/src/reducers/bubble'
 import { store } from '@bubble/store/src/store'
 import type { Action as ActionType } from '@bubble/types/src/action'
 import dayjs from 'dayjs'
+
 import { Action } from '../action'
 
-const HEALTH_INCREASE_DELAY = dateToMs({ seconds: 1 })
+const HAPPINESS_INCREASE_DELAY = dateToMs({ seconds: 1 })
 
 export const addPlayActionInAwaitList = ({
   start,
   duration,
   importance,
+  memory,
 }: {
   start: number
   duration: number
   importance: 1 | 2 | 3
+  memory?: {
+    recoverValue?: number
+  }
 }): void => {
   addActionInAwaitList({
     name: 'play',
@@ -31,19 +36,17 @@ export const addPlayActionInAwaitList = ({
     animation: {
       name: 'bounce',
     },
+    memory: memory,
   })
 }
 
 export class ActionPlay extends Action {
   lastRenderUpdatePlay: number
 
-  recoverValue: number
-
   constructor() {
     super()
 
     this.lastRenderUpdatePlay = 0
-    this.recoverValue = 0
 
     this.name = 'play'
     this.actions = [
@@ -66,22 +69,12 @@ export class ActionPlay extends Action {
     ]
   }
 
-  initPlayRecoverValue = (): void => {
-    this.recoverValue =
-      BubbleConfig.actions.play.recover +
-      random({
-        min: BubbleConfig.actions.play.recoverMargin * -1,
-        max: BubbleConfig.actions.play.recoverMargin,
-        round: true,
-      })
-  }
-
   update = (timestamp: number): void => {
     if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) {
       return
     }
 
-    if (store.getState().bubble.vitals.health <= 0 && !hasAction({ name: 'play' })) {
+    if (store.getState().bubble.vitals.happiness <= 0 && !hasAction({ name: 'play' })) {
       const startPlay = dayjs()
 
       const endPlay = dayjs(startPlay).add(
@@ -112,19 +105,53 @@ export class ActionPlay extends Action {
     this.lastRender = timestamp
   }
 
-  getHealthPerSecond = (action: ActionType): number => {
+  getHappinessPerSecond = (action: ActionType): number => {
     const timestamp = Date.now()
 
-    // Get health missing
-    const healthMissing =
-      BubbleConfig.vitals.health.max * this.recoverValue - store.getState().bubble.vitals.health
+    const happinessEnd = action.memory?.happinessEnd as number
 
-    return healthMissing / ((action.start + action.duration - timestamp) / HEALTH_INCREASE_DELAY)
+    // Get time left
+    const actionEnd = action.start + action.duration
+    const timeLeft = (actionEnd - timestamp) / HAPPINESS_INCREASE_DELAY
+
+    // Get happiness missing
+    const happinessMissing = happinessEnd - store.getState().bubble.vitals.happiness
+
+    // Get happiness per second
+    const happinessPerSecond = happinessMissing / timeLeft
+
+    console.log('--------------------')
+    console.log('action', action)
+    console.log('happinessMissing', happinessMissing)
+    console.log('timeLeft', timeLeft)
+    console.log(happinessPerSecond)
+
+    return happinessPerSecond
   }
 
-  handleStartPlay = (): void => {
-    // Init recover value
-    this.initPlayRecoverValue()
+  handleStartPlay = (action: ActionType): void => {
+    const recoverValue =
+      (action.memory?.recoverValue as number | undefined) ||
+      BubbleConfig.actions.play.recover +
+        random({
+          min: BubbleConfig.actions.play.recoverMargin * -1,
+          max: BubbleConfig.actions.play.recoverMargin,
+          round: false,
+        })
+
+    const happinessEnd =
+      store.getState().bubble.vitals.happiness + BubbleConfig.vitals.happiness.max * recoverValue
+
+    if (action.id) {
+      updateMemoryValue({
+        actionId: action.id,
+        id: 'happinessEnd',
+        value:
+          happinessEnd > BubbleConfig.vitals.happiness.max
+            ? BubbleConfig.vitals.happiness.max
+            : happinessEnd,
+      })
+    }
   }
 
   handleUpdatePlay = (action: ActionType): void => {
@@ -133,18 +160,16 @@ export class ActionPlay extends Action {
       return
     }
 
-    store.dispatch(bubbleActions.addHealth(this.getHealthPerSecond(action)))
+    store.dispatch(bubbleActions.addHappiness(this.getHappinessPerSecond(action)))
 
     this.lastRenderUpdatePlay = timestamp
   }
 
   handleEndPlay = (): void => {
-    // Reset recover value
-    this.recoverValue = 0
+    // NOTHING
   }
 
   handleCancelPlay = (): void => {
-    // Reset recover value
-    this.recoverValue = 0
+    // NOTHING
   }
 }

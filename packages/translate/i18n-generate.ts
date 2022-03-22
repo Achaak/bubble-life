@@ -2,7 +2,7 @@ import fs from 'fs'
 import { opendir, readFile } from 'fs/promises'
 import path, { join } from 'path'
 import type { BaseTranslation } from 'typesafe-i18n'
-import type { LocaleMapping } from 'typesafe-i18n/importer'
+import type { ImportLocaleMapping } from 'typesafe-i18n/importer'
 import { storeTranslationsToDisk } from 'typesafe-i18n/importer'
 
 const localePath = join(path.resolve(), 'locales')
@@ -22,7 +22,9 @@ const getDataFromAPI = async (locale: string): Promise<BaseTranslation> => {
       join(folder, dirent.name),
       join(folder, dirent.name.replace('.json', '').replace('.', '_') + '.json'),
       function (err) {
-        if (err) console.log('ERROR: ' + err)
+        if (err) {
+          console.log('ERROR: ' + err)
+        }
       }
     )
 
@@ -35,7 +37,7 @@ const getDataFromAPI = async (locale: string): Promise<BaseTranslation> => {
 }
 
 const updateTranslations = async (): Promise<void> => {
-  const lm: LocaleMapping[] = []
+  const lm: ImportLocaleMapping[] = []
 
   const dir = await opendir(localePath)
   for await (const dirent of dir) {

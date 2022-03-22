@@ -1,9 +1,9 @@
 import { dateToMs } from '@bubble/common/src/date'
 import { random } from '@bubble/common/src/random'
 import { BubbleConfig } from '@bubble/configs/bubble'
-import { addActionInAwaitList, hasAction } from '@bubble/store/src/reducers/actions/actions'
-import { addInventoryItem, hasInventoryItem } from '@bubble/store/src/reducers/bubble/actions'
+import { addActionInAwaitList, addInventoryItem, hasAction, hasInventoryItem } from '@bubble/store'
 import dayjs from 'dayjs'
+
 import { Action } from '../action'
 
 export class ActionShopping extends Action {

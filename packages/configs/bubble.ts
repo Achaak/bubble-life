@@ -51,8 +51,8 @@ export const BubbleConfig: BubbleConfigType = {
       durationMargin: 5, // minutes
     },
     play: {
-      duration: 10, // minutes
-      durationMargin: 5, // minutes
+      duration: 1, // minutes
+      durationMargin: 0, // minutes
       recover: 0.5, // Between 0 and 1
       recoverMargin: 0.1, // Between 0 and 1
     },

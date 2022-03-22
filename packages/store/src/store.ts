@@ -11,6 +11,7 @@ import {
   REHYDRATE,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
+
 import actionsReducer from './reducers/actions'
 import bubbleReducer from './reducers/bubble'
 

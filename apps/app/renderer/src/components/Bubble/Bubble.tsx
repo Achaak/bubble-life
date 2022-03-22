@@ -5,6 +5,7 @@ import { useAppSelector } from '@bubble/store/src/hooks'
 import { selectVitals } from '@bubble/store/src/reducers/bubble'
 import { styled } from '@bubble/styles'
 import React, { useEffect, useState } from 'react'
+
 import { Bodies } from '../Bodies'
 import { Clothes } from '../Clothes'
 import { Eyes } from '../Eyes'
@@ -70,10 +71,14 @@ export const Bubble: React.FC = () => {
       return
     }
 
+    // TODO Check if bubble play is already in the list
     addPlayActionInAwaitList({
       duration: 10000,
       importance: 1,
       start: Date.now(),
+      memory: {
+        recoverValue: 0.1,
+      },
     })
   }
 

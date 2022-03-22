@@ -5,6 +5,9 @@ export const GlobalConfig: GlobalConfigType = {
   clickable: true,
 
   development: {
-    showFPS: true,
+    showFPS: false,
+    devTools: true,
+    kiosk: true,
+    menuBar: true,
   },
 };

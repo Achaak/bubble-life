@@ -1,6 +1,7 @@
 import { BubbleConfig } from '@bubble/configs/bubble'
 import type { InventoryItemType } from '@bubble/types/src/inventory'
 import type { PayloadAction } from '@reduxjs/toolkit'
+
 import type {
   AnimationtListItem,
   BodyElementListItem,

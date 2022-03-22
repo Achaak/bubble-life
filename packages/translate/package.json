@@ -12,7 +12,7 @@
     "build": "tsc",
     "format": "prettier --write \"**/*.{ts,tsx}\" && npx sort-package-json",
     "i18n": "typesafe-i18n",
-    "i18n:generate": "ts-node i18n-generate",
+    "i18n:generate": "ts-node i18n-generate && typesafe-i18n --no-watch && yarn build",
     "lint": "cross-env TIMING=1 eslint src --fix"
   },
   "browserslist": {

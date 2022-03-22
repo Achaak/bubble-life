@@ -1,5 +1,3 @@
-import { actionsActions } from '@bubble/store/src/reducers/actions'
-import { bubbleActions } from '@bubble/store/src/reducers/bubble'
 import {
   addAnimationInList,
   addBodyInList,
@@ -9,7 +7,9 @@ import {
   addHatInList,
   addOnomatopoeiaInList,
   resetAnimation,
-} from '@bubble/store/src/reducers/bubble/actions'
+} from '@bubble/store'
+import { actionsActions } from '@bubble/store/src/reducers/actions'
+import { bubbleActions } from '@bubble/store/src/reducers/bubble'
 import type {
   AnimationtListItem,
   BodyElementListItem,

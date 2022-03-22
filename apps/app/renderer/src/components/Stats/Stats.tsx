@@ -4,9 +4,10 @@ import { selectName, selectVitals } from '@bubble/store/src/reducers/bubble'
 import { styled } from '@bubble/styles'
 import { BxBaguette } from '@bubble/ui/src/Icons/bx-baguette'
 import { BxBed } from '@bubble/ui/src/Icons/bx-bed'
-import { BxDroplet } from '@bubble/ui/src/Icons/bx-droplet'
 import { BxHeart } from '@bubble/ui/src/Icons/bx-heart'
+import { BxParty } from '@bubble/ui/src/Icons/bx-party'
 import React from 'react'
+
 import { Bar } from './Bar'
 
 const Container = styled('div', {
@@ -60,7 +61,7 @@ export const Stats: React.FC = () => {
           percentage={(100 / BubbleConfig.vitals.saturation.max) * saturation}
           Icon={BxBaguette}
         />
-        <Bar percentage={(100 / BubbleConfig.vitals.happiness.max) * happiness} Icon={BxDroplet} />
+        <Bar percentage={(100 / BubbleConfig.vitals.happiness.max) * happiness} Icon={BxParty} />
       </Left>
       <Center>
         <Name>{name}</Name>

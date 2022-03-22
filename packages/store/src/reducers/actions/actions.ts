@@ -1,4 +1,5 @@
 import type { Action } from '@bubble/types/src/action'
+
 import { actionsActions } from '.'
 import { store } from '../../store'
 
@@ -64,4 +65,20 @@ export const hasActionInCurrent = ({ name }: { name: string }): boolean => {
   const current = store.getState().actions.current
 
   return current?.name === name
+}
+
+export const updateMemoryValue = ({
+  id,
+  actionId,
+  value,
+}: {
+  id: string
+  actionId: string
+  value: unknown
+}): void => {
+  store.dispatch(actionsActions.updateMemoryValue({ id, actionId, value }))
+}
+
+export const deleteMemoryValue = ({ id, actionId }: { id: string; actionId: string }): void => {
+  store.dispatch(actionsActions.deleteMemoryValue({ id, actionId }))
 }

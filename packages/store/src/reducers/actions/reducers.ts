@@ -10,6 +10,7 @@ import type {
 } from '@bubble/types/src/action'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import shortid from 'shortid'
+
 import type { ActionsState } from './state'
 import { initialActionsState } from './state'
 
@@ -142,4 +143,84 @@ export const updateCurrentActionAnimation = (
     return
   }
   state.current.animation = action.payload
+}
+
+export const updateMemoryValue = (
+  state: ActionsState,
+  action: PayloadAction<{ id: string; value: unknown; actionId: string }>
+): void => {
+  // Update current action memory value
+  if (state.current) {
+    if (!state.current.memory) {
+      state.current.memory = {}
+    }
+
+    state.current.memory[action.payload.id] = action.payload.value
+  }
+
+  // Update wait list memory value
+  state.waitList = state.waitList.map((item) => {
+    if (item.id === action.payload.actionId) {
+      if (!item.memory) {
+        item.memory = {}
+      }
+
+      item.memory[action.payload.id] = action.payload.value
+    }
+
+    return item
+  })
+
+  // Update cancel list memory value
+  state.cancelList = state.cancelList.map((item) => {
+    if (item.id === action.payload.actionId) {
+      if (!item.memory) {
+        item.memory = {}
+      }
+
+      item.memory[action.payload.id] = action.payload.value
+    }
+
+    return item
+  })
+}
+
+export const deleteMemoryValue = (
+  state: ActionsState,
+  action: PayloadAction<{ id: string; actionId: string }>
+): void => {
+  // Update current action memory value
+  if (state.current) {
+    if (!state.current.memory) {
+      state.current.memory = {}
+    }
+
+    delete state.current.memory[action.payload.id]
+  }
+
+  // Update wait list memory value
+  state.waitList = state.waitList.map((item) => {
+    if (item.id === action.payload.actionId) {
+      if (!item.memory) {
+        item.memory = {}
+      }
+
+      delete item.memory[action.payload.id]
+    }
+
+    return item
+  })
+
+  // Update cancel list memory value
+  state.cancelList = state.cancelList.map((item) => {
+    if (item.id === action.payload.actionId) {
+      if (!item.memory) {
+        item.memory = {}
+      }
+
+      delete item.memory[action.payload.id]
+    }
+
+    return item
+  })
 }

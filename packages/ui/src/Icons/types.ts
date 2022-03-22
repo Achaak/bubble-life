@@ -1,4 +1,4 @@
-import { ColorsType, CSS } from '@bubble/styles'
+import type { ColorsType, CSS } from '@bubble/styles'
 
 export type SVGComponentIcon = {
   className?: string
