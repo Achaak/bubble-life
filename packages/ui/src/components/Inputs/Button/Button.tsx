@@ -29,7 +29,7 @@ const ButtonDOM = styled('button', {
 
 export interface ButtonProps {
   onClick: () => void
-  type?: 'button' | 'submit'
+  type?: 'button' | 'submit' | 'reset'
 }
 
 export const Button: React.FC<ButtonProps> = ({ children, onClick, type }) => {
@@ -38,4 +38,8 @@ export const Button: React.FC<ButtonProps> = ({ children, onClick, type }) => {
       {children}
     </ButtonDOM>
   )
+}
+
+Button.defaultProps = {
+  type: 'button',
 }

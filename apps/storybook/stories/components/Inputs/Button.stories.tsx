@@ -7,25 +7,23 @@ export default {
   title: 'Components/Inputs/Button',
   component: Button,
   argTypes: {
-    type: {
-      description: 'Type of button',
-      options: ['submit', 'button'],
-      control: { type: 'radio' },
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'button' },
-      },
-      required: false,
-    },
     onClick: {
-      description: 'Function to call when button is clicked',
-      required: false,
-      table: {
-        type: { summary: 'function' },
+      description: 'The function to be called when the button is clicked',
+      type: {
+        name: 'function',
+        required: false,
+      },
+    },
+    type: {
+      description: 'The type of button',
+      type: {
+        name: 'enum',
+        value: ['button', 'submit', 'reset'],
+        required: false,
       },
     },
   },
-} as Meta
+} as Meta<ButtonProps>
 
 const Template: Story<ButtonProps> = (args) => {
   globalStyles()
