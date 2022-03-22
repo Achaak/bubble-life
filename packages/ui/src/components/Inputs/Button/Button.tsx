@@ -27,12 +27,12 @@ const ButtonDOM = styled('button', {
   },
 })
 
-interface CustomProps {
+export interface ButtonProps {
   onClick: () => void
   type?: 'button' | 'submit'
 }
 
-export const Button: React.FC<CustomProps> = ({ children, onClick, type }) => {
+export const Button: React.FC<ButtonProps> = ({ children, onClick, type }) => {
   return (
     <ButtonDOM type={type} onClick={onClick}>
       {children}

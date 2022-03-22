@@ -1,0 +1,63 @@
+{
+  "name": "@bubble/storybook",
+  "version": "1.0.0",
+  "author": "Anonymize <anonymize@gmail.com>",
+  "scripts": {
+    "build": "build-storybook",
+    "build:docker": "cd ../../ && docker build . -f dockerfiles/website.Dockerfile -t storybook:latest --build-arg SCOPE=@bubble/storybook",
+    "dev": "start-storybook -p 6006",
+    "format": "prettier --write \"**/*.{ts,tsx,.md}\" && npx sort-package-json",
+    "lint": "eslint \"./**/*.{ts,tsx,json}\" --fix",
+    "start": "npx http-server ./storybook-static -p 3000"
+  },
+  "eslintConfig": {
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  },
+  "dependencies": {
+    "@bubble/styles": "*",
+    "@bubble/translate": "*",
+    "@bubble/ui": "*",
+    "http-server": "^14.1.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "devDependencies": {
+    "@bubble/scripts": "*",
+    "@bubble/tsconfig": "*",
+    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/addon-storyshots": "^6.4.19",
+    "@storybook/addon-storysource": "^6.4.19",
+    "@storybook/builder-webpack5": "^6.4.19",
+    "@storybook/cli": "^6.4.19",
+    "@storybook/components": "^6.4.19",
+    "@storybook/manager-webpack5": "^6.4.19",
+    "@storybook/react": "^6.4.19",
+    "@storybook/theming": "^6.4.19",
+    "@trivago/prettier-plugin-sort-imports": "3.2.0",
+    "@types/node": "^17.0.22",
+    "@types/react": "17.0.41",
+    "@types/react-dom": "17.0.14",
+    "@typescript-eslint/eslint-plugin": "5.16.0",
+    "@typescript-eslint/parser": "5.16.0",
+    "eslint": "8.11.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-json": "3.1.0",
+    "eslint-plugin-jsx-a11y": "6.5.1",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-react": "7.29.4",
+    "eslint-plugin-react-hooks": "4.3.0",
+    "prettier": "2.6.0",
+    "typescript": "~4.6.2"
+  }
+}
