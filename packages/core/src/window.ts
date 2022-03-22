@@ -6,10 +6,28 @@ import {
   addEyesInList,
   addHatInList,
   addOnomatopoeiaInList,
+  getActions,
+  getBubble,
+  resetActions,
   resetAnimation,
+  resetBody,
+  resetBubble,
+  resetClothe,
+  resetEnvironment,
+  resetEyes,
+  resetHappiness,
+  resetHat,
+  resetHealth,
+  resetOnomatopoeia,
+  resetSaturation,
+  resetTiredness,
+  resetWeight,
+  setHappiness,
+  setHealth,
+  setSaturation,
+  setTiredness,
+  setWeight,
 } from '@bubble/store'
-import { actionsActions } from '@bubble/store/src/reducers/actions'
-import { bubbleActions } from '@bubble/store/src/reducers/bubble'
 import type {
   AnimationtListItem,
   BodyElementListItem,
@@ -18,8 +36,9 @@ import type {
   EyesElementListItem,
   HatElementListItem,
   OnomatopoeiaElementListItem,
-} from '@bubble/store/src/reducers/bubble/state'
-import { store } from '@bubble/store/src/store'
+  ActionsState,
+  BubbleState,
+} from '@bubble/store'
 
 declare global {
   interface Window {
@@ -78,45 +97,44 @@ declare global {
 
 export const initWindow = (): void => {
   window.resetBubble = (): void => {
-    store.dispatch(bubbleActions.resetBubble())
-    store.dispatch(actionsActions.resetActions())
+    resetBubble()
+    resetActions()
   }
 
   /* -------------------- VITALS -------------------- */
   window.setWeight = (value): void => {
-    store.dispatch(bubbleActions.setWeight(value))
+    setWeight(value)
   }
   window.resetWeight = (): void => {
-    store.dispatch(bubbleActions.resetWeight())
+    resetWeight()
   }
 
   window.setSaturation = (value): void => {
-    store.dispatch(bubbleActions.setSaturation(value))
+    setSaturation(value)
   }
   window.resetSaturation = (): void => {
-    store.dispatch(bubbleActions.resetSaturation())
+    resetSaturation()
   }
 
   window.setHappiness = (value): void => {
-    store.dispatch(bubbleActions.setHappiness(value))
+    setHappiness(value)
   }
   window.resetHappiness = (): void => {
-    store.dispatch(bubbleActions.resetHappiness())
+    resetHappiness()
   }
 
   window.setTiredness = (value): void => {
-    store.dispatch(bubbleActions.setTiredness(value))
+    setTiredness(value)
   }
   window.resetTiredness = (): void => {
-    store.dispatch(bubbleActions.resetTiredness())
+    resetTiredness()
   }
 
   window.setHealth = (value): void => {
-    console.log('setHealth', value)
-    store.dispatch(bubbleActions.setHealth(value))
+    setHealth(value)
   }
   window.resetHealth = (): void => {
-    store.dispatch(bubbleActions.resetHealth())
+    resetHealth()
   }
 
   /* -------------------- ELEMENTS -------------------- */
@@ -125,7 +143,7 @@ export const initWindow = (): void => {
     addEyesInList(eyesElementListItem)
   }
   window.resetEyes = (): void => {
-    store.dispatch(bubbleActions.resetEyes())
+    resetEyes()
   }
 
   /* ---------- HAT ---------- */
@@ -133,7 +151,7 @@ export const initWindow = (): void => {
     addHatInList(HatElementListItem)
   }
   window.resetHat = (): void => {
-    store.dispatch(bubbleActions.resetHat())
+    resetHat()
   }
 
   /* ---------- CLOTHE ---------- */
@@ -141,7 +159,7 @@ export const initWindow = (): void => {
     addClotheInList(ClotheElementListItem)
   }
   window.resetClothe = (): void => {
-    store.dispatch(bubbleActions.resetClothe())
+    resetClothe()
   }
 
   /* ---------- BODY ---------- */
@@ -149,7 +167,7 @@ export const initWindow = (): void => {
     addBodyInList(BodyElementListItem)
   }
   window.resetBody = (): void => {
-    store.dispatch(bubbleActions.resetBody())
+    resetBody()
   }
 
   /* ---------- ENVIRONMENT ---------- */
@@ -157,7 +175,7 @@ export const initWindow = (): void => {
     addEnvironmentInList(EnvironmentElementListItem)
   }
   window.resetEnvironment = (): void => {
-    store.dispatch(bubbleActions.resetEnvironment())
+    resetEnvironment()
   }
 
   /* ---------- ONOMATOPOEIA ---------- */
@@ -165,7 +183,7 @@ export const initWindow = (): void => {
     addOnomatopoeiaInList(onomatopoeiaElementListItem)
   }
   window.resetOnomatopoeia = (): void => {
-    store.dispatch(bubbleActions.resetOnomatopoeia())
+    resetOnomatopoeia()
   }
 
   /* -------------------- ANIMATIONS -------------------- */
@@ -177,10 +195,6 @@ export const initWindow = (): void => {
   }
 
   /* -------------------- STATS -------------------- */
-  window.bubble = (): void => {
-    store.getState().bubble
-  }
-  window.actions = (): void => {
-    store.getState().actions
-  }
+  window.bubble = (): BubbleState => getBubble()
+  window.actions = (): ActionsState => getActions()
 }

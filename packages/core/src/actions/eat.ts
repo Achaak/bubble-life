@@ -1,9 +1,14 @@
 import { dateToMs } from '@bubble/common/src/date'
 import { random } from '@bubble/common/src/random'
 import { BubbleConfig } from '@bubble/configs/bubble'
-import { addActionInAwaitList, hasAction, removeInventoryItem } from '@bubble/store'
-import { bubbleActions } from '@bubble/store/src/reducers/bubble'
-import { store } from '@bubble/store/src/store'
+import {
+  addActionInAwaitList,
+  addSaturation,
+  addWeight,
+  getBubble,
+  hasAction,
+  removeInventoryItem,
+} from '@bubble/store'
 import type { Action as ActionType } from '@bubble/types/src/action'
 import dayjs from 'dayjs'
 
@@ -67,11 +72,15 @@ export class ActionEat extends Action {
   }
 
   update = (timestamp: number): void => {
+    const {
+      vitals: { saturation },
+    } = getBubble()
+
     if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) {
       return
     }
 
-    if (store.getState().bubble.vitals.saturation <= 0 && !hasAction({ name: 'eat' })) {
+    if (saturation <= 0 && !hasAction({ name: 'eat' })) {
       const startEat = dayjs()
       const endEat = dayjs(startEat).add(
         BubbleConfig.actions.eat.duration +
@@ -94,10 +103,13 @@ export class ActionEat extends Action {
   }
 
   getSaturationPerSecond = (action: ActionType): number => {
+    const {
+      vitals: { saturation },
+    } = getBubble()
+
     const timestamp = Date.now()
 
-    const saturationMissing =
-      BubbleConfig.vitals.saturation.max - store.getState().bubble.vitals.saturation
+    const saturationMissing = BubbleConfig.vitals.saturation.max - saturation
 
     return (
       saturationMissing / ((action.start + action.duration - timestamp) / SATURATION_INCREASE_DELAY)
@@ -114,19 +126,17 @@ export class ActionEat extends Action {
       return
     }
 
-    store.dispatch(bubbleActions.addSaturation(this.getSaturationPerSecond(action)))
+    addSaturation(this.getSaturationPerSecond(action))
 
     this.lastRenderUpdateEat = timestamp
   }
 
   handleEndEat = (): void => {
-    store.dispatch(
-      bubbleActions.addWeight(
-        random({
-          min: BubbleConfig.actions.eat.minWeightToAdd,
-          max: BubbleConfig.actions.eat.maxWeightToadd,
-        })
-      )
+    addWeight(
+      random({
+        min: BubbleConfig.actions.eat.minWeightToAdd,
+        max: BubbleConfig.actions.eat.maxWeightToadd,
+      })
     )
 
     removeInventoryItem({ type: 'food', number: 1 })

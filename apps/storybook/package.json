@@ -4,7 +4,7 @@
   "scripts": {
     "build": "build-storybook",
     "dev": "start-storybook -p 6006",
-    "format": "prettier --write \"**/*.{ts,tsx,.md}\" &&",
+    "format": "prettier --write \"**/*.{ts,tsx}\"",
     "lint": "eslint \"./**/*.{ts,tsx,json}\" --fix",
     "start": "http-server ./storybook-static"
   },

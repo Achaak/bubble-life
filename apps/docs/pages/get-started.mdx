@@ -1,0 +1,80 @@
+# Requirements
+
+## Nodejs
+
+### Windows
+
+Download the last version.
+[https://nodejs.org/fr/download/](https://nodejs.org/fr/download/)
+
+Select the Windows installer (.msi) and download one of the 2 files.
+
+Run the downloaded msi file.
+And accept all the default steps of the installation.
+
+### Linux
+
+Source: [https://github.com/nodesource/distributions#debinstall](https://github.com/nodesource/distributions#debinstall)
+
+```bash
+# Using Ubuntu
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# Using Debian, as root
+curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+apt-get install -y nodejs
+```
+
+### Verification
+
+To verify that the installation has been done, use these commands.
+
+```bash
+node -v
+npm -v
+```
+
+# First installation
+
+Clone the repository.
+
+```bash
+git clone https://github.com/Achaak/bubble-life
+```
+
+Enter the repository.
+
+```bash
+cd bubble-life
+```
+
+Install modules.
+
+```bash
+npm install
+
+# or
+
+yarn install
+```
+
+Build the project.
+
+```bash
+npm build
+
+# or
+
+yarn build
+```
+
+Run the project.
+
+```bash
+npm start
+
+# or
+
+yarn start
+```

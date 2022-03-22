@@ -1,9 +1,7 @@
 import { dateToMs } from '@bubble/common/src/date'
 import { random } from '@bubble/common/src/random'
 import { BubbleConfig } from '@bubble/configs/bubble'
-import { addActionInAwaitList, hasAction } from '@bubble/store'
-import { bubbleActions } from '@bubble/store/src/reducers/bubble'
-import { store } from '@bubble/store/src/store'
+import { addActionInAwaitList, addTiredness, getBubble, hasAction } from '@bubble/store'
 import type { Action as ActionType } from '@bubble/types/src/action'
 import dayjs from 'dayjs'
 
@@ -104,11 +102,14 @@ export class ActionSleep extends Action {
   }
 
   getTirednessPerSecond = (action: ActionType): number => {
+    const {
+      vitals: { tiredness },
+    } = getBubble()
+
     const timestamp = Date.now()
 
     // Get tiredness missing
-    const tirednessMissing =
-      BubbleConfig.vitals.tiredness.max - store.getState().bubble.vitals.tiredness
+    const tirednessMissing = BubbleConfig.vitals.tiredness.max - tiredness
 
     return (
       tirednessMissing / ((action.start + action.duration - timestamp) / TIREDNESS_INCREASE_DELAY)
@@ -125,7 +126,7 @@ export class ActionSleep extends Action {
       return
     }
 
-    store.dispatch(bubbleActions.addTiredness(this.getTirednessPerSecond(action)))
+    addTiredness(this.getTirednessPerSecond(action))
 
     this.lastRenderUpdateSleep = timestamp
   }

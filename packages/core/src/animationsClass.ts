@@ -1,4 +1,4 @@
-import { store } from '@bubble/store/src/store'
+import { getBubble } from '@bubble/store'
 import type { AnimationConfig } from '@bubble/types/src/animation'
 import anime from 'animejs'
 
@@ -19,8 +19,9 @@ export class Animations {
   }
 
   onStartAnimation = (): void => {
-    const storeAnimation = store.getState().bubble.animation
-    const animationFind = AnimationList.find((item) => item.name === storeAnimation.current?.name)
+    const { animation } = getBubble()
+
+    const animationFind = AnimationList.find((item) => item.name === animation.current?.name)
 
     if (animationFind) {
       this.currentAnimation = animationFind

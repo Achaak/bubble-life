@@ -6,6 +6,7 @@ import {
   addEyesInList,
   addHatInList,
   addOnomatopoeiaInList,
+  getActions,
   removeActionInAwaitList,
   removeActionInCancelList,
   removeAnimationAllOver,
@@ -15,9 +16,9 @@ import {
   removeEyesAllOver,
   removeHatAllOver,
   removeOnomatopoeiaAllOver,
+  resetCurrentAction,
+  setCurrentAction,
 } from '@bubble/store'
-import { actionsActions } from '@bubble/store/src/reducers/actions'
-import { store } from '@bubble/store/src/store'
 import type { Action as ActionType } from '@bubble/types/src/action'
 import dayjs from 'dayjs'
 import shortid from 'shortid'
@@ -49,7 +50,7 @@ export class Actions {
   }
 
   update = (timestamp: number): void => {
-    const { waitList, current, cancelList } = store.getState().actions
+    const { waitList, current, cancelList } = getActions()
 
     // CHECK CANCEL ACTIONS
     if (cancelList.length > 0 || current) {
@@ -92,7 +93,7 @@ export class Actions {
   }
 
   onStartAction = (): void => {
-    const { waitList } = store.getState().actions
+    const { waitList } = getActions()
     const waitListItem = waitList[0]
     const newAction: ActionType = {
       ...waitListItem,
@@ -159,11 +160,7 @@ export class Actions {
     }
 
     // Add new current action
-    store.dispatch(
-      actionsActions.setCurrentAction({
-        ...newAction,
-      })
-    )
+    setCurrentAction(newAction)
 
     // Remove action in list
     if (newAction.id) {
@@ -244,7 +241,7 @@ export class Actions {
   }
 
   onUpdateAction = (): void => {
-    const { current } = store.getState().actions
+    const { current } = getActions()
 
     if (!current) {
       return
@@ -261,7 +258,7 @@ export class Actions {
   }
 
   onEndAction = (): void => {
-    const { current } = store.getState().actions
+    const { current } = getActions()
 
     if (!current) {
       return
@@ -285,11 +282,11 @@ export class Actions {
     console.log('[End action]', current.name)
 
     // Remove current action
-    store.dispatch(actionsActions.resetCurrentAction())
+    resetCurrentAction()
   }
 
   onCancelAction = (): void => {
-    const { cancelList } = store.getState().actions
+    const { cancelList } = getActions()
     const cancelAction = { ...cancelList[0] }
 
     if (!cancelAction) {
@@ -369,7 +366,7 @@ export class Actions {
   checkAwaitList = (): void => {
     const currentDate = dayjs().valueOf()
 
-    const { current, waitList } = store.getState().actions
+    const { current, waitList } = getActions()
 
     // Verif current action
     if (current) {
@@ -388,7 +385,7 @@ export class Actions {
   }
 
   checkCancelList = (): void => {
-    const { cancelList } = store.getState().actions
+    const { cancelList } = getActions()
 
     if (cancelList.length > 0) {
       this.onCancelAction()

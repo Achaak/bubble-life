@@ -1,7 +1,6 @@
 import { dateToMs } from '@bubble/common/src/date'
 import { BubbleConfig } from '@bubble/configs/bubble'
-import { bubbleActions } from '@bubble/store/src/reducers/bubble'
-import { store } from '@bubble/store/src/store'
+import { removeSaturation } from '@bubble/store'
 
 import { Vital } from './vital'
 
@@ -17,7 +16,7 @@ export class VitalSaturation extends Vital {
       return
     }
 
-    store.dispatch(bubbleActions.removeSaturation(BubbleConfig.vitals.saturation.decrease))
+    removeSaturation(BubbleConfig.vitals.saturation.decrease)
 
     this.lastRender = timestamp
   }
