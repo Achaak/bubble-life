@@ -1,7 +1,3 @@
----
-title: Eyes Element
----
-
 import Callout from "nextra-theme-docs/callout";
 
 # Eyes Element
@@ -10,7 +6,7 @@ import Callout from "nextra-theme-docs/callout";
 
 Add a eyes to the list of eyes.
 
-```ts
+```typescript
 import { addEyesInList } from "@bubble/store";
 
 addEyesInList({
@@ -22,11 +18,11 @@ addEyesInList({
 
 #### Parameters
 
-| Parameter  | Description                            | Type          | Default    |
-| ---------- | -------------------------------------- | ------------- | ---------- |
-| id         | Id of the eyes to add.                 | `string`      | `required` |
-| importance | Importance of the action to check for. | `1 \| 2 \| 3` | `required` |
-| name       | Name of the action to check for.       | `Eyes`        | `required` |
+| Parameter  | Description                            | Type        | Default    |
+| ---------- | -------------------------------------- | ----------- | ---------- |
+| id         | Id of the eyes to add.                 | `string`    | `required` |
+| importance | Importance of the action to check for. | `1, 2 or 3` | `required` |
+| name       | Name of the action to check for.       | `Eyes`      | `required` |
 
 ---
 
@@ -34,7 +30,7 @@ addEyesInList({
 
 Remove a eyes from the list of eyes.
 
-```ts
+```typescript
 import { removeEyesInList } from "@bubble/store";
 
 removeEyesInList({
@@ -54,7 +50,7 @@ removeEyesInList({
 
 Reset the eyes state.
 
-```ts
+```typescript
 import { resetEyes } from "@bubble/store";
 
 resetEyes();
@@ -71,7 +67,7 @@ resetEyes();
 
 Set the action eyes.
 
-```ts
+```typescript
 import { setActionEyes } from "@bubble/store";
 
 setActionEyes({
@@ -93,7 +89,7 @@ setActionEyes({
 
 Reset the action eyes.
 
-```ts
+```typescript
 import { resetActionEyes } from "@bubble/store";
 
 resetActionEyes();

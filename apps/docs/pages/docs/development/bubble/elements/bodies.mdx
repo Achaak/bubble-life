@@ -1,7 +1,3 @@
----
-title: Bodies Element
----
-
 import Callout from "nextra-theme-docs/callout";
 
 # Bodies Element
@@ -10,7 +6,7 @@ import Callout from "nextra-theme-docs/callout";
 
 Add a body to the list of bodies.
 
-```ts
+```typescript
 import { addBodyInList } from "@bubble/store";
 
 addBodyInList({
@@ -22,11 +18,11 @@ addBodyInList({
 
 #### Parameters
 
-| Parameter  | Description                            | Type          | Default    |
-| ---------- | -------------------------------------- | ------------- | ---------- |
-| id         | Id of the body to add.                 | `string`      | `required` |
-| importance | Importance of the action to check for. | `1 \| 2 \| 3` | `required` |
-| name       | Name of the action to check for.       | `Bodies`      | `required` |
+| Parameter  | Description                            | Type        | Default    |
+| ---------- | -------------------------------------- | ----------- | ---------- |
+| id         | Id of the body to add.                 | `string`    | `required` |
+| importance | Importance of the action to check for. | `1, 2 or 3` | `required` |
+| name       | Name of the action to check for.       | `Bodies`    | `required` |
 
 ---
 
@@ -34,7 +30,7 @@ addBodyInList({
 
 Remove a body from the list of bodies.
 
-```ts
+```typescript
 import { removeBodyInList } from "@bubble/store";
 
 removeBodyInList({
@@ -54,7 +50,7 @@ removeBodyInList({
 
 Reset the body state.
 
-```ts
+```typescript
 import { resetBody } from "@bubble/store";
 
 resetBody();
@@ -71,7 +67,7 @@ resetBody();
 
 Set the action body.
 
-```ts
+```typescript
 import { setActionBody } from "@bubble/store";
 
 setActionBody({
@@ -93,7 +89,7 @@ setActionBody({
 
 Reset the action body.
 
-```ts
+```typescript
 import { resetActionBody } from "@bubble/store";
 
 resetActionBody();

@@ -1,7 +1,3 @@
----
-title: Environments Element
----
-
 import Callout from "nextra-theme-docs/callout";
 
 # Environments Element
@@ -10,7 +6,7 @@ import Callout from "nextra-theme-docs/callout";
 
 Add a environment to the list of environments.
 
-```ts
+```typescript
 import { addEnvironmentInList } from "@bubble/store";
 
 addEnvironmentInList({
@@ -25,7 +21,7 @@ addEnvironmentInList({
 | Parameter  | Description                            | Type           | Default    |
 | ---------- | -------------------------------------- | -------------- | ---------- |
 | id         | Id of the environment to add.          | `string`       | `required` |
-| importance | Importance of the action to check for. | `1 \| 2 \| 3`  | `required` |
+| importance | Importance of the action to check for. | `1, 2 or 3`    | `required` |
 | name       | Name of the action to check for.       | `Environments` | `required` |
 
 ---
@@ -34,7 +30,7 @@ addEnvironmentInList({
 
 Remove a environment from the list of environments.
 
-```ts
+```typescript
 import { removeEnvironmentInList } from "@bubble/store";
 
 removeEnvironmentInList({
@@ -54,7 +50,7 @@ removeEnvironmentInList({
 
 Reset the environment state.
 
-```ts
+```typescript
 import { resetEnvironment } from "@bubble/store";
 
 resetEnvironment();
@@ -71,7 +67,7 @@ resetEnvironment();
 
 Set the action environment.
 
-```ts
+```typescript
 import { setActionEnvironment } from "@bubble/store";
 
 setActionEnvironment({
@@ -93,7 +89,7 @@ setActionEnvironment({
 
 Reset the action environment.
 
-```ts
+```typescript
 import { resetActionEnvironment } from "@bubble/store";
 
 resetActionEnvironment();

@@ -1,7 +1,3 @@
----
-title: Current Actions
----
-
 import Callout from "nextra-theme-docs/callout";
 
 # Current Actions
@@ -10,7 +6,7 @@ import Callout from "nextra-theme-docs/callout";
 
 Reset the current action to null.
 
-```ts
+```typescript
 import { resetCurrentAction } from "@bubble/store";
 
 resetCurrentAction();
@@ -22,7 +18,7 @@ resetCurrentAction();
 
 Get if the current action is in the current action by name.
 
-```ts
+```typescript
 import { resetCurrentAction } from "@bubble/store";
 
 hasActionInCurrentByName({
@@ -36,7 +32,7 @@ hasActionInCurrentByName({
 
 Get if the current action is in the current action by id.
 
-```ts
+```typescript
 import { resetCurrentAction } from "@bubble/store";
 
 hasActionInCurrentById({
@@ -55,7 +51,7 @@ hasActionInCurrentById({
 
 Set the current action.
 
-```ts
+```typescript
 import { addActionInCancelList } from "@bubble/store";
 
 addActionInCancelList({
@@ -94,7 +90,7 @@ addActionInCancelList({
 | updateFunction | Function name to call when the action updates.      | `string`          | `undefined` |
 | endFunction    | Function name to call when the action ends.         | `string`          | `undefined` |
 | cancelFunction | Function name to call when the action is cancelled. | `string`          | `undefined` |
-| importance     | Importance of the action.                           | `1 \| 2 \| 3`     | `required`  |
+| importance     | Importance of the action.                           | `1, 2 or 3`       | `required`  |
 | elements       | Elements to animate.                                | `object`          | `undefined` |
 | animation      | Animation to use.                                   | `ActionAnimation` | `undefined` |
 | memory         | Memory to use.                                      | `object`          | `undefined` |

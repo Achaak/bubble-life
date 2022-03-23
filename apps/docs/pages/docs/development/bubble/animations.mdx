@@ -1,14 +1,10 @@
----
-title: Animations
----
-
 # Animations
 
 ## resetAnimation()
 
 Reset the animation to the Bubble
 
-```ts
+```typescript
 import { resetAnimation } from "@bubble/store";
 
 resetAnimation();
@@ -20,7 +16,7 @@ resetAnimation();
 
 Set the tiredness of the Bubble.
 
-```ts
+```typescript
 import { addAnimationInList } from "@bubble/store";
 
 addAnimationInList({
@@ -32,11 +28,11 @@ addAnimationInList({
 
 #### Parameters
 
-| Parameter  | Description                     | Type          | Default    |
-| ---------- | ------------------------------- | ------------- | ---------- |
-| id         | The id of the animation         | `number`      | `required` |
-| importance | The importance of the animation | `1 \| 2 \| 3` | `required` |
-| name       | The name of the animation       | `Animation`   | `required` |
+| Parameter  | Description                     | Type        | Default    |
+| ---------- | ------------------------------- | ----------- | ---------- |
+| id         | The id of the animation         | `number`    | `required` |
+| importance | The importance of the animation | `1, 2 or 3` | `required` |
+| name       | The name of the animation       | `Animation` | `required` |
 
 ---
 
@@ -44,7 +40,7 @@ addAnimationInList({
 
 Remove the animation from the list.
 
-```ts
+```typescript
 import { removeAnimationInList } from "@bubble/store";
 
 removeAnimationInList({
@@ -64,7 +60,7 @@ removeAnimationInList({
 
 Set the action animation.
 
-```ts
+```typescript
 import { setActionAnimation } from "@bubble/store";
 
 setActionAnimation({
@@ -86,7 +82,7 @@ setActionAnimation({
 
 Reset the action animation.
 
-```ts
+```typescript
 import { resetActionAnimation } from "@bubble/store";
 
 resetActionAnimation();

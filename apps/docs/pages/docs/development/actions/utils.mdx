@@ -1,7 +1,3 @@
----
-title: Utils Actions
----
-
 # Utils Actions
 
 ## getActions()
@@ -12,7 +8,7 @@ Get actions state.
 
 Get if the given action is in the await list by name.
 
-```ts
+```typescript
 import { getActions } from "@bubble/store";
 
 const { current, awaitList, cancelList } = getActions();
@@ -30,7 +26,7 @@ ActionsState
 
 Reset actions state.
 
-```ts
+```typescript
 import { getActions } from "@bubble/store";
 
 resetActions();
@@ -42,7 +38,7 @@ resetActions();
 
 Get if the given action is in the current, await list or cancel list by name.
 
-```ts
+```typescript
 import { hasActionByName } from "@bubble/store";
 
 hasActionByName({
@@ -68,7 +64,7 @@ boolean
 
 Get if the given action is in the current, await list or cancel list by id.
 
-```ts
+```typescript
 import { hasActionById } from "@bubble/store";
 
 hasActionById({
@@ -94,7 +90,7 @@ boolean
 
 Update the memory value of the current, await list or cancel list action.
 
-```ts
+```typescript
 import { updateMemoryValue } from "@bubble/store";
 
 updateMemoryValue({
@@ -118,7 +114,7 @@ updateMemoryValue({
 
 Delete the memory value of the current, await list or cancel list action.
 
-```ts
+```typescript
 import { deleteMemoryValue } from "@bubble/store";
 
 deleteMemoryValue({

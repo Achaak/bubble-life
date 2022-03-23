@@ -1,7 +1,3 @@
----
-title: Onomatopoeias Element
----
-
 import Callout from "nextra-theme-docs/callout";
 
 # Onomatopoeias Element
@@ -10,7 +6,7 @@ import Callout from "nextra-theme-docs/callout";
 
 Add a onomatopoeia to the list of onomatopoeias.
 
-```ts
+```typescript
 import { addOnomatopoeiaInList } from "@bubble/store";
 
 addOnomatopoeiaInList({
@@ -25,7 +21,7 @@ addOnomatopoeiaInList({
 | Parameter  | Description                            | Type            | Default    |
 | ---------- | -------------------------------------- | --------------- | ---------- |
 | id         | Id of the onomatopoeia to add.         | `string`        | `required` |
-| importance | Importance of the action to check for. | `1 \| 2 \| 3`   | `required` |
+| importance | Importance of the action to check for. | `1, 2 or 3`     | `required` |
 | name       | Name of the action to check for.       | `Onomatopoeias` | `required` |
 
 ---
@@ -34,7 +30,7 @@ addOnomatopoeiaInList({
 
 Remove a onomatopoeia from the list of onomatopoeias.
 
-```ts
+```typescript
 import { removeOnomatopoeiaInList } from "@bubble/store";
 
 removeOnomatopoeiaInList({
@@ -54,7 +50,7 @@ removeOnomatopoeiaInList({
 
 Reset the onomatopoeia state.
 
-```ts
+```typescript
 import { resetOnomatopoeia } from "@bubble/store";
 
 resetOnomatopoeia();
@@ -71,7 +67,7 @@ resetOnomatopoeia();
 
 Set the action onomatopoeia.
 
-```ts
+```typescript
 import { setActionOnomatopoeia } from "@bubble/store";
 
 setActionOnomatopoeia({
@@ -93,7 +89,7 @@ setActionOnomatopoeia({
 
 Reset the action onomatopoeia.
 
-```ts
+```typescript
 import { resetActionOnomatopoeia } from "@bubble/store";
 
 resetActionOnomatopoeia();

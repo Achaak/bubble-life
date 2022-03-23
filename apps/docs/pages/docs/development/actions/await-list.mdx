@@ -1,19 +1,15 @@
----
-title: Cancel List Actions
----
-
 import Callout from "nextra-theme-docs/callout";
 
-# Cancel List Actions
+# Await List Actions
 
-## hasActionInCancelListByName()
+## hasActionInAwaitListByName()
 
-Get if the given action is in the cancel list by name.
+Get if the given action is in the await list by name.
 
-```ts
-import { hasActionInCancelListByName } from "@bubble/store";
+```typescript
+import { hasActionInAwaitListByName } from "@bubble/store";
 
-const bool = hasActionInCancelListByName({
+const bool = hasActionInAwaitListByName({
   name: "ActionName",
 });
 ```
@@ -32,14 +28,14 @@ boolean
 
 ---
 
-## hasActionInCancelListById()
+## hasActionInAwaitListById()
 
-Get if the given action is in the cancel list by id.
+Get if the given action is in the await list by id.
 
-```ts
-import { hasActionInCancelListById } from "@bubble/store";
+```typescript
+import { hasActionInAwaitListById } from "@bubble/store";
 
-const bool = hasActionInCancelListById({
+const bool = hasActionInAwaitListById({
   id: "ActionId",
 });
 ```
@@ -58,34 +54,34 @@ boolean
 
 ---
 
-## removeActionFromCancelList()
+## removeActionFromAwaitList()
 
-Remove an action from the cancel list.
+Remove the given action from the await list.
 
-```ts
-import { removeActionFromCancelList } from "@bubble/store";
+```typescript
+import { removeActionFromAwaitList } from "@bubble/store";
 
-removeActionFromCancelList({
+removeActionFromAwaitList({
   id: "ActionId",
 });
 ```
 
 #### Parameters
 
-| Parameter | Description                               | Type     | Default    |
-| --------- | ----------------------------------------- | -------- | ---------- |
-| id        | ID of the action to remove from the list. | `string` | `required` |
+| Parameter | Description                                     | Type     | Default    |
+| --------- | ----------------------------------------------- | -------- | ---------- |
+| id        | ID of the action to remove from the await list. | `string` | `required` |
 
 ---
 
-## transferActionFromCancelListToCurrent()
+## transferActionFromAwaitListToCurrent()
 
-Transfer an action from the cancel list to the current list.
+Transfer an action from the await list to the current list.
 
-```ts
-import { transferActionFromCancelListToCurrent } from "@bubble/store";
+```typescript
+import { transferActionFromAwaitListToCurrent } from "@bubble/store";
 
-transferActionFromCancelListToCurrent({
+transferActionFromAwaitListToCurrent({
   id: "ActionId",
 });
 ```
@@ -98,19 +94,19 @@ transferActionFromCancelListToCurrent({
 
 ---
 
-## addActionInCancelList()
+## addActionInAwaitList()
 
 <Callout emoji="⚠️">
   This function is only usable in the core package with the actions class
   manager.
 </Callout>
 
-Add an action to the cancel list.
+Add the given action to the await list.
 
-```ts
-import { addActionInCancelList } from "@bubble/store";
+```typescript
+import { addActionInAwaitList } from "@bubble/store";
 
-addActionInCancelList({
+addActionInAwaitList({
   id: "ActionId"
   name: "eat",
   start: new Date().getTime(),
@@ -138,7 +134,7 @@ addActionInCancelList({
 
 | Parameter      | Description                                         | Type              | Default     |
 | -------------- | --------------------------------------------------- | ----------------- | ----------- |
-| id             | ID of the action to add to the cancel list.         | `string`          | `undefined` |
+| id             | ID of the action to add to the await list.          | `string`          | `undefined` |
 | name           | Name of the action to add.                          | `string`          | `required`  |
 | start          | Start time of the action.                           | `number`          | `required`  |
 | duration       | Duration of the action.                             | `number`          | `required`  |
@@ -146,7 +142,7 @@ addActionInCancelList({
 | updateFunction | Function name to call when the action updates.      | `string`          | `undefined` |
 | endFunction    | Function name to call when the action ends.         | `string`          | `undefined` |
 | cancelFunction | Function name to call when the action is cancelled. | `string`          | `undefined` |
-| importance     | Importance of the action.                           | `1 \| 2 \| 3`     | `required`  |
+| importance     | Importance of the action.                           | `1, 2 or 3`       | `required`  |
 | elements       | Elements to animate.                                | `object`          | `undefined` |
 | animation      | Animation to use.                                   | `ActionAnimation` | `undefined` |
 | memory         | Memory to use.                                      | `object`          | `undefined` |

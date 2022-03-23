@@ -1,6 +1,3 @@
----
-title: Clothes Element
----
 
 import Callout from "nextra-theme-docs/callout";
 
@@ -10,7 +7,7 @@ import Callout from "nextra-theme-docs/callout";
 
 Add a clothe to the list of clothes.
 
-```ts
+```typescript
 import { addClotheInList } from "@bubble/store";
 
 addClotheInList({
@@ -22,11 +19,11 @@ addClotheInList({
 
 #### Parameters
 
-| Parameter  | Description                            | Type          | Default    |
-| ---------- | -------------------------------------- | ------------- | ---------- |
-| id         | Id of the clothe to add.               | `string`      | `required` |
-| importance | Importance of the action to check for. | `1 \| 2 \| 3` | `required` |
-| name       | Name of the action to check for.       | `Clothes`     | `required` |
+| Parameter  | Description                            | Type        | Default    |
+| ---------- | -------------------------------------- | ----------- | ---------- |
+| id         | Id of the clothe to add.               | `string`    | `required` |
+| importance | Importance of the action to check for. | `1, 2 or 3` | `required` |
+| name       | Name of the action to check for.       | `Clothes`   | `required` |
 
 ---
 
@@ -34,7 +31,7 @@ addClotheInList({
 
 Remove a clothe from the list of clothes.
 
-```ts
+```typescript
 import { removeClotheInList } from "@bubble/store";
 
 removeClotheInList({
@@ -54,7 +51,7 @@ removeClotheInList({
 
 Reset the clothe state.
 
-```ts
+```typescript
 import { resetClothe } from "@bubble/store";
 
 resetClothe();
@@ -71,7 +68,7 @@ resetClothe();
 
 Set the action clothe.
 
-```ts
+```typescript
 import { setActionClothe } from "@bubble/store";
 
 setActionClothe({
@@ -93,7 +90,7 @@ setActionClothe({
 
 Reset the action clothe.
 
-```ts
+```typescript
 import { resetActionClothe } from "@bubble/store";
 
 resetActionClothe();

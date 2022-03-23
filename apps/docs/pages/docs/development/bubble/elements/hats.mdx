@@ -1,7 +1,3 @@
----
-title: Hats Element
----
-
 import Callout from "nextra-theme-docs/callout";
 
 # Hats Element
@@ -10,7 +6,7 @@ import Callout from "nextra-theme-docs/callout";
 
 Add a hat to the list of hats.
 
-```ts
+```typescript
 import { addHatInList } from "@bubble/store";
 
 addHatInList({
@@ -22,11 +18,11 @@ addHatInList({
 
 #### Parameters
 
-| Parameter  | Description                            | Type          | Default    |
-| ---------- | -------------------------------------- | ------------- | ---------- |
-| id         | Id of the hat to add.                  | `string`      | `required` |
-| importance | Importance of the action to check for. | `1 \| 2 \| 3` | `required` |
-| name       | Name of the action to check for.       | `Hats`        | `required` |
+| Parameter  | Description                            | Type        | Default    |
+| ---------- | -------------------------------------- | ----------- | ---------- |
+| id         | Id of the hat to add.                  | `string`    | `required` |
+| importance | Importance of the action to check for. | `1, 2 or 3` | `required` |
+| name       | Name of the action to check for.       | `Hats`      | `required` |
 
 ---
 
@@ -34,7 +30,7 @@ addHatInList({
 
 Remove a hat from the list of hats.
 
-```ts
+```typescript
 import { removeHatInList } from "@bubble/store";
 
 removeHatInList({
@@ -54,7 +50,7 @@ removeHatInList({
 
 Reset the hat state.
 
-```ts
+```typescript
 import { resetHat } from "@bubble/store";
 
 resetHat();
@@ -71,7 +67,7 @@ resetHat();
 
 Set the action hat.
 
-```ts
+```typescript
 import { setActionHat } from "@bubble/store";
 
 setActionHat({
@@ -93,7 +89,7 @@ setActionHat({
 
 Reset the action hat.
 
-```ts
+```typescript
 import { resetActionHat } from "@bubble/store";
 
 resetActionHat();

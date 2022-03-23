@@ -1,12 +1,12 @@
----
-title: Get Started
----
+import Callout from "nextra-theme-docs/callout";
 
-# Requirements
+# Get Started
 
-## Nodejs
+## Requirements
 
-### Windows
+### Nodejs
+
+#### Windows
 
 Download the last version.
 [https://nodejs.org/fr/download/](https://nodejs.org/fr/download/)
@@ -16,7 +16,7 @@ Select the Windows installer (.msi) and download one of the 2 files.
 Run the downloaded msi file.
 And accept all the default steps of the installation.
 
-### Linux
+#### Linux
 
 Source: [https://github.com/nodesource/distributions#debinstall](https://github.com/nodesource/distributions#debinstall)
 
@@ -30,7 +30,7 @@ curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 apt-get install -y nodejs
 ```
 
-### Verification
+#### Verification
 
 To verify that the installation has been done, use these commands.
 
@@ -39,7 +39,7 @@ node -v
 npm -v
 ```
 
-# First installation
+## First installation
 
 Clone the repository.
 
@@ -47,13 +47,13 @@ Clone the repository.
 git clone https://github.com/Achaak/bubble-life
 ```
 
-Enter the repository.
+Enter the repository directory.
 
 ```bash
 cd bubble-life
 ```
 
-Install modules.
+Install modules with `npm` or `yarn`.
 
 ```bash
 npm install
@@ -63,17 +63,7 @@ npm install
 yarn install
 ```
 
-Build the project.
-
-```bash
-npm build
-
-# or
-
-yarn build
-```
-
-Run the project.
+Run the project and enjoy. 🎉
 
 ```bash
 npm start
@@ -81,4 +71,28 @@ npm start
 # or
 
 yarn start
+```
+
+## Upgrade the project
+
+<Callout type="error" emoji="⚠️">
+  Remember to save the project `config` and `modules` before upgrading.
+</Callout>
+
+If you want to upgrade the project, you can use the following commands.
+
+Get the latest version of the project.
+
+```bash
+git pull
+```
+
+Install modules with `npm` or `yarn`.
+
+```bash
+npm install
+
+# or
+
+yarn install
 ```

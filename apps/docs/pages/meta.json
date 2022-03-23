@@ -1,6 +1,16 @@
+
 {
-  "index": "Introduction",
-  "get-started": "Get Started",
-  "modules": "Modules",
-  "docs": "Docs"
+  "index": {
+    "title": "Introduction",
+    "type": "nav",
+    "hidden": true
+  },
+  "docs": {
+    "title": "Docs",
+    "type": "nav"
+  },
+  "modules": {
+    "title": "Modules",
+    "type": "nav"
+  }
 }

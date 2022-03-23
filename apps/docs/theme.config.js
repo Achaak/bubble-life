@@ -1,7 +1,9 @@
+import { Logo } from "@/components/Logo";
+
 export default {
   github: "https://github.com/Achaak/bubble-life",
   titleSuffix: " – Bubble",
-  logo: <>Logo</>,
+  logo: <Logo>Bubble</Logo>,
   head: (
     <>
       <meta name="msapplication-TileColor" content="#ffffff" />
@@ -49,6 +51,10 @@ export default {
       <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
     </>
   ),
+  floatTOC: false,
+  direction: "ltr",
+  defaultMenuCollapsed: true,
+  darkMode: true,
   search: true,
   prevLinks: true,
   nextLinks: true,
