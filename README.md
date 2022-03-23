@@ -15,8 +15,11 @@ Bubble-life is a customizable and interactive interface. The app revolves around
 
 # Documentation
 
-The complete documentation (including installation and configuration) is available via this link [https://github.com/Achaak/bubble-life/wiki](https://github.com/Achaak/bubble-life/wiki)
+The complete documentation (including installation and configuration) is available via this link [https://www.bubble-life.app/](https://www.bubble-life.app/)
 
-- [Installation](https://github.com/Achaak/bubble-life/wiki/Installation)
-- [Configuration](https://github.com/Achaak/bubble-life/wiki/Configuration)
-- [Modules](https://github.com/Achaak/bubble-life/wiki/Modules)
+- [Website](https://www.bubble-life.app/)
+- [Installation](https://www.bubble-life.app/get-started)
+- [Configuration](https://www.bubble-life.app/get-started)
+- [Modules](https://www.bubble-life.app/modules)
+- [Docs](https://www.bubble-life.app/)
+- [Storybook](https://storybook.bubble-life.app/)
