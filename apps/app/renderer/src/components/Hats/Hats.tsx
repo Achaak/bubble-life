@@ -2,6 +2,8 @@ import { useAppSelector } from '@bubble/store/src/hooks'
 import { selectElements } from '@bubble/store/src/reducers/bubble'
 import { styled } from '@bubble/styles'
 import React, { useEffect, useState } from 'react'
+import type { Hats as HatsType } from '@bubble/types/src/bubble'
+import { countInElementslist } from '@bubble/common/src/elementsList'
 
 const Container = styled('div', {
   position: 'absolute',
@@ -16,24 +18,31 @@ const Container = styled('div', {
 export const Hats: React.FC = ({ children }) => {
   const [hatDOM, setHatDOM] = useState<React.ReactNode>(null)
 
-  const {
-    hat: { current },
-  } = useAppSelector(selectElements)
+  const { hat } = useAppSelector(selectElements)
 
   useEffect(() => {
     const getHat = async (): Promise<void> => {
-      if (!current.name) {
-        setHatDOM(null)
-        return
+      let hatName: HatsType | null = null
+
+      if (hat.action) {
+        hatName = hat.action.name
+      } else if (hat.list.length > 0) {
+        hatName = countInElementslist<HatsType>(hat.list)
+      } else if (hat.default) {
+        hatName = hat.default
       }
 
-      const { default: Hat } = await require(`./${current.name}/index`)
+      if (hatName) {
+        const { default: Hat } = await require(`./${hatName}/index`)
 
-      setHatDOM(<Hat />)
+        setHatDOM(<Hat />)
+      } else {
+        setHatDOM(null)
+      }
     }
 
     getHat()
-  }, [current])
+  }, [hat])
 
   return (
     <Container>

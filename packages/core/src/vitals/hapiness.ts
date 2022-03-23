@@ -16,7 +16,9 @@ export class VitalHappiness extends Vital {
       return
     }
 
-    removeHappiness(BubbleConfig.vitals.saturation.decrease)
+    removeHappiness({
+      value: BubbleConfig.vitals.saturation.decrease,
+    })
 
     this.lastRender = timestamp
   }

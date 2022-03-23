@@ -1,5 +1,5 @@
 import type { Animation } from './animation'
-import type { Bodies, Clothes, Environments, Eyes, Hats, Onomatopoeia } from './bubble'
+import type { Bodies, Clothes, Environments, Eyes, Hats, Onomatopoeias } from './bubble'
 
 export interface ActionElement {
   id?: string
@@ -20,7 +20,7 @@ export interface ActionElementBody extends ActionElement {
   name: Bodies
 }
 export interface ActionElementOnomatopoeia extends ActionElement {
-  name: Onomatopoeia
+  name: Onomatopoeias
 }
 
 export interface ActionAnimation {

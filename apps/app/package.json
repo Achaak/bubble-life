@@ -5,6 +5,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "nextron",
+    "build": "nextron build",
     "format": "prettier --write \"./**/*.{ts,tsx}\"",
     "lint": "cd renderer && cross-env TIMING=1 next lint --fix",
     "start": "set NODE_ENV=production && nextron"
@@ -38,6 +39,7 @@
     "@types/shortid": "^0.0.29",
     "@typescript-eslint/eslint-plugin": "^5.16.0",
     "@typescript-eslint/parser": "^5.16.0",
+    "cross-env": "^7.0.3",
     "dotenv-flow": "^3.2.0",
     "electron": "17.1.2",
     "eslint": "^8.11.0",

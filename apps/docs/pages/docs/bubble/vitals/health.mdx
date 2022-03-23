@@ -1,1 +1,75 @@
+---
+title: Health Vital
+---
+
 # Health Vital
+
+## setHealth()
+
+Set the health of the Bubble.
+
+```ts
+import { setHealth } from "@bubble/store";
+
+setHealth({
+  value: 42,
+});
+```
+
+#### Parameters
+
+| Parameter | Description              | Type     | Default    |
+| --------- | ------------------------ | -------- | ---------- |
+| value     | The health of the Bubble | `number` | `required` |
+
+---
+
+## resetHealth()
+
+Reset the health of the Bubble.
+
+```ts
+import { resetHealth } from "@bubble/store";
+
+resetHealth();
+```
+
+---
+
+## addHealth()
+
+Add to the health of the Bubble.
+
+```ts
+import { addHealth } from "@bubble/store";
+
+addHealth({
+  value: 42,
+});
+```
+
+#### Parameters
+
+| Parameter | Description              | Type     | Default    |
+| --------- | ------------------------ | -------- | ---------- |
+| value     | The health of the Bubble | `number` | `required` |
+
+---
+
+## removeHealth()
+
+Remove from the health of the Bubble.
+
+```ts
+import { removeHealth } from "@bubble/store";
+
+removeHealth({
+  value: 42,
+});
+```
+
+#### Parameters
+
+| Parameter | Description              | Type     | Default    |
+| --------- | ------------------------ | -------- | ---------- |
+| value     | The health of the Bubble | `number` | `required` |

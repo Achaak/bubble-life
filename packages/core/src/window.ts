@@ -29,13 +29,13 @@ import {
   setWeight,
 } from '@bubble/store'
 import type {
-  AnimationtListItem,
-  BodyElementListItem,
-  ClotheElementListItem,
-  EnvironmentElementListItem,
-  EyesElementListItem,
-  HatElementListItem,
-  OnomatopoeiaElementListItem,
+  BubbleAnimationItemList,
+  BubbleStateElementsBodyItemList,
+  BubbleStateElementsClotheItemList,
+  BubbleStateElementsEnvironmentItemList,
+  BubbleStateElementsEyesItemList,
+  BubbleStateElementsHatItemList,
+  BubbleStateElementsOnomatopoeiaItemList,
   ActionsState,
   BubbleState,
 } from '@bubble/store'
@@ -45,48 +45,52 @@ declare global {
     resetBubble: () => void
 
     /* -------------------- VITALS -------------------- */
-    setWeight: (value: number) => void
+    setWeight: (value: { value: number }) => void
     resetWeight: () => void
 
-    setSaturation: (value: number) => void
+    setSaturation: (value: { value: number }) => void
     resetSaturation: () => void
 
-    setHappiness: (value: number) => void
+    setHappiness: (value: { value: number }) => void
     resetHappiness: () => void
 
-    setTiredness: (value: number) => void
+    setTiredness: (value: { value: number }) => void
     resetTiredness: () => void
 
-    setHealth: (value: number) => void
+    setHealth: (value: { value: number }) => void
     resetHealth: () => void
 
     /* -------------------- ELEMENTS -------------------- */
     /* ---------- EYES ---------- */
-    addEyesInList: (eyesElementListItem: EyesElementListItem) => void
+    addEyesInList: (eyesElementListItem: BubbleStateElementsEyesItemList) => void
     resetEyes: () => void
 
     /* ---------- HAT ---------- */
-    addHatInList: (HatElementListItem: HatElementListItem) => void
+    addHatInList: (HatElementListItem: BubbleStateElementsHatItemList) => void
     resetHat: () => void
 
     /* ---------- CLOTHE ---------- */
-    addClotheInList: (ClotheElementListItem: ClotheElementListItem) => void
+    addClotheInList: (ClotheElementListItem: BubbleStateElementsClotheItemList) => void
     resetClothe: () => void
 
     /* ---------- BODY ---------- */
-    addBodyInList: (BodyElementListItem: BodyElementListItem) => void
+    addBodyInList: (BodyElementListItem: BubbleStateElementsBodyItemList) => void
     resetBody: () => void
 
     /* ---------- ENVIRONMENT ---------- */
-    addEnvironmentInList: (EnvironmentElementListItem: EnvironmentElementListItem) => void
+    addEnvironmentInList: (
+      EnvironmentElementListItem: BubbleStateElementsEnvironmentItemList
+    ) => void
     resetEnvironment: () => void
 
     /* ---------- ONOMATOPOEIA ---------- */
-    addOnomatopoeiaInList: (onomatopoeiaElementListItem: OnomatopoeiaElementListItem) => void
+    addOnomatopoeiaInList: (
+      onomatopoeiaElementListItem: BubbleStateElementsOnomatopoeiaItemList
+    ) => void
     resetOnomatopoeia: () => void
 
     /* -------------------- ANIMATIONS -------------------- */
-    addAnimationInList: (animationtListItem: AnimationtListItem) => void
+    addAnimationInList: (animationtListItem: BubbleAnimationItemList) => void
     resetAnimation: () => void
 
     /* -------------------- STATS -------------------- */
@@ -102,36 +106,36 @@ export const initWindow = (): void => {
   }
 
   /* -------------------- VITALS -------------------- */
-  window.setWeight = (value): void => {
-    setWeight(value)
+  window.setWeight = ({ value }): void => {
+    setWeight({ value })
   }
   window.resetWeight = (): void => {
     resetWeight()
   }
 
-  window.setSaturation = (value): void => {
-    setSaturation(value)
+  window.setSaturation = ({ value }): void => {
+    setSaturation({ value })
   }
   window.resetSaturation = (): void => {
     resetSaturation()
   }
 
-  window.setHappiness = (value): void => {
-    setHappiness(value)
+  window.setHappiness = ({ value }): void => {
+    setHappiness({ value })
   }
   window.resetHappiness = (): void => {
     resetHappiness()
   }
 
-  window.setTiredness = (value): void => {
-    setTiredness(value)
+  window.setTiredness = ({ value }): void => {
+    setTiredness({ value })
   }
   window.resetTiredness = (): void => {
     resetTiredness()
   }
 
-  window.setHealth = (value): void => {
-    setHealth(value)
+  window.setHealth = ({ value }): void => {
+    setHealth({ value })
   }
   window.resetHealth = (): void => {
     resetHealth()

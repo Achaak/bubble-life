@@ -1,1 +1,93 @@
+---
+title: Animations
+---
+
 # Animations
+
+## resetAnimation()
+
+Reset the animation to the Bubble
+
+```ts
+import { resetAnimation } from "@bubble/store";
+
+resetAnimation();
+```
+
+---
+
+## addAnimationInList()
+
+Set the tiredness of the Bubble.
+
+```ts
+import { addAnimationInList } from "@bubble/store";
+
+addAnimationInList({
+  id: "id",
+  importance: 1,
+  name: "AnimationName",
+});
+```
+
+#### Parameters
+
+| Parameter  | Description                     | Type          | Default    |
+| ---------- | ------------------------------- | ------------- | ---------- |
+| id         | The id of the animation         | `number`      | `required` |
+| importance | The importance of the animation | `1 \| 2 \| 3` | `required` |
+| name       | The name of the animation       | `Animation`   | `required` |
+
+---
+
+## removeAnimationInList()
+
+Remove the animation from the list.
+
+```ts
+import { removeAnimationInList } from "@bubble/store";
+
+removeAnimationInList({
+  id: "id",
+});
+```
+
+#### Parameters
+
+| Parameter | Description             | Type     | Default    |
+| --------- | ----------------------- | -------- | ---------- |
+| id        | The id of the animation | `number` | `required` |
+
+---
+
+## setActionAnimation()
+
+Set the action animation.
+
+```ts
+import { setActionAnimation } from "@bubble/store";
+
+setActionAnimation({
+  actionId: "actionId",
+  name: "AnimationName",
+});
+```
+
+#### Parameters
+
+| Parameter | Description               | Type        | Default    |
+| --------- | ------------------------- | ----------- | ---------- |
+| actionId  | The id of the action      | `number`    | `required` |
+| name      | The name of the animation | `Animation` | `required` |
+
+---
+
+## resetActionAnimation()
+
+Reset the action animation.
+
+```ts
+import { resetActionAnimation } from "@bubble/store";
+
+resetActionAnimation();
+```

@@ -1,12 +1,13 @@
-import type { InventoryItemType } from '@bubble/types/src/inventory'
+import type { InventoryItem } from '@bubble/types/src/inventory'
+import { getBubble } from '.'
 import { bubbleActions } from '..'
 import { store } from '../../../store'
 
-export const addInventoryItem = (params: { type: InventoryItemType; number: number }): void => {
+export const addInventoryItem = (params: { type: InventoryItem; number: number }): void => {
   store.dispatch(bubbleActions.addInventoryItem(params))
 }
 
-export const removeInventoryItem = (params: { type: InventoryItemType; number: number }): void => {
+export const removeInventoryItem = (params: { type: InventoryItem; number: number }): void => {
   store.dispatch(bubbleActions.removeInventoryItem(params))
 }
 
@@ -14,10 +15,10 @@ export const hasInventoryItem = ({
   number,
   type,
 }: {
-  type: InventoryItemType
+  type: InventoryItem
   number: number
 }): boolean => {
-  return store
-    .getState()
-    .bubble.inventory.some((item) => item.type === type && item.stock >= number)
+  const { inventory } = getBubble()
+
+  return inventory.some((item) => item.type === type && item.stock >= number)
 }

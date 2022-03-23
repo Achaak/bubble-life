@@ -1,1 +1,100 @@
-# Hats Vital
+---
+title: Onomatopoeias Element
+---
+
+import Callout from "nextra-theme-docs/callout";
+
+# Onomatopoeias Element
+
+## addOnomatopoeiaInList()
+
+Add a onomatopoeia to the list of onomatopoeias.
+
+```ts
+import { addOnomatopoeiaInList } from "@bubble/store";
+
+addOnomatopoeiaInList({
+  id: "onomatopoeiaId",
+  importance: 1,
+  name: "OnomatopoeiaName",
+});
+```
+
+#### Parameters
+
+| Parameter  | Description                            | Type            | Default    |
+| ---------- | -------------------------------------- | --------------- | ---------- |
+| id         | Id of the onomatopoeia to add.         | `string`        | `required` |
+| importance | Importance of the action to check for. | `1 \| 2 \| 3`   | `required` |
+| name       | Name of the action to check for.       | `Onomatopoeias` | `required` |
+
+---
+
+## removeOnomatopoeiaInList()
+
+Remove a onomatopoeia from the list of onomatopoeias.
+
+```ts
+import { removeOnomatopoeiaInList } from "@bubble/store";
+
+removeOnomatopoeiaInList({
+  id: "onomatopoeiaId",
+});
+```
+
+#### Parameters
+
+| Parameter | Description                       | Type     | Default    |
+| --------- | --------------------------------- | -------- | ---------- |
+| id        | Id of the onomatopoeia to remove. | `string` | `required` |
+
+---
+
+## resetOnomatopoeia()
+
+Reset the onomatopoeia state.
+
+```ts
+import { resetOnomatopoeia } from "@bubble/store";
+
+resetOnomatopoeia();
+```
+
+---
+
+## setActionOnomatopoeia()
+
+<Callout emoji="⚠️">
+  This function is only usable in the core package with the actions class
+  manager.
+</Callout>
+
+Set the action onomatopoeia.
+
+```ts
+import { setActionOnomatopoeia } from "@bubble/store";
+
+setActionOnomatopoeia({
+  actionId: "actionId",
+  name: "onomatopoeiaName",
+});
+```
+
+#### Parameters
+
+| Parameter | Description                | Type            | Default    |
+| --------- | -------------------------- | --------------- | ---------- |
+| actionId  | Id of the action to set.   | `string`        | `required` |
+| name      | Name of the action to set. | `Onomatopoeias` | `required` |
+
+---
+
+## resetActionOnomatopoeia()
+
+Reset the action onomatopoeia.
+
+```ts
+import { resetActionOnomatopoeia } from "@bubble/store";
+
+resetActionOnomatopoeia();
+```

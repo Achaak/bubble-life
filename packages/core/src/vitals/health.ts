@@ -16,7 +16,9 @@ export class VitalHealth extends Vital {
       return
     }
 
-    removeHealth(BubbleConfig.vitals.health.decrease)
+    removeHealth({
+      value: BubbleConfig.vitals.health.decrease,
+    })
 
     this.lastRender = timestamp
   }

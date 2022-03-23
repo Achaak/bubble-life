@@ -21,7 +21,8 @@ export class Animations {
   onStartAnimation = (): void => {
     const { animation } = getBubble()
 
-    const animationFind = AnimationList.find((item) => item.name === animation.current?.name)
+    // TODO : check if animation is in the list
+    const animationFind = AnimationList.find((item) => item.name === animation.action?.name)
 
     if (animationFind) {
       this.currentAnimation = animationFind

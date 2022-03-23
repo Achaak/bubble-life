@@ -1,1 +1,100 @@
+---
+title: Clothes Element
+---
+
+import Callout from "nextra-theme-docs/callout";
+
 # Clothes Element
+
+## addClotheInList()
+
+Add a clothe to the list of clothes.
+
+```ts
+import { addClotheInList } from "@bubble/store";
+
+addClotheInList({
+  id: "clotheId",
+  importance: 1,
+  name: "ClotheName",
+});
+```
+
+#### Parameters
+
+| Parameter  | Description                            | Type          | Default    |
+| ---------- | -------------------------------------- | ------------- | ---------- |
+| id         | Id of the clothe to add.               | `string`      | `required` |
+| importance | Importance of the action to check for. | `1 \| 2 \| 3` | `required` |
+| name       | Name of the action to check for.       | `Clothes`     | `required` |
+
+---
+
+## removeClotheInList()
+
+Remove a clothe from the list of clothes.
+
+```ts
+import { removeClotheInList } from "@bubble/store";
+
+removeClotheInList({
+  id: "clotheId",
+});
+```
+
+#### Parameters
+
+| Parameter | Description                 | Type     | Default    |
+| --------- | --------------------------- | -------- | ---------- |
+| id        | Id of the clothe to remove. | `string` | `required` |
+
+---
+
+## resetClothe()
+
+Reset the clothe state.
+
+```ts
+import { resetClothe } from "@bubble/store";
+
+resetClothe();
+```
+
+---
+
+## setActionClothe()
+
+<Callout emoji="⚠️">
+  This function is only usable in the core package with the actions class
+  manager.
+</Callout>
+
+Set the action clothe.
+
+```ts
+import { setActionClothe } from "@bubble/store";
+
+setActionClothe({
+  actionId: "actionId",
+  name: "clotheName",
+});
+```
+
+#### Parameters
+
+| Parameter | Description                | Type      | Default    |
+| --------- | -------------------------- | --------- | ---------- |
+| actionId  | Id of the action to set.   | `string`  | `required` |
+| name      | Name of the action to set. | `Clothes` | `required` |
+
+---
+
+## resetActionClothe()
+
+Reset the action clothe.
+
+```ts
+import { resetActionClothe } from "@bubble/store";
+
+resetActionClothe();
+```

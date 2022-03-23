@@ -16,7 +16,9 @@ export class VitalTiredness extends Vital {
       return
     }
 
-    removeTiredness(BubbleConfig.vitals.tiredness.decrease)
+    removeTiredness({
+      value: BubbleConfig.vitals.tiredness.decrease,
+    })
 
     this.lastRender = timestamp
   }

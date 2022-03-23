@@ -16,7 +16,9 @@ export class VitalSaturation extends Vital {
       return
     }
 
-    removeSaturation(BubbleConfig.vitals.saturation.decrease)
+    removeSaturation({
+      value: BubbleConfig.vitals.saturation.decrease,
+    })
 
     this.lastRender = timestamp
   }

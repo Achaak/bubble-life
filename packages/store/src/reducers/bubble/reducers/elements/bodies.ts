@@ -1,10 +1,14 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { initialBubbleState } from '../../state'
-import type { BodyElementListItem, BubbleState } from '../../types'
+import type {
+  BubbleStateElementsBodyAction,
+  BubbleStateElementsBodyItemList,
+  BubbleState,
+} from '../../types'
 
 export const addBodyInList = (
   state: BubbleState,
-  action: PayloadAction<BodyElementListItem>
+  action: PayloadAction<BubbleStateElementsBodyItemList>
 ): void => {
   state.elements.body.list = [...state.elements.body.list, action.payload]
 }
@@ -18,43 +22,17 @@ export const removeBodyInList = (
   )
 }
 
-export const sortBodiesInList = (state: BubbleState): void => {
-  state.elements.body.list = state.elements.body.list.sort((a, b) => {
-    if (a.importance < b.importance) {
-      return -1
-    }
-    if (a.importance > b.importance) {
-      return 1
-    }
-    return 0
-  })
-}
-
 export const resetBody = (state: BubbleState): void => {
   state.elements.body = initialBubbleState.elements.body
 }
 
-export const setCurrentBody = (
+export const setActionBody = (
   state: BubbleState,
-  action: PayloadAction<BodyElementListItem>
+  action: PayloadAction<BubbleStateElementsBodyAction>
 ): void => {
-  state.elements.body.current = action.payload
+  state.elements.body.action = action.payload
 }
 
-export const resetCurrentBody = (state: BubbleState): void => {
-  state.elements.body.current = initialBubbleState.elements.body.default
-}
-
-export const transferBodyInListToCurrent = (state: BubbleState): void => {
-  if (!state.elements.body.list.length) {
-    return
-  }
-
-  const newCurrent = state.elements.body.list[0]
-
-  state.elements.body = {
-    ...state.elements.body,
-    current: newCurrent,
-    list: state.elements.body.list.filter((item) => item.id !== newCurrent.id),
-  }
+export const resetActionBody = (state: BubbleState): void => {
+  state.elements.body.action = null
 }

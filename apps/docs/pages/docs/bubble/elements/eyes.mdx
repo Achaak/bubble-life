@@ -1,1 +1,100 @@
-# Eyes Vital
+---
+title: Eyes Element
+---
+
+import Callout from "nextra-theme-docs/callout";
+
+# Eyes Element
+
+## addEyesInList()
+
+Add a eyes to the list of eyes.
+
+```ts
+import { addEyesInList } from "@bubble/store";
+
+addEyesInList({
+  id: "eyesId",
+  importance: 1,
+  name: "EyesName",
+});
+```
+
+#### Parameters
+
+| Parameter  | Description                            | Type          | Default    |
+| ---------- | -------------------------------------- | ------------- | ---------- |
+| id         | Id of the eyes to add.                 | `string`      | `required` |
+| importance | Importance of the action to check for. | `1 \| 2 \| 3` | `required` |
+| name       | Name of the action to check for.       | `Eyes`        | `required` |
+
+---
+
+## removeEyesInList()
+
+Remove a eyes from the list of eyes.
+
+```ts
+import { removeEyesInList } from "@bubble/store";
+
+removeEyesInList({
+  id: "eyesId",
+});
+```
+
+#### Parameters
+
+| Parameter | Description               | Type     | Default    |
+| --------- | ------------------------- | -------- | ---------- |
+| id        | Id of the eyes to remove. | `string` | `required` |
+
+---
+
+## resetEyes()
+
+Reset the eyes state.
+
+```ts
+import { resetEyes } from "@bubble/store";
+
+resetEyes();
+```
+
+---
+
+## setActionEyes()
+
+<Callout emoji="⚠️">
+  This function is only usable in the core package with the actions class
+  manager.
+</Callout>
+
+Set the action eyes.
+
+```ts
+import { setActionEyes } from "@bubble/store";
+
+setActionEyes({
+  actionId: "actionId",
+  name: "eyesName",
+});
+```
+
+#### Parameters
+
+| Parameter | Description                | Type     | Default    |
+| --------- | -------------------------- | -------- | ---------- |
+| actionId  | Id of the action to set.   | `string` | `required` |
+| name      | Name of the action to set. | `Eyes`   | `required` |
+
+---
+
+## resetActionEyes()
+
+Reset the action eyes.
+
+```ts
+import { resetActionEyes } from "@bubble/store";
+
+resetActionEyes();
+```

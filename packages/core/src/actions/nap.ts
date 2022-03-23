@@ -1,7 +1,7 @@
 import { dateToMs } from '@bubble/common/src/date'
 import { random } from '@bubble/common/src/random'
 import { BubbleConfig } from '@bubble/configs/bubble'
-import { addActionInAwaitList, addTiredness, getBubble, hasAction } from '@bubble/store'
+import { addActionInAwaitList, addTiredness, getBubble, hasActionByName } from '@bubble/store'
 import type { Action as ActionType } from '@bubble/types/src/action'
 import dayjs from 'dayjs'
 
@@ -127,7 +127,9 @@ export class ActionNap extends Action {
       this.initNapRecoverValue()
     }
 
-    addTiredness(this.getTirednessPerSecond(action))
+    addTiredness({
+      value: this.getTirednessPerSecond(action),
+    })
 
     this.lastRenderUpdateNap = timestamp
   }

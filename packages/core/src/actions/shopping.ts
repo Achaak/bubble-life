@@ -1,7 +1,12 @@
 import { dateToMs } from '@bubble/common/src/date'
 import { random } from '@bubble/common/src/random'
 import { BubbleConfig } from '@bubble/configs/bubble'
-import { addActionInAwaitList, addInventoryItem, hasAction, hasInventoryItem } from '@bubble/store'
+import {
+  addActionInAwaitList,
+  addInventoryItem,
+  hasActionByName,
+  hasInventoryItem,
+} from '@bubble/store'
 import dayjs from 'dayjs'
 
 import { Action } from '../action'

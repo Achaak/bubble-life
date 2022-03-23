@@ -5,9 +5,9 @@ import type {
   Environments,
   Eyes,
   Hats,
-  Onomatopoeia,
+  Onomatopoeias,
 } from '@bubble/types/src/bubble'
-import type { InventoryItem } from '@bubble/types/src/inventory'
+import type { InventoryItemStock } from '@bubble/types/src/inventory'
 
 export interface BubbleStateVitals {
   weight: number
@@ -17,76 +17,124 @@ export interface BubbleStateVitals {
   health: number
 }
 
-export interface AnimationtListItem {
+export interface BubbleStateElementsEyesAction {
+  actionId: string
+  name: Eyes
+}
+
+export interface BubbleStateElementsEyesItemList {
+  id: string
+  importance: 1 | 2 | 3
+  name: Eyes
+}
+
+export interface BubbleStateElementsClotheAction {
+  actionId: string
+  name: Clothes
+}
+
+export interface BubbleStateElementsClotheItemList {
+  id: string
+  importance: 1 | 2 | 3
+  name: Clothes
+}
+
+export interface BubbleStateElementsEnvironmentAction {
+  actionId: string
+  name: Environments
+}
+
+export interface BubbleStateElementsEnvironmentItemList {
+  id: string
+  importance: 1 | 2 | 3
+  name: Environments
+}
+
+export interface BubbleStateElementsBodyAction {
+  actionId: string
+  name: Bodies
+}
+
+export interface BubbleStateElementsBodyItemList {
+  id: string
+  importance: 1 | 2 | 3
+  name: Bodies
+}
+
+export interface BubbleStateElementsHatAction {
+  actionId: string
+  name: Hats
+}
+
+export interface BubbleStateElementsHatItemList {
+  id: string
+  importance: 1 | 2 | 3
+  name: Hats
+}
+
+export interface BubbleStateElementsOnomatopoeiaAction {
+  actionId: string
+  name: Onomatopoeias
+}
+
+export interface BubbleStateElementsOnomatopoeiaItemList {
+  id: string
+  importance: 1 | 2 | 3
+  name: Onomatopoeias
+}
+
+export interface BubbleStateElements {
+  eyes: {
+    default: Eyes
+    action: BubbleStateElementsEyesAction | null
+    list: BubbleStateElementsEyesItemList[]
+  }
+  clothe: {
+    default: Clothes
+    action: BubbleStateElementsClotheAction | null
+    list: BubbleStateElementsClotheItemList[]
+  }
+  environment: {
+    default: Environments
+    action: BubbleStateElementsEnvironmentAction | null
+    list: BubbleStateElementsEnvironmentItemList[]
+  }
+  hat: {
+    default: Hats
+    action: BubbleStateElementsHatAction | null
+    list: BubbleStateElementsHatItemList[]
+  }
+  body: {
+    default: Bodies
+    action: BubbleStateElementsBodyAction | null
+    list: BubbleStateElementsBodyItemList[]
+  }
+  onomatopoeia: {
+    default: Onomatopoeias
+    action: BubbleStateElementsOnomatopoeiaAction | null
+    list: BubbleStateElementsOnomatopoeiaItemList[]
+  }
+}
+
+export interface BubbleAnimationAction {
+  actionId: string
+  name: Animation
+}
+
+export interface BubbleAnimationItemList {
   id: string
   importance: 1 | 2 | 3
   name: Animation
 }
 
-export interface ElementListItem {
-  id: string
-  importance: 1 | 2 | 3
-}
-export interface EyesElementListItem extends ElementListItem {
-  name: Eyes
-}
-export interface ClotheElementListItem extends ElementListItem {
-  name: Clothes
-}
-export interface EnvironmentElementListItem extends ElementListItem {
-  name: Environments
-}
-export interface HatElementListItem extends ElementListItem {
-  name: Hats
-}
-export interface BodyElementListItem extends ElementListItem {
-  name: Bodies
-}
-export interface OnomatopoeiaElementListItem extends ElementListItem {
-  name: Onomatopoeia
-}
-
-export interface BubbleStateElements {
-  eyes: {
-    default: EyesElementListItem
-    current: EyesElementListItem
-    list: EyesElementListItem[]
-  }
-  clothe: {
-    default: ClotheElementListItem
-    current: ClotheElementListItem
-    list: ClotheElementListItem[]
-  }
-  environment: {
-    default: EnvironmentElementListItem
-    current: EnvironmentElementListItem
-    list: EnvironmentElementListItem[]
-  }
-  hat: {
-    default: HatElementListItem
-    current: HatElementListItem
-    list: HatElementListItem[]
-  }
-  body: {
-    default: BodyElementListItem
-    current: BodyElementListItem
-    list: BodyElementListItem[]
-  }
-  onomatopoeia: {
-    default: OnomatopoeiaElementListItem
-    current: OnomatopoeiaElementListItem
-    list: OnomatopoeiaElementListItem[]
-  }
-}
-
 export interface BubbleState {
   name: string
   animation: {
-    default: AnimationtListItem
-    current: AnimationtListItem | null
-    list: AnimationtListItem[]
+    default: Animation
+    action: BubbleAnimationAction | null
+    list: BubbleAnimationItemList[]
   }
   vitals: BubbleStateVitals
   elements: BubbleStateElements
-  inventory: InventoryItem[]
+  inventory: InventoryItemStock[]
 }

@@ -9,13 +9,13 @@ import {
   getActions,
   removeActionFromAwaitList,
   removeActionFromCancelList,
-  removeAnimationAllOver,
-  removeBodyAllOver,
-  removeClotheAllOver,
-  removeEnvironmentAllOver,
-  removeEyesAllOver,
-  removeHatAllOver,
-  removeOnomatopoeiaAllOver,
+  resetActionAnimation,
+  resetActionBody,
+  resetActionClothe,
+  resetActionEnvironment,
+  resetActionEyes,
+  resetActionHat,
+  resetActionOnomatopoeia,
   resetCurrentAction,
   setCurrentAction,
 } from '@bubble/store'
@@ -319,47 +319,33 @@ export class Actions {
   onRemoveElement = (action: ActionType): void => {
     // EYES
     if (action.elements?.eyes?.id) {
-      removeEyesAllOver({
-        id: action.elements.eyes.id,
-      })
+      resetActionEyes()
     }
     // ENVIRONMENT
     if (action.elements?.environment?.id) {
-      removeEnvironmentAllOver({
-        id: action.elements.environment.id,
-      })
+      resetActionEnvironment()
     }
     // CLOTHE
     if (action.elements?.clothe?.id) {
-      removeClotheAllOver({
-        id: action.elements.clothe.id,
-      })
+      resetActionClothe()
     }
     // HAT
     if (action.elements?.hat?.id) {
-      removeHatAllOver({
-        id: action.elements.hat.id,
-      })
+      resetActionHat()
     }
     // BODY
     if (action.elements?.body?.id) {
-      removeBodyAllOver({
-        id: action.elements.body.id,
-      })
+      resetActionBody()
     }
     // ONOMATOPOEIA
     if (action.elements?.onomatopoeia?.id) {
-      removeOnomatopoeiaAllOver({
-        id: action.elements.onomatopoeia.id,
-      })
+      resetActionOnomatopoeia()
     }
   }
 
   onRemoveAnimation = (action: ActionType): void => {
     if (action.animation?.id) {
-      removeAnimationAllOver({
-        id: action.animation.id,
-      })
+      resetActionAnimation
     }
   }
 

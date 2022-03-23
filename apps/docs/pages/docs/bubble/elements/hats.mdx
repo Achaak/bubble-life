@@ -1,1 +1,100 @@
-# Hats Vital
+---
+title: Hats Element
+---
+
+import Callout from "nextra-theme-docs/callout";
+
+# Hats Element
+
+## addHatInList()
+
+Add a hat to the list of hats.
+
+```ts
+import { addHatInList } from "@bubble/store";
+
+addHatInList({
+  id: "hatId",
+  importance: 1,
+  name: "HatName",
+});
+```
+
+#### Parameters
+
+| Parameter  | Description                            | Type          | Default    |
+| ---------- | -------------------------------------- | ------------- | ---------- |
+| id         | Id of the hat to add.                  | `string`      | `required` |
+| importance | Importance of the action to check for. | `1 \| 2 \| 3` | `required` |
+| name       | Name of the action to check for.       | `Hats`        | `required` |
+
+---
+
+## removeHatInList()
+
+Remove a hat from the list of hats.
+
+```ts
+import { removeHatInList } from "@bubble/store";
+
+removeHatInList({
+  id: "hatId",
+});
+```
+
+#### Parameters
+
+| Parameter | Description              | Type     | Default    |
+| --------- | ------------------------ | -------- | ---------- |
+| id        | Id of the hat to remove. | `string` | `required` |
+
+---
+
+## resetHat()
+
+Reset the hat state.
+
+```ts
+import { resetHat } from "@bubble/store";
+
+resetHat();
+```
+
+---
+
+## setActionHat()
+
+<Callout emoji="⚠️">
+  This function is only usable in the core package with the actions class
+  manager.
+</Callout>
+
+Set the action hat.
+
+```ts
+import { setActionHat } from "@bubble/store";
+
+setActionHat({
+  actionId: "actionId",
+  name: "hatName",
+});
+```
+
+#### Parameters
+
+| Parameter | Description                | Type     | Default    |
+| --------- | -------------------------- | -------- | ---------- |
+| actionId  | Id of the action to set.   | `string` | `required` |
+| name      | Name of the action to set. | `Hats`   | `required` |
+
+---
+
+## resetActionHat()
+
+Reset the action hat.
+
+```ts
+import { resetActionHat } from "@bubble/store";
+
+resetActionHat();
+```

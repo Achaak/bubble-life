@@ -132,12 +132,6 @@ export class ActionPlay extends Action {
     // Get happiness per second
     const happinessPerSecond = happinessMissing / timeLeft
 
-    console.log('--------------------')
-    console.log('action', action)
-    console.log('happinessMissing', happinessMissing)
-    console.log('timeLeft', timeLeft)
-    console.log(happinessPerSecond)
-
     return happinessPerSecond
   }
 
@@ -175,7 +169,9 @@ export class ActionPlay extends Action {
       return
     }
 
-    addHappiness(this.getHappinessPerSecond(action))
+    addHappiness({
+      value: this.getHappinessPerSecond(action),
+    })
 
     this.lastRenderUpdatePlay = timestamp
   }

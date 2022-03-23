@@ -1590,6 +1590,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.16.0
     "@typescript-eslint/parser": ^5.16.0
     animejs: ^3.2.1
+    cross-env: ^7.0.3
     dayjs: ^1.11.0
     dotenv-flow: ^3.2.0
     electron: 17.1.2

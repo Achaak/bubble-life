@@ -1,1 +1,100 @@
+---
+title: Bodies Element
+---
+
+import Callout from "nextra-theme-docs/callout";
+
 # Bodies Element
+
+## addBodyInList()
+
+Add a body to the list of bodies.
+
+```ts
+import { addBodyInList } from "@bubble/store";
+
+addBodyInList({
+  id: "bodyId",
+  importance: 1,
+  name: "BodyName",
+});
+```
+
+#### Parameters
+
+| Parameter  | Description                            | Type          | Default    |
+| ---------- | -------------------------------------- | ------------- | ---------- |
+| id         | Id of the body to add.                 | `string`      | `required` |
+| importance | Importance of the action to check for. | `1 \| 2 \| 3` | `required` |
+| name       | Name of the action to check for.       | `Bodies`      | `required` |
+
+---
+
+## removeBodyInList()
+
+Remove a body from the list of bodies.
+
+```ts
+import { removeBodyInList } from "@bubble/store";
+
+removeBodyInList({
+  id: "bodyId",
+});
+```
+
+#### Parameters
+
+| Parameter | Description               | Type     | Default    |
+| --------- | ------------------------- | -------- | ---------- |
+| id        | Id of the body to remove. | `string` | `required` |
+
+---
+
+## resetBody()
+
+Reset the body state.
+
+```ts
+import { resetBody } from "@bubble/store";
+
+resetBody();
+```
+
+---
+
+## setActionBody()
+
+<Callout emoji="⚠️">
+  This function is only usable in the core package with the actions class
+  manager.
+</Callout>
+
+Set the action body.
+
+```ts
+import { setActionBody } from "@bubble/store";
+
+setActionBody({
+  actionId: "actionId",
+  name: "bodyName",
+});
+```
+
+#### Parameters
+
+| Parameter | Description                | Type     | Default    |
+| --------- | -------------------------- | -------- | ---------- |
+| actionId  | Id of the action to set.   | `string` | `required` |
+| name      | Name of the action to set. | `Bodies` | `required` |
+
+---
+
+## resetActionBody()
+
+Reset the action body.
+
+```ts
+import { resetActionBody } from "@bubble/store";
+
+resetActionBody();
+```

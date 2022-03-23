@@ -6,7 +6,7 @@ import {
   addSaturation,
   addWeight,
   getBubble,
-  hasAction,
+  hasActionByName,
   removeInventoryItem,
 } from '@bubble/store'
 import type { Action as ActionType } from '@bubble/types/src/action'
@@ -126,18 +126,20 @@ export class ActionEat extends Action {
       return
     }
 
-    addSaturation(this.getSaturationPerSecond(action))
+    addSaturation({
+      value: this.getSaturationPerSecond(action),
+    })
 
     this.lastRenderUpdateEat = timestamp
   }
 
   handleEndEat = (): void => {
-    addWeight(
-      random({
+    addWeight({
+      value: random({
         min: BubbleConfig.actions.eat.minWeightToAdd,
         max: BubbleConfig.actions.eat.maxWeightToadd,
-      })
-    )
+      }),
+    })
 
     removeInventoryItem({ type: 'food', number: 1 })
   }

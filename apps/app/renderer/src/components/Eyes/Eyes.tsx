@@ -2,6 +2,8 @@ import { useAppSelector } from '@bubble/store/src/hooks'
 import { selectElements } from '@bubble/store/src/reducers/bubble'
 import { styled } from '@bubble/styles'
 import React, { useEffect, useState } from 'react'
+import type { Eyes as EyesType } from '@bubble/types/src/bubble'
+import { countInElementslist } from '@bubble/common/src/elementsList'
 
 const Container = styled('div', {
   position: 'absolute',
@@ -14,24 +16,31 @@ const Container = styled('div', {
 export const Eyes: React.FC = ({ children }) => {
   const [eyesDOM, setEyesDOM] = useState<React.ReactNode>(null)
 
-  const {
-    eyes: { current },
-  } = useAppSelector(selectElements)
+  const { eyes } = useAppSelector(selectElements)
 
   useEffect(() => {
     const getEyes = async (): Promise<void> => {
-      if (!current.name) {
-        setEyesDOM(null)
-        return
+      let eyesName: EyesType | null = null
+
+      if (eyes.action) {
+        eyesName = eyes.action.name
+      } else if (eyes.list.length > 0) {
+        eyesName = countInElementslist<EyesType>(eyes.list)
+      } else if (eyes.default) {
+        eyesName = eyes.default
       }
 
-      const { default: Eyes } = await require(`./${current.name}/index`)
+      if (eyesName) {
+        const { default: Eyes } = await require(`./${eyesName}/index`)
 
-      setEyesDOM(<Eyes />)
+        setEyesDOM(<Eyes />)
+      } else {
+        setEyesDOM(null)
+      }
     }
 
     getEyes()
-  }, [current])
+  }, [eyes])
 
   return (
     <Container>

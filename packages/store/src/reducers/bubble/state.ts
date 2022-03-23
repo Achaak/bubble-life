@@ -1,16 +1,11 @@
 import { BubbleConfig } from '@bubble/configs/bubble'
-import shortid from 'shortid'
 import type { BubbleState } from './types'
 
 export const initialBubbleState: BubbleState = {
   name: 'Bubble',
   animation: {
-    current: null,
-    default: {
-      id: shortid(),
-      importance: 3,
-      name: 'default',
-    },
+    action: null,
+    default: 'default',
     list: [],
   },
   inventory: BubbleConfig.defaultInventory,
@@ -23,81 +18,33 @@ export const initialBubbleState: BubbleState = {
   },
   elements: {
     eyes: {
-      default: {
-        id: shortid(),
-        importance: 3,
-        name: BubbleConfig.defaultElements.eyes,
-      },
-      current: {
-        id: shortid(),
-        importance: 3,
-        name: BubbleConfig.defaultElements.eyes,
-      },
+      default: BubbleConfig.defaultElements.eyes,
+      action: null,
       list: [],
     },
     clothe: {
-      default: {
-        id: shortid(),
-        importance: 3,
-        name: BubbleConfig.defaultElements.clothe,
-      },
-      current: {
-        id: shortid(),
-        importance: 3,
-        name: BubbleConfig.defaultElements.clothe,
-      },
+      default: BubbleConfig.defaultElements.clothe,
+      action: null,
       list: [],
     },
     environment: {
-      default: {
-        id: shortid(),
-        importance: 3,
-        name: BubbleConfig.defaultElements.environment,
-      },
-      current: {
-        id: shortid(),
-        importance: 3,
-        name: BubbleConfig.defaultElements.environment,
-      },
+      default: BubbleConfig.defaultElements.environment,
+      action: null,
       list: [],
     },
     body: {
-      default: {
-        id: shortid(),
-        importance: 3,
-        name: BubbleConfig.defaultElements.body,
-      },
-      current: {
-        id: shortid(),
-        importance: 3,
-        name: BubbleConfig.defaultElements.body,
-      },
+      default: BubbleConfig.defaultElements.body,
+      action: null,
       list: [],
     },
     hat: {
-      default: {
-        id: shortid(),
-        importance: 3,
-        name: BubbleConfig.defaultElements.hat,
-      },
-      current: {
-        id: shortid(),
-        importance: 3,
-        name: BubbleConfig.defaultElements.hat,
-      },
+      default: BubbleConfig.defaultElements.hat,
+      action: null,
       list: [],
     },
     onomatopoeia: {
-      default: {
-        id: shortid(),
-        importance: 3,
-        name: BubbleConfig.defaultElements.onomatopoeia,
-      },
-      current: {
-        id: shortid(),
-        importance: 3,
-        name: BubbleConfig.defaultElements.onomatopoeia,
-      },
+      default: BubbleConfig.defaultElements.onomatopoeia,
+      action: null,
       list: [],
     },
   },

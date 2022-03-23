@@ -1,10 +1,14 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { initialBubbleState } from '../state'
-import type { AnimationtListItem, BubbleState } from '../types'
+import type { BubbleAnimationAction, BubbleAnimationItemList, BubbleState } from '../types'
+
+export const resetAnimation = (state: BubbleState): void => {
+  state.animation = initialBubbleState.animation
+}
 
 export const addAnimationInList = (
   state: BubbleState,
-  action: PayloadAction<AnimationtListItem>
+  action: PayloadAction<BubbleAnimationItemList>
 ): void => {
   state.animation.list = [...state.animation.list, action.payload]
 }
@@ -16,43 +20,13 @@ export const removeAnimationInList = (
   state.animation.list = state.animation.list.filter((item) => item.id !== action.payload.id)
 }
 
-export const sortAnimationsInList = (state: BubbleState): void => {
-  state.animation.list = state.animation.list.sort((a, b) => {
-    if (a.importance < b.importance) {
-      return -1
-    }
-    if (a.importance > b.importance) {
-      return 1
-    }
-    return 0
-  })
-}
-
-export const resetAnimation = (state: BubbleState): void => {
-  state.animation = initialBubbleState.animation
-}
-
-export const setCurrentAnimation = (
+export const setActionAnimation = (
   state: BubbleState,
-  action: PayloadAction<AnimationtListItem>
+  action: PayloadAction<BubbleAnimationAction>
 ): void => {
-  state.animation.current = action.payload
+  state.animation.action = action.payload
 }
 
-export const resetCurrentAnimation = (state: BubbleState): void => {
-  state.animation.current = null
-}
-
-export const transferAnimationInListToCurrent = (state: BubbleState): void => {
-  if (!state.animation.list.length) {
-    return
-  }
-
-  const newCurrent = state.animation.list[0]
-
-  state.animation = {
-    ...state.animation,
-    current: newCurrent,
-    list: state.animation.list.filter((item) => item.id !== newCurrent.id),
-  }
+export const resetActionAnimation = (state: BubbleState): void => {
+  state.animation.action = null
 }

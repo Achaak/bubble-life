@@ -1,6 +1,6 @@
-export type InventoryItemType = 'food'
+export type InventoryItem = 'food'
 
-export interface InventoryItem {
-  type: InventoryItemType
+export interface InventoryItemStock {
+  type: InventoryItem
   stock: number
 }

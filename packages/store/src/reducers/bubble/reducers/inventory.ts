@@ -1,11 +1,11 @@
-import type { InventoryItemType } from '@bubble/types/src/inventory'
+import type { InventoryItem } from '@bubble/types/src/inventory'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type { BubbleState } from '../types'
 
 export const addInventoryItem = (
   state: BubbleState,
   action: PayloadAction<{
-    type: InventoryItemType
+    type: InventoryItem
     number: number
   }>
 ): void => {
@@ -36,7 +36,7 @@ export const addInventoryItem = (
 export const removeInventoryItem = (
   state: BubbleState,
   action: PayloadAction<{
-    type: InventoryItemType
+    type: InventoryItem
     number: number
   }>
 ): void => {

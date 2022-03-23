@@ -2,6 +2,8 @@ import { useAppSelector } from '@bubble/store/src/hooks'
 import { selectElements } from '@bubble/store/src/reducers/bubble'
 import { styled } from '@bubble/styles'
 import React, { useEffect, useState } from 'react'
+import type { Clothes as ClothesType } from '@bubble/types/src/bubble'
+import { countInElementslist } from '@bubble/common/src/elementsList'
 
 const Container = styled('div', {
   position: 'absolute',
@@ -17,24 +19,31 @@ const Container = styled('div', {
 export const Clothes: React.FC = ({ children }) => {
   const [clotheDOM, setClotheDOM] = useState<React.ReactNode>(null)
 
-  const {
-    clothe: { current },
-  } = useAppSelector(selectElements)
+  const { clothe } = useAppSelector(selectElements)
 
   useEffect(() => {
     const getClothe = async (): Promise<void> => {
-      if (!current.name) {
-        setClotheDOM(null)
-        return
+      let clotheName: ClothesType | null = null
+
+      if (clothe.action) {
+        clotheName = clothe.action.name
+      } else if (clothe.list.length > 0) {
+        clotheName = countInElementslist<ClothesType>(clothe.list)
+      } else if (clothe.default) {
+        clotheName = clothe.default
       }
 
-      const { default: Clothe } = await require(`./${current.name}/index`)
+      if (clotheName) {
+        const { default: Clothe } = await require(`./${clotheName}/index`)
 
-      setClotheDOM(<Clothe />)
+        setClotheDOM(<Clothe />)
+      } else {
+        setClotheDOM(null)
+      }
     }
 
     getClothe()
-  }, [current])
+  }, [clothe])
 
   return (
     <Container>

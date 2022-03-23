@@ -1,6 +1,8 @@
 import { useAppSelector } from '@bubble/store/src/hooks'
 import { selectElements } from '@bubble/store/src/reducers/bubble'
+import { countInElementslist } from '@bubble/common/src/elementsList'
 import { styled } from '@bubble/styles'
+import type { Bodies as BodiesType } from '@bubble/types/src/bubble'
 import React, { useEffect, useState } from 'react'
 
 const Container = styled('div', {
@@ -11,24 +13,31 @@ const Container = styled('div', {
 export const Bodies: React.FC = ({ children }) => {
   const [bodyDOM, setBodyDOM] = useState<React.ReactNode>(null)
 
-  const {
-    body: { current },
-  } = useAppSelector(selectElements)
+  const { body } = useAppSelector(selectElements)
 
   useEffect(() => {
     const getBody = async (): Promise<void> => {
-      if (!current.name) {
-        setBodyDOM(null)
-        return
+      let bodyName: BodiesType | null = null
+
+      if (body.action) {
+        bodyName = body.action.name
+      } else if (body.list.length > 0) {
+        bodyName = countInElementslist<BodiesType>(body.list)
+      } else if (body.default) {
+        bodyName = body.default
       }
 
-      const { default: Body } = await require(`./${current.name}/index`)
+      if (bodyName) {
+        const { default: Body } = await require(`./${bodyName}/index`)
 
-      setBodyDOM(<Body />)
+        setBodyDOM(<Body />)
+      } else {
+        setBodyDOM(null)
+      }
     }
 
     getBody()
-  }, [current])
+  }, [body])
 
   return (
     <Container>

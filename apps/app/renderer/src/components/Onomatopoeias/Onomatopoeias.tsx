@@ -1,7 +1,9 @@
+import { countInElementslist } from '@bubble/common/src/elementsList'
 import { useAppSelector } from '@bubble/store/src/hooks'
 import { selectElements } from '@bubble/store/src/reducers/bubble'
 import { styled } from '@bubble/styles'
 import React, { useEffect, useState } from 'react'
+import type { Onomatopoeias as OnomatopoeiasType } from '@bubble/types/src/bubble'
 
 const Container = styled('div', {
   position: 'absolute',
@@ -14,24 +16,31 @@ const Container = styled('div', {
 export const Onomatopoeias: React.FC = ({ children }) => {
   const [onomatopoeiaDOM, setOnomatopoeiaDOM] = useState<React.ReactNode>(null)
 
-  const {
-    onomatopoeia: { current },
-  } = useAppSelector(selectElements)
+  const { onomatopoeia } = useAppSelector(selectElements)
 
   useEffect(() => {
     const getOnomatopoeia = async (): Promise<void> => {
-      if (!current.name) {
-        setOnomatopoeiaDOM(null)
-        return
+      let onomatopoeiaName: OnomatopoeiasType | null = null
+
+      if (onomatopoeia.action) {
+        onomatopoeiaName = onomatopoeia.action.name
+      } else if (onomatopoeia.list.length > 0) {
+        onomatopoeiaName = countInElementslist<OnomatopoeiasType>(onomatopoeia.list)
+      } else if (onomatopoeia.default) {
+        onomatopoeiaName = onomatopoeia.default
       }
 
-      const { default: Onomatopoeia } = await require(`./${current.name}/index`)
+      if (onomatopoeiaName) {
+        const { default: Onomatopoeia } = await require(`./${onomatopoeiaName}/index`)
 
-      setOnomatopoeiaDOM(<Onomatopoeia />)
+        setOnomatopoeiaDOM(<Onomatopoeia />)
+      } else {
+        setOnomatopoeiaDOM(null)
+      }
     }
 
     getOnomatopoeia()
-  }, [current])
+  }, [onomatopoeia])
 
   return (
     <Container>

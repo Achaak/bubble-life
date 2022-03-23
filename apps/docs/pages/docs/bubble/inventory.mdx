@@ -1,1 +1,69 @@
+---
+title: Inventory
+---
+
 # Inventory
+
+## addInventoryItem()
+
+Add an item to the inventory.
+
+```ts
+import { addInventoryItem } from "@bubble/store";
+
+addInventoryItem({
+  type: "InventoryItem",
+  number: 1,
+});
+```
+
+#### Parameters
+
+| Parameter | Description                 | Type            | Default    |
+| --------- | --------------------------- | --------------- | ---------- |
+| type      | The type of the item to add | `InventoryItem` | `required` |
+| number    | The number of items to add  | `number`        | `required` |
+
+---
+
+## removeInventoryItem()
+
+Remove an item from the inventory.
+
+```ts
+import { removeInventoryItem } from "@bubble/store";
+
+removeInventoryItem({
+  type: "InventoryItem",
+  number: 1,
+});
+```
+
+#### Parameters
+
+| Parameter | Description                    | Type            | Default    |
+| --------- | ------------------------------ | --------------- | ---------- |
+| type      | The type of the item to remove | `InventoryItem` | `required` |
+| number    | The number of items to remove  | `number`        | `required` |
+
+---
+
+## hasInventoryItem()
+
+Remove an item from the inventory.
+
+```ts
+import { hasInventoryItem } from "@bubble/store";
+
+hasInventoryItem({
+  type: "InventoryItem",
+  number: 1,
+});
+```
+
+#### Parameters
+
+| Parameter | Description                    | Type            | Default    |
+| --------- | ------------------------------ | --------------- | ---------- |
+| type      | The type of the item to verify | `InventoryItem` | `required` |
+| number    | The number of items to verify  | `number`        | `required` |

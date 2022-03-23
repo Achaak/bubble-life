@@ -1,11 +1,11 @@
-import type { InventoryItem } from './inventory'
+import type { InventoryItemStock } from './inventory'
 
 export type Eyes = 'enjoy' | 'sleep' | 'afraid' | 'sunglass'
 export type Clothes = 'coat' | null
 export type Environments = 'home' | 'market'
 export type Hats = 'cap' | null
 export type Bodies = 'default'
-export type Onomatopoeia = 'sleep' | 'eat' | null
+export type Onomatopoeias = 'sleep' | 'eat' | null
 
 export interface BubbleConfigType {
   vitals: {
@@ -70,7 +70,7 @@ export interface BubbleConfigType {
     environment: Environments
     hat: Hats
     body: Bodies
-    onomatopoeia: Onomatopoeia
+    onomatopoeia: Onomatopoeias
   }
-  defaultInventory: InventoryItem[]
+  defaultInventory: InventoryItemStock[]
 }
