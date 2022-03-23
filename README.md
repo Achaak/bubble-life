@@ -18,7 +18,7 @@ Bubble-life is a customizable and interactive interface. The app revolves around
 The complete documentation (including installation and configuration) is available via this link [https://www.bubble-life.app/](https://www.bubble-life.app/)
 
 - [Website](https://www.bubble-life.app/)
-- [Installation](https://www.bubble-life.app/get-started)
+- [Installation](https://www.bubble-life.app/docs/get-started)
 - [Configuration](https://www.bubble-life.app/docs/configuration/global)
 - [Modules](https://www.bubble-life.app/modules)
 - [Development](https://www.bubble-life.app/docs/development/bubble/elements/bodies)
