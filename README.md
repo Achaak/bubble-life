@@ -19,7 +19,7 @@ The complete documentation (including installation and configuration) is availab
 
 - [Website](https://www.bubble-life.app/)
 - [Installation](https://www.bubble-life.app/get-started)
-- [Configuration](https://www.bubble-life.app/get-started)
+- [Configuration](https://www.bubble-life.app/docs/configuration/global)
 - [Modules](https://www.bubble-life.app/modules)
-- [Docs](https://www.bubble-life.app/)
+- [Development](https://www.bubble-life.app/docs/development/bubble/elements/bodies)
 - [Storybook](https://storybook.bubble-life.app/)
