@@ -7,6 +7,9 @@
     "lint": {
       "outputs": []
     },
+    "start": {
+      "outputs": []
+    },
     "format": {
       "outputs": []
     },
