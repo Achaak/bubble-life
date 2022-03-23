@@ -50,7 +50,7 @@ export class ActionNap extends Action {
       return
     }
 
-    if (tiredness <= 0 && !hasAction({ name: 'nap' })) {
+    if (tiredness <= 0 && !hasActionByName({ name: 'nap' })) {
       const startNap = dayjs()
 
       const endNap = dayjs(startNap).add(

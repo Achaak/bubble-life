@@ -13,7 +13,7 @@ export const addActionInAwaitList = (state: ActionsState, action: PayloadAction<
   ]
 }
 
-export const removeActionInAwaitList = (
+export const removeActionFromAwaitList = (
   state: ActionsState,
   action: PayloadAction<{ id: string }>
 ): void => {

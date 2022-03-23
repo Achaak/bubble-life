@@ -1,0 +1,152 @@
+---
+title: Await List Actions
+---
+
+import Callout from "nextra-theme-docs/callout";
+
+# Await List Actions
+
+## hasActionInAwaitListByName()
+
+Get if the given action is in the await list by name.
+
+```ts
+import { hasActionInAwaitListByName } from "@bubble/store";
+
+const bool = hasActionInAwaitListByName({
+  name: "ActionName",
+});
+```
+
+#### Parameters
+
+| Parameter | Description                      | Type     | Default    |
+| --------- | -------------------------------- | -------- | ---------- |
+| name      | Name of the action to check for. | `string` | `required` |
+
+#### Return value
+
+```
+boolean
+```
+
+---
+
+## hasActionInAwaitListById()
+
+Get if the given action is in the await list by id.
+
+```ts
+import { hasActionInAwaitListById } from "@bubble/store";
+
+const bool = hasActionInAwaitListById({
+  id: "ActionId",
+});
+```
+
+#### Parameters
+
+| Parameter | Description                    | Type     | Default    |
+| --------- | ------------------------------ | -------- | ---------- |
+| id        | Id of the action to check for. | `string` | `required` |
+
+#### Return value
+
+```
+boolean
+```
+
+---
+
+## removeActionFromAwaitList()
+
+Remove the given action from the await list.
+
+```ts
+import { removeActionFromAwaitList } from "@bubble/store";
+
+removeActionFromAwaitList({
+  id: "ActionId",
+});
+```
+
+#### Parameters
+
+| Parameter | Description                                     | Type     | Default    |
+| --------- | ----------------------------------------------- | -------- | ---------- |
+| id        | ID of the action to remove from the await list. | `string` | `required` |
+
+---
+
+## transferActionFromAwaitListToCurrent()
+
+Transfer an action from the await list to the current list.
+
+```ts
+import { transferActionFromAwaitListToCurrent } from "@bubble/store";
+
+transferActionFromAwaitListToCurrent({
+  id: "ActionId",
+});
+```
+
+#### Parameters
+
+| Parameter | Description                                 | Type     | Default    |
+| --------- | ------------------------------------------- | -------- | ---------- |
+| id        | ID of the action to transfer from the list. | `string` | `required` |
+
+---
+
+## addActionInAwaitList()
+
+<Callout emoji="⚠️">
+  This function is only usable in the core package with the actions class
+  manager.
+</Callout>
+
+Add the given action to the await list.
+
+```ts
+import { addActionInAwaitList } from "@bubble/store";
+
+addActionInAwaitList({
+  id: "ActionId"
+  name: "eat",
+  start: new Date().getTime(),
+  duration: 5000,
+  startFunction: "eat:start",
+  updateFunction: "eat:update",
+  endFunction: "eat:end",
+  cancelFunction: "eat:cancel",
+  importance: 2,
+  elements: {
+    onomatopoeia: {
+      name: "eat",
+    },
+    ...
+  },
+  animation: 'bounce',
+  memory: {
+    startAt: new Date().getTime(),
+    ...
+  },
+});
+```
+
+#### Parameters
+
+| Parameter      | Description                                         | Type              | Default     |
+| -------------- | --------------------------------------------------- | ----------------- | ----------- |
+| id             | ID of the action to add to the await list.          | `string`          | `undefined` |
+| name           | Name of the action to add.                          | `string`          | `required`  |
+| start          | Start time of the action.                           | `number`          | `required`  |
+| duration       | Duration of the action.                             | `number`          | `required`  |
+| startFunction  | Function name to call when the action starts.       | `string`          | `undefined` |
+| updateFunction | Function name to call when the action updates.      | `string`          | `undefined` |
+| endFunction    | Function name to call when the action ends.         | `string`          | `undefined` |
+| cancelFunction | Function name to call when the action is cancelled. | `string`          | `undefined` |
+| importance     | Importance of the action.                           | `1 \| 2 \| 3`     | `required`  |
+| elements       | Elements to animate.                                | `object`          | `undefined` |
+| animation      | Animation to use.                                   | `ActionAnimation` | `undefined` |
+| memory         | Memory to use.                                      | `object`          | `undefined` |

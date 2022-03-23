@@ -43,7 +43,7 @@ export class ActionSleep extends Action {
       return
     }
 
-    if (!hasAction({ name: 'sleep' })) {
+    if (!hasActionByName({ name: 'sleep' })) {
       const hourStart = parseInt(BubbleConfig.actions.sleep.startAt.split(':')[0]) || 0
       const minuteStart = parseInt(BubbleConfig.actions.sleep.startAt.split(':')[1]) || 0
 

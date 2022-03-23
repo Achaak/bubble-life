@@ -7,8 +7,8 @@ import {
   addHatInList,
   addOnomatopoeiaInList,
   getActions,
-  removeActionInAwaitList,
-  removeActionInCancelList,
+  removeActionFromAwaitList,
+  removeActionFromCancelList,
   removeAnimationAllOver,
   removeBodyAllOver,
   removeClotheAllOver,
@@ -164,7 +164,7 @@ export class Actions {
 
     // Remove action in list
     if (newAction.id) {
-      removeActionInAwaitList({
+      removeActionFromAwaitList({
         id: newAction.id,
       })
     }
@@ -304,7 +304,7 @@ export class Actions {
 
     if (cancelAction.id) {
       // Remove cancel action
-      removeActionInCancelList({ id: cancelAction.id })
+      removeActionFromCancelList({ id: cancelAction.id })
     }
 
     // Remove element

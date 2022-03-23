@@ -1701,7 +1701,7 @@ __metadata:
     eslint-plugin-prettier: ^4.0.0
     next: 12.1.0
     next-transpile-modules: ^9.0.0
-    nextra: ^2.0.0-alpha.23
+    nextra: ^2.0.0-alpha.44
     nextra-theme-docs: ^1.2.6
     prettier: ^2.6.0
     react: 17.0.2
@@ -14044,7 +14044,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nextra@npm:^2.0.0-alpha.23":
+"nextra@npm:^2.0.0-alpha.44":
   version: 2.0.0-beta.5
   resolution: "nextra@npm:2.0.0-beta.5"
   dependencies:

@@ -80,7 +80,7 @@ export class ActionEat extends Action {
       return
     }
 
-    if (saturation <= 0 && !hasAction({ name: 'eat' })) {
+    if (saturation <= 0 && !hasActionByName({ name: 'eat' })) {
       const startEat = dayjs()
       const endEat = dayjs(startEat).add(
         BubbleConfig.actions.eat.duration +

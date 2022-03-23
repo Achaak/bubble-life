@@ -1,0 +1,135 @@
+---
+title: Utils Actions
+---
+
+# Utils Actions
+
+## getActions()
+
+Get actions state.
+
+## hasActionInAwaitListByName()
+
+Get if the given action is in the await list by name.
+
+```ts
+import { getActions } from "@bubble/store";
+
+const { current, awaitList, cancelList } = getActions();
+```
+
+#### Return value
+
+```
+ActionsState
+```
+
+---
+
+## resetActions()
+
+Reset actions state.
+
+```ts
+import { getActions } from "@bubble/store";
+
+resetActions();
+```
+
+---
+
+## hasActionByName()
+
+Get if the given action is in the current, await list or cancel list by name.
+
+```ts
+import { hasActionByName } from "@bubble/store";
+
+hasActionByName({
+  name: "ActionName",
+});
+```
+
+#### Parameters
+
+| Parameter | Description                      | Type     | Default    |
+| --------- | -------------------------------- | -------- | ---------- |
+| name      | Name of the action to check for. | `string` | `required` |
+
+#### Return value
+
+```
+boolean
+```
+
+---
+
+## hasActionById()
+
+Get if the given action is in the current, await list or cancel list by id.
+
+```ts
+import { hasActionById } from "@bubble/store";
+
+hasActionById({
+  id: "ActionId",
+});
+```
+
+#### Parameters
+
+| Parameter | Description                    | Type     | Default    |
+| --------- | ------------------------------ | -------- | ---------- |
+| id        | Id of the action to check for. | `string` | `required` |
+
+#### Return value
+
+```
+boolean
+```
+
+---
+
+## updateMemoryValue()
+
+Update the memory value of the current, await list or cancel list action.
+
+```ts
+import { updateMemoryValue } from "@bubble/store";
+
+updateMemoryValue({
+  memoryId: "MemoryId",
+  actionId: "ActionId",
+  value: "Value",
+});
+```
+
+#### Parameters
+
+| Parameter | Description                      | Type     | Default    |
+| --------- | -------------------------------- | -------- | ---------- |
+| memoryId  | Id of the memory to update.      | `string` | `required` |
+| actionId  | Id of the action to update.      | `string` | `required` |
+| value     | Value to update the memory with. | `any`    | `required` |
+
+---
+
+## deleteMemoryValue()
+
+Delete the memory value of the current, await list or cancel list action.
+
+```ts
+import { deleteMemoryValue } from "@bubble/store";
+
+deleteMemoryValue({
+  memoryId: "MemoryId",
+  actionId: "ActionId",
+});
+```
+
+#### Parameters
+
+| Parameter | Description                 | Type     | Default    |
+| --------- | --------------------------- | -------- | ---------- |
+| memoryId  | Id of the memory to delete. | `string` | `required` |
+| actionId  | Id of the action to delete. | `string` | `required` |

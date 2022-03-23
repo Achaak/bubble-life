@@ -1,8 +1,9 @@
 import { actionsActions } from '..'
 import { store } from '../../../store'
 import type { ActionsState } from '../types'
-import { hasActionInAwaitList } from './awaitList'
-import { hasActionInCurrent } from './current'
+import { hasActionInAwaitListById, hasActionInAwaitListByName } from './awaitList'
+import { hasActionInCancelListById, hasActionInCancelListByName } from './cancelList'
+import { hasActionInCurrentById, hasActionInCurrentByName } from './current'
 
 export * from './cancelList'
 export * from './current'
@@ -14,23 +15,40 @@ export const resetActions = (): void => {
   store.dispatch(actionsActions.resetActions())
 }
 
-export const hasAction = ({ name }: { name: string }): boolean => {
-  // eslint-disable-next-line @typescript-eslint/no-use-before-define
-  return hasActionInAwaitList({ name }) || hasActionInCurrent({ name })
+export const hasActionByName = ({ name }: { name: string }): boolean => {
+  return (
+    hasActionInAwaitListByName({ name }) ||
+    hasActionInCurrentByName({ name }) ||
+    hasActionInCancelListByName({ name })
+  )
+}
+
+export const hasActionById = ({ id }: { id: string }): boolean => {
+  return (
+    hasActionInAwaitListById({ id }) ||
+    hasActionInCurrentById({ id }) ||
+    hasActionInCancelListById({ id })
+  )
 }
 
 export const updateMemoryValue = ({
-  id,
+  memoryId,
   actionId,
   value,
 }: {
-  id: string
+  memoryId: string
   actionId: string
   value: unknown
 }): void => {
-  store.dispatch(actionsActions.updateMemoryValue({ id, actionId, value }))
+  store.dispatch(actionsActions.updateMemoryValue({ memoryId, actionId, value }))
 }
 
-export const deleteMemoryValue = ({ id, actionId }: { id: string; actionId: string }): void => {
-  store.dispatch(actionsActions.deleteMemoryValue({ id, actionId }))
+export const deleteMemoryValue = ({
+  memoryId,
+  actionId,
+}: {
+  memoryId: string
+  actionId: string
+}): void => {
+  store.dispatch(actionsActions.deleteMemoryValue({ memoryId, actionId }))
 }

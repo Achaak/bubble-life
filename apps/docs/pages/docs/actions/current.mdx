@@ -1,0 +1,100 @@
+---
+title: Current Actions
+---
+
+import Callout from "nextra-theme-docs/callout";
+
+# Current Actions
+
+## resetCurrentAction()
+
+Reset the current action to null.
+
+```ts
+import { resetCurrentAction } from "@bubble/store";
+
+resetCurrentAction();
+```
+
+---
+
+## hasActionInCurrentByName()
+
+Get if the current action is in the current action by name.
+
+```ts
+import { resetCurrentAction } from "@bubble/store";
+
+hasActionInCurrentByName({
+  name: "ActionName",
+});
+```
+
+---
+
+## hasActionInCurrentById()
+
+Get if the current action is in the current action by id.
+
+```ts
+import { resetCurrentAction } from "@bubble/store";
+
+hasActionInCurrentById({
+  id: "ActionId",
+});
+```
+
+---
+
+## setCurrentAction()
+
+<Callout emoji="⚠️">
+  This function is only usable in the core package with the actions class
+  manager.
+</Callout>
+
+Set the current action.
+
+```ts
+import { addActionInCancelList } from "@bubble/store";
+
+addActionInCancelList({
+  id: "ActionId"
+  name: "eat",
+  start: new Date().getTime(),
+  duration: 5000,
+  startFunction: "eat:start",
+  updateFunction: "eat:update",
+  endFunction: "eat:end",
+  cancelFunction: "eat:cancel",
+  importance: 2,
+  elements: {
+    onomatopoeia: {
+      name: "eat",
+    },
+    ...
+  },
+  animation: 'bounce',
+  memory: {
+    startAt: new Date().getTime(),
+    ...
+  },
+});
+```
+
+#### Parameters
+
+| Parameter      | Description                                         | Type              | Default     |
+| -------------- | --------------------------------------------------- | ----------------- | ----------- |
+| id             | The id of the action                                | string            | -           |
+| name           | Name of the action to add.                          | `string`          | `required`  |
+| start          | Start time of the action.                           | `number`          | `required`  |
+| duration       | Duration of the action.                             | `number`          | `required`  |
+| startFunction  | Function name to call when the action starts.       | `string`          | `undefined` |
+| updateFunction | Function name to call when the action updates.      | `string`          | `undefined` |
+| endFunction    | Function name to call when the action ends.         | `string`          | `undefined` |
+| cancelFunction | Function name to call when the action is cancelled. | `string`          | `undefined` |
+| importance     | Importance of the action.                           | `1 \| 2 \| 3`     | `required`  |
+| elements       | Elements to animate.                                | `object`          | `undefined` |
+| animation      | Animation to use.                                   | `ActionAnimation` | `undefined` |
+| memory         | Memory to use.                                      | `object`          | `undefined` |

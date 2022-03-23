@@ -5,7 +5,7 @@ import {
   addActionInAwaitList,
   addHappiness,
   getBubble,
-  hasAction,
+  hasActionByName,
   updateMemoryValue,
 } from '@bubble/store'
 import type { Action as ActionType } from '@bubble/types/src/action'
@@ -82,7 +82,7 @@ export class ActionPlay extends Action {
       return
     }
 
-    if (happiness <= 0 && !hasAction({ name: 'play' })) {
+    if (happiness <= 0 && !hasActionByName({ name: 'play' })) {
       const startPlay = dayjs()
 
       const endPlay = dayjs(startPlay).add(
@@ -160,7 +160,7 @@ export class ActionPlay extends Action {
     if (action.id) {
       updateMemoryValue({
         actionId: action.id,
-        id: 'happinessEnd',
+        memoryId: 'happinessEnd',
         value:
           happinessEnd > BubbleConfig.vitals.happiness.max
             ? BubbleConfig.vitals.happiness.max

@@ -19,7 +19,7 @@ export const resetActions = (state: ActionsState): void => {
 
 export const updateMemoryValue = (
   state: ActionsState,
-  action: PayloadAction<{ id: string; value: unknown; actionId: string }>
+  action: PayloadAction<{ memoryId: string; value: unknown; actionId: string }>
 ): void => {
   // Update current action memory value
   if (state.current) {
@@ -27,7 +27,7 @@ export const updateMemoryValue = (
       state.current.memory = {}
     }
 
-    state.current.memory[action.payload.id] = action.payload.value
+    state.current.memory[action.payload.memoryId] = action.payload.value
   }
 
   // Update wait list memory value
@@ -37,7 +37,7 @@ export const updateMemoryValue = (
         item.memory = {}
       }
 
-      item.memory[action.payload.id] = action.payload.value
+      item.memory[action.payload.memoryId] = action.payload.value
     }
 
     return item
@@ -50,7 +50,7 @@ export const updateMemoryValue = (
         item.memory = {}
       }
 
-      item.memory[action.payload.id] = action.payload.value
+      item.memory[action.payload.memoryId] = action.payload.value
     }
 
     return item
@@ -59,7 +59,7 @@ export const updateMemoryValue = (
 
 export const deleteMemoryValue = (
   state: ActionsState,
-  action: PayloadAction<{ id: string; actionId: string }>
+  action: PayloadAction<{ memoryId: string; actionId: string }>
 ): void => {
   // Update current action memory value
   if (state.current) {
@@ -67,7 +67,7 @@ export const deleteMemoryValue = (
       state.current.memory = {}
     }
 
-    delete state.current.memory[action.payload.id]
+    delete state.current.memory[action.payload.memoryId]
   }
 
   // Update wait list memory value
@@ -77,7 +77,7 @@ export const deleteMemoryValue = (
         item.memory = {}
       }
 
-      delete item.memory[action.payload.id]
+      delete item.memory[action.payload.memoryId]
     }
 
     return item
@@ -90,7 +90,7 @@ export const deleteMemoryValue = (
         item.memory = {}
       }
 
-      delete item.memory[action.payload.id]
+      delete item.memory[action.payload.memoryId]
     }
 
     return item

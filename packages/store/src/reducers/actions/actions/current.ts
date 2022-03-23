@@ -11,8 +11,14 @@ export const resetCurrentAction = (): void => {
   store.dispatch(actionsActions.resetCurrentAction())
 }
 
-export const hasActionInCurrent = ({ name }: { name: string }): boolean => {
+export const hasActionInCurrentByName = ({ name }: { name: string }): boolean => {
   const { current } = getActions()
 
   return current?.name === name
+}
+
+export const hasActionInCurrentById = ({ id }: { id: string }): boolean => {
+  const { current } = getActions()
+
+  return current?.id === id
 }

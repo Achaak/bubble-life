@@ -5,7 +5,7 @@ import type { ActionsState } from '../types'
 export const addActionInCancelList = (state: ActionsState, action: PayloadAction<Action>): void => {
   state.cancelList = [...state.cancelList, action.payload]
 }
-export const removeActionInCancelList = (
+export const removeActionFromCancelList = (
   state: ActionsState,
   action: PayloadAction<{ id: string }>
 ): void => {

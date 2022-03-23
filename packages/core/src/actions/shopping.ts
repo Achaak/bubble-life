@@ -36,7 +36,7 @@ export class ActionShopping extends Action {
       return
     }
 
-    if (!hasInventoryItem({ type: 'food', number: 1 }) && !hasAction({ name: 'shopping' })) {
+    if (!hasInventoryItem({ type: 'food', number: 1 }) && !hasActionByName({ name: 'shopping' })) {
       const startShopping = dayjs()
       const endShopping = dayjs(startShopping).add(
         BubbleConfig.actions.shopping.duration +
