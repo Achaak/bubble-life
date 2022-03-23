@@ -137,7 +137,7 @@ export class ActionEat extends Action {
     addWeight({
       value: random({
         min: BubbleConfig.actions.eat.minWeightToAdd,
-        max: BubbleConfig.actions.eat.maxWeightToadd,
+        max: BubbleConfig.actions.eat.maxWeightToAdd,
       }),
     })
 

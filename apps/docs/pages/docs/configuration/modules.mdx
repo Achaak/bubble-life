@@ -1,1 +1,31 @@
 # Modules Configuration
+
+## Configure
+
+1. Copy `/packages/configs/modules.default.ts` to `/packages/configs/modules.ts`.
+
+2. Modify `/packages/configs/modules.ts` to your needs.
+
+---
+
+## Properties
+
+When you want to use a module, you need to add a property to `/packages/configs/modules.ts`.
+
+| Option     | Description                      |
+| ---------- | -------------------------------- |
+| `name`     | The name of the module.          |
+| `position` | The position of the module.      |
+| `config`   | The configuration of the module. |
+
+#### Positions
+
+- `top-left`
+- `top`
+- `top-right`
+- `center-left`
+- `center`
+- `center-right`
+- `bottom-left`
+- `bottom`
+- `bottom-right`

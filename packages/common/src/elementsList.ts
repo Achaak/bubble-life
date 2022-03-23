@@ -1,4 +1,4 @@
-export const countInElementslist = <T extends string | null>(
+export const getMaxImportantItemInList = <T extends string | null>(
   list: {
     name: T
     importance: number

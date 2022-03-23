@@ -3,7 +3,7 @@ import { selectElements } from '@bubble/store/src/reducers/bubble'
 import { styled } from '@bubble/styles'
 import React, { useEffect, useState } from 'react'
 import type { Eyes as EyesType } from '@bubble/types/src/bubble'
-import { countInElementslist } from '@bubble/common/src/elementsList'
+import { getMaxImportantItemInList } from '@bubble/common/src/elementsList'
 
 const Container = styled('div', {
   position: 'absolute',
@@ -25,7 +25,7 @@ export const Eyes: React.FC = ({ children }) => {
       if (eyes.action) {
         eyesName = eyes.action.name
       } else if (eyes.list.length > 0) {
-        eyesName = countInElementslist<EyesType>(eyes.list)
+        eyesName = getMaxImportantItemInList<EyesType>(eyes.list)
       } else if (eyes.default) {
         eyesName = eyes.default
       }

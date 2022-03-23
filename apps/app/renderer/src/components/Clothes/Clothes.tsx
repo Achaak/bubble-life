@@ -3,7 +3,7 @@ import { selectElements } from '@bubble/store/src/reducers/bubble'
 import { styled } from '@bubble/styles'
 import React, { useEffect, useState } from 'react'
 import type { Clothes as ClothesType } from '@bubble/types/src/bubble'
-import { countInElementslist } from '@bubble/common/src/elementsList'
+import { getMaxImportantItemInList } from '@bubble/common/src/elementsList'
 
 const Container = styled('div', {
   position: 'absolute',
@@ -28,7 +28,7 @@ export const Clothes: React.FC = ({ children }) => {
       if (clothe.action) {
         clotheName = clothe.action.name
       } else if (clothe.list.length > 0) {
-        clotheName = countInElementslist<ClothesType>(clothe.list)
+        clotheName = getMaxImportantItemInList<ClothesType>(clothe.list)
       } else if (clothe.default) {
         clotheName = clothe.default
       }

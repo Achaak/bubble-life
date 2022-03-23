@@ -10,7 +10,7 @@ export type Onomatopoeias = 'sleep' | 'eat' | null
 export interface BubbleConfigType {
   vitals: {
     weight: {
-      start: number
+      default: number
       min: number
       max: number
     }
@@ -51,7 +51,7 @@ export interface BubbleConfigType {
       duration: number
       durationMargin: number
       minWeightToAdd: number
-      maxWeightToadd: number
+      maxWeightToAdd: number
     }
     shopping: {
       duration: number

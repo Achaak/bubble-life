@@ -10,7 +10,7 @@ export const initialBubbleState: BubbleState = {
   },
   inventory: BubbleConfig.defaultInventory,
   vitals: {
-    weight: BubbleConfig.vitals.weight.start,
+    weight: BubbleConfig.vitals.weight.default,
     saturation: BubbleConfig.vitals.saturation.default,
     happiness: BubbleConfig.vitals.happiness.default,
     tiredness: BubbleConfig.vitals.tiredness.default,

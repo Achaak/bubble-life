@@ -1,1 +1,151 @@
+import Callout from "nextra-theme-docs/callout";
+
 # Bubble Configuration
+
+## Configure
+
+1. Copy `/packages/configs/bubble.default.ts` to `/packages/configs/bubble.ts`.
+
+2. Modify `/packages/configs/bubble.ts` to your needs.
+
+---
+
+## Properties
+
+### Vitals
+
+#### Weight
+
+The weight of the bubble in kilograms.
+The more weight the bubble has, the more it will be big.
+
+| Option    | Description    |
+| --------- | -------------- |
+| `default` | Start weight   |
+| `min`     | Minimum weight |
+| `max`     | Maximum weight |
+
+#### Saturation
+
+Saturation corresponds to your Bubble's hunger.
+When your Bubble is hungry, it will seek to eat.
+
+| Option     | Description                  |
+| ---------- | ---------------------------- |
+| `default`  | Start saturation             |
+| `max`      | Maximum saturation           |
+| `decrease` | Decrease rate every 1 second |
+
+#### Happiness
+
+Happiness corresponds to the entertainment of your Bubble.
+When your Bubble isn't happy, this one will show it to you and want to have fun.
+
+| Option     | Description                  |
+| ---------- | ---------------------------- |
+| `default`  | Start happiness              |
+| `max`      | Maximum happiness            |
+| `decrease` | Decrease rate every 1 second |
+
+#### Tiredness
+
+Tiredness corresponds to the exhaustion of your Bubble.
+When your Bubble is tired, it will go to sleep.
+
+| Option     | Description                  |
+| ---------- | ---------------------------- |
+| `default`  | Start tiredness              |
+| `max`      | Maximum tiredness            |
+| `decrease` | Decrease rate every 1 second |
+
+#### Health
+
+<Callout emoji="⚠️">It's not implemented yet.</Callout>
+
+Health corresponds to the health of your Bubble. When your Bubble is sick, it will
+go to hospital.
+
+| Option     | Description                  |
+| ---------- | ---------------------------- |
+| `default`  | Start health                 |
+| `max`      | Maximum health               |
+| `decrease` | Decrease rate every 1 second |
+
+### Actions
+
+#### Sleep
+
+When your Bubble is tired, it will go to sleep at the end of the day.
+
+| Option           | Description                      |
+| ---------------- | -------------------------------- |
+| `startAt`        | Start time of the day (HH:mm)    |
+| `duration`       | Duration of the sleep (Minutes)  |
+| `durationMargin` | Margin of the duration (Minutes) |
+
+#### Nap
+
+When your Bubble is tired, it will go take a nap.
+
+| Option           | Description                            |
+| ---------------- | -------------------------------------- |
+| `duration`       | Duration of the nap (Minutes)          |
+| `durationMargin` | Margin of the duration (Minutes)       |
+| `recover`        | Recover percentage (0-1)               |
+| `recoverMargin`  | Margin of the recover percentage (0-1) |
+
+#### Eat
+
+When your Bubble is hungry, it will eat.
+
+| Option           | Description                       |
+| ---------------- | --------------------------------- |
+| `duration`       | Duration of the eat (Minutes)     |
+| `durationMargin` | Margin of the duration (Minutes)  |
+| `minWeightToAdd` | Minimum weight to add (Kilograms) |
+| `maxWeightToAdd` | Maximum weight to add (Kilograms) |
+
+#### Shopping
+
+When your Bubble no longer has enough items for its activities, it will go shopping.
+
+| Option           | Description                        |
+| ---------------- | ---------------------------------- |
+| `duration`       | Duration of the shopping (Minutes) |
+| `durationMargin` | Margin of the duration (Minutes)   |
+
+#### Play
+
+To make your Bubble happy, it will play.
+
+| Option           | Description                            |
+| ---------------- | -------------------------------------- |
+| `duration`       | Duration of the play (Minutes)         |
+| `durationMargin` | Margin of the duration (Minutes)       |
+| `recover`        | Recover percentage (0-1)               |
+| `recoverMargin`  | Margin of the recover percentage (0-1) |
+
+### Default Elements
+
+The default elements are the elements that will be added to your Bubble when you start for the first time.
+When you reset an element, it will return to the default value.
+
+| Option         | Description                   |
+| -------------- | ----------------------------- |
+| `eyes`         | Eyes of the Bubble            |
+| `clothe`       | Clothe of the Bubble          |
+| `environment`  | Environment in the background |
+| `hat`          | Hat of the Bubble             |
+| `body`         | Body of the Bubble            |
+| `onomatopoeia` | Onomatopoeia of the Bubble    |
+
+### Default Inventory
+
+The default inventory contains the items that will be added to your Bubble when you start for the first time.
+
+#### Items
+
+| Option  | Description       |
+| ------- | ----------------- |
+| `type`  | Type of the item  |
+| `stock` | Stock of the item |

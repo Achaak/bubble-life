@@ -3,7 +3,7 @@ import { BubbleConfigType } from "@bubble/types/src/bubble";
 export const BubbleConfig: BubbleConfigType = {
   vitals: {
     weight: {
-      start: 20,
+      default: 20,
       min: 5,
       max: 50,
     },
@@ -44,7 +44,7 @@ export const BubbleConfig: BubbleConfigType = {
       duration: 20, // Minutes
       durationMargin: 5, // Minutes
       minWeightToAdd: 1, // kilogram
-      maxWeightToadd: 2, // kilogram
+      maxWeightToAdd: 2, // kilogram
     },
     shopping: {
       duration: 20, // minutes

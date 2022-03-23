@@ -30,5 +30,5 @@ export const removeWeight = (
 }
 
 export const resetWeight = (state: BubbleState): void => {
-  state.vitals.weight = BubbleConfig.vitals.weight.start
+  state.vitals.weight = BubbleConfig.vitals.weight.default
 }

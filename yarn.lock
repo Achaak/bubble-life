@@ -1666,6 +1666,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@bubble/core@workspace:packages/core"
   dependencies:
+    "@bubble/common": "*"
     "@bubble/scripts": "*"
     "@bubble/store": "*"
     "@bubble/tsconfig": "*"

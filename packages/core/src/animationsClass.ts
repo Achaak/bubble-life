@@ -1,6 +1,7 @@
 import { getBubble } from '@bubble/store'
-import type { AnimationConfig } from '@bubble/types/src/animation'
+import type { Animation, AnimationConfig } from '@bubble/types/src/animation'
 import anime from 'animejs'
+import { getMaxImportantItemInList } from '@bubble/common/src/elementsList'
 
 import { AnimationList } from './animations'
 import { AnimationDefault } from './animations/default'
@@ -19,10 +20,21 @@ export class Animations {
   }
 
   onStartAnimation = (): void => {
-    const { animation } = getBubble()
+    const {
+      animation: { action: animationAction, default: animationDefault, list: animationList },
+    } = getBubble()
 
-    // TODO : check if animation is in the list
-    const animationFind = AnimationList.find((item) => item.name === animation.action?.name)
+    let animationName: Animation | null = null
+
+    if (animationAction) {
+      animationName = animationAction.name
+    } else if (animationList.length > 0) {
+      animationName = getMaxImportantItemInList(animationList)
+    } else if (animationDefault) {
+      animationName = animationDefault
+    }
+
+    const animationFind = AnimationList.find((item) => item.name === animationName)
 
     if (animationFind) {
       this.currentAnimation = animationFind

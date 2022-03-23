@@ -1,6 +1,6 @@
 import { useAppSelector } from '@bubble/store/src/hooks'
 import { selectElements } from '@bubble/store/src/reducers/bubble'
-import { countInElementslist } from '@bubble/common/src/elementsList'
+import { getMaxImportantItemInList } from '@bubble/common/src/elementsList'
 import { styled } from '@bubble/styles'
 import type { Bodies as BodiesType } from '@bubble/types/src/bubble'
 import React, { useEffect, useState } from 'react'
@@ -22,7 +22,7 @@ export const Bodies: React.FC = ({ children }) => {
       if (body.action) {
         bodyName = body.action.name
       } else if (body.list.length > 0) {
-        bodyName = countInElementslist<BodiesType>(body.list)
+        bodyName = getMaxImportantItemInList<BodiesType>(body.list)
       } else if (body.default) {
         bodyName = body.default
       }

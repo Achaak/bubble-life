@@ -1,4 +1,4 @@
-import { countInElementslist } from '@bubble/common/src/elementsList'
+import { getMaxImportantItemInList } from '@bubble/common/src/elementsList'
 import { useAppSelector } from '@bubble/store/src/hooks'
 import { selectElements } from '@bubble/store/src/reducers/bubble'
 import { styled } from '@bubble/styles'
@@ -25,7 +25,7 @@ export const Onomatopoeias: React.FC = ({ children }) => {
       if (onomatopoeia.action) {
         onomatopoeiaName = onomatopoeia.action.name
       } else if (onomatopoeia.list.length > 0) {
-        onomatopoeiaName = countInElementslist<OnomatopoeiasType>(onomatopoeia.list)
+        onomatopoeiaName = getMaxImportantItemInList<OnomatopoeiasType>(onomatopoeia.list)
       } else if (onomatopoeia.default) {
         onomatopoeiaName = onomatopoeia.default
       }

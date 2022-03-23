@@ -1,11 +1,4 @@
 import {
-  addAnimationInList,
-  addBodyInList,
-  addClotheInList,
-  addEnvironmentInList,
-  addEyesInList,
-  addHatInList,
-  addOnomatopoeiaInList,
   getActions,
   removeActionFromAwaitList,
   removeActionFromCancelList,
@@ -17,6 +10,13 @@ import {
   resetActionHat,
   resetActionOnomatopoeia,
   resetCurrentAction,
+  setActionAnimation,
+  setActionBody,
+  setActionClothe,
+  setActionEnvironment,
+  setActionEyes,
+  setActionHat,
+  setActionOnomatopoeia,
   setCurrentAction,
 } from '@bubble/store'
 import type { Action as ActionType } from '@bubble/types/src/action'
@@ -181,58 +181,51 @@ export class Actions {
     // Add elements
     // EYES
     if (newAction.elements?.eyes?.id) {
-      addEyesInList({
-        id: newAction.elements.eyes.id,
-        importance: 1,
+      setActionEyes({
+        actionId: newAction.id || '',
         name: newAction.elements.eyes.name,
       })
     }
     // ENVIRONMENT
     if (newAction.elements?.environment?.id) {
-      addEnvironmentInList({
-        id: newAction.elements.environment.id,
-        importance: 1,
+      setActionEnvironment({
+        actionId: newAction.id || '',
         name: newAction.elements.environment.name,
       })
     }
     // CLOTHE
     if (newAction.elements?.clothe?.id) {
-      addClotheInList({
-        id: newAction.elements.clothe.id,
-        importance: 1,
+      setActionClothe({
+        actionId: newAction.id || '',
         name: newAction.elements.clothe.name,
       })
     }
     // HAT
     if (newAction.elements?.hat?.id) {
-      addHatInList({
-        id: newAction.elements.hat.id,
-        importance: 1,
+      setActionHat({
+        actionId: newAction.id || '',
         name: newAction.elements.hat.name,
       })
     }
     // BODY
     if (newAction.elements?.body?.id) {
-      addBodyInList({
-        id: newAction.elements.body.id,
-        importance: 1,
+      setActionBody({
+        actionId: newAction.id || '',
         name: newAction.elements.body.name,
       })
     }
     // ONOMATOPOEIA
     if (newAction.elements?.onomatopoeia?.id) {
-      addOnomatopoeiaInList({
-        id: newAction.elements.onomatopoeia.id,
-        importance: 1,
+      setActionOnomatopoeia({
+        actionId: newAction.elements.onomatopoeia.id,
         name: newAction.elements.onomatopoeia.name,
       })
     }
 
     // Add animation
     if (newAction.animation?.id) {
-      addAnimationInList({
-        id: newAction.animation.id,
-        importance: 1,
+      setActionAnimation({
+        actionId: newAction.animation.id,
         name: newAction.animation.name,
       })
     }
@@ -345,7 +338,7 @@ export class Actions {
 
   onRemoveAnimation = (action: ActionType): void => {
     if (action.animation?.id) {
-      resetActionAnimation
+      resetActionAnimation()
     }
   }
 
