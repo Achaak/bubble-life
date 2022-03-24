@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { ModalMenu } from '@bubble/ui/src/components/Modals/Menu'
 import { BxsBaseball } from '@bubble/ui/src/Icons/bxs-baseball'
 import { BxsPieChartAlt2 } from '@bubble/ui/src/Icons/bxs-pieChartAlt2'
 import { BxsBackpack } from '@bubble/ui/src/Icons/bxs-backpack'
 import { styled } from '@bubble/styles'
+import { ModalMenu } from '../Modals/Menu'
 
 const Content = styled('div', {
   display: 'flex',

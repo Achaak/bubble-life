@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Modal } from '../Default'
+import { Modal } from '@bubble/ui/src/components/Modals/Default'
 import { ModalMenuContent } from './content'
 import { ModalMenuFooter } from './footer'
 import { ModalMenuHeader } from './header'

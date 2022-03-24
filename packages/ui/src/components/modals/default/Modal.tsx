@@ -221,7 +221,7 @@ const Footer = styled('div', {
   },
 })
 
-export interface ModalType {
+export interface ModalProps {
   visible: boolean
   onClose: () => void
   hasCloseBtn?: boolean
@@ -266,7 +266,7 @@ export const Modal = ({
   footer,
   content,
   gap,
-}: ModalType): JSX.Element => {
+}: ModalProps): JSX.Element => {
   const [visibleStyle, setVisibleStyle] = useState(false)
   const [visibleDOM, setVisibleDOM] = useState(false)
 
