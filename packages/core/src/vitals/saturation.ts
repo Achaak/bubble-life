@@ -1,4 +1,4 @@
-import { dateToMs } from '@bubble/common/src/date'
+import { dateToMs } from '@bubble/common'
 import { BubbleConfig } from '@bubble/configs/bubble'
 import { removeSaturation } from '@bubble/store'
 

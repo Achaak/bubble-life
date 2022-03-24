@@ -1,9 +1,9 @@
-import { useAppSelector } from '@bubble/store/src/hooks'
-import { selectElements } from '@bubble/store/src/reducers/bubble'
+import { useAppSelector } from '@bubble/store'
+import { selectElements } from '@bubble/store'
 import { styled } from '@bubble/styles'
 import React, { useEffect, useState } from 'react'
-import type { Clothes as ClothesType } from '@bubble/types/src/bubble'
-import { getMaxImportantItemInList } from '@bubble/common/src/elementsList'
+import type { Clothes as ClothesType } from '@bubble/types'
+import { getMaxImportantItemInList } from '@bubble/common'
 
 const Container = styled('div', {
   position: 'absolute',

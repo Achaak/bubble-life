@@ -1,8 +1,8 @@
-import { dateToMs } from '@bubble/common/src/date'
-import { random } from '@bubble/common/src/random'
+import { dateToMs } from '@bubble/common'
+import { random } from '@bubble/common'
 import { BubbleConfig } from '@bubble/configs/bubble'
 import { addActionInAwaitList, addTiredness, getBubble, hasActionByName } from '@bubble/store'
-import type { Action as ActionType } from '@bubble/types/src/action'
+import type { Action as ActionType } from '@bubble/types'
 import dayjs from 'dayjs'
 
 import { Action } from '../action'

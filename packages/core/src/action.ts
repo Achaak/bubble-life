@@ -1,4 +1,4 @@
-import type { Action as ActionType } from '@bubble/types/src/action'
+import type { Action as ActionType } from '@bubble/types'
 
 export class Action {
   lastRender: number

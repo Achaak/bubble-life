@@ -1,4 +1,4 @@
-import { StorePersistGate, StoreProvider } from '@bubble/store/src/hooks'
+import { StorePersistGate, StoreProvider } from '@bubble/store'
 import { persistor, store } from '@bubble/store/src/store'
 import { globalStyles } from '@bubble/styles'
 import type { Locales } from '@bubble/translate'

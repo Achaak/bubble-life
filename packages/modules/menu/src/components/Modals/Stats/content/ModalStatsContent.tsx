@@ -3,6 +3,6 @@ import React from 'react'
 
 const ContentContainer = styled('div', {})
 
-export const ModalMenuContent = (): JSX.Element => {
+export const ModalStatsContent = (): JSX.Element => {
   return <ContentContainer>azdazdzd</ContentContainer>
 }

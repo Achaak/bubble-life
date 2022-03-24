@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import { BxsBaseball } from '@bubble/ui/src/Icons/bxs-baseball'
-import { BxsPieChartAlt2 } from '@bubble/ui/src/Icons/bxs-pieChartAlt2'
-import { BxsBackpack } from '@bubble/ui/src/Icons/bxs-backpack'
+import { BxsBaseball } from '@bubble/ui'
+import { BxsPieChartAlt2 } from '@bubble/ui'
+import { BxsBackpack } from '@bubble/ui'
 import { styled } from '@bubble/styles'
-import { ModalMenu } from '../Modals/Menu'
+import { ModalInventory } from '../Modals/Inventory'
+import { ModalStats } from '../Modals/Stats'
+import { ModalActions } from '../Modals/Actions'
 
 const Content = styled('div', {
   display: 'flex',
@@ -20,20 +22,24 @@ const MenuIcon = styled('div', {
 })
 
 export const Container: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isActionsOpen, setIsActionsOpen] = useState(false)
+  const [isStatsOpen, setIsStatsOpen] = useState(false)
+  const [isInventoryOpen, setIsInventoryOpen] = useState(false)
 
   return (
     <>
-      <ModalMenu visible={isMenuOpen} onClose={(): void => setIsMenuOpen(false)} />
+      <ModalInventory visible={isInventoryOpen} onClose={(): void => setIsInventoryOpen(false)} />
+      <ModalStats visible={isStatsOpen} onClose={(): void => setIsStatsOpen(false)} />
+      <ModalActions visible={isActionsOpen} onClose={(): void => setIsActionsOpen(false)} />
 
       <Content>
-        <MenuIcon onClick={(): void => setIsMenuOpen(true)}>
+        <MenuIcon onClick={(): void => setIsActionsOpen(true)}>
           <BxsBaseball size={32} colorName="WHITE" />
         </MenuIcon>
-        <MenuIcon onClick={(): void => setIsMenuOpen(true)}>
+        <MenuIcon onClick={(): void => setIsInventoryOpen(true)}>
           <BxsBackpack size={32} colorName="WHITE" />
         </MenuIcon>
-        <MenuIcon onClick={(): void => setIsMenuOpen(true)}>
+        <MenuIcon onClick={(): void => setIsStatsOpen(true)}>
           <BxsPieChartAlt2 size={32} colorName="WHITE" />
         </MenuIcon>
       </Content>

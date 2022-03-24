@@ -3,6 +3,6 @@ import React from 'react'
 
 const HeaderContainer = styled('div', {})
 
-export const ModalMenuHeader = (): JSX.Element => {
-  return <HeaderContainer>azdazdzd</HeaderContainer>
+export const ModalActionsHeader = (): JSX.Element => {
+  return <HeaderContainer>Actions</HeaderContainer>
 }

@@ -49,7 +49,7 @@ const Container = styled(Dialog.Content, {
     left: '50%',
     bottom: 'initial',
     right: 'initial',
-    borderRadius: '8px',
+    br: 2,
     transformOrigin: '0% 0%',
     transform: 'scale(0.8) translate(-50%, -50%)',
   },
@@ -105,11 +105,37 @@ const Container = styled(Dialog.Content, {
   },
 })
 
+const HeaderLeft = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-start',
+  flex: 1,
+})
+
+const HeaderCenter = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flex: 8,
+})
+
+const HeaderRight = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-end',
+  flex: 1,
+})
+
 const CloseBtn = styled('div', {
   cursor: 'pointer',
-  position: 'absolute',
-  right: '16px',
-  top: '16px',
+  padding: 4,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderWidth: 3,
+  borderStyle: 'solid',
+  borderColor: '$WHITE',
+  br: 3,
 })
 
 const Header = styled('div', {
@@ -329,12 +355,6 @@ export const Modal = ({
           ...styles?.container,
         }}
       >
-        {hasCloseBtn && (
-          <CloseBtn onClick={handleClose}>
-            <BxX size={32} colorName="WHITE" />
-          </CloseBtn>
-        )}
-
         {header && (
           <Header
             css={{
@@ -343,7 +363,15 @@ export const Modal = ({
             gap={gap?.header}
             padding={padding?.header}
           >
-            {header}
+            <HeaderLeft></HeaderLeft>
+            <HeaderCenter>{header}</HeaderCenter>
+            <HeaderRight>
+              {hasCloseBtn && (
+                <CloseBtn onClick={handleClose}>
+                  <BxX size={32} colorName="WHITE" />
+                </CloseBtn>
+              )}
+            </HeaderRight>
           </Header>
         )}
         {content && (

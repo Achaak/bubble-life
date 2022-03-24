@@ -1,6 +1,6 @@
 import { globalStyles } from '@bubble/styles'
-import type { ModalProps } from '@bubble/ui/src/components/Modals/Default'
-import { Modal } from '@bubble/ui/src/components/Modals/Default'
+import type { ModalProps } from '@bubble/ui'
+import { Modal } from '@bubble/ui'
 import type { Meta, Story } from '@storybook/react'
 
 export default {

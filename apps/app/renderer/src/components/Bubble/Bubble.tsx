@@ -1,8 +1,8 @@
 import { BubbleConfig } from '@bubble/configs/bubble'
 import { GlobalConfig } from '@bubble/configs/global'
 import { addPlayActionInAwaitList } from '@bubble/core/src/actions/play'
-import { useAppSelector } from '@bubble/store/src/hooks'
-import { selectVitals } from '@bubble/store/src/reducers/bubble'
+import { useAppSelector } from '@bubble/store'
+import { selectVitals } from '@bubble/store'
 import { styled } from '@bubble/styles'
 import React, { useEffect, useState } from 'react'
 

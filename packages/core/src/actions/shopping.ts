@@ -1,5 +1,5 @@
-import { dateToMs } from '@bubble/common/src/date'
-import { random } from '@bubble/common/src/random'
+import { dateToMs } from '@bubble/common'
+import { random } from '@bubble/common'
 import { BubbleConfig } from '@bubble/configs/bubble'
 import {
   addActionInAwaitList,

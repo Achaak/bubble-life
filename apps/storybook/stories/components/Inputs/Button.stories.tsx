@@ -1,6 +1,6 @@
 import { globalStyles } from '@bubble/styles'
-import type { ButtonProps } from '@bubble/ui/src/components/Inputs/Button'
-import { Button } from '@bubble/ui/src/components/Inputs/Button'
+import type { ButtonProps } from '@bubble/ui'
+import { Button } from '@bubble/ui'
 import type { Meta, Story } from '@storybook/react'
 
 export default {

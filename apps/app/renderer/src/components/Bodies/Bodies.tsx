@@ -1,8 +1,8 @@
-import { useAppSelector } from '@bubble/store/src/hooks'
-import { selectElements } from '@bubble/store/src/reducers/bubble'
-import { getMaxImportantItemInList } from '@bubble/common/src/elementsList'
+import { useAppSelector } from '@bubble/store'
+import { selectElements } from '@bubble/store'
+import { getMaxImportantItemInList } from '@bubble/common'
 import { styled } from '@bubble/styles'
-import type { Bodies as BodiesType } from '@bubble/types/src/bubble'
+import type { Bodies as BodiesType } from '@bubble/types'
 import React, { useEffect, useState } from 'react'
 
 const Container = styled('div', {

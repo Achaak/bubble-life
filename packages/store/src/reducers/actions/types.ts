@@ -1,4 +1,4 @@
-import type { Action } from '@bubble/types/src/action'
+import type { Action } from '@bubble/types'
 
 export interface ActionsState {
   waitList: Action[]

@@ -1,12 +1,5 @@
-import type { Animation } from '@bubble/types/src/animation'
-import type {
-  Bodies,
-  Clothes,
-  Environments,
-  Eyes,
-  Hats,
-  Onomatopoeias,
-} from '@bubble/types/src/bubble'
+import type { Animation } from '@bubble/types'
+import type { Bodies, Clothes, Environments, Eyes, Hats, Onomatopoeias } from '@bubble/types'
 import type { InventoryItemStock } from '@bubble/types/src/inventory'
 
 export interface BubbleStateVitals {

@@ -1,5 +1,5 @@
 import { styled } from '@bubble/styles'
-import type { SVGComponentIcon } from '@bubble/ui/src/Icons/types'
+import type { SVGComponentIcon } from '@bubble/ui'
 import React from 'react'
 
 const Container = styled('div', {

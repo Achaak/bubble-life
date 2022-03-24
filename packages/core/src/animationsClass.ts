@@ -1,7 +1,7 @@
 import { getBubble } from '@bubble/store'
-import type { Animation, AnimationConfig } from '@bubble/types/src/animation'
+import type { Animation, AnimationConfig } from '@bubble/types'
 import anime from 'animejs'
-import { getMaxImportantItemInList } from '@bubble/common/src/elementsList'
+import { getMaxImportantItemInList } from '@bubble/common'
 
 import { AnimationList } from './animations'
 import { AnimationDefault } from './animations/default'

@@ -19,7 +19,7 @@ import {
   setActionOnomatopoeia,
   setCurrentAction,
 } from '@bubble/store'
-import type { Action as ActionType } from '@bubble/types/src/action'
+import type { Action as ActionType } from '@bubble/types'
 import dayjs from 'dayjs'
 import shortid from 'shortid'
 

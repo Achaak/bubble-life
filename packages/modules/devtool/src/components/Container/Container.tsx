@@ -1,6 +1,6 @@
 import { resetActions, resetBubble } from '@bubble/store'
 import { styled } from '@bubble/styles'
-import { Button } from '@bubble/ui/src/components/Inputs/Button'
+import { Button } from '@bubble/ui'
 import 'dayjs/locale'
 import React from 'react'
 

@@ -1915,6 +1915,7 @@ __metadata:
     "@bubble/styles": "*"
     "@bubble/translate": "*"
     "@bubble/tsconfig": "*"
+    "@bubble/types": "*"
     "@radix-ui/react-dialog": ^0.1.7
     "@types/node": ^17.0.23
     "@types/react": 17.0.42

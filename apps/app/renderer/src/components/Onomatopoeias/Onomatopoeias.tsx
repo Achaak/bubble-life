@@ -1,9 +1,9 @@
-import { getMaxImportantItemInList } from '@bubble/common/src/elementsList'
-import { useAppSelector } from '@bubble/store/src/hooks'
-import { selectElements } from '@bubble/store/src/reducers/bubble'
+import { getMaxImportantItemInList } from '@bubble/common'
+import { useAppSelector } from '@bubble/store'
+import { selectElements } from '@bubble/store'
 import { styled } from '@bubble/styles'
 import React, { useEffect, useState } from 'react'
-import type { Onomatopoeias as OnomatopoeiasType } from '@bubble/types/src/bubble'
+import type { Onomatopoeias as OnomatopoeiasType } from '@bubble/types'
 
 const Container = styled('div', {
   position: 'absolute',

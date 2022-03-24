@@ -1,4 +1,4 @@
-import type { AnimationConfig } from '@bubble/types/src/animation'
+import type { AnimationConfig } from '@bubble/types'
 
 export const AnimationDefault: AnimationConfig = {
   name: 'default',

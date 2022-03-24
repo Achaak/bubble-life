@@ -1,4 +1,4 @@
-import type { Action } from '@bubble/types/src/action'
+import type { Action } from '@bubble/types'
 import { getActions } from '.'
 import { actionsActions } from '..'
 import { store } from '../../../store'
