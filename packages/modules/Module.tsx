@@ -36,7 +36,7 @@ const Module = styled('div', {
   padding: 8,
 })
 
-export const Modules: React.FC = () => {
+export const Modules = (): JSX.Element => {
   const [modules, setModules] = useState<{
     topLeft: React.ReactNode[]
     top: React.ReactNode[]

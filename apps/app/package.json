@@ -5,7 +5,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "nextron",
-    "build": "nextron build",
+    "build:nextron": "nextron build",
     "format": "prettier --write \"./**/*.{ts,tsx}\"",
     "lint": "cd renderer && cross-env TIMING=1 next lint --fix",
     "start": "set NODE_ENV=production && nextron"
@@ -32,8 +32,8 @@
     "@bubble/scripts": "*",
     "@bubble/tsconfig": "*",
     "@types/animejs": "^3.1.4",
-    "@types/node": "^17.0.22",
-    "@types/react": "^17.0.41",
+    "@types/node": "^17.0.23",
+    "@types/react": "^17.0.42",
     "@types/react-dom": "^17.0.14",
     "@types/react-toast-notifications": "^2.4.1",
     "@types/shortid": "^0.0.29",
@@ -42,6 +42,7 @@
     "cross-env": "^7.0.3",
     "dotenv-flow": "^3.2.0",
     "electron": "17.1.2",
+    "electron-builder": "^22.14.13",
     "eslint": "^8.11.0",
     "eslint-config-next": "^12.1.0",
     "eslint-config-prettier": "^8.5.0",

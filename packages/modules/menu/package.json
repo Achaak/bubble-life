@@ -1,0 +1,12 @@
+{
+  "name": "bbl-menu",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "MIT",
+  "dependencies": {}
+}

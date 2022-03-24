@@ -8,6 +8,6 @@ const Clothe = styled('img', {
   transform: 'translateX(-50%)',
 })
 
-export const ClotheCoat: React.FC = () => {
+export const ClotheCoat = (): JSX.Element => {
   return <Clothe src="/svg/clothes/coat.svg" width="104%" />
 }

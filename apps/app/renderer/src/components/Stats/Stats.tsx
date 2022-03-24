@@ -12,7 +12,9 @@ import { Bar } from './Bar'
 
 const Container = styled('div', {
   display: 'flex',
+  alignItems: 'center',
   padding: 16,
+  paddingTop: 8,
   customColumnGap: 32,
 })
 
@@ -31,7 +33,8 @@ const Left = styled('div', {
 const Center = styled('div', {
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'space-around',
+  justifyContent: 'center',
+  flexDirection: 'column',
 })
 
 const Name = styled('span', {
@@ -50,7 +53,7 @@ const Right = styled('div', {
   },
 })
 
-export const Stats: React.FC = () => {
+export const Stats = (): JSX.Element => {
   const { saturation, happiness, health, tiredness } = useAppSelector(selectVitals)
   const name = useAppSelector(selectName)
 

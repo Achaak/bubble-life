@@ -58,7 +58,7 @@ interface CustomProps {
   Icon: React.FC<SVGComponentIcon>
 }
 
-export const Bar: React.FC<CustomProps> = ({ percentage, Icon }) => {
+export const Bar = ({ percentage, Icon }: CustomProps): JSX.Element => {
   const getBarItems = (): React.ReactNode => {
     const bars = []
 

@@ -1,14 +1,14 @@
 import { ContainerIcon, Path, SVG } from './styles'
 import type { SVGComponentIcon } from './types'
 
-export const BxBaguette: React.FC<SVGComponentIcon> = ({
+export const BxBaguette = ({
   color,
   colorName,
   size,
   styles,
   className,
   onClick,
-}) => {
+}: SVGComponentIcon): JSX.Element => {
   return (
     <ContainerIcon className={className} onClick={onClick} css={{ ...styles?.container }}>
       <SVG

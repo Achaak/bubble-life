@@ -1,14 +1,14 @@
 import { ContainerIcon, Path, SVG } from './styles'
 import type { SVGComponentIcon } from './types'
 
-export const BxsXCircle: React.FC<SVGComponentIcon> = ({
+export const BxsXCircle = ({
   styles,
   color,
   colorName,
   size,
   className,
   onClick,
-}) => {
+}: SVGComponentIcon): JSX.Element => {
   return (
     <ContainerIcon className={className} onClick={onClick} css={{ ...styles?.container }}>
       <SVG

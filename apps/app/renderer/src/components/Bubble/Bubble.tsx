@@ -13,7 +13,7 @@ import { Hats } from '../Hats'
 import { Onomatopoeias } from '../Onomatopoeias'
 
 const Container = styled('div', {
-  position: 'absolute',
+  position: 'fixed',
   top: '60%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
@@ -35,7 +35,7 @@ const Content = styled('div', {
 const SCALE_MAX = 1.5
 const SCALE_MIN = 0.5
 
-export const Bubble: React.FC = () => {
+export const Bubble = (): JSX.Element => {
   const [scale, setScale] = useState<number>(1)
 
   const { weight } = useAppSelector(selectVitals)

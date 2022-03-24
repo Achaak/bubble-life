@@ -2,8 +2,7 @@ import type { CSS } from '@bubble/styles'
 import { styled } from '@bubble/styles'
 import * as Dialog from '@radix-ui/react-dialog'
 import { useEffect, useState } from 'react'
-
-import { BxsXCircle } from '../../../Icons/bxs-x-circle'
+import { BxX } from '../../../Icons/bx-x'
 
 const Overlay = styled(Dialog.Overlay, {
   position: 'fixed',
@@ -16,7 +15,7 @@ const Overlay = styled(Dialog.Overlay, {
   variants: {
     visible: {
       true: {
-        opacity: 0.5,
+        opacity: 0.1,
       },
     },
   },
@@ -31,7 +30,7 @@ const Container = styled(Dialog.Content, {
   right: 0,
   boxShadow: '$ELEVATION_BOTTOM_5',
 
-  backgroundColor: '$WHITE',
+  backgroundColor: '$BLACK',
   maxWidth: '100vw',
   maxHeight: '100vh',
   transition: 'all 500ms',
@@ -253,7 +252,7 @@ export interface ModalType {
   content?: React.ReactNode
 }
 
-export const Modal: React.FC<ModalType> = ({
+export const Modal = ({
   visible,
   hasCloseBtn,
   onClose,
@@ -267,7 +266,7 @@ export const Modal: React.FC<ModalType> = ({
   footer,
   content,
   gap,
-}) => {
+}: ModalType): JSX.Element => {
   const [visibleStyle, setVisibleStyle] = useState(false)
   const [visibleDOM, setVisibleDOM] = useState(false)
 
@@ -332,7 +331,7 @@ export const Modal: React.FC<ModalType> = ({
       >
         {hasCloseBtn && (
           <CloseBtn onClick={handleClose}>
-            <BxsXCircle size={32} colorName="WHITE" />
+            <BxX size={32} colorName="WHITE" />
           </CloseBtn>
         )}
 

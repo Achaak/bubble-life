@@ -5,6 +5,6 @@ const Eyes = styled('img', {
   transform: 'scale(1.2)',
 })
 
-export const EyesSunglass: React.FC = () => {
+export const EyesSunglass = (): JSX.Element => {
   return <Eyes src="/svg/eyes/sunglass.svg" width="100%" height="100%" />
 }

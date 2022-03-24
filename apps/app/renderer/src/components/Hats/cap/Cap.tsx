@@ -3,6 +3,6 @@ import React from 'react'
 
 const Hat = styled('img', {})
 
-export const HatCap: React.FC = () => {
+export const HatCap = (): JSX.Element => {
   return <Hat src="/svg/hats/cap.svg" width="80%" height="100%" />
 }
