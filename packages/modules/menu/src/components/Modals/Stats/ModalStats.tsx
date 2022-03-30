@@ -13,7 +13,7 @@ export const ModalStats = ({ onClose, visible }: ModalStatsProps): JSX.Element =
   return (
     <Modal
       visible={visible}
-      padding={{ container: 'md' }}
+      padding={{ container: 'md', content: 'sm' }}
       hasCloseBtn={true}
       onClose={onClose}
       closeClickOutside

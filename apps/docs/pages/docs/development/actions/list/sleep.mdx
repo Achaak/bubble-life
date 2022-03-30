@@ -1,0 +1,35 @@
+# Sleep actions
+
+## addSleepActionInAwaitList()
+
+Add an sleep action in the await list.
+
+```typescript
+import { addSleepActionInAwaitList } from "@bubble/core";
+
+addSleepActionInAwaitList({
+  start: new Date().getTime(),
+  duration: 10000,
+  importance, 2
+});
+```
+
+#### Parameters
+
+| Parameter  | Description                  | Type        | Default    |
+| ---------- | ---------------------------- | ----------- | ---------- |
+| start      | The start time of the action | `number`    | `required` |
+| duration   | The duration of the action   | `number`    | `required` |
+| importance | The importance of the action | `1, 2 or 3` | `required` |
+
+---
+
+## addSleepActionInAwaitListDefault()
+
+Add an sleep action in the await list with default values.
+
+```typescript
+import { addSleepActionInAwaitListDefault } from "@bubble/core";
+
+addSleepActionInAwaitListDefault();
+```

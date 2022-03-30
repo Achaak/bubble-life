@@ -9,6 +9,54 @@ import { Action } from '../action'
 
 const TIREDNESS_INCREASE_DELAY = dateToMs({ seconds: 1 })
 
+export const addSleepActionInAwaitList = ({
+  start,
+  duration,
+  importance,
+}: {
+  start: number
+  duration: number
+  importance: 1 | 2 | 3
+}): void => {
+  addActionInAwaitList({
+    name: 'sleep',
+    start: start,
+    duration: duration,
+    startFunction: 'sleep:start',
+    endFunction: 'sleep:end',
+    updateFunction: 'sleep:update',
+    cancelFunction: 'sleep:cancel',
+    elements: {
+      eyes: {
+        name: 'sleep',
+      },
+      onomatopoeia: {
+        name: 'sleep',
+      },
+    },
+    importance: importance,
+  })
+}
+
+export const addSleepActionInAwaitListDefault = (): void => {
+  const startSleep = dayjs()
+  const endSleep = dayjs(startSleep).add(
+    BubbleConfig.actions.sleep.duration +
+      random({
+        min: BubbleConfig.actions.sleep.durationMargin * -1,
+        max: BubbleConfig.actions.sleep.durationMargin,
+        round: true,
+      }),
+    'minute'
+  )
+
+  addSleepActionInAwaitList({
+    start: startSleep.valueOf(),
+    duration: endSleep.valueOf() - startSleep.valueOf(),
+    importance: 2,
+  })
+}
+
 export class ActionSleep extends Action {
   lastRenderUpdateSleep: number
 
@@ -78,22 +126,9 @@ export class ActionSleep extends Action {
         'minute'
       )
 
-      addActionInAwaitList({
-        name: 'sleep',
+      addSleepActionInAwaitList({
         start: startSleep.valueOf(),
         duration: endSleep.valueOf() - startSleep.valueOf(),
-        startFunction: 'sleep:start',
-        endFunction: 'sleep:end',
-        updateFunction: 'sleep:update',
-        cancelFunction: 'sleep:cancel',
-        elements: {
-          eyes: {
-            name: 'sleep',
-          },
-          onomatopoeia: {
-            name: 'sleep',
-          },
-        },
         importance: 2,
       })
     }
@@ -108,12 +143,19 @@ export class ActionSleep extends Action {
 
     const timestamp = Date.now()
 
-    // Get tiredness missing
-    const tirednessMissing = BubbleConfig.vitals.tiredness.max - tiredness
+    const sleepEnd = action.memory?.sleepEnd as number
 
-    return (
-      tirednessMissing / ((action.start + action.duration - timestamp) / TIREDNESS_INCREASE_DELAY)
-    )
+    // Get time left
+    const actionEnd = action.start + action.duration
+    const timeLeft = (actionEnd - timestamp) / TIREDNESS_INCREASE_DELAY
+
+    // Get sleep missing
+    const sleepMissing = sleepEnd - tiredness
+
+    // Get sleep per second
+    const sleepPerSecond = sleepMissing / timeLeft
+
+    return sleepPerSecond
   }
 
   handleStartSleep = (): void => {

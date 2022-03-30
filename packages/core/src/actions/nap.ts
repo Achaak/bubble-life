@@ -9,6 +9,54 @@ import { Action } from '../action'
 
 const TIREDNESS_INCREASE_DELAY = dateToMs({ seconds: 1 })
 
+export const addNapActionInAwaitList = ({
+  start,
+  duration,
+  importance,
+}: {
+  start: number
+  duration: number
+  importance: 1 | 2 | 3
+}): void => {
+  addActionInAwaitList({
+    name: 'nap',
+    start: start,
+    duration: duration,
+    startFunction: 'nap:start',
+    endFunction: 'nap:end',
+    updateFunction: 'nap:update',
+    cancelFunction: 'nap:cancel',
+    elements: {
+      eyes: {
+        name: 'sleep',
+      },
+      onomatopoeia: {
+        name: 'sleep',
+      },
+    },
+    importance: importance,
+  })
+}
+
+export const addNapActionInAwaitListDefault = (): void => {
+  const startNap = dayjs()
+  const endNap = dayjs(startNap).add(
+    BubbleConfig.actions.nap.duration +
+      random({
+        min: BubbleConfig.actions.nap.durationMargin * -1,
+        max: BubbleConfig.actions.nap.durationMargin,
+        round: true,
+      }),
+    'minute'
+  )
+
+  addNapActionInAwaitList({
+    start: startNap.valueOf(),
+    duration: endNap.valueOf() - startNap.valueOf(),
+    importance: 2,
+  })
+}
+
 export class ActionNap extends Action {
   lastRenderUpdateNap: number
 
@@ -51,36 +99,7 @@ export class ActionNap extends Action {
     }
 
     if (tiredness <= 0 && !hasActionByName({ name: 'nap' })) {
-      const startNap = dayjs()
-
-      const endNap = dayjs(startNap).add(
-        BubbleConfig.actions.nap.duration +
-          random({
-            min: BubbleConfig.actions.nap.durationMargin * -1,
-            max: BubbleConfig.actions.nap.durationMargin,
-            round: true,
-          }),
-        'minute'
-      )
-
-      addActionInAwaitList({
-        name: 'nap',
-        start: startNap.valueOf(),
-        duration: endNap.valueOf() - startNap.valueOf(),
-        startFunction: 'nap:start',
-        endFunction: 'nap:end',
-        updateFunction: 'nap:update',
-        cancelFunction: 'nap:cancel',
-        elements: {
-          eyes: {
-            name: 'sleep',
-          },
-          onomatopoeia: {
-            name: 'sleep',
-          },
-        },
-        importance: 2,
-      })
+      addNapActionInAwaitListDefault()
     }
 
     this.lastRender = timestamp
@@ -103,12 +122,19 @@ export class ActionNap extends Action {
 
     const timestamp = Date.now()
 
-    // Get tiredness missing
-    const tirednessMissing = BubbleConfig.vitals.tiredness.max * this.recoverValue - tiredness
+    const sleepEnd = action.memory?.sleepEnd as number
 
-    return (
-      tirednessMissing / ((action.start + action.duration - timestamp) / TIREDNESS_INCREASE_DELAY)
-    )
+    // Get time left
+    const actionEnd = action.start + action.duration
+    const timeLeft = (actionEnd - timestamp) / TIREDNESS_INCREASE_DELAY
+
+    // Get sleep missing
+    const sleepMissing = sleepEnd - tiredness
+
+    // Get sleep per second
+    const sleepPerSecond = sleepMissing / timeLeft
+
+    return sleepPerSecond
   }
 
   handleStartNap = (): void => {

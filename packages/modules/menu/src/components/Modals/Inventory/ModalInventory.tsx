@@ -13,7 +13,7 @@ export const ModalInventory = ({ onClose, visible }: ModalInventoryProps): JSX.E
   return (
     <Modal
       visible={visible}
-      padding={{ container: 'md' }}
+      padding={{ container: 'md', content: 'sm' }}
       hasCloseBtn={true}
       onClose={onClose}
       closeClickOutside

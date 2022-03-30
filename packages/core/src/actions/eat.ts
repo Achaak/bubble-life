@@ -42,6 +42,25 @@ export const addEatActionInAwaitList = ({
   })
 }
 
+export const addEatActionInAwaitListDefault = (): void => {
+  const startEat = dayjs()
+  const endEat = dayjs(startEat).add(
+    BubbleConfig.actions.eat.duration +
+      random({
+        min: BubbleConfig.actions.eat.durationMargin * -1,
+        max: BubbleConfig.actions.eat.durationMargin,
+        round: true,
+      }),
+    'minute'
+  )
+
+  addEatActionInAwaitList({
+    start: startEat.valueOf(),
+    duration: endEat.valueOf() - startEat.valueOf(),
+    importance: 2,
+  })
+}
+
 export class ActionEat extends Action {
   lastRenderUpdateEat: number
 
@@ -81,22 +100,7 @@ export class ActionEat extends Action {
     }
 
     if (saturation <= 0 && !hasActionByName({ name: 'eat' })) {
-      const startEat = dayjs()
-      const endEat = dayjs(startEat).add(
-        BubbleConfig.actions.eat.duration +
-          random({
-            min: BubbleConfig.actions.eat.durationMargin * -1,
-            max: BubbleConfig.actions.eat.durationMargin,
-            round: true,
-          }),
-        'minute'
-      )
-
-      addEatActionInAwaitList({
-        start: startEat.valueOf(),
-        duration: endEat.valueOf() - startEat.valueOf(),
-        importance: 2,
-      })
+      addEatActionInAwaitListDefault()
     }
 
     this.lastRender = timestamp
@@ -109,11 +113,19 @@ export class ActionEat extends Action {
 
     const timestamp = Date.now()
 
-    const saturationMissing = BubbleConfig.vitals.saturation.max - saturation
+    const saturationEnd = action.memory?.saturationEnd as number
 
-    return (
-      saturationMissing / ((action.start + action.duration - timestamp) / SATURATION_INCREASE_DELAY)
-    )
+    // Get time left
+    const actionEnd = action.start + action.duration
+    const timeLeft = (actionEnd - timestamp) / SATURATION_INCREASE_DELAY
+
+    // Get saturation missing
+    const saturationMissing = saturationEnd - saturation
+
+    // Get saturation per second
+    const saturationPerSecond = saturationMissing / timeLeft
+
+    return saturationPerSecond
   }
 
   handleStartEat = (): void => {

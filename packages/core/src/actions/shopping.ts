@@ -11,6 +11,51 @@ import dayjs from 'dayjs'
 
 import { Action } from '../action'
 
+export const addShoppingActionInAwaitList = ({
+  start,
+  duration,
+  importance,
+}: {
+  start: number
+  duration: number
+  importance: 1 | 2 | 3
+}): void => {
+  addActionInAwaitList({
+    name: 'shopping',
+    start: start,
+    duration: duration,
+    startFunction: 'shopping:start',
+    endFunction: 'shopping:end',
+    updateFunction: 'shopping:update',
+    cancelFunction: 'shopping:cancel',
+    elements: {
+      clothe: {
+        name: 'coat',
+      },
+    },
+    importance: importance,
+  })
+}
+
+export const addShoppingActionInAwaitListDefault = (): void => {
+  const startShopping = dayjs()
+  const endShopping = dayjs(startShopping).add(
+    BubbleConfig.actions.shopping.duration +
+      random({
+        min: BubbleConfig.actions.shopping.durationMargin * -1,
+        max: BubbleConfig.actions.shopping.durationMargin,
+        round: true,
+      }),
+    'minute'
+  )
+
+  addShoppingActionInAwaitList({
+    start: startShopping.valueOf(),
+    duration: endShopping.valueOf() - startShopping.valueOf(),
+    importance: 2,
+  })
+}
+
 export class ActionShopping extends Action {
   constructor() {
     super()
@@ -42,32 +87,7 @@ export class ActionShopping extends Action {
     }
 
     if (!hasInventoryItem({ type: 'food', number: 1 }) && !hasActionByName({ name: 'shopping' })) {
-      const startShopping = dayjs()
-      const endShopping = dayjs(startShopping).add(
-        BubbleConfig.actions.shopping.duration +
-          random({
-            min: BubbleConfig.actions.shopping.durationMargin * -1,
-            max: BubbleConfig.actions.shopping.durationMargin,
-            round: true,
-          }),
-        'minute'
-      )
-
-      addActionInAwaitList({
-        name: 'shopping',
-        start: startShopping.valueOf(),
-        duration: endShopping.valueOf() - startShopping.valueOf(),
-        startFunction: 'shopping:start',
-        updateFunction: 'shopping:update',
-        endFunction: 'shopping:end',
-        cancelFunction: 'shopping:cancel',
-        importance: 2,
-        elements: {
-          clothe: {
-            name: 'coat',
-          },
-        },
-      })
+      addShoppingActionInAwaitListDefault()
     }
 
     this.lastRender = timestamp

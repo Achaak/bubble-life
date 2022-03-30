@@ -13,12 +13,12 @@ export const ModalActions = ({ onClose, visible }: ModalActionsProps): JSX.Eleme
   return (
     <Modal
       visible={visible}
-      padding={{ container: 'md' }}
+      padding={{ container: 'md', content: 'sm' }}
       hasCloseBtn={true}
       onClose={onClose}
       closeClickOutside
       header={<ModalActionsHeader />}
-      content={<ModalActionsContent />}
+      content={<ModalActionsContent onClose={onClose} />}
     />
   )
 }

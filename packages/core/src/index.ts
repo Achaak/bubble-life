@@ -3,6 +3,8 @@ import { Animations } from './animationsClass'
 import { Vitals } from './vitalsClass'
 import { initWindow } from './window'
 
+export * from './actions'
+
 export class BubbleCore {
   lastRender: number
 

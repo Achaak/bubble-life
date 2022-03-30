@@ -44,6 +44,25 @@ export const addPlayActionInAwaitList = ({
   })
 }
 
+export const addPlayActionInAwaitListDefault = (): void => {
+  const startPlay = dayjs()
+  const endPlay = dayjs(startPlay).add(
+    BubbleConfig.actions.play.duration +
+      random({
+        min: BubbleConfig.actions.play.durationMargin * -1,
+        max: BubbleConfig.actions.play.durationMargin,
+        round: true,
+      }),
+    'minute'
+  )
+
+  addPlayActionInAwaitList({
+    start: startPlay.valueOf(),
+    duration: endPlay.valueOf() - startPlay.valueOf(),
+    importance: 2,
+  })
+}
+
 export class ActionPlay extends Action {
   lastRenderUpdatePlay: number
 
@@ -83,31 +102,7 @@ export class ActionPlay extends Action {
     }
 
     if (happiness <= 0 && !hasActionByName({ name: 'play' })) {
-      const startPlay = dayjs()
-
-      const endPlay = dayjs(startPlay).add(
-        BubbleConfig.actions.play.duration +
-          random({
-            min: BubbleConfig.actions.play.durationMargin * -1,
-            max: BubbleConfig.actions.play.durationMargin,
-            round: true,
-          }),
-        'minute'
-      )
-
-      addActionInAwaitList({
-        name: 'play',
-        start: startPlay.valueOf(),
-        duration: endPlay.valueOf() - startPlay.valueOf(),
-        startFunction: 'play:start',
-        endFunction: 'play:end',
-        updateFunction: 'play:update',
-        cancelFunction: 'play:cancel',
-        animation: {
-          name: 'bounce',
-        },
-        importance: 2,
-      })
+      addPlayActionInAwaitListDefault()
     }
 
     this.lastRender = timestamp

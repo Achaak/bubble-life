@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { BxsBaseball } from '@bubble/ui'
-import { BxsPieChartAlt2 } from '@bubble/ui'
+// import { BxsPieChartAlt2 } from '@bubble/ui'
 import { BxsBackpack } from '@bubble/ui'
 import { styled } from '@bubble/styles'
 import { ModalInventory } from '../Modals/Inventory'
@@ -39,9 +39,9 @@ export const Container: React.FC = () => {
         <MenuIcon onClick={(): void => setIsInventoryOpen(true)}>
           <BxsBackpack size={32} colorName="WHITE" />
         </MenuIcon>
-        <MenuIcon onClick={(): void => setIsStatsOpen(true)}>
+        {/* <MenuIcon onClick={(): void => setIsStatsOpen(true)}>
           <BxsPieChartAlt2 size={32} colorName="WHITE" />
-        </MenuIcon>
+        </MenuIcon> */}
       </Content>
     </>
   )

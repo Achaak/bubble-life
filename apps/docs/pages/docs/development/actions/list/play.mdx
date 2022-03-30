@@ -1,0 +1,35 @@
+# Play actions
+
+## addPlayActionInAwaitList()
+
+Add an play action in the await list.
+
+```typescript
+import { addPlayActionInAwaitList } from "@bubble/core";
+
+addPlayActionInAwaitList({
+  start: new Date().getTime(),
+  duration: 10000,
+  importance, 2
+});
+```
+
+#### Parameters
+
+| Parameter  | Description                  | Type        | Default    |
+| ---------- | ---------------------------- | ----------- | ---------- |
+| start      | The start time of the action | `number`    | `required` |
+| duration   | The duration of the action   | `number`    | `required` |
+| importance | The importance of the action | `1, 2 or 3` | `required` |
+
+---
+
+## addPlayActionInAwaitListDefault()
+
+Add an play action in the await list with default values.
+
+```typescript
+import { addPlayActionInAwaitListDefault } from "@bubble/core";
+
+addPlayActionInAwaitListDefault();
+```

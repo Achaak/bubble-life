@@ -1,0 +1,35 @@
+# Eat actions
+
+## addEatActionInAwaitList()
+
+Add an eat action in the await list.
+
+```typescript
+import { addEatActionInAwaitList } from "@bubble/core";
+
+addEatActionInAwaitList({
+  start: new Date().getTime(),
+  duration: 10000,
+  importance, 2
+});
+```
+
+#### Parameters
+
+| Parameter  | Description                  | Type        | Default    |
+| ---------- | ---------------------------- | ----------- | ---------- |
+| start      | The start time of the action | `number`    | `required` |
+| duration   | The duration of the action   | `number`    | `required` |
+| importance | The importance of the action | `1, 2 or 3` | `required` |
+
+---
+
+## addEatActionInAwaitListDefault()
+
+Add an eat action in the await list with default values.
+
+```typescript
+import { addEatActionInAwaitListDefault } from "@bubble/core";
+
+addEatActionInAwaitListDefault();
+```

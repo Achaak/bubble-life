@@ -10,7 +10,7 @@ export const ModulesConfig: ModulesConfigType[] = [
     },
   },
   {
-    name: "devtool",
-    position: "top-right",
+    name: "menu",
+    position: "bottom-right",
   },
 ];
