@@ -4,7 +4,6 @@
 
 <div align="center">
   
-[![GitHub release](https://img.shields.io/github/release/Achaak/bubble-life)](https://github.com/Achaak/bubble-life/releases/)
 [![GitHub latest commit](https://badgen.net/github/last-commit/Achaak/bubble-life)](https://github.com/Achaak/bubble-life/commit/)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/Achaak/bubble-life/graphs/commit-activity)
 [![GitHub license](https://img.shields.io/github/license/Achaak/bubble-life)](https://github.com/Achaak/bubble-life/blob/master/LICENSE)
