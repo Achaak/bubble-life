@@ -4,14 +4,30 @@
   "main": "./dist/index.js",
   "scripts": {
     "build": "tsup ./src/index.ts",
-    "dev": "tsup ./src/index.ts --watch",
-    "start": "node ."
+    "start": "tsup ./src/index.ts --watch",
+    "format": "prettier --write \"**/*.{ts,tsx}\"",
+    "lint": "cross-env TIMING=1 eslint \"./**/*.{ts,tsx,json}\" --fix",
+    "dev": "nodemon"
   },
   "dependencies": {
     "@bubble/types": "*",
     "socket.io": "^4.4.1"
   },
   "devDependencies": {
-    "tsup": "^5.12.1"
+    "@bubble/scripts": "*",
+    "@bubble/tsconfig": "*",
+    "@types/node": "^17.0.23",
+    "@types/react": "^17.0.43",
+    "@typescript-eslint/eslint-plugin": "^5.17.0",
+    "@typescript-eslint/parser": "^5.17.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.12.0",
+    "eslint-config-next": "^12.1.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.6.1",
+    "tsup": "^5.12.1",
+    "typescript": "^4.6.3"
   }
 }
