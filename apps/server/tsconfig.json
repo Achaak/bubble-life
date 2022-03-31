@@ -1,0 +1,12 @@
+{
+  "extends": "@bubble/tsconfig/base.json",
+  "compilerOptions": {
+    "downlevelIteration": true,
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": [
+        "./src/*"
+      ],
+    }
+  },
+}
