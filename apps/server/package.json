@@ -1,0 +1,17 @@
+{
+  "name": "@bubble/server",
+  "packageManager": "yarn@3.2.0",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsup ./src/index.ts",
+    "dev": "tsup ./src/index.ts --watch",
+    "start": "node ."
+  },
+  "dependencies": {
+    "@bubble/types": "*",
+    "socket.io": "^4.4.1"
+  },
+  "devDependencies": {
+    "tsup": "^5.12.1"
+  }
+}
