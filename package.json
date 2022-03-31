@@ -7,14 +7,17 @@
     "packages/*"
   ],
   "scripts": {
-    "start:app": "turbo run start --scope=@bubble/app",
+    "start": "turbo run start",
+    "start:app": "turbo run start --scope=@bubble/app --scope=@bubble/server --scope=@bubble/controller",
     "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
+    "build:app": "turbo run build --scope=@bubble/app --scope=@bubble/server --scope=@bubble/controller",
+    "dev": "turbo run dev",
+    "dev:app": "turbo run dev --scope=@bubble/app --scope=@bubble/server --scope=@bubble/controller",
     "lint": "turbo run lint",
     "format": "turbo run format"
   },
   "devDependencies": {
-    "prettier": "^2.6.0",
+    "prettier": "^2.6.1",
     "turbo": "^1.1.10"
   },
   "engines": {

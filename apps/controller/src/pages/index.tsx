@@ -1,13 +1,13 @@
+import { LayoutDefault } from '@/components/layouts/default'
 import type { ClientToServerEvents, ServerToClientEvents } from '@bubble/types'
 import { Button } from '@bubble/ui'
-import { DefaultLayout } from '@src/components/layouts/default'
 import React, { useEffect, useState } from 'react'
 import type { Socket } from 'socket.io-client'
 import { io } from 'socket.io-client'
 
 import type { NextPageWithLayout } from './_app'
 
-const Home: NextPageWithLayout = () => {
+const Auth: NextPageWithLayout = () => {
   const [socket, setSocket] = useState<Socket<ServerToClientEvents, ClientToServerEvents>>()
 
   useEffect(() => {
@@ -17,10 +17,6 @@ const Home: NextPageWithLayout = () => {
   const handleClick = (): void => {
     console.log('clicked')
     socket?.emit('hello')
-
-    socket?.on('hello', (data: string) => {
-      console.log(data)
-    })
   }
 
   return (
@@ -30,8 +26,8 @@ const Home: NextPageWithLayout = () => {
   )
 }
 
-Home.getLayout = (page: React.ReactElement): React.ReactElement => {
-  return <DefaultLayout>{page}</DefaultLayout>
+Auth.getLayout = (page: React.ReactElement): React.ReactElement => {
+  return <LayoutDefault>{page}</LayoutDefault>
 }
 
-export default Home
+export default Auth
