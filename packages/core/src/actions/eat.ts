@@ -8,6 +8,7 @@ import {
   getBubble,
   hasActionByName,
   removeInventoryItem,
+  updateMemoryValue,
 } from '@bubble/store'
 import type { Action as ActionType } from '@bubble/types'
 import dayjs from 'dayjs'
@@ -24,6 +25,9 @@ export const addEatActionInWaitingList = ({
   start: number
   duration: number
   importance: 1 | 2 | 3
+  memory?: {
+    recoverValue?: number
+  }
 }): void => {
   addActionInWaitingList({
     name: 'eat',
@@ -128,8 +132,32 @@ export class ActionEat extends Action {
     return saturationPerSecond
   }
 
-  handleStartEat = (): void => {
-    // NOTHING
+  handleStartEat = (action: ActionType): void => {
+    const {
+      vitals: { saturation },
+    } = getBubble()
+
+    const recoverValue =
+      (action.memory?.recoverValue as number | undefined) ||
+      BubbleConfig.actions.eat.recover +
+        random({
+          min: BubbleConfig.actions.eat.recoverMargin * -1,
+          max: BubbleConfig.actions.eat.recoverMargin,
+          round: false,
+        })
+
+    const saturationEnd = saturation + BubbleConfig.vitals.saturation.max * recoverValue
+
+    if (action.id) {
+      updateMemoryValue({
+        actionId: action.id,
+        memoryId: 'saturationEnd',
+        value:
+          saturationEnd > BubbleConfig.vitals.saturation.max
+            ? BubbleConfig.vitals.saturation.max
+            : saturationEnd,
+      })
+    }
   }
 
   handleUpdateEat = (action: ActionType): void => {

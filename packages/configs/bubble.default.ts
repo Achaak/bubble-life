@@ -33,6 +33,8 @@ export const BubbleConfig: BubbleConfigType = {
       startAt: "00:00", // HH:mm
       duration: 540, // Minutes
       durationMargin: 30, // Minutes
+      recover: 0.5, // Between 0 and 1
+      recoverMargin: 0.1, // Between 0 and 1
     },
     nap: {
       duration: 20, // Minutes
@@ -45,6 +47,8 @@ export const BubbleConfig: BubbleConfigType = {
       durationMargin: 5, // Minutes
       minWeightToAdd: 1, // kilogram
       maxWeightToAdd: 2, // kilogram
+      recover: 0.5, // Between 0 and 1
+      recoverMargin: 0.1, // Between 0 and 1
     },
     shopping: {
       duration: 20, // minutes

@@ -8,9 +8,12 @@ var io = new import_socket.Server(httpServer, {
   }
 });
 io.on("connection", (socket) => {
-  console.log("connection", socket.data);
-  socket.on("hello", () => {
-    console.log("hello");
+  const name = socket.handshake.auth.name;
+  if (name) {
+    io.emit("newConnection", { name });
+  }
+  socket.on("message", (data) => {
+    io.emit("message", data);
   });
 });
 httpServer.listen(4e3).on("listening", () => {

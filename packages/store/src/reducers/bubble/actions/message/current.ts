@@ -11,7 +11,7 @@ export const resetCurrentMessage = (): void => {
   store.dispatch(bubbleActions.resetCurrentMessage())
 }
 
-export const hasActionInCurrentById = ({ id }: { id: string }): boolean => {
+export const hasMessageInCurrentById = ({ id }: { id: string }): boolean => {
   const {
     message: { current },
   } = getBubble()

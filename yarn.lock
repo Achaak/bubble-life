@@ -1992,6 +1992,7 @@ __metadata:
     "@bubble/tsconfig": "*"
     "@bubble/types": "*"
     "@radix-ui/react-dialog": ^0.1.7
+    "@radix-ui/react-label": ^0.1.5
     "@radix-ui/react-separator": ^0.1.4
     "@types/node": ^17.0.23
     "@types/react": 17.0.43
@@ -2914,6 +2915,21 @@ __metadata:
   peerDependencies:
     react: ^16.8 || ^17.0
   checksum: 66d7df2b36ded3be4ac0abfe2b85e90abf80863054b365db06b4aca998b72a6fb493a4b1bc437a80ddfaa29a32e266d2aafc746f795e76354bc24802c0bfe791
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-label@npm:^0.1.5":
+  version: 0.1.5
+  resolution: "@radix-ui/react-label@npm:0.1.5"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/react-compose-refs": 0.1.0
+    "@radix-ui/react-context": 0.1.1
+    "@radix-ui/react-id": 0.1.5
+    "@radix-ui/react-primitive": 0.1.4
+  peerDependencies:
+    react: ^16.8 || ^17.0
+  checksum: fc9741d1abdeabd11cbb21ad5e0126e76fe03a2b71b7265bec847d509ad16a83b9e0cb5ef5fa3510274c610385319745a767765aec02a20aae050a1ee6359eff
   languageName: node
   linkType: hard
 

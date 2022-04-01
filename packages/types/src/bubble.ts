@@ -40,6 +40,8 @@ export interface BubbleConfigType {
       startAt: string
       duration: number
       durationMargin: number
+      recover: number
+      recoverMargin: number
     }
     nap: {
       duration: number
@@ -52,6 +54,8 @@ export interface BubbleConfigType {
       durationMargin: number
       minWeightToAdd: number
       maxWeightToAdd: number
+      recover: number
+      recoverMargin: number
     }
     shopping: {
       duration: number
