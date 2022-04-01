@@ -1689,6 +1689,7 @@ __metadata:
   dependencies:
     "@bubble/scripts": "*"
     "@bubble/styles": "*"
+    "@bubble/translate": "*"
     "@bubble/tsconfig": "*"
     "@bubble/types": "*"
     "@bubble/ui": "*"

@@ -11,17 +11,30 @@ const Auth: NextPageWithLayout = () => {
   const [socket, setSocket] = useState<Socket<ServerToClientEvents, ClientToServerEvents>>()
 
   useEffect(() => {
-    setSocket(io('http://localhost:3000'))
+    setSocket(io('http://localhost:4000', { autoConnect: false }))
   }, [])
 
   const handleClick = (): void => {
     console.log('clicked')
+
+    if (socket) {
+      socket.auth = { username: 'test' }
+    }
+    socket?.connect()
+
+    socket?.on('hello', () => {
+      console.log('hello')
+    })
+  }
+
+  const handleClick2 = (): void => {
     socket?.emit('hello')
   }
 
   return (
     <>
       <Button onClick={handleClick}>Test</Button>
+      <Button onClick={handleClick2}>Test</Button>
     </>
   )
 }
