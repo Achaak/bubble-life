@@ -1,7 +1,7 @@
 import { dateToMs } from '@bubble/common'
 import { random } from '@bubble/common'
 import { BubbleConfig } from '@bubble/configs/bubble'
-import { addActionInAwaitList, addTiredness, getBubble, hasActionByName } from '@bubble/store'
+import { addActionInWaitingList, addTiredness, getBubble, hasActionByName } from '@bubble/store'
 import type { Action as ActionType } from '@bubble/types'
 import dayjs from 'dayjs'
 
@@ -9,7 +9,7 @@ import { Action } from '../action'
 
 const TIREDNESS_INCREASE_DELAY = dateToMs({ seconds: 1 })
 
-export const addNapActionInAwaitList = ({
+export const addNapActionInWaitingList = ({
   start,
   duration,
   importance,
@@ -18,7 +18,7 @@ export const addNapActionInAwaitList = ({
   duration: number
   importance: 1 | 2 | 3
 }): void => {
-  addActionInAwaitList({
+  addActionInWaitingList({
     name: 'nap',
     start: start,
     duration: duration,
@@ -38,7 +38,7 @@ export const addNapActionInAwaitList = ({
   })
 }
 
-export const addNapActionInAwaitListDefault = (): void => {
+export const addNapActionInWaitingListDefault = (): void => {
   const startNap = dayjs()
   const endNap = dayjs(startNap).add(
     BubbleConfig.actions.nap.duration +
@@ -50,7 +50,7 @@ export const addNapActionInAwaitListDefault = (): void => {
     'minute'
   )
 
-  addNapActionInAwaitList({
+  addNapActionInWaitingList({
     start: startNap.valueOf(),
     duration: endNap.valueOf() - startNap.valueOf(),
     importance: 2,
@@ -99,7 +99,7 @@ export class ActionNap extends Action {
     }
 
     if (tiredness <= 0 && !hasActionByName({ name: 'nap' })) {
-      addNapActionInAwaitListDefault()
+      addNapActionInWaitingListDefault()
     }
 
     this.lastRender = timestamp

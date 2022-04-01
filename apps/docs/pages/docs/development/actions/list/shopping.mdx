@@ -1,13 +1,13 @@
 # Shopping actions
 
-## addShoppingActionInAwaitList()
+## addShoppingActionInWaitingList()
 
 Add an shopping action in the await list.
 
 ```typescript
-import { addShoppingActionInAwaitList } from "@bubble/core";
+import { addShoppingActionInWaitingList } from "@bubble/core";
 
-addShoppingActionInAwaitList({
+addShoppingActionInWaitingList({
   start: new Date().getTime(),
   duration: 10000,
   importance, 2
@@ -24,12 +24,12 @@ addShoppingActionInAwaitList({
 
 ---
 
-## addShoppingActionInAwaitListDefault()
+## addShoppingActionInWaitingListDefault()
 
 Add an shopping action in the await list with default values.
 
 ```typescript
-import { addShoppingActionInAwaitListDefault } from "@bubble/core";
+import { addShoppingActionInWaitingListDefault } from '@bubble/core'
 
-addShoppingActionInAwaitListDefault();
+addShoppingActionInWaitingListDefault()
 ```

@@ -2,7 +2,7 @@ import { dateToMs } from '@bubble/common'
 import { random } from '@bubble/common'
 import { BubbleConfig } from '@bubble/configs/bubble'
 import {
-  addActionInAwaitList,
+  addActionInWaitingList,
   addInventoryItem,
   hasActionByName,
   hasInventoryItem,
@@ -11,7 +11,7 @@ import dayjs from 'dayjs'
 
 import { Action } from '../action'
 
-export const addShoppingActionInAwaitList = ({
+export const addShoppingActionInWaitingList = ({
   start,
   duration,
   importance,
@@ -20,7 +20,7 @@ export const addShoppingActionInAwaitList = ({
   duration: number
   importance: 1 | 2 | 3
 }): void => {
-  addActionInAwaitList({
+  addActionInWaitingList({
     name: 'shopping',
     start: start,
     duration: duration,
@@ -37,7 +37,7 @@ export const addShoppingActionInAwaitList = ({
   })
 }
 
-export const addShoppingActionInAwaitListDefault = (): void => {
+export const addShoppingActionInWaitingListDefault = (): void => {
   const startShopping = dayjs()
   const endShopping = dayjs(startShopping).add(
     BubbleConfig.actions.shopping.duration +
@@ -49,7 +49,7 @@ export const addShoppingActionInAwaitListDefault = (): void => {
     'minute'
   )
 
-  addShoppingActionInAwaitList({
+  addShoppingActionInWaitingList({
     start: startShopping.valueOf(),
     duration: endShopping.valueOf() - startShopping.valueOf(),
     importance: 2,
@@ -87,7 +87,7 @@ export class ActionShopping extends Action {
     }
 
     if (!hasInventoryItem({ type: 'food', number: 1 }) && !hasActionByName({ name: 'shopping' })) {
-      addShoppingActionInAwaitListDefault()
+      addShoppingActionInWaitingListDefault()
     }
 
     this.lastRender = timestamp

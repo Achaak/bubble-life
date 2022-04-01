@@ -1,6 +1,6 @@
 import {
   getActions,
-  removeActionFromAwaitList,
+  removeActionFromWaitingList,
   removeActionFromCancelList,
   resetActionAnimation,
   resetActionBody,
@@ -50,7 +50,7 @@ export class Actions {
   }
 
   update = (timestamp: number): void => {
-    const { waitList, current, cancelList } = getActions()
+    const { waitingList, current, cancelList } = getActions()
 
     // CHECK CANCEL ACTIONS
     if (cancelList.length > 0 || current) {
@@ -63,8 +63,8 @@ export class Actions {
     }
 
     // CHECK AWAIT ACTIONS
-    if (waitList.length > 0 || !!current) {
-      this.checkAwaitList()
+    if (waitingList.length > 0 || !!current) {
+      this.checkWaitingList()
     }
   }
 
@@ -93,67 +93,67 @@ export class Actions {
   }
 
   onStartAction = (): void => {
-    const { waitList } = getActions()
-    const waitListItem = waitList[0]
+    const { waitingList } = getActions()
+    const waitingListItem = waitingList[0]
     const newAction: ActionType = {
-      ...waitListItem,
+      ...waitingListItem,
       start: dayjs().valueOf(),
-      id: waitListItem.id || shortid(),
+      id: waitingListItem.id || shortid(),
       elements: {
-        ...(waitListItem.elements?.body
+        ...(waitingListItem.elements?.body
           ? {
               body: {
                 id: shortid(),
-                ...waitListItem.elements.body,
+                ...waitingListItem.elements.body,
               },
             }
           : {}),
-        ...(waitListItem.elements?.clothe
+        ...(waitingListItem.elements?.clothe
           ? {
               clothe: {
                 id: shortid(),
-                ...waitListItem.elements.clothe,
+                ...waitingListItem.elements.clothe,
               },
             }
           : {}),
-        ...(waitListItem.elements?.eyes
+        ...(waitingListItem.elements?.eyes
           ? {
               eyes: {
                 id: shortid(),
-                ...waitListItem.elements.eyes,
+                ...waitingListItem.elements.eyes,
               },
             }
           : {}),
-        ...(waitListItem.elements?.hat
+        ...(waitingListItem.elements?.hat
           ? {
               hat: {
                 id: shortid(),
-                ...waitListItem.elements.hat,
+                ...waitingListItem.elements.hat,
               },
             }
           : {}),
-        ...(waitListItem.elements?.environment
+        ...(waitingListItem.elements?.environment
           ? {
               environment: {
                 id: shortid(),
-                ...waitListItem.elements.environment,
+                ...waitingListItem.elements.environment,
               },
             }
           : {}),
-        ...(waitListItem.elements?.onomatopoeia
+        ...(waitingListItem.elements?.onomatopoeia
           ? {
               onomatopoeia: {
                 id: shortid(),
-                ...waitListItem.elements.onomatopoeia,
+                ...waitingListItem.elements.onomatopoeia,
               },
             }
           : {}),
       },
-      ...(waitListItem.animation
+      ...(waitingListItem.animation
         ? {
             animation: {
               id: shortid(),
-              ...waitListItem.animation,
+              ...waitingListItem.animation,
             },
           }
         : {}),
@@ -164,7 +164,7 @@ export class Actions {
 
     // Remove action in list
     if (newAction.id) {
-      removeActionFromAwaitList({
+      removeActionFromWaitingList({
         id: newAction.id,
       })
     }
@@ -342,10 +342,10 @@ export class Actions {
     }
   }
 
-  checkAwaitList = (): void => {
+  checkWaitingList = (): void => {
     const currentDate = dayjs().valueOf()
 
-    const { current, waitList } = getActions()
+    const { current, waitingList } = getActions()
 
     // Verif current action
     if (current) {
@@ -354,8 +354,8 @@ export class Actions {
       } else {
         this.onUpdateAction()
       }
-    } else if (waitList.length > 0) {
-      const newAction = waitList[0]
+    } else if (waitingList.length > 0) {
+      const newAction = waitingList[0]
 
       if (newAction && newAction.start <= currentDate) {
         this.onStartAction()

@@ -1,7 +1,7 @@
 import { dateToMs } from '@bubble/common'
 import { random } from '@bubble/common'
 import { BubbleConfig } from '@bubble/configs/bubble'
-import { addActionInAwaitList, addTiredness, getBubble, hasActionByName } from '@bubble/store'
+import { addActionInWaitingList, addTiredness, getBubble, hasActionByName } from '@bubble/store'
 import type { Action as ActionType } from '@bubble/types'
 import dayjs from 'dayjs'
 
@@ -9,7 +9,7 @@ import { Action } from '../action'
 
 const TIREDNESS_INCREASE_DELAY = dateToMs({ seconds: 1 })
 
-export const addSleepActionInAwaitList = ({
+export const addSleepActionInWaitingList = ({
   start,
   duration,
   importance,
@@ -18,7 +18,7 @@ export const addSleepActionInAwaitList = ({
   duration: number
   importance: 1 | 2 | 3
 }): void => {
-  addActionInAwaitList({
+  addActionInWaitingList({
     name: 'sleep',
     start: start,
     duration: duration,
@@ -38,7 +38,7 @@ export const addSleepActionInAwaitList = ({
   })
 }
 
-export const addSleepActionInAwaitListDefault = (): void => {
+export const addSleepActionInWaitingListDefault = (): void => {
   const startSleep = dayjs()
   const endSleep = dayjs(startSleep).add(
     BubbleConfig.actions.sleep.duration +
@@ -50,7 +50,7 @@ export const addSleepActionInAwaitListDefault = (): void => {
     'minute'
   )
 
-  addSleepActionInAwaitList({
+  addSleepActionInWaitingList({
     start: startSleep.valueOf(),
     duration: endSleep.valueOf() - startSleep.valueOf(),
     importance: 2,
@@ -126,7 +126,7 @@ export class ActionSleep extends Action {
         'minute'
       )
 
-      addSleepActionInAwaitList({
+      addSleepActionInWaitingList({
         start: startSleep.valueOf(),
         duration: endSleep.valueOf() - startSleep.valueOf(),
         importance: 2,

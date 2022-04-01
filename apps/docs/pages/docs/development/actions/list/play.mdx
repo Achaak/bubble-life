@@ -1,13 +1,13 @@
 # Play actions
 
-## addPlayActionInAwaitList()
+## addPlayActionInWaitingList()
 
 Add an play action in the await list.
 
 ```typescript
-import { addPlayActionInAwaitList } from "@bubble/core";
+import { addPlayActionInWaitingList } from "@bubble/core";
 
-addPlayActionInAwaitList({
+addPlayActionInWaitingList({
   start: new Date().getTime(),
   duration: 10000,
   importance, 2
@@ -24,12 +24,12 @@ addPlayActionInAwaitList({
 
 ---
 
-## addPlayActionInAwaitListDefault()
+## addPlayActionInWaitingListDefault()
 
 Add an play action in the await list with default values.
 
 ```typescript
-import { addPlayActionInAwaitListDefault } from "@bubble/core";
+import { addPlayActionInWaitingListDefault } from '@bubble/core'
 
-addPlayActionInAwaitListDefault();
+addPlayActionInWaitingListDefault()
 ```

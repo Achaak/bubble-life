@@ -2,7 +2,7 @@ import { dateToMs } from '@bubble/common'
 import { random } from '@bubble/common'
 import { BubbleConfig } from '@bubble/configs/bubble'
 import {
-  addActionInAwaitList,
+  addActionInWaitingList,
   addSaturation,
   addWeight,
   getBubble,
@@ -16,7 +16,7 @@ import { Action } from '../action'
 
 const SATURATION_INCREASE_DELAY = dateToMs({ seconds: 1 })
 
-export const addEatActionInAwaitList = ({
+export const addEatActionInWaitingList = ({
   start,
   duration,
   importance,
@@ -25,7 +25,7 @@ export const addEatActionInAwaitList = ({
   duration: number
   importance: 1 | 2 | 3
 }): void => {
-  addActionInAwaitList({
+  addActionInWaitingList({
     name: 'eat',
     start: start,
     duration: duration,
@@ -42,7 +42,7 @@ export const addEatActionInAwaitList = ({
   })
 }
 
-export const addEatActionInAwaitListDefault = (): void => {
+export const addEatActionInWaitingListDefault = (): void => {
   const startEat = dayjs()
   const endEat = dayjs(startEat).add(
     BubbleConfig.actions.eat.duration +
@@ -54,7 +54,7 @@ export const addEatActionInAwaitListDefault = (): void => {
     'minute'
   )
 
-  addEatActionInAwaitList({
+  addEatActionInWaitingList({
     start: startEat.valueOf(),
     duration: endEat.valueOf() - startEat.valueOf(),
     importance: 2,
@@ -100,7 +100,7 @@ export class ActionEat extends Action {
     }
 
     if (saturation <= 0 && !hasActionByName({ name: 'eat' })) {
-      addEatActionInAwaitListDefault()
+      addEatActionInWaitingListDefault()
     }
 
     this.lastRender = timestamp

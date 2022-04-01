@@ -1,4 +1,4 @@
-import type { Animation } from '@bubble/types'
+import type { Animation, Message } from '@bubble/types'
 import type { Bodies, Clothes, Environments, Eyes, Hats, Onomatopoeias } from '@bubble/types'
 import type { InventoryItemStock } from '@bubble/types/src/inventory'
 
@@ -120,6 +120,11 @@ export interface BubbleAnimationItemList {
   name: Animation
 }
 
+export interface BubbleStateMessage {
+  current: Message | null
+  waitingList: Message[]
+}
+
 export interface BubbleState {
   name: string
   animation: {
@@ -127,6 +132,7 @@ export interface BubbleState {
     action: BubbleAnimationAction | null
     list: BubbleAnimationItemList[]
   }
+  message: BubbleStateMessage
   vitals: BubbleStateVitals
   elements: BubbleStateElements
   inventory: InventoryItemStock[]

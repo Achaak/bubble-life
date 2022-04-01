@@ -4,14 +4,14 @@
 
 Get actions state.
 
-## hasActionInAwaitListByName()
+## hasActionInWaitingListByName()
 
 Get if the given action is in the await list by name.
 
 ```typescript
-import { getActions } from "@bubble/store";
+import { getActions } from '@bubble/store'
 
-const { current, awaitList, cancelList } = getActions();
+const { current, waitingList, cancelList } = getActions()
 ```
 
 #### Return value
@@ -27,9 +27,9 @@ ActionsState
 Reset actions state.
 
 ```typescript
-import { getActions } from "@bubble/store";
+import { getActions } from '@bubble/store'
 
-resetActions();
+resetActions()
 ```
 
 ---
@@ -39,11 +39,11 @@ resetActions();
 Get if the given action is in the current, await list or cancel list by name.
 
 ```typescript
-import { hasActionByName } from "@bubble/store";
+import { hasActionByName } from '@bubble/store'
 
 hasActionByName({
-  name: "ActionName",
-});
+  name: 'ActionName',
+})
 ```
 
 #### Parameters
@@ -65,11 +65,11 @@ boolean
 Get if the given action is in the current, await list or cancel list by id.
 
 ```typescript
-import { hasActionById } from "@bubble/store";
+import { hasActionById } from '@bubble/store'
 
 hasActionById({
-  id: "ActionId",
-});
+  id: 'ActionId',
+})
 ```
 
 #### Parameters
@@ -91,13 +91,13 @@ boolean
 Update the memory value of the current, await list or cancel list action.
 
 ```typescript
-import { updateMemoryValue } from "@bubble/store";
+import { updateMemoryValue } from '@bubble/store'
 
 updateMemoryValue({
-  memoryId: "MemoryId",
-  actionId: "ActionId",
-  value: "Value",
-});
+  memoryId: 'MemoryId',
+  actionId: 'ActionId',
+  value: 'Value',
+})
 ```
 
 #### Parameters
@@ -115,12 +115,12 @@ updateMemoryValue({
 Delete the memory value of the current, await list or cancel list action.
 
 ```typescript
-import { deleteMemoryValue } from "@bubble/store";
+import { deleteMemoryValue } from '@bubble/store'
 
 deleteMemoryValue({
-  memoryId: "MemoryId",
-  actionId: "ActionId",
-});
+  memoryId: 'MemoryId',
+  actionId: 'ActionId',
+})
 ```
 
 #### Parameters

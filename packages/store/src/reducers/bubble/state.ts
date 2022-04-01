@@ -16,6 +16,10 @@ export const initialBubbleState: BubbleState = {
     tiredness: BubbleConfig.vitals.tiredness.default,
     health: BubbleConfig.vitals.health.default,
   },
+  message: {
+    current: null,
+    waitingList: [],
+  },
   elements: {
     eyes: {
       default: BubbleConfig.defaultElements.eyes,

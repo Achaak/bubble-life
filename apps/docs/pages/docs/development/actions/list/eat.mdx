@@ -1,13 +1,13 @@
 # Eat actions
 
-## addEatActionInAwaitList()
+## addEatActionInWaitingList()
 
 Add an eat action in the await list.
 
 ```typescript
-import { addEatActionInAwaitList } from "@bubble/core";
+import { addEatActionInWaitingList } from "@bubble/core";
 
-addEatActionInAwaitList({
+addEatActionInWaitingList({
   start: new Date().getTime(),
   duration: 10000,
   importance, 2
@@ -24,12 +24,12 @@ addEatActionInAwaitList({
 
 ---
 
-## addEatActionInAwaitListDefault()
+## addEatActionInWaitingListDefault()
 
 Add an eat action in the await list with default values.
 
 ```typescript
-import { addEatActionInAwaitListDefault } from "@bubble/core";
+import { addEatActionInWaitingListDefault } from '@bubble/core'
 
-addEatActionInAwaitListDefault();
+addEatActionInWaitingListDefault()
 ```

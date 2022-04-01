@@ -1,11 +1,11 @@
 import { styled } from '@bubble/styles'
 import { BxBaguette, BxBaseball, BxBed, BxShopping, BxSleepy } from '@bubble/ui'
 import {
-  addEatActionInAwaitListDefault,
-  addNapActionInAwaitListDefault,
-  addPlayActionInAwaitListDefault,
-  addShoppingActionInAwaitListDefault,
-  addSleepActionInAwaitListDefault,
+  addEatActionInWaitingListDefault,
+  addNapActionInWaitingListDefault,
+  addPlayActionInWaitingListDefault,
+  addShoppingActionInWaitingListDefault,
+  addSleepActionInWaitingListDefault,
 } from '@bubble/core'
 import React from 'react'
 import { InventoryItem } from '../../../InventoryItem'
@@ -22,27 +22,27 @@ interface CustomProps {
 
 export const ModalActionsContent = ({ onClose }: CustomProps): JSX.Element => {
   const handlePlay = (): void => {
-    addPlayActionInAwaitListDefault()
+    addPlayActionInWaitingListDefault()
     onClose()
   }
 
   const handleEat = (): void => {
-    addEatActionInAwaitListDefault()
+    addEatActionInWaitingListDefault()
     onClose()
   }
 
   const handleNap = (): void => {
-    addNapActionInAwaitListDefault()
+    addNapActionInWaitingListDefault()
     onClose()
   }
 
   const handleShopping = (): void => {
-    addShoppingActionInAwaitListDefault()
+    addShoppingActionInWaitingListDefault()
     onClose()
   }
 
   const handleSleep = (): void => {
-    addSleepActionInAwaitListDefault()
+    addSleepActionInWaitingListDefault()
     onClose()
   }
 
