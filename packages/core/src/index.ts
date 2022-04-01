@@ -1,5 +1,6 @@
 import { Actions } from './actionsClass'
 import { Animations } from './animationsClass'
+import { Message } from './message'
 import { Vitals } from './vitalsClass'
 import { initWindow } from './window'
 
@@ -14,6 +15,8 @@ export class BubbleCore {
 
   animations: Animations
 
+  message: Message
+
   vitals: Vitals
 
   constructor() {
@@ -22,6 +25,7 @@ export class BubbleCore {
 
     this.actions = new Actions()
     this.vitals = new Vitals()
+    this.message = new Message()
     this.animations = new Animations()
 
     initWindow()
@@ -35,6 +39,9 @@ export class BubbleCore {
 
     // VITALS
     this.vitals.update(timestamp)
+
+    // Message
+    this.message.update()
 
     // ANIMATIONS
     this.animations.update()

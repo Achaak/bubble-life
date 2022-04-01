@@ -1,6 +1,7 @@
 import { LayoutDefault } from '@/components/layouts/default'
 import type { ClientToServerEvents, ServerToClientEvents } from '@bubble/types'
 import { Button } from '@bubble/ui'
+import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import type { Socket } from 'socket.io-client'
 import { io } from 'socket.io-client'
@@ -11,20 +12,20 @@ const Auth: NextPageWithLayout = () => {
   const [socket, setSocket] = useState<Socket<ServerToClientEvents, ClientToServerEvents>>()
 
   useEffect(() => {
-    setSocket(io('http://localhost:4000', { autoConnect: false }))
+    if (typeof window === 'undefined') {
+      return
+    }
+
+    setSocket(io(`${window.location.hostname}:4000`, { autoConnect: false }))
   }, [])
 
   const handleClick = (): void => {
     console.log('clicked')
 
     if (socket) {
-      socket.auth = { username: 'test' }
+      socket.auth = { name: 'test' }
     }
     socket?.connect()
-
-    socket?.on('hello', () => {
-      console.log('hello')
-    })
   }
 
   const handleClick2 = (): void => {
@@ -33,8 +34,8 @@ const Auth: NextPageWithLayout = () => {
 
   return (
     <>
-      <Button onClick={handleClick}>Test</Button>
-      <Button onClick={handleClick2}>Test</Button>
+      <Button onClick={handleClick}>Connect</Button>
+      <Button onClick={handleClick2}>Hello</Button>
     </>
   )
 }

@@ -1634,6 +1634,7 @@ __metadata:
     react-fps-stats: ^0.2.3
     react-toast-notifications: ^2.5.1
     shortid: ^2.2.16
+    socket.io-client: ^4.4.1
     typescript: ^4.6.3
   languageName: unknown
   linkType: soft

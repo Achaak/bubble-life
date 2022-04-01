@@ -1,13 +1,13 @@
 # Sleep actions
 
-## addSleepActionInAwaitList()
+## addSleepActionInWaitingList()
 
 Add an sleep action in the await list.
 
 ```typescript
-import { addSleepActionInAwaitList } from "@bubble/core";
+import { addSleepActionInWaitingList } from "@bubble/core";
 
-addSleepActionInAwaitList({
+addSleepActionInWaitingList({
   start: new Date().getTime(),
   duration: 10000,
   importance, 2
@@ -24,12 +24,12 @@ addSleepActionInAwaitList({
 
 ---
 
-## addSleepActionInAwaitListDefault()
+## addSleepActionInWaitingListDefault()
 
 Add an sleep action in the await list with default values.
 
 ```typescript
-import { addSleepActionInAwaitListDefault } from "@bubble/core";
+import { addSleepActionInWaitingListDefault } from '@bubble/core'
 
-addSleepActionInAwaitListDefault();
+addSleepActionInWaitingListDefault()
 ```

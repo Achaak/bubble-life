@@ -18,13 +18,9 @@ const io = new Server<ClientToServerEvents, ServerToClientEvents, InterServerEve
 )
 
 io.on('connection', (socket) => {
-  const username = socket.handshake.auth.username
-  console.log('connection', username)
+  const name = socket.handshake.auth.name
 
-  socket.on('hello', () => {
-    io.emit('hello')
-    console.log('hello', username)
-  })
+  io.emit('newConnection', { name: name })
 })
 
 httpServer.listen(4000).on('listening', () => {

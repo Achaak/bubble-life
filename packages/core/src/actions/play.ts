@@ -2,7 +2,7 @@ import { dateToMs } from '@bubble/common'
 import { random } from '@bubble/common'
 import { BubbleConfig } from '@bubble/configs/bubble'
 import {
-  addActionInAwaitList,
+  addActionInWaitingList,
   addHappiness,
   getBubble,
   hasActionByName,
@@ -15,7 +15,7 @@ import { Action } from '../action'
 
 const HAPPINESS_INCREASE_DELAY = dateToMs({ seconds: 1 })
 
-export const addPlayActionInAwaitList = ({
+export const addPlayActionInWaitingList = ({
   start,
   duration,
   importance,
@@ -28,7 +28,7 @@ export const addPlayActionInAwaitList = ({
     recoverValue?: number
   }
 }): void => {
-  addActionInAwaitList({
+  addActionInWaitingList({
     name: 'play',
     start: start,
     duration: duration,
@@ -44,7 +44,7 @@ export const addPlayActionInAwaitList = ({
   })
 }
 
-export const addPlayActionInAwaitListDefault = (): void => {
+export const addPlayActionInWaitingListDefault = (): void => {
   const startPlay = dayjs()
   const endPlay = dayjs(startPlay).add(
     BubbleConfig.actions.play.duration +
@@ -56,7 +56,7 @@ export const addPlayActionInAwaitListDefault = (): void => {
     'minute'
   )
 
-  addPlayActionInAwaitList({
+  addPlayActionInWaitingList({
     start: startPlay.valueOf(),
     duration: endPlay.valueOf() - startPlay.valueOf(),
     importance: 2,
@@ -102,7 +102,7 @@ export class ActionPlay extends Action {
     }
 
     if (happiness <= 0 && !hasActionByName({ name: 'play' })) {
-      addPlayActionInAwaitListDefault()
+      addPlayActionInWaitingListDefault()
     }
 
     this.lastRender = timestamp

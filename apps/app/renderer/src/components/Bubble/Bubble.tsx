@@ -1,6 +1,6 @@
 import { BubbleConfig } from '@bubble/configs/bubble'
 import { GlobalConfig } from '@bubble/configs/global'
-import { addPlayActionInAwaitList } from '@bubble/core/src/actions/play'
+import { addPlayActionInWaitingList } from '@bubble/core/src/actions/play'
 import { useAppSelector } from '@bubble/store'
 import { selectVitals } from '@bubble/store'
 import { styled } from '@bubble/styles'
@@ -11,6 +11,7 @@ import { Clothes } from '../Clothes'
 import { Eyes } from '../Eyes'
 import { Hats } from '../Hats'
 import { Onomatopoeias } from '../Onomatopoeias'
+import { Message } from '../Message'
 
 const Container = styled('div', {
   position: 'fixed',
@@ -72,7 +73,7 @@ export const Bubble = (): JSX.Element => {
     }
 
     // TODO Check if bubble play is already in the list
-    addPlayActionInAwaitList({
+    addPlayActionInWaitingList({
       duration: 10000,
       importance: 1,
       start: Date.now(),
@@ -96,6 +97,7 @@ export const Bubble = (): JSX.Element => {
           <Hats />
           <Clothes />
           <Onomatopoeias />
+          <Message />
         </Content>
       </Size>
     </Container>

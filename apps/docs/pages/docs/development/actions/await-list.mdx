@@ -1,17 +1,17 @@
-import Callout from "nextra-theme-docs/callout";
+import Callout from 'nextra-theme-docs/callout'
 
 # Await List Actions
 
-## hasActionInAwaitListByName()
+## hasActionInWaitingListByName()
 
 Get if the given action is in the await list by name.
 
 ```typescript
-import { hasActionInAwaitListByName } from "@bubble/store";
+import { hasActionInWaitingListByName } from '@bubble/store'
 
-const bool = hasActionInAwaitListByName({
-  name: "ActionName",
-});
+const bool = hasActionInWaitingListByName({
+  name: 'ActionName',
+})
 ```
 
 #### Parameters
@@ -28,16 +28,16 @@ boolean
 
 ---
 
-## hasActionInAwaitListById()
+## hasActionInWaitingListById()
 
 Get if the given action is in the await list by id.
 
 ```typescript
-import { hasActionInAwaitListById } from "@bubble/store";
+import { hasActionInWaitingListById } from '@bubble/store'
 
-const bool = hasActionInAwaitListById({
-  id: "ActionId",
-});
+const bool = hasActionInWaitingListById({
+  id: 'ActionId',
+})
 ```
 
 #### Parameters
@@ -54,16 +54,16 @@ boolean
 
 ---
 
-## removeActionFromAwaitList()
+## removeActionFromWaitingList()
 
 Remove the given action from the await list.
 
 ```typescript
-import { removeActionFromAwaitList } from "@bubble/store";
+import { removeActionFromWaitingList } from '@bubble/store'
 
-removeActionFromAwaitList({
-  id: "ActionId",
-});
+removeActionFromWaitingList({
+  id: 'ActionId',
+})
 ```
 
 #### Parameters
@@ -74,16 +74,16 @@ removeActionFromAwaitList({
 
 ---
 
-## transferActionFromAwaitListToCurrent()
+## transferActionFromWaitingListToCurrent()
 
 Transfer an action from the await list to the current list.
 
 ```typescript
-import { transferActionFromAwaitListToCurrent } from "@bubble/store";
+import { transferActionFromWaitingListToCurrent } from '@bubble/store'
 
-transferActionFromAwaitListToCurrent({
-  id: "ActionId",
-});
+transferActionFromWaitingListToCurrent({
+  id: 'ActionId',
+})
 ```
 
 #### Parameters
@@ -94,19 +94,18 @@ transferActionFromAwaitListToCurrent({
 
 ---
 
-## addActionInAwaitList()
+## addActionInWaitingList()
 
 <Callout emoji="⚠️">
-  This function is only usable in the core package with the actions class
-  manager.
+  This function is only usable in the core package with the actions class manager.
 </Callout>
 
 Add the given action to the await list.
 
 ```typescript
-import { addActionInAwaitList } from "@bubble/store";
+import { addActionInWaitingList } from "@bubble/store";
 
-addActionInAwaitList({
+addActionInWaitingList({
   id: "ActionId"
   name: "eat",
   start: new Date().getTime(),

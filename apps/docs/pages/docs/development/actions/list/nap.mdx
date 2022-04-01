@@ -1,13 +1,13 @@
 # Nap actions
 
-## addNapActionInAwaitList()
+## addNapActionInWaitingList()
 
 Add an nap action in the await list.
 
 ```typescript
-import { addNapActionInAwaitList } from "@bubble/core";
+import { addNapActionInWaitingList } from "@bubble/core";
 
-addNapActionInAwaitList({
+addNapActionInWaitingList({
   start: new Date().getTime(),
   duration: 10000,
   importance, 2
@@ -24,12 +24,12 @@ addNapActionInAwaitList({
 
 ---
 
-## addNapActionInAwaitListDefault()
+## addNapActionInWaitingListDefault()
 
 Add an nap action in the await list with default values.
 
 ```typescript
-import { addNapActionInAwaitListDefault } from "@bubble/core";
+import { addNapActionInWaitingListDefault } from '@bubble/core'
 
-addNapActionInAwaitListDefault();
+addNapActionInWaitingListDefault()
 ```

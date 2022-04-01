@@ -4,7 +4,7 @@ import { initialActionsState } from '../state'
 
 export * from './cancelList'
 export * from './current'
-export * from './awaitList'
+export * from './waitingList'
 
 export const resetActions = (state: ActionsState): void => {
   for (const key in state) {
@@ -12,7 +12,7 @@ export const resetActions = (state: ActionsState): void => {
     delete state[key]
   }
 
-  state.waitList = initialActionsState.waitList
+  state.waitingList = initialActionsState.waitingList
   state.current = initialActionsState.current
   state.cancelList = initialActionsState.cancelList
 }
@@ -31,7 +31,7 @@ export const updateMemoryValue = (
   }
 
   // Update wait list memory value
-  state.waitList = state.waitList.map((item) => {
+  state.waitingList = state.waitingList.map((item) => {
     if (item.id === action.payload.actionId) {
       if (!item.memory) {
         item.memory = {}
@@ -71,7 +71,7 @@ export const deleteMemoryValue = (
   }
 
   // Update wait list memory value
-  state.waitList = state.waitList.map((item) => {
+  state.waitingList = state.waitingList.map((item) => {
     if (item.id === action.payload.actionId) {
       if (!item.memory) {
         item.memory = {}

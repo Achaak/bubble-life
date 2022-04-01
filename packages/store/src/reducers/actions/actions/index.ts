@@ -1,13 +1,13 @@
 import { actionsActions } from '..'
 import { store } from '../../../store'
 import type { ActionsState } from '../types'
-import { hasActionInAwaitListById, hasActionInAwaitListByName } from './awaitList'
+import { hasActionInWaitingListById, hasActionInWaitingListByName } from './waitingList'
 import { hasActionInCancelListById, hasActionInCancelListByName } from './cancelList'
 import { hasActionInCurrentById, hasActionInCurrentByName } from './current'
 
 export * from './cancelList'
 export * from './current'
-export * from './awaitList'
+export * from './waitingList'
 
 export const getActions = (): ActionsState => store.getState().actions
 
@@ -17,7 +17,7 @@ export const resetActions = (): void => {
 
 export const hasActionByName = ({ name }: { name: string }): boolean => {
   return (
-    hasActionInAwaitListByName({ name }) ||
+    hasActionInWaitingListByName({ name }) ||
     hasActionInCurrentByName({ name }) ||
     hasActionInCancelListByName({ name })
   )
@@ -25,7 +25,7 @@ export const hasActionByName = ({ name }: { name: string }): boolean => {
 
 export const hasActionById = ({ id }: { id: string }): boolean => {
   return (
-    hasActionInAwaitListById({ id }) ||
+    hasActionInWaitingListById({ id }) ||
     hasActionInCurrentById({ id }) ||
     hasActionInCancelListById({ id })
   )

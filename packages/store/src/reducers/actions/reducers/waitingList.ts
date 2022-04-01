@@ -3,9 +3,12 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import type { ActionsState } from '../types'
 import shortid from 'shortid'
 
-export const addActionInAwaitList = (state: ActionsState, action: PayloadAction<Action>): void => {
-  state.waitList = [
-    ...state.waitList,
+export const addActionInWaitingList = (
+  state: ActionsState,
+  action: PayloadAction<Action>
+): void => {
+  state.waitingList = [
+    ...state.waitingList,
     {
       ...action.payload,
       id: shortid(),
@@ -13,15 +16,15 @@ export const addActionInAwaitList = (state: ActionsState, action: PayloadAction<
   ]
 }
 
-export const removeActionFromAwaitList = (
+export const removeActionFromWaitingList = (
   state: ActionsState,
   action: PayloadAction<{ id: string }>
 ): void => {
-  state.waitList = state.waitList.filter((item) => item.id !== action.payload.id)
+  state.waitingList = state.waitingList.filter((item) => item.id !== action.payload.id)
 }
 
-export const sortActionsInAwaitList = (state: ActionsState): void => {
-  state.waitList = state.waitList
+export const sortActionsInWaitingList = (state: ActionsState): void => {
+  state.waitingList = state.waitingList
     .sort((a, b) => {
       if (a.start < b.start) {
         return -1
