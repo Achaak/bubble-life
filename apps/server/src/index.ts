@@ -18,11 +18,12 @@ const io = new Server<ClientToServerEvents, ServerToClientEvents, InterServerEve
 )
 
 io.on('connection', (socket) => {
-  console.log('connection', socket.data)
+  const username = socket.handshake.auth.username
+  console.log('connection', username)
 
   socket.on('hello', () => {
-    // io.emit("hello");
-    console.log('hello')
+    io.emit('hello')
+    console.log('hello', username)
   })
 })
 

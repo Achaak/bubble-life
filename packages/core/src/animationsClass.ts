@@ -64,10 +64,7 @@ export class Animations {
       timeline.add({
         targets: '#bubble-content',
         ...config,
-        complete:
-          this.currentAnimation.configs.length - 1 === i
-            ? (): void => this.onEndAnimation()
-            : undefined,
+        complete: this.currentAnimation.configs.length - 1 === i ? this.onEndAnimation : undefined,
       })
     }
   }
