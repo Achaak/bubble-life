@@ -1,7 +1,13 @@
 import { dateToMs } from '@bubble/common'
 import { random } from '@bubble/common'
 import { BubbleConfig } from '@bubble/configs/bubble'
-import { addActionInWaitingList, addTiredness, getBubble, hasActionByName } from '@bubble/store'
+import {
+  addActionInWaitingList,
+  addTiredness,
+  getBubble,
+  hasActionByName,
+  updateMemoryValue,
+} from '@bubble/store'
 import type { Action as ActionType } from '@bubble/types'
 import dayjs from 'dayjs'
 
@@ -17,6 +23,9 @@ export const addSleepActionInWaitingList = ({
   start: number
   duration: number
   importance: 1 | 2 | 3
+  memory?: {
+    recoverValue?: number
+  }
 }): void => {
   addActionInWaitingList({
     name: 'sleep',
@@ -143,23 +152,47 @@ export class ActionSleep extends Action {
 
     const timestamp = Date.now()
 
-    const sleepEnd = action.memory?.sleepEnd as number
+    const tirednessEnd = action.memory?.tirednessEnd as number
 
     // Get time left
     const actionEnd = action.start + action.duration
     const timeLeft = (actionEnd - timestamp) / TIREDNESS_INCREASE_DELAY
 
-    // Get sleep missing
-    const sleepMissing = sleepEnd - tiredness
+    // Get tiredness missing
+    const tirednessMissing = tirednessEnd - tiredness
 
-    // Get sleep per second
-    const sleepPerSecond = sleepMissing / timeLeft
+    // Get tiredness per second
+    const tirednessPerSecond = tirednessMissing / timeLeft
 
-    return sleepPerSecond
+    return tirednessPerSecond
   }
 
-  handleStartSleep = (): void => {
-    // NOTHING
+  handleStartSleep = (action: ActionType): void => {
+    const {
+      vitals: { tiredness },
+    } = getBubble()
+
+    const recoverValue =
+      (action.memory?.recoverValue as number | undefined) ||
+      BubbleConfig.actions.sleep.recover +
+        random({
+          min: BubbleConfig.actions.sleep.recoverMargin * -1,
+          max: BubbleConfig.actions.sleep.recoverMargin,
+          round: false,
+        })
+
+    const tirednessEnd = tiredness + BubbleConfig.vitals.tiredness.max * recoverValue
+
+    if (action.id) {
+      updateMemoryValue({
+        actionId: action.id,
+        memoryId: 'tirednessEnd',
+        value:
+          tirednessEnd > BubbleConfig.vitals.tiredness.max
+            ? BubbleConfig.vitals.tiredness.max
+            : tirednessEnd,
+      })
+    }
   }
 
   handleUpdateSleep = (action: ActionType): void => {

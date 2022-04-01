@@ -3,10 +3,21 @@ export interface ServerToClientEvents {
   basicEmit: (a: number, b: string, c: Buffer) => void
   withAck: (d: string, callback: (e: number) => void) => void
   newConnection: (value: { name: string }) => void
+  message: (value: {
+    content: string
+    start?: number
+    duration?: number
+    importance?: 1 | 2 | 3
+  }) => void
 }
 
 export interface ClientToServerEvents {
-  hello: () => void
+  message: (value: {
+    content: string
+    start?: number
+    duration?: number
+    importance?: 1 | 2 | 3
+  }) => void
 }
 
 export interface InterServerEvents {}

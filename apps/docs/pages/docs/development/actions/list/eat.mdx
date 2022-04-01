@@ -5,13 +5,16 @@
 Add an eat action in the await list.
 
 ```typescript
-import { addEatActionInWaitingList } from "@bubble/core";
+import { addEatActionInWaitingList } from '@bubble/core'
 
 addEatActionInWaitingList({
   start: new Date().getTime(),
   duration: 10000,
-  importance, 2
-});
+  importance: 2,
+  memory: {
+    recoverValue: 0.2,
+  },
+})
 ```
 
 #### Parameters
@@ -21,6 +24,11 @@ addEatActionInWaitingList({
 | start      | The start time of the action | `number`    | `required` |
 | duration   | The duration of the action   | `number`    | `required` |
 | importance | The importance of the action | `1, 2 or 3` | `required` |
+| memory     | The memory of the action     | `object`    | `undefined` |
+
+| Parameter    | Description          | Type     | Default     |
+| ------------ | -------------------- | -------- | ----------- |
+| recoverValue | The value to recover | `number` | `undefined` |
 
 ---
 

@@ -2,11 +2,18 @@ import { selectMessage, useAppSelector } from '@bubble/store'
 import { styled } from '@bubble/styles'
 import React from 'react'
 
-const Container = styled('div', {
+const Text = styled('p', {
   position: 'absolute',
   top: 0,
   right: 0,
   transform: 'translate(100%, -100%)',
+  fontSize: '$EM-XXX-LARGE',
+  lineHeight: '$EM-X-LARGE',
+  color: '$WHITE',
+  display: 'block',
+  textDecoration: 'none',
+  whiteSpace: 'pre-line',
+  fontFamily: 'Indie Flower',
 })
 
 export const Message = (): JSX.Element => {
@@ -16,5 +23,5 @@ export const Message = (): JSX.Element => {
     return <></>
   }
 
-  return <Container>{current.content}</Container>
+  return <Text>{current.content}</Text>
 }

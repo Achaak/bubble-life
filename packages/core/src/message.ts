@@ -21,12 +21,21 @@ export class Message {
     this.socket = io('http://localhost:4000')
 
     this.socket.on('newConnection', ({ name }) => {
-      console.log('newConnection', name)
       addMessageInWaitingList({
         content: `Hello ${name} !`,
         duration: 5000,
         importance: 1,
         start: dayjs().valueOf(),
+        id: shortid(),
+      })
+    })
+
+    this.socket.on('message', ({ content, duration, importance, start }) => {
+      addMessageInWaitingList({
+        content,
+        duration: duration || 5000,
+        importance: importance || 2,
+        start: start || dayjs().valueOf(),
         id: shortid(),
       })
     })
