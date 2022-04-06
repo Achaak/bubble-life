@@ -1,4 +1,3 @@
-import { io } from 'socket.io-client'
 import type { ClientToServerEvents, ServerToClientEvents } from '@bubble/types'
 import type { Socket } from 'socket.io-client'
 import dayjs from 'dayjs'
@@ -9,6 +8,7 @@ import {
   transferMessageFromWaitingListToCurrent,
 } from '@bubble/store'
 import shortid from 'shortid'
+import { socket } from '@bubble/common'
 
 export class Message {
   lastRender: number
@@ -18,9 +18,11 @@ export class Message {
   constructor() {
     this.lastRender = 0
 
-    this.socket = io('http://localhost:4000')
+    this.socket = socket({
+      localhost: true,
+    })
 
-    this.socket.on('newConnection', ({ name }) => {
+    this.socket.on('newUser', ({ name }) => {
       addMessageInWaitingList({
         content: `Hello ${name} !`,
         duration: 5000,

@@ -1645,6 +1645,7 @@ __metadata:
   dependencies:
     "@bubble/scripts": "*"
     "@bubble/tsconfig": "*"
+    "@bubble/types": "*"
     "@types/node": ^17.0.23
     "@typescript-eslint/eslint-plugin": 5.17.0
     "@typescript-eslint/parser": 5.17.0
@@ -1657,6 +1658,7 @@ __metadata:
     eslint-plugin-react: 7.29.4
     eslint-plugin-react-hooks: 4.4.0
     prettier: 2.6.1
+    socket.io-client: ^4.4.1
     typescript: ^4.6.3
   languageName: unknown
   linkType: soft
@@ -5985,6 +5987,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"add@npm:^2.0.6":
+  version: 2.0.6
+  resolution: "add@npm:2.0.6"
+  checksum: e2d23d40494565dfed4acd65e478570c444db5ac6c053551ed429c39ea0f2c99d83df63e7befec936df601827d2254d06a2fb6f7dcfd2022e810b25eab818b8c
+  languageName: node
+  linkType: hard
+
 "address@npm:^1.0.1":
   version: 1.1.2
   resolution: "address@npm:1.1.2"
@@ -7241,8 +7250,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "bubble-life@workspace:."
   dependencies:
+    add: ^2.0.6
+    iconsax-react: ^0.0.8
     prettier: ^2.6.1
     turbo: ^1.1.10
+    yarn: ^1.22.18
   languageName: unknown
   linkType: soft
 
@@ -12412,6 +12424,17 @@ __metadata:
   dependencies:
     ms: ^2.0.0
   checksum: 9c7a74a2827f9294c009266c82031030eae811ca87b0da3dceb8d6071b9bde22c9f3daef0469c3c533cc67a97d8a167cd9fc0389350e5f415f61a79b171ded16
+  languageName: node
+  linkType: hard
+
+"iconsax-react@npm:^0.0.8":
+  version: 0.0.8
+  resolution: "iconsax-react@npm:0.0.8"
+  dependencies:
+    prop-types: ^15.7.2
+  peerDependencies:
+    react: "*"
+  checksum: e402ef45d1eb9e0f5cdb08df334b4588d2121d26138dc0b7f8a13c22f5a12cb86b21578cec3d362bc2f09e2f8ecd429cbee862f892ff3d7e9ce18fa4b7954bd2
   languageName: node
   linkType: hard
 
@@ -22462,6 +22485,16 @@ __metadata:
     y18n: ^5.0.5
     yargs-parser: ^21.0.0
   checksum: 63985bddddf1fb6b9c98744591e8b70f99839591521cb84eea60903d52ec0da35ab46c42c325d151f3ab5c41935f976c10da096b5a7067c217714a91c0bd4be3
+  languageName: node
+  linkType: hard
+
+"yarn@npm:^1.22.18":
+  version: 1.22.18
+  resolution: "yarn@npm:1.22.18"
+  bin:
+    yarn: bin/yarn.js
+    yarnpkg: bin/yarn.js
+  checksum: ffd9a4872caa5fce83e914592dd6a40bb978bf992d3dca839bc3853b9e6de951d7596f7e8c4a88bec3af3a049e46097f9139a51740d9074582fd923af8762f7a
   languageName: node
   linkType: hard
 

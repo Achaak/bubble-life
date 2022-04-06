@@ -8,6 +8,7 @@ const withTM = require('next-transpile-modules')([
   '@bubble/core',
   '@bubble/store',
   '@bubble/configs',
+  '@bubble/common',
 ])
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',

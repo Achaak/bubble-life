@@ -14,27 +14,71 @@ const ButtonDOM = styled('button', {
   fontWeight: '$MEDIUM',
   userSelect: 'none',
 
-  '&:hover': {
-    backgroundColor: '$WHITE',
-    color: '$BLACK',
-    transition: 'all 0.2s ease-in-out',
-  },
+  variants: {
+    state: {
+      disabled: {
+        cursor: 'initial',
+        opacity: 0.5,
+      },
+    },
+    effect: {
+      scale: {
+        transition: 'transform 250ms ease',
 
-  '&:active': {
-    backgroundColor: '$TRANSPARENT',
-    color: '$WHITE',
-    transition: 'all 0s',
+        '&:hover': {
+          transform: 'scale(1.025)',
+          transition: 'transform 250ms ease',
+        },
+        '&:active': {
+          transform: 'scale(0.99)',
+          transition: 'transform 250ms ease',
+        },
+      },
+      opacity: {
+        transition: 'opacity 500ms',
+
+        '&:hover': {
+          opacity: 0.8,
+        },
+
+        '&:active': {
+          opacity: 1,
+          transition: 'opacity 0s',
+        },
+      },
+      reverse: {
+        transition: 'all 500ms ease',
+
+        '&:hover': {
+          backgroundColor: '$WHITE',
+          color: '$BLACK',
+        },
+        '&:active': {
+          backgroundColor: '$TRANSPARENT',
+          borderColor: '$WHITE',
+          color: '$WHITE',
+        },
+      },
+    },
   },
 })
 
 export interface ButtonProps {
   onClick: () => void
   type?: 'button' | 'submit' | 'reset'
+  disabled?: boolean
+  effect?: 'scale' | 'opacity' | 'reverse'
 }
 
-export const Button: React.FC<ButtonProps> = ({ children, onClick, type }) => {
+export const Button: React.FC<ButtonProps> = ({ children, onClick, type, disabled, effect }) => {
   return (
-    <ButtonDOM type={type} onClick={onClick}>
+    <ButtonDOM
+      type={type}
+      onClick={onClick}
+      state={disabled ? 'disabled' : undefined}
+      effect={disabled ? undefined : effect}
+      disabled={disabled}
+    >
       {children}
     </ButtonDOM>
   )
@@ -42,4 +86,5 @@ export const Button: React.FC<ButtonProps> = ({ children, onClick, type }) => {
 
 Button.defaultProps = {
   type: 'button',
+  effect: 'reverse',
 }

@@ -18,11 +18,9 @@ const io = new Server<ClientToServerEvents, ServerToClientEvents, InterServerEve
 )
 
 io.on('connection', (socket) => {
-  const name = socket.handshake.auth.name
-
-  if (name) {
-    io.emit('newConnection', { name: name })
-  }
+  socket.on('newUser', (data) => {
+    io.emit('newUser', data)
+  })
 
   socket.on('message', (data) => {
     io.emit('message', data)

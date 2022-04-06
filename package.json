@@ -24,5 +24,10 @@
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
   },
-  "packageManager": "yarn@3.2.0"
+  "packageManager": "yarn@3.2.0",
+  "dependencies": {
+    "add": "^2.0.6",
+    "iconsax-react": "^0.0.8",
+    "yarn": "^1.22.18"
+  }
 }
