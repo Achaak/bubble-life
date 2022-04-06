@@ -14,6 +14,7 @@ import storage from 'redux-persist/lib/storage'
 
 import actionsReducer from './reducers/actions'
 import bubbleReducer from './reducers/bubble'
+import controllerReducer from './reducers/controller'
 
 const persistConfig = {
   key: 'root',
@@ -26,6 +27,7 @@ const persistedReducer = persistReducer(
   combineReducers({
     actions: actionsReducer,
     bubble: bubbleReducer,
+    controller: controllerReducer,
   })
 )
 

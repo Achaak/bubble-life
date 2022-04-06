@@ -3,12 +3,12 @@ import React from 'react'
 
 import type { NextPageWithLayout } from './_app'
 
-const Auth: NextPageWithLayout = () => {
+const Module: NextPageWithLayout = () => {
   return <></>
 }
 
-Auth.getLayout = (page: React.ReactElement): React.ReactElement => {
+Module.getLayout = (page: React.ReactElement): React.ReactElement => {
   return <LayoutDefault>{page}</LayoutDefault>
 }
 
-export default Auth
+export default Module

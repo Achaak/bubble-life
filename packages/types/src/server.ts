@@ -1,8 +1,5 @@
-export interface ServerToClientEvents {
-  noArg: () => void
-  basicEmit: (a: number, b: string, c: Buffer) => void
-  withAck: (d: string, callback: (e: number) => void) => void
-  newConnection: (value: { name: string }) => void
+export interface CommonEvents {
+  newUser: (value: { name: string }) => void
   message: (value: {
     content: string
     start?: number
@@ -11,14 +8,9 @@ export interface ServerToClientEvents {
   }) => void
 }
 
-export interface ClientToServerEvents {
-  message: (value: {
-    content: string
-    start?: number
-    duration?: number
-    importance?: 1 | 2 | 3
-  }) => void
-}
+export type ServerToClientEvents = CommonEvents
+
+export type ClientToServerEvents = CommonEvents
 
 export interface InterServerEvents {}
 

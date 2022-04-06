@@ -1,3 +1,4 @@
+import { SocketProvider } from '@/components/components/SocketProvider'
 import { StorePersistGate, StoreProvider } from '@bubble/store'
 import { persistor, store } from '@bubble/store/src/store'
 import { globalStyles } from '@bubble/styles'
@@ -48,11 +49,13 @@ const MyApp = ({ Component, pageProps, router }: AppPropsWithLayout): JSX.Elemen
       </Head>
       {locale && (
         <TypesafeI18n locale={locale}>
-          <StoreProvider store={store}>
-            <StorePersistGate loading={null} persistor={persistor}>
-              {getLayout(<Component {...pageProps} />)}
-            </StorePersistGate>
-          </StoreProvider>
+          <SocketProvider>
+            <StoreProvider store={store}>
+              <StorePersistGate loading={null} persistor={persistor}>
+                {getLayout(<Component {...pageProps} />)}
+              </StorePersistGate>
+            </StoreProvider>
+          </SocketProvider>
         </TypesafeI18n>
       )}
     </>
