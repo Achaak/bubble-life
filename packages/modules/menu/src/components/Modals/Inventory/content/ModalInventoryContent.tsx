@@ -1,8 +1,7 @@
 import { styled } from '@bubble/styles'
 import { useAppSelector, selectInventory } from '@bubble/store'
 import React from 'react'
-import { getIconOfInventoryItem } from '@bubble/ui'
-import { InventoryItem } from '../../../InventoryItem'
+import { getIconOfInventoryItem, ItemButton } from '@bubble/ui'
 
 const ContentContainer = styled('div', {
   display: 'flex',
@@ -16,8 +15,8 @@ export const ModalInventoryContent = (): JSX.Element => {
   return (
     <ContentContainer>
       {inventory.map((item, index) => {
-        const Icon = getIconOfInventoryItem(item.type)
-        return <InventoryItem key={index} Icon={Icon} text={`x${item.stock}`} />
+        const icon = getIconOfInventoryItem(item.type)
+        return <ItemButton key={index} icon={icon} text={`x${item.stock}`} />
       })}
     </ContentContainer>
   )

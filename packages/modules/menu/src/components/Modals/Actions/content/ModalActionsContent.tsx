@@ -1,5 +1,4 @@
 import { styled } from '@bubble/styles'
-import { BxBaguette, BxBaseball, BxBed, BxShopping, BxSleepy } from '@bubble/ui'
 import {
   addEatActionInWaitingListDefault,
   addNapActionInWaitingListDefault,
@@ -8,7 +7,7 @@ import {
   addSleepActionInWaitingListDefault,
 } from '@bubble/core'
 import React from 'react'
-import { InventoryItem } from '../../../InventoryItem'
+import { ItemButton } from '@bubble/ui'
 
 const ContentContainer = styled('div', {
   display: 'flex',
@@ -48,11 +47,11 @@ export const ModalActionsContent = ({ onClose }: CustomProps): JSX.Element => {
 
   return (
     <ContentContainer>
-      <InventoryItem Icon={BxBaguette} onClick={handleEat} text="Eat" />
-      <InventoryItem Icon={BxSleepy} onClick={handleNap} text="Nap" />
-      <InventoryItem Icon={BxBaseball} onClick={handlePlay} text="Play" />
-      <InventoryItem Icon={BxShopping} onClick={handleShopping} text="Shopping" />
-      <InventoryItem Icon={BxBed} onClick={handleSleep} text="Sleep" />
+      <ItemButton icon="restaurant" onClick={handleEat} text="Eat" />
+      <ItemButton icon="bed" onClick={handleNap} text="Nap" />
+      <ItemButton icon="sports_soccer" onClick={handlePlay} text="Play" />
+      <ItemButton icon="shopping_cart" onClick={handleShopping} text="Shopping" />
+      <ItemButton icon="bed" onClick={handleSleep} text="Sleep" />
     </ContentContainer>
   )
 }

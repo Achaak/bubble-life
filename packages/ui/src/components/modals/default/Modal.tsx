@@ -2,7 +2,6 @@ import type { CSS } from '@bubble/styles'
 import { styled } from '@bubble/styles'
 import * as Dialog from '@radix-ui/react-dialog'
 import { useEffect, useState } from 'react'
-import { BxX } from '../../../Icons/bx-x'
 
 const Overlay = styled(Dialog.Overlay, {
   position: 'fixed',
@@ -368,7 +367,7 @@ export const Modal = ({
             <HeaderRight>
               {hasCloseBtn && (
                 <CloseBtn onClick={handleClose}>
-                  <BxX size={32} colorName="WHITE" />
+                  <span className="material-icons-outlined md-32">close</span>
                 </CloseBtn>
               )}
             </HeaderRight>

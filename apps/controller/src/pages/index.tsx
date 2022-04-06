@@ -1,14 +1,15 @@
 import { LayoutDefault } from '@/components/layouts/default'
+import { IndexContainer } from '@/components/pages/index'
 import React from 'react'
 
 import type { NextPageWithLayout } from './_app'
 
-const Auth: NextPageWithLayout = () => {
-  return <></>
+const Index: NextPageWithLayout = () => {
+  return <IndexContainer />
 }
 
-Auth.getLayout = (page: React.ReactElement): React.ReactElement => {
+Index.getLayout = (page: React.ReactElement): React.ReactElement => {
   return <LayoutDefault>{page}</LayoutDefault>
 }
 
-export default Auth
+export default Index

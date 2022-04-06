@@ -1,5 +1,5 @@
 import { GlobalConfig } from '@bubble/configs/global'
-import { Modules } from '@bubble/modules/Module'
+import { AppModules } from '@bubble/modules'
 import { styled } from '@bubble/styles'
 import { Bubble } from '@src/components/Bubble'
 import { Stats } from '@src/components/Stats'
@@ -26,7 +26,7 @@ const Home: NextPageWithLayout = () => {
       {GlobalConfig.development.showFPS ? <FPSStats /> : null}
 
       <Overlay>
-        <Modules />
+        <AppModules />
         <Bubble />
         <Stats />
       </Overlay>
