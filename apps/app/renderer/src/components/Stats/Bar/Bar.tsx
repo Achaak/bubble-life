@@ -1,5 +1,4 @@
 import { styled } from '@bubble/styles'
-import type { SVGComponentIcon } from '@bubble/ui'
 import React from 'react'
 
 const Container = styled('div', {
@@ -55,10 +54,10 @@ const HideElement = styled('div', {
 
 interface CustomProps {
   percentage: number
-  Icon: React.FC<SVGComponentIcon>
+  icon: string
 }
 
-export const Bar = ({ percentage, Icon }: CustomProps): JSX.Element => {
+export const Bar = ({ percentage, icon }: CustomProps): JSX.Element => {
   const getBarItems = (): React.ReactNode => {
     const bars = []
 
@@ -71,7 +70,7 @@ export const Bar = ({ percentage, Icon }: CustomProps): JSX.Element => {
 
   return (
     <Container>
-      <Icon size={24} colorName="WHITE" />
+      <span className="material-icons-outlined md-32">{icon}</span>
 
       <BarContainer>
         <BarContent>

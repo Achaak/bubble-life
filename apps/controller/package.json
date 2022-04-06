@@ -11,6 +11,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@bubble/modules": "*",
     "@bubble/styles": "*",
     "@bubble/translate": "*",
     "@bubble/types": "*",

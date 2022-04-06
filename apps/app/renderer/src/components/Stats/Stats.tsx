@@ -2,10 +2,6 @@ import { BubbleConfig } from '@bubble/configs/bubble'
 import { useAppSelector } from '@bubble/store'
 import { selectName, selectVitals } from '@bubble/store'
 import { styled } from '@bubble/styles'
-import { BxBaguette } from '@bubble/ui'
-import { BxBed } from '@bubble/ui'
-import { BxHeart } from '@bubble/ui'
-import { BxParty } from '@bubble/ui'
 import React from 'react'
 
 import { Bar } from './Bar'
@@ -62,16 +58,19 @@ export const Stats = (): JSX.Element => {
       <Left>
         <Bar
           percentage={(100 / BubbleConfig.vitals.saturation.max) * saturation}
-          Icon={BxBaguette}
+          icon="restaurant"
         />
-        <Bar percentage={(100 / BubbleConfig.vitals.happiness.max) * happiness} Icon={BxParty} />
+        <Bar
+          percentage={(100 / BubbleConfig.vitals.happiness.max) * happiness}
+          icon="celebration"
+        />
       </Left>
       <Center>
         <Name>{name}</Name>
       </Center>
       <Right>
-        <Bar percentage={(100 / BubbleConfig.vitals.tiredness.max) * tiredness} Icon={BxBed} />
-        <Bar percentage={(100 / BubbleConfig.vitals.health.max) * health} Icon={BxHeart} />
+        <Bar percentage={(100 / BubbleConfig.vitals.tiredness.max) * tiredness} icon="bed" />
+        <Bar percentage={(100 / BubbleConfig.vitals.health.max) * health} icon="favorite_border" />
       </Right>
     </Container>
   )
