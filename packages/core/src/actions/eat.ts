@@ -1,4 +1,4 @@
-import { dateToMs } from '@bubble/common'
+import { dateToMs, socket } from '@bubble/common'
 import { random } from '@bubble/common'
 import { BubbleConfig } from '@bubble/configs/bubble'
 import {
@@ -10,13 +10,21 @@ import {
   removeInventoryItem,
   updateMemoryValue,
 } from '@bubble/store'
-import type { Action as ActionType, AddEatActionInWaitingList } from '@bubble/types'
+import type { Action as ActionType, SocketEvents } from '@bubble/types'
 import dayjs from 'dayjs'
 
 import { Action } from '../action'
 
 const SATURATION_INCREASE_DELAY = dateToMs({ seconds: 1 })
 
+export type AddEatActionInWaitingList = {
+  start: number
+  duration: number
+  importance: 1 | 2 | 3
+  memory?: {
+    recoverValue?: number
+  }
+}
 export const addEatActionInWaitingList = ({
   start,
   duration,
@@ -61,6 +69,8 @@ export const addEatActionInWaitingListDefault = (): void => {
 export class ActionEat extends Action {
   lastRenderUpdateEat: number
 
+  socket?: SocketEvents
+
   constructor() {
     super()
 
@@ -85,6 +95,13 @@ export class ActionEat extends Action {
         function: this.handleCancelEat,
       },
     ]
+
+    this.socket = socket({
+      localhost: true,
+    })
+
+    this.socket.on('addEatActionInWaitingList', addEatActionInWaitingList)
+    this.socket.on('addEatActionInWaitingListDefault', addEatActionInWaitingListDefault)
   }
 
   update = (timestamp: number): void => {

@@ -1,4 +1,4 @@
-import { dateToMs } from '@bubble/common'
+import { dateToMs, socket } from '@bubble/common'
 import { random } from '@bubble/common'
 import { BubbleConfig } from '@bubble/configs/bubble'
 import {
@@ -8,25 +8,26 @@ import {
   hasActionByName,
   updateMemoryValue,
 } from '@bubble/store'
-import type { Action as ActionType } from '@bubble/types'
+import type { Action as ActionType, SocketEvents } from '@bubble/types'
 import dayjs from 'dayjs'
 
 import { Action } from '../action'
 
 const TIREDNESS_INCREASE_DELAY = dateToMs({ seconds: 1 })
 
-export const addSleepActionInWaitingList = ({
-  start,
-  duration,
-  importance,
-}: {
+export type AddSleepActionInWaitingList = {
   start: number
   duration: number
   importance: 1 | 2 | 3
   memory?: {
     recoverValue?: number
   }
-}): void => {
+}
+export const addSleepActionInWaitingList = ({
+  start,
+  duration,
+  importance,
+}: AddSleepActionInWaitingList): void => {
   addActionInWaitingList({
     name: 'sleep',
     start: start,
@@ -69,6 +70,8 @@ export const addSleepActionInWaitingListDefault = (): void => {
 export class ActionSleep extends Action {
   lastRenderUpdateSleep: number
 
+  socket?: SocketEvents
+
   constructor() {
     super()
 
@@ -93,6 +96,13 @@ export class ActionSleep extends Action {
         function: this.handleCancelSleep,
       },
     ]
+
+    this.socket = socket({
+      localhost: true,
+    })
+
+    this.socket.on('addSleepActionInWaitingList', addSleepActionInWaitingList)
+    this.socket.on('addSleepActionInWaitingListDefault', addSleepActionInWaitingListDefault)
   }
 
   update = (timestamp: number): void => {

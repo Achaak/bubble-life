@@ -4,29 +4,36 @@ import { actionsActions } from '..'
 import { store } from '../../../store'
 import { setCurrentAction } from './current'
 
-export const hasActionInWaitingListByName = ({ name }: { name: string }): boolean => {
+export type HasActionInWaitingListByName = { name: string }
+export const hasActionInWaitingListByName = ({ name }: HasActionInWaitingListByName): boolean => {
   const { waitingList } = getActions()
 
   return waitingList.filter((item) => item.name === name).length > 0
 }
 
-export const hasActionInWaitingListById = ({ id }: { id: string }): boolean => {
+export type HasActionInWaitingListById = { id: string }
+export const hasActionInWaitingListById = ({ id }: HasActionInWaitingListById): boolean => {
   const { waitingList } = getActions()
 
   return waitingList.filter((item) => item.id === id).length > 0
 }
 
-export const addActionInWaitingList = (action: Action): void => {
+export type AddActionInWaitingList = Action
+export const addActionInWaitingList = (action: AddActionInWaitingList): void => {
   store.dispatch(actionsActions.addActionInWaitingList(action))
   store.dispatch(actionsActions.sortActionsInWaitingList())
 }
 
-export const removeActionFromWaitingList = ({ id }: { id: string }): void => {
+export type RemoveActionFromWaitingList = { id: string }
+export const removeActionFromWaitingList = ({ id }: RemoveActionFromWaitingList): void => {
   store.dispatch(actionsActions.removeActionFromWaitingList({ id }))
   store.dispatch(actionsActions.sortActionsInWaitingList())
 }
 
-export const transferActionFromWaitingListToCurrent = ({ id }: { id: string }): void => {
+export type TransferActionFromWaitingListToCurrent = { id: string }
+export const transferActionFromWaitingListToCurrent = ({
+  id,
+}: TransferActionFromWaitingListToCurrent): void => {
   const { waitingList } = getActions()
 
   const action = waitingList.find((item) => item.id === id)

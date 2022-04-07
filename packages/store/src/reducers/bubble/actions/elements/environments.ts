@@ -5,10 +5,12 @@ import type {
   BubbleStateElementsEnvironmentItemList,
 } from '../../types'
 
-export const addEnvironmentInList = (environment: BubbleStateElementsEnvironmentItemList): void => {
+export type AddEnvironmentInList = BubbleStateElementsEnvironmentItemList
+export const addEnvironmentInList = (environment: AddEnvironmentInList): void => {
   store.dispatch(bubbleActions.addEnvironmentInList(environment))
 }
 
+export type RemoveEnvironmentInList = { id: string }
 export const removeEnvironmentInList = ({ id }: { id: string }): void => {
   store.dispatch(bubbleActions.removeEnvironmentInList({ id }))
 }
@@ -17,7 +19,8 @@ export const resetEnvironment = (): void => {
   store.dispatch(bubbleActions.resetEnvironment())
 }
 
-export const setActionEnvironment = (environment: BubbleStateElementsEnvironmentAction): void => {
+export type SetActionEnvironment = BubbleStateElementsEnvironmentAction
+export const setActionEnvironment = (environment: SetActionEnvironment): void => {
   store.dispatch(bubbleActions.setActionEnvironment(environment))
 }
 

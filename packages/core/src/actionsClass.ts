@@ -18,13 +18,24 @@ import {
   setActionHat,
   setActionOnomatopoeia,
   setCurrentAction,
+  hasActionInCancelListByName,
+  hasActionInCancelListById,
+  addActionInCancelList,
+  transferActionFromCancelListToCurrent,
+  hasActionInCurrentByName,
+  hasActionInCurrentById,
+  hasActionInWaitingListByName,
+  hasActionInWaitingListById,
+  addActionInWaitingList,
+  transferActionFromWaitingListToCurrent,
 } from '@bubble/store'
-import type { Action as ActionType } from '@bubble/types'
+import type { Action as ActionType, SocketEvents } from '@bubble/types'
 import dayjs from 'dayjs'
 import shortid from 'shortid'
 
 import type { Action } from './action'
 import { ActionsList } from './actions'
+import { socket } from '@bubble/common'
 
 export class Actions {
   actions: {
@@ -32,10 +43,31 @@ export class Actions {
     class: Action
   }[]
 
+  socket?: SocketEvents
+
   constructor() {
     this.actions = []
 
     this.initActionsList()
+
+    this.socket = socket({
+      localhost: true,
+    })
+
+    this.socket.on('hasActionInCancelListByName', hasActionInCancelListByName)
+    this.socket.on('hasActionInCancelListById', hasActionInCancelListById)
+    this.socket.on('addActionInCancelList', addActionInCancelList)
+    this.socket.on('removeActionFromCancelList', removeActionFromCancelList)
+    this.socket.on('transferActionFromCancelListToCurrent', transferActionFromCancelListToCurrent)
+    this.socket.on('setCurrentAction', setCurrentAction)
+    this.socket.on('resetCurrentAction', resetCurrentAction)
+    this.socket.on('hasActionInCurrentByName', hasActionInCurrentByName)
+    this.socket.on('hasActionInCurrentById', hasActionInCurrentById)
+    this.socket.on('hasActionInWaitingListByName', hasActionInWaitingListByName)
+    this.socket.on('hasActionInWaitingListById', hasActionInWaitingListById)
+    this.socket.on('addActionInWaitingList', addActionInWaitingList)
+    this.socket.on('removeActionFromWaitingList', removeActionFromWaitingList)
+    this.socket.on('transferActionFromWaitingListToCurrent', transferActionFromWaitingListToCurrent)
   }
 
   initActionsList = (): void => {

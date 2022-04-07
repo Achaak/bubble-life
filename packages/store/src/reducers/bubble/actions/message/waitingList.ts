@@ -4,7 +4,8 @@ import { bubbleActions } from '../..'
 import { store } from '../../../../store'
 import { setCurrentMessage } from './current'
 
-export const hasMessageInWaitingListById = ({ id }: { id: string }): boolean => {
+export type HasMessageInWaitingListById = { id: string }
+export const hasMessageInWaitingListById = ({ id }: HasMessageInWaitingListById): boolean => {
   const {
     message: { waitingList },
   } = getBubble()
@@ -12,17 +13,22 @@ export const hasMessageInWaitingListById = ({ id }: { id: string }): boolean => 
   return waitingList.filter((item) => item.id === id).length > 0
 }
 
-export const addMessageInWaitingList = (message: Message): void => {
+export type AddMessageInWaitingList = Message
+export const addMessageInWaitingList = (message: AddMessageInWaitingList): void => {
   store.dispatch(bubbleActions.addMessageInWaitingList(message))
   store.dispatch(bubbleActions.sortMessagesInWaitingList())
 }
 
-export const removeMessageFromWaitingList = ({ id }: { id: string }): void => {
+export type RemoveMessageFromWaitingList = { id: string }
+export const removeMessageFromWaitingList = ({ id }: RemoveMessageFromWaitingList): void => {
   store.dispatch(bubbleActions.removeMessageFromWaitingList({ id }))
   store.dispatch(bubbleActions.sortMessagesInWaitingList())
 }
 
-export const transferMessageFromWaitingListToCurrent = ({ id }: { id: string }): void => {
+export type TransferMessageFromWaitingListToCurrent = { id: string }
+export const transferMessageFromWaitingListToCurrent = ({
+  id,
+}: TransferMessageFromWaitingListToCurrent): void => {
   const {
     message: { waitingList },
   } = getBubble()

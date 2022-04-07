@@ -1,4 +1,4 @@
-import { dateToMs } from '@bubble/common'
+import { dateToMs, socket } from '@bubble/common'
 import { random } from '@bubble/common'
 import { BubbleConfig } from '@bubble/configs/bubble'
 import {
@@ -8,26 +8,27 @@ import {
   hasActionByName,
   updateMemoryValue,
 } from '@bubble/store'
-import type { Action as ActionType } from '@bubble/types'
+import type { Action as ActionType, SocketEvents } from '@bubble/types'
 import dayjs from 'dayjs'
 
 import { Action } from '../action'
 
 const HAPPINESS_INCREASE_DELAY = dateToMs({ seconds: 1 })
 
-export const addPlayActionInWaitingList = ({
-  start,
-  duration,
-  importance,
-  memory,
-}: {
+export type AddPlayActionInWaitingList = {
   start: number
   duration: number
   importance: 1 | 2 | 3
   memory?: {
     recoverValue?: number
   }
-}): void => {
+}
+export const addPlayActionInWaitingList = ({
+  start,
+  duration,
+  importance,
+  memory,
+}: AddPlayActionInWaitingList): void => {
   addActionInWaitingList({
     name: 'play',
     start: start,
@@ -66,6 +67,8 @@ export const addPlayActionInWaitingListDefault = (): void => {
 export class ActionPlay extends Action {
   lastRenderUpdatePlay: number
 
+  socket?: SocketEvents
+
   constructor() {
     super()
 
@@ -90,6 +93,13 @@ export class ActionPlay extends Action {
         function: this.handleCancelPlay,
       },
     ]
+
+    this.socket = socket({
+      localhost: true,
+    })
+
+    this.socket.on('addPlayActionInWaitingList', addPlayActionInWaitingList)
+    this.socket.on('addPlayActionInWaitingListDefault', addPlayActionInWaitingListDefault)
   }
 
   update = (timestamp: number): void => {

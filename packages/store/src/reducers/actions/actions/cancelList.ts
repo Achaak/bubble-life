@@ -4,27 +4,34 @@ import { actionsActions } from '..'
 import { store } from '../../../store'
 import { setCurrentAction } from './current'
 
-export const hasActionInCancelListByName = ({ name }: { name: string }): boolean => {
+export type HasActionInCancelListByName = { name: string }
+export const hasActionInCancelListByName = ({ name }: HasActionInCancelListByName): boolean => {
   const { cancelList } = getActions()
 
   return cancelList.filter((item) => item.name === name).length > 0
 }
 
-export const hasActionInCancelListById = ({ id }: { id: string }): boolean => {
+export type HasActionInCancelListById = { id: string }
+export const hasActionInCancelListById = ({ id }: HasActionInCancelListById): boolean => {
   const { cancelList } = getActions()
 
   return cancelList.filter((item) => item.id === id).length > 0
 }
 
-export const addActionInCancelList = ({ action }: { action: Action }): void => {
+export type AddActionInCancelList = { action: Action }
+export const addActionInCancelList = ({ action }: AddActionInCancelList): void => {
   store.dispatch(actionsActions.addActionInCancelList(action))
 }
 
-export const removeActionFromCancelList = ({ id }: { id: string }): void => {
+export type RemoveActionFromCancelList = { id: string }
+export const removeActionFromCancelList = ({ id }: RemoveActionFromCancelList): void => {
   store.dispatch(actionsActions.removeActionFromCancelList({ id }))
 }
 
-export const transferActionFromCancelListToCurrent = ({ id }: { id: string }): void => {
+export type TransferActionFromCancelListToCurrent = { id: string }
+export const transferActionFromCancelListToCurrent = ({
+  id,
+}: TransferActionFromCancelListToCurrent): void => {
   const { cancelList } = getActions()
 
   const action = cancelList.find((item) => item.id === id)

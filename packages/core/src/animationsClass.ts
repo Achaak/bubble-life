@@ -1,7 +1,14 @@
-import { getBubble } from '@bubble/store'
-import type { Animation, AnimationConfig } from '@bubble/types'
+import {
+  addAnimationInList,
+  getBubble,
+  removeAnimationInList,
+  resetActionAnimation,
+  resetAnimation,
+  setActionAnimation,
+} from '@bubble/store'
+import type { Animation, AnimationConfig, SocketEvents } from '@bubble/types'
 import anime from 'animejs'
-import { getMaxImportantItemInList } from '@bubble/common'
+import { getMaxImportantItemInList, socket } from '@bubble/common'
 
 import { AnimationList } from './animations'
 import { AnimationDefault } from './animations/default'
@@ -9,8 +16,20 @@ import { AnimationDefault } from './animations/default'
 export class Animations {
   currentAnimation: AnimationConfig | null
 
+  socket?: SocketEvents
+
   constructor() {
     this.currentAnimation = null
+
+    this.socket = socket({
+      localhost: true,
+    })
+
+    this.socket.on('resetAnimation', resetAnimation)
+    this.socket.on('addAnimationInList', addAnimationInList)
+    this.socket.on('removeAnimationInList', removeAnimationInList)
+    this.socket.on('setActionAnimation', setActionAnimation)
+    this.socket.on('resetActionAnimation', resetActionAnimation)
   }
 
   update = (): void => {

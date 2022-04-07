@@ -1,10 +1,13 @@
-import type { ClientToServerEvents, ServerToClientEvents } from '@bubble/types'
-import type { Socket } from 'socket.io-client'
+import type { SocketEvents } from '@bubble/types'
 import dayjs from 'dayjs'
 import {
   addMessageInWaitingList,
   getBubble,
+  hasMessageInCurrentById,
+  hasMessageInWaitingListById,
+  removeMessageFromWaitingList,
   resetCurrentMessage,
+  setCurrentMessage,
   transferMessageFromWaitingListToCurrent,
 } from '@bubble/store'
 import shortid from 'shortid'
@@ -13,7 +16,7 @@ import { socket } from '@bubble/common'
 export class Message {
   lastRender: number
 
-  socket?: Socket<ServerToClientEvents, ClientToServerEvents>
+  socket?: SocketEvents
 
   constructor() {
     this.lastRender = 0
@@ -41,6 +44,17 @@ export class Message {
         id: shortid(),
       })
     })
+
+    this.socket.on('setCurrentMessage', setCurrentMessage)
+    this.socket.on('resetCurrentMessage', resetCurrentMessage)
+    this.socket.on('hasMessageInCurrentById', hasMessageInCurrentById)
+    this.socket.on('hasMessageInWaitingListById', hasMessageInWaitingListById)
+    this.socket.on('addMessageInWaitingList', addMessageInWaitingList)
+    this.socket.on('removeMessageFromWaitingList', removeMessageFromWaitingList)
+    this.socket.on(
+      'transferMessageFromWaitingListToCurrent',
+      transferMessageFromWaitingListToCurrent
+    )
   }
 
   update = (): void => {
