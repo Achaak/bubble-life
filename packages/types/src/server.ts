@@ -210,9 +210,6 @@ export type ClientToServerEvents = CommonEvents
 
 export interface InterServerEvents {}
 
-export interface SocketData {
-  name: string
-  age: number
-}
+export interface SocketData {}
 
 export type SocketEvents = Socket<ServerToClientEvents, ClientToServerEvents>
