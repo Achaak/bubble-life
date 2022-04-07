@@ -10,7 +10,7 @@ import {
   removeInventoryItem,
   updateMemoryValue,
 } from '@bubble/store'
-import type { Action as ActionType } from '@bubble/types'
+import type { Action as ActionType, AddEatActionInWaitingList } from '@bubble/types'
 import dayjs from 'dayjs'
 
 import { Action } from '../action'
@@ -21,14 +21,7 @@ export const addEatActionInWaitingList = ({
   start,
   duration,
   importance,
-}: {
-  start: number
-  duration: number
-  importance: 1 | 2 | 3
-  memory?: {
-    recoverValue?: number
-  }
-}): void => {
+}: AddEatActionInWaitingList): void => {
   addActionInWaitingList({
     name: 'eat',
     start: start,
