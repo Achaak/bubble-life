@@ -6,15 +6,18 @@ export const resetAnimation = (): void => {
   store.dispatch(bubbleActions.resetAnimation())
 }
 
-export const addAnimationInList = (animation: BubbleAnimationItemList): void => {
+export type AddAnimationInList = BubbleAnimationItemList
+export const addAnimationInList = (animation: AddAnimationInList): void => {
   store.dispatch(bubbleActions.addAnimationInList(animation))
 }
 
-export const removeAnimationInList = ({ id }: { id: string }): void => {
+export type RemoveAnimationInList = { id: string }
+export const removeAnimationInList = ({ id }: RemoveAnimationInList): void => {
   store.dispatch(bubbleActions.removeAnimationInList({ id }))
 }
 
-export const setActionAnimation = (animation: BubbleAnimationAction): void => {
+export type SetActionAnimation = BubbleAnimationAction
+export const setActionAnimation = (animation: SetActionAnimation): void => {
   store.dispatch(bubbleActions.setActionAnimation(animation))
 }
 

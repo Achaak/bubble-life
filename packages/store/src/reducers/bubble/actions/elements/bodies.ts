@@ -2,10 +2,12 @@ import { bubbleActions } from '../..'
 import { store } from '../../../../store'
 import type { BubbleStateElementsBodyAction, BubbleStateElementsBodyItemList } from '../../types'
 
-export const addBodyInList = (body: BubbleStateElementsBodyItemList): void => {
+export type AddBodyInList = BubbleStateElementsBodyItemList
+export const addBodyInList = (body: AddBodyInList): void => {
   store.dispatch(bubbleActions.addBodyInList(body))
 }
 
+export type RemoveBodyInList = { id: string }
 export const removeBodyInList = ({ id }: { id: string }): void => {
   store.dispatch(bubbleActions.removeBodyInList({ id }))
 }
@@ -14,7 +16,8 @@ export const resetBody = (): void => {
   store.dispatch(bubbleActions.resetBody())
 }
 
-export const setActionBody = (body: BubbleStateElementsBodyAction): void => {
+export type SetActionBody = BubbleStateElementsBodyAction
+export const setActionBody = (body: SetActionBody): void => {
   store.dispatch(bubbleActions.setActionBody(body))
 }
 

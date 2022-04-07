@@ -5,12 +5,12 @@ import type {
   BubbleStateElementsOnomatopoeiaItemList,
 } from '../../types'
 
-export const addOnomatopoeiaInList = (
-  onomatopoeia: BubbleStateElementsOnomatopoeiaItemList
-): void => {
+export type AddOnomatopoeiaInList = BubbleStateElementsOnomatopoeiaItemList
+export const addOnomatopoeiaInList = (onomatopoeia: AddOnomatopoeiaInList): void => {
   store.dispatch(bubbleActions.addOnomatopoeiaInList(onomatopoeia))
 }
 
+export type RemoveOnomatopoeiaInList = { id: string }
 export const removeOnomatopoeiaInList = ({ id }: { id: string }): void => {
   store.dispatch(bubbleActions.removeOnomatopoeiaInList({ id }))
 }
@@ -19,9 +19,8 @@ export const resetOnomatopoeia = (): void => {
   store.dispatch(bubbleActions.resetOnomatopoeia())
 }
 
-export const setActionOnomatopoeia = (
-  onomatopoeia: BubbleStateElementsOnomatopoeiaAction
-): void => {
+export type SetActionOnomatopoeia = BubbleStateElementsOnomatopoeiaAction
+export const setActionOnomatopoeia = (onomatopoeia: SetActionOnomatopoeia): void => {
   store.dispatch(bubbleActions.setActionOnomatopoeia(onomatopoeia))
 }
 

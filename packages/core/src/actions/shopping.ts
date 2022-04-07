@@ -1,4 +1,4 @@
-import { dateToMs } from '@bubble/common'
+import { dateToMs, socket } from '@bubble/common'
 import { random } from '@bubble/common'
 import { BubbleConfig } from '@bubble/configs/bubble'
 import {
@@ -7,19 +7,21 @@ import {
   hasActionByName,
   hasInventoryItem,
 } from '@bubble/store'
+import type { SocketEvents } from '@bubble/types'
 import dayjs from 'dayjs'
 
 import { Action } from '../action'
 
+export type AddShoppingActionInWaitingList = {
+  start: number
+  duration: number
+  importance: 1 | 2 | 3
+}
 export const addShoppingActionInWaitingList = ({
   start,
   duration,
   importance,
-}: {
-  start: number
-  duration: number
-  importance: 1 | 2 | 3
-}): void => {
+}: AddShoppingActionInWaitingList): void => {
   addActionInWaitingList({
     name: 'shopping',
     start: start,
@@ -57,6 +59,8 @@ export const addShoppingActionInWaitingListDefault = (): void => {
 }
 
 export class ActionShopping extends Action {
+  socket?: SocketEvents
+
   constructor() {
     super()
 
@@ -79,6 +83,13 @@ export class ActionShopping extends Action {
         function: this.handleCancelShopping,
       },
     ]
+
+    this.socket = socket({
+      localhost: true,
+    })
+
+    this.socket.on('addShoppingActionInWaitingList', addShoppingActionInWaitingList)
+    this.socket.on('addShoppingActionInWaitingListDefault', addShoppingActionInWaitingListDefault)
   }
 
   update = (timestamp: number): void => {

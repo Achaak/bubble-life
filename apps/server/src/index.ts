@@ -18,12 +18,8 @@ const io = new Server<ClientToServerEvents, ServerToClientEvents, InterServerEve
 )
 
 io.on('connection', (socket) => {
-  socket.on('newUser', (data) => {
-    io.emit('newUser', data)
-  })
-
-  socket.on('message', (data) => {
-    io.emit('message', data)
+  socket.onAny((eventName, data) => {
+    io.emit(eventName, data)
   })
 })
 

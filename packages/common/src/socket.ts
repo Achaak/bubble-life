@@ -1,6 +1,5 @@
-import type { ClientToServerEvents, ServerToClientEvents } from '@bubble/types'
+import type { SocketEvents } from '@bubble/types'
 import io from 'socket.io-client'
-import type { Socket } from 'socket.io-client'
 
 const getSocketUrl = ({ localhost }: { localhost?: true } = {}): string => {
   let SOCKET_URL: string
@@ -14,7 +13,5 @@ const getSocketUrl = ({ localhost }: { localhost?: true } = {}): string => {
   return SOCKET_URL
 }
 
-export const socket = ({ localhost }: { localhost?: true } = {}): Socket<
-  ServerToClientEvents,
-  ClientToServerEvents
-> => io(getSocketUrl({ localhost }))
+export const socket = ({ localhost }: { localhost?: true } = {}): SocketEvents =>
+  io(getSocketUrl({ localhost }))

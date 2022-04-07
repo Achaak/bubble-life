@@ -5,10 +5,12 @@ import type {
   BubbleStateElementsClotheItemList,
 } from '../../types'
 
-export const addClotheInList = (clothe: BubbleStateElementsClotheItemList): void => {
+export type AddClotheInList = BubbleStateElementsClotheItemList
+export const addClotheInList = (clothe: AddClotheInList): void => {
   store.dispatch(bubbleActions.addClotheInList(clothe))
 }
 
+export type RemoveClotheInList = { id: string }
 export const removeClotheInList = ({ id }: { id: string }): void => {
   store.dispatch(bubbleActions.removeClotheInList({ id }))
 }
@@ -17,7 +19,8 @@ export const resetClothe = (): void => {
   store.dispatch(bubbleActions.resetClothe())
 }
 
-export const setActionClothe = (clothe: BubbleStateElementsClotheAction): void => {
+export type SetActionClothe = BubbleStateElementsClotheAction
+export const setActionClothe = (clothe: SetActionClothe): void => {
   store.dispatch(bubbleActions.setActionClothe(clothe))
 }
 

@@ -1967,7 +1967,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@bubble/types@workspace:packages/types"
   dependencies:
+    "@bubble/core": "*"
     "@bubble/scripts": "*"
+    "@bubble/store": "*"
     "@bubble/tsconfig": "*"
     "@typescript-eslint/eslint-plugin": ^5.17.0
     "@typescript-eslint/parser": ^5.17.0
@@ -1981,6 +1983,7 @@ __metadata:
     eslint-plugin-react: ^7.29.4
     eslint-plugin-react-hooks: ^4.4.0
     prettier: ^2.6.1
+    socket.io-client: ^4.4.1
     typescript: ^4.6.3
   languageName: unknown
   linkType: soft

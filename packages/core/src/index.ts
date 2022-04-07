@@ -1,6 +1,8 @@
 import { Actions } from './actionsClass'
 import { Animations } from './animationsClass'
-import { Message } from './message'
+import { Elements } from './elementsClass'
+import { Inventory } from './inventoryClass'
+import { Message } from './messageClass'
 import { Vitals } from './vitalsClass'
 import { initWindow } from './window'
 
@@ -15,7 +17,11 @@ export class BubbleCore {
 
   animations: Animations
 
+  elements: Elements
+
   message: Message
+
+  inventory: Inventory
 
   vitals: Vitals
 
@@ -27,6 +33,8 @@ export class BubbleCore {
     this.vitals = new Vitals()
     this.message = new Message()
     this.animations = new Animations()
+    this.elements = new Elements()
+    this.inventory = new Inventory()
 
     initWindow()
 
