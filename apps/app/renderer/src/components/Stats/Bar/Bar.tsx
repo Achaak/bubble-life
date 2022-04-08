@@ -70,7 +70,7 @@ export const Bar = ({ percentage, icon }: CustomProps): JSX.Element => {
 
   return (
     <Container>
-      <span className="material-icons-outlined md-32">{icon}</span>
+      <span className="material-icons-outlined size-32">{icon}</span>
 
       <BarContainer>
         <BarContent>

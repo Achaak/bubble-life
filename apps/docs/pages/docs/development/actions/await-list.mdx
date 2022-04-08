@@ -6,10 +6,23 @@ import Callout from 'nextra-theme-docs/callout'
 
 Get if the given action is in the await list by name.
 
+### Use in app module
+
 ```typescript
 import { hasActionInWaitingListByName } from '@bubble/store'
 
 const bool = hasActionInWaitingListByName({
+  name: 'ActionName',
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('hasActionInWaitingListByName', {
   name: 'ActionName',
 })
 ```
@@ -32,10 +45,23 @@ boolean
 
 Get if the given action is in the await list by id.
 
+### Use in app module
+
 ```typescript
 import { hasActionInWaitingListById } from '@bubble/store'
 
 const bool = hasActionInWaitingListById({
+  id: 'ActionId',
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('hasActionInWaitingListById', {
   id: 'ActionId',
 })
 ```
@@ -58,10 +84,23 @@ boolean
 
 Remove the given action from the await list.
 
+### Use in app module
+
 ```typescript
 import { removeActionFromWaitingList } from '@bubble/store'
 
 removeActionFromWaitingList({
+  id: 'ActionId',
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('removeActionFromWaitingList', {
   id: 'ActionId',
 })
 ```
@@ -78,10 +117,23 @@ removeActionFromWaitingList({
 
 Transfer an action from the await list to the current list.
 
+### Use in app module
+
 ```typescript
 import { transferActionFromWaitingListToCurrent } from '@bubble/store'
 
 transferActionFromWaitingListToCurrent({
+  id: 'ActionId',
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('transferActionFromWaitingListToCurrent', {
   id: 'ActionId',
 })
 ```
@@ -97,10 +149,12 @@ transferActionFromWaitingListToCurrent({
 ## addActionInWaitingList()
 
 <Callout emoji="⚠️">
-  This function is only usable in the core package with the actions class manager.
+  This function must follow the nomenclature of actions available in the core package.
 </Callout>
 
 Add the given action to the await list.
+
+### Use in app module
 
 ```typescript
 import { addActionInWaitingList } from "@bubble/store";
@@ -127,6 +181,36 @@ addActionInWaitingList({
     ...
   },
 });
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('addActionInWaitingList', {
+  id: "ActionId"
+  name: "eat",
+  start: new Date().getTime(),
+  duration: 5000,
+  startFunction: "eat:start",
+  updateFunction: "eat:update",
+  endFunction: "eat:end",
+  cancelFunction: "eat:cancel",
+  importance: 2,
+  elements: {
+    onomatopoeia: {
+      name: "eat",
+    },
+    ...
+  },
+  animation: 'bounce',
+  memory: {
+    startAt: new Date().getTime(),
+    ...
+  },
+})
 ```
 
 #### Parameters

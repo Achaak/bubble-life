@@ -4,10 +4,21 @@
 
 Reset the animation to the Bubble
 
-```typescript
-import { resetAnimation } from "@bubble/store";
+### Use in app module
 
-resetAnimation();
+```typescript
+import { resetAnimation } from '@bubble/store'
+
+resetAnimation()
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('resetAnimation')
 ```
 
 ---
@@ -16,14 +27,29 @@ resetAnimation();
 
 Set the tiredness of the Bubble.
 
+### Use in app module
+
 ```typescript
-import { addAnimationInList } from "@bubble/store";
+import { addAnimationInList } from '@bubble/store'
 
 addAnimationInList({
-  id: "id",
+  id: 'id',
   importance: 1,
-  name: "AnimationName",
-});
+  name: 'AnimationName',
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('addAnimationInList', {
+  id: 'id',
+  importance: 1,
+  name: 'AnimationName',
+})
 ```
 
 #### Parameters
@@ -40,12 +66,25 @@ addAnimationInList({
 
 Remove the animation from the list.
 
+### Use in app module
+
 ```typescript
-import { removeAnimationInList } from "@bubble/store";
+import { removeAnimationInList } from '@bubble/store'
 
 removeAnimationInList({
-  id: "id",
-});
+  id: 'id',
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('removeAnimationInList', {
+  id: 'id',
+})
 ```
 
 #### Parameters
@@ -60,13 +99,27 @@ removeAnimationInList({
 
 Set the action animation.
 
+### Use in app module
+
 ```typescript
-import { setActionAnimation } from "@bubble/store";
+import { setActionAnimation } from '@bubble/store'
 
 setActionAnimation({
-  actionId: "actionId",
-  name: "AnimationName",
-});
+  actionId: 'actionId',
+  name: 'AnimationName',
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('setActionAnimation', {
+  actionId: 'actionId',
+  name: 'AnimationName',
+})
 ```
 
 #### Parameters
@@ -82,8 +135,19 @@ setActionAnimation({
 
 Reset the action animation.
 
-```typescript
-import { resetActionAnimation } from "@bubble/store";
+### Use in app module
 
-resetActionAnimation();
+```typescript
+import { resetActionAnimation } from '@bubble/store'
+
+resetActionAnimation()
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('resetActionAnimation')
 ```

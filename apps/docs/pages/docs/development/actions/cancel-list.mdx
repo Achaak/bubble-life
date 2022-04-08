@@ -1,4 +1,4 @@
-import Callout from "nextra-theme-docs/callout";
+import Callout from 'nextra-theme-docs/callout'
 
 # Cancel List Actions
 
@@ -6,12 +6,25 @@ import Callout from "nextra-theme-docs/callout";
 
 Get if the given action is in the cancel list by name.
 
+### Use in app module
+
 ```typescript
-import { hasActionInCancelListByName } from "@bubble/store";
+import { hasActionInCancelListByName } from '@bubble/store'
 
 const bool = hasActionInCancelListByName({
-  name: "ActionName",
-});
+  name: 'ActionName',
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('hasActionInCancelListByName', {
+  name: 'ActionName',
+})
 ```
 
 #### Parameters
@@ -32,12 +45,25 @@ boolean
 
 Get if the given action is in the cancel list by id.
 
+### Use in app module
+
 ```typescript
-import { hasActionInCancelListById } from "@bubble/store";
+import { hasActionInCancelListById } from '@bubble/store'
 
 const bool = hasActionInCancelListById({
-  id: "ActionId",
-});
+  id: 'ActionId',
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('hasActionInCancelListById', {
+  id: 'ActionId',
+})
 ```
 
 #### Parameters
@@ -58,12 +84,25 @@ boolean
 
 Remove an action from the cancel list.
 
+### Use in app module
+
 ```typescript
-import { removeActionFromCancelList } from "@bubble/store";
+import { removeActionFromCancelList } from '@bubble/store'
 
 removeActionFromCancelList({
-  id: "ActionId",
-});
+  id: 'ActionId',
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('removeActionFromCancelList', {
+  id: 'ActionId',
+})
 ```
 
 #### Parameters
@@ -78,12 +117,25 @@ removeActionFromCancelList({
 
 Transfer an action from the cancel list to the current list.
 
+### Use in app module
+
 ```typescript
-import { transferActionFromCancelListToCurrent } from "@bubble/store";
+import { transferActionFromCancelListToCurrent } from '@bubble/store'
 
 transferActionFromCancelListToCurrent({
-  id: "ActionId",
-});
+  id: 'ActionId',
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('transferActionFromCancelListToCurrent', {
+  id: 'ActionId',
+})
 ```
 
 #### Parameters
@@ -97,11 +149,12 @@ transferActionFromCancelListToCurrent({
 ## addActionInCancelList()
 
 <Callout emoji="⚠️">
-  This function is only usable in the core package with the actions class
-  manager.
+  This function must follow the nomenclature of actions available in the core package.
 </Callout>
 
 Add an action to the cancel list.
+
+### Use in app module
 
 ```typescript
 import { addActionInCancelList } from "@bubble/store";
@@ -128,6 +181,36 @@ addActionInCancelList({
     ...
   },
 });
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('addActionInCancelList', {
+  id: "ActionId"
+  name: "eat",
+  start: new Date().getTime(),
+  duration: 5000,
+  startFunction: "eat:start",
+  updateFunction: "eat:update",
+  endFunction: "eat:end",
+  cancelFunction: "eat:cancel",
+  importance: 2,
+  elements: {
+    onomatopoeia: {
+      name: "eat",
+    },
+    ...
+  },
+  animation: 'bounce',
+  memory: {
+    startAt: new Date().getTime(),
+    ...
+  },
+})
 ```
 
 #### Parameters

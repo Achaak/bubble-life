@@ -1,4 +1,4 @@
-import Callout from "nextra-theme-docs/callout";
+import Callout from 'nextra-theme-docs/callout'
 
 # Current Actions
 
@@ -6,10 +6,21 @@ import Callout from "nextra-theme-docs/callout";
 
 Reset the current action to null.
 
-```typescript
-import { resetCurrentAction } from "@bubble/store";
+### Use in app module
 
-resetCurrentAction();
+```typescript
+import { resetCurrentAction } from '@bubble/store'
+
+resetCurrentAction()
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('resetCurrentAction')
 ```
 
 ---
@@ -18,12 +29,25 @@ resetCurrentAction();
 
 Get if the current action is in the current action by name.
 
+### Use in app module
+
 ```typescript
-import { resetCurrentAction } from "@bubble/store";
+import { hasActionInCurrentByName } from '@bubble/store'
 
 hasActionInCurrentByName({
-  name: "ActionName",
-});
+  name: 'ActionName',
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('hasActionInCurrentByName', {
+  name: 'ActionName',
+})
 ```
 
 ---
@@ -32,12 +56,25 @@ hasActionInCurrentByName({
 
 Get if the current action is in the current action by id.
 
+### Use in app module
+
 ```typescript
-import { resetCurrentAction } from "@bubble/store";
+import { hasActionInCurrentById } from '@bubble/store'
 
 hasActionInCurrentById({
-  id: "ActionId",
-});
+  id: 'ActionId',
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('hasActionInCurrentById', {
+  id: 'ActionId',
+})
 ```
 
 ---
@@ -45,11 +82,12 @@ hasActionInCurrentById({
 ## setCurrentAction()
 
 <Callout emoji="⚠️">
-  This function is only usable in the core package with the actions class
-  manager.
+  This function must follow the nomenclature of actions available in the core package.
 </Callout>
 
 Set the current action.
+
+### Use in app module
 
 ```typescript
 import { addActionInCancelList } from "@bubble/store";
@@ -76,6 +114,36 @@ addActionInCancelList({
     ...
   },
 });
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('addActionInCancelList', {
+  id: "ActionId"
+  name: "eat",
+  start: new Date().getTime(),
+  duration: 5000,
+  startFunction: "eat:start",
+  updateFunction: "eat:update",
+  endFunction: "eat:end",
+  cancelFunction: "eat:cancel",
+  importance: 2,
+  elements: {
+    onomatopoeia: {
+      name: "eat",
+    },
+    ...
+  },
+  animation: 'bounce',
+  memory: {
+    startAt: new Date().getTime(),
+    ...
+  },
+})
 ```
 
 #### Parameters

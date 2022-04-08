@@ -1,4 +1,4 @@
-import Callout from "nextra-theme-docs/callout";
+import Callout from 'nextra-theme-docs/callout'
 
 # Environments Element
 
@@ -6,14 +6,29 @@ import Callout from "nextra-theme-docs/callout";
 
 Add a environment to the list of environments.
 
+### Use in app module
+
 ```typescript
-import { addEnvironmentInList } from "@bubble/store";
+import { addEnvironmentInList } from '@bubble/store'
 
 addEnvironmentInList({
-  id: "environmentId",
+  id: 'environmentId',
   importance: 1,
-  name: "EnvironmentName",
-});
+  name: 'EnvironmentName',
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('addEnvironmentInList', {
+  id: 'environmentId',
+  importance: 1,
+  name: 'EnvironmentName',
+})
 ```
 
 #### Parameters
@@ -30,12 +45,25 @@ addEnvironmentInList({
 
 Remove a environment from the list of environments.
 
+### Use in app module
+
 ```typescript
-import { removeEnvironmentInList } from "@bubble/store";
+import { removeEnvironmentInList } from '@bubble/store'
 
 removeEnvironmentInList({
-  id: "environmentId",
-});
+  id: 'environmentId',
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('removeEnvironmentInList', {
+  id: 'environmentId',
+})
 ```
 
 #### Parameters
@@ -50,30 +78,52 @@ removeEnvironmentInList({
 
 Reset the environment state.
 
-```typescript
-import { resetEnvironment } from "@bubble/store";
+### Use in app module
 
-resetEnvironment();
+```typescript
+import { resetEnvironment } from '@bubble/store'
+
+resetEnvironment()
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('resetEnvironment')
 ```
 
 ---
 
 ## setActionEnvironment()
 
-<Callout emoji="⚠️">
-  This function is only usable in the core package with the actions class
-  manager.
-</Callout>
+<Callout emoji="⚠️">This function must follow the nomenclature of the available elements.</Callout>
 
 Set the action environment.
 
+### Use in app module
+
 ```typescript
-import { setActionEnvironment } from "@bubble/store";
+import { setActionEnvironment } from '@bubble/store'
 
 setActionEnvironment({
-  actionId: "actionId",
-  name: "environmentName",
-});
+  actionId: 'actionId',
+  name: 'environmentName',
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('setActionEnvironment', {
+  actionId: 'actionId',
+  name: 'environmentName',
+})
 ```
 
 #### Parameters
@@ -89,8 +139,19 @@ setActionEnvironment({
 
 Reset the action environment.
 
-```typescript
-import { resetActionEnvironment } from "@bubble/store";
+### Use in app module
 
-resetActionEnvironment();
+```typescript
+import { resetActionEnvironment } from '@bubble/store'
+
+resetActionEnvironment()
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('resetActionEnvironment')
 ```

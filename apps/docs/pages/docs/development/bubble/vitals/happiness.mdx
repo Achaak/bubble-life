@@ -4,12 +4,25 @@
 
 Set the happiness of the Bubble.
 
+### Use in app module
+
 ```typescript
-import { setHappiness } from "@bubble/store";
+import { setHappiness } from '@bubble/store'
 
 setHappiness({
   value: 42,
-});
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('setHappiness', {
+  value: 42,
+})
 ```
 
 #### Parameters
@@ -24,10 +37,21 @@ setHappiness({
 
 Reset the happiness of the Bubble.
 
-```typescript
-import { resetHappiness } from "@bubble/store";
+### Use in app module
 
-resetHappiness();
+```typescript
+import { resetHappiness } from '@bubble/store'
+
+resetHappiness()
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('resetHappiness')
 ```
 
 ---
@@ -36,12 +60,25 @@ resetHappiness();
 
 Add to the happiness of the Bubble.
 
+### Use in app module
+
 ```typescript
-import { addHappiness } from "@bubble/store";
+import { addHappiness } from '@bubble/store'
 
 addHappiness({
   value: 42,
-});
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('addHappiness', {
+  value: 42,
+})
 ```
 
 #### Parameters
@@ -56,12 +93,25 @@ addHappiness({
 
 Remove from the happiness of the Bubble.
 
+### Use in app module
+
 ```typescript
-import { removeHappiness } from "@bubble/store";
+import { removeHappiness } from '@bubble/store'
 
 removeHappiness({
   value: 42,
-});
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('removeHappiness', {
+  value: 42,
+})
 ```
 
 #### Parameters

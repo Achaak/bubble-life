@@ -367,7 +367,7 @@ export const Modal = ({
             <HeaderRight>
               {hasCloseBtn && (
                 <CloseBtn onClick={handleClose}>
-                  <span className="material-icons-outlined md-32">close</span>
+                  <span className="material-icons-outlined size-32">close</span>
                 </CloseBtn>
               )}
             </HeaderRight>

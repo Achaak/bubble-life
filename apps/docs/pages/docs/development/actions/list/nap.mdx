@@ -4,10 +4,28 @@
 
 Add an nap action in the await list.
 
+### Use in app module
+
 ```typescript
 import { addNapActionInWaitingList } from '@bubble/core'
 
 addNapActionInWaitingList({
+  start: new Date().getTime(),
+  duration: 10000,
+  importance: 2,
+  memory: {
+    recoverValue: 0.2,
+  },
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('addNapActionInWaitingList', {
   start: new Date().getTime(),
   duration: 10000,
   importance: 2,
@@ -36,8 +54,19 @@ addNapActionInWaitingList({
 
 Add an nap action in the await list with default values.
 
+### Use in app module
+
 ```typescript
 import { addNapActionInWaitingListDefault } from '@bubble/core'
 
 addNapActionInWaitingListDefault()
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('addNapActionInWaitingListDefault')
 ```
