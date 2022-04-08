@@ -4,6 +4,10 @@ import React, { createContext } from 'react'
 
 export const SocketContext = createContext<SocketEvents | null>(null)
 
-export const SocketProvider: React.FC = ({ children }) => {
+interface CustomProps {
+  children: React.ReactNode
+}
+
+export const SocketProvider: React.FC<CustomProps> = ({ children }) => {
   return <SocketContext.Provider value={socket()}>{children}</SocketContext.Provider>
 }

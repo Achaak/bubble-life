@@ -34,7 +34,7 @@ interface CustomProps {
   icon: string
 }
 
-export const ItemButton = ({ onClick, text, icon }: CustomProps): JSX.Element => {
+export const ItemButton: React.FC<CustomProps> = ({ onClick, text, icon }) => {
   return (
     <Container
       onClick={onClick}

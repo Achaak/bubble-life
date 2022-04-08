@@ -4,7 +4,7 @@ import React from 'react'
 
 const HeaderContainer = styled('div', {})
 
-export const ModalActionsHeader = (): JSX.Element => {
+export const ModalActionsHeader: React.FC = () => {
   return (
     <HeaderContainer>
       <Title component="h1">Actions</Title>

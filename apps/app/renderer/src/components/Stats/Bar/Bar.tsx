@@ -57,7 +57,7 @@ interface CustomProps {
   icon: string
 }
 
-export const Bar = ({ percentage, icon }: CustomProps): JSX.Element => {
+export const Bar: React.FC<CustomProps> = ({ percentage, icon }) => {
   const getBarItems = (): React.ReactNode => {
     const bars = []
 

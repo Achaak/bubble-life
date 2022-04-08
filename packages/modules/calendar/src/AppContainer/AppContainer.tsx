@@ -29,7 +29,7 @@ interface CustomProps {
   dateFormat: string
 }
 
-export const Container = ({ dateFormat }: CustomProps): JSX.Element => {
+export const Container: React.FC<CustomProps> = ({ dateFormat }: CustomProps) => {
   const [loaded, setLoaded] = useState(false)
   const [timer, setTimer] = useState<string | null>(null)
   const [date, setDate] = useState<string | null>(null)

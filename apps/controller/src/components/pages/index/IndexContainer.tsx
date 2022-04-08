@@ -11,7 +11,7 @@ const Container = styled('div', {
   alignItems: 'center',
 })
 
-export const IndexContainer = (): JSX.Element => {
+export const IndexContainer: React.FC = () => {
   const [modulesConfig, setModulesConfig] = useState<
     {
       name: string

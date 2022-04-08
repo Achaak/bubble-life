@@ -15,7 +15,11 @@ const Container = styled('div', {
   alignItem: 'center',
 })
 
-export const Hats: React.FC = ({ children }) => {
+interface CustomProps {
+  children: React.ReactNode
+}
+
+export const Hats: React.FC<CustomProps> = ({ children }) => {
   const [hatDOM, setHatDOM] = useState<React.ReactNode>(null)
 
   const { hat } = useAppSelector(selectElements)

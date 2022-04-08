@@ -10,7 +10,11 @@ const Container = styled('div', {
   transition: 'all 300ms',
 })
 
-export const Bodies: React.FC = ({ children }) => {
+interface CustomProps {
+  children: React.ReactNode
+}
+
+export const Bodies: React.FC<CustomProps> = ({ children }) => {
   const [bodyDOM, setBodyDOM] = useState<React.ReactNode>(null)
 
   const { body } = useAppSelector(selectElements)

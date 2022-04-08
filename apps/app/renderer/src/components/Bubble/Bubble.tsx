@@ -36,7 +36,7 @@ const Content = styled('div', {
 const SCALE_MAX = 1.5
 const SCALE_MIN = 0.5
 
-export const Bubble = (): JSX.Element => {
+export const Bubble: React.FC = () => {
   const [scale, setScale] = useState<number>(1)
 
   const { weight } = useAppSelector(selectVitals)

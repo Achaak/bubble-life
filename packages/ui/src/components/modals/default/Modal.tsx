@@ -277,7 +277,7 @@ export interface ModalProps {
   content?: React.ReactNode
 }
 
-export const Modal = ({
+export const Modal: React.FC<ModalProps> = ({
   visible,
   hasCloseBtn,
   onClose,
@@ -291,7 +291,7 @@ export const Modal = ({
   footer,
   content,
   gap,
-}: ModalProps): JSX.Element => {
+}) => {
   const [visibleStyle, setVisibleStyle] = useState(false)
   const [visibleDOM, setVisibleDOM] = useState(false)
 

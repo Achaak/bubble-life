@@ -49,7 +49,7 @@ const Right = styled('div', {
   },
 })
 
-export const Stats = (): JSX.Element => {
+export const Stats: React.FC = () => {
   const { saturation, happiness, health, tiredness } = useAppSelector(selectVitals)
   const name = useAppSelector(selectName)
 

@@ -68,8 +68,8 @@ export interface ButtonProps {
   type?: 'button' | 'submit' | 'reset'
   disabled?: boolean
   effect?: 'scale' | 'opacity' | 'reverse'
+  children: React.ReactNode
 }
-
 export const Button: React.FC<ButtonProps> = ({ children, onClick, type, disabled, effect }) => {
   return (
     <ButtonDOM

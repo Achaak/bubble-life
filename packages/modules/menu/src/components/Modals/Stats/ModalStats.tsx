@@ -9,7 +9,7 @@ export interface ModalStatsProps {
   onClose: () => void
 }
 
-export const ModalStats = ({ onClose, visible }: ModalStatsProps): JSX.Element => {
+export const ModalStats: React.FC<ModalStatsProps> = ({ onClose, visible }) => {
   return (
     <Modal
       visible={visible}

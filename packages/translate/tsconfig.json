@@ -8,6 +8,7 @@
     "outDir": "./dist",
     "module": "commonjs",
     "jsx": "react",
+    "skipLibCheck": true,
     "suppressImplicitAnyIndexErrors": true,
     "paths": {
       "@/*": [

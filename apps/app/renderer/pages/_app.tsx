@@ -18,7 +18,11 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout
 }
 
-const MyApp = ({ Component, pageProps, router }: AppPropsWithLayout): JSX.Element => {
+const MyApp: React.FC<AppPropsWithLayout> = ({
+  Component,
+  pageProps,
+  router,
+}: AppPropsWithLayout) => {
   const getLayout = Component.getLayout ?? ((page: React.ReactElement): React.ReactElement => page)
 
   const [locale, setLocale] = useState<Locales | undefined>(undefined)

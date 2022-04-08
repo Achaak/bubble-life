@@ -27,7 +27,7 @@ const Name = styled('span', {
   fontSize: '$EM-X-SMALL',
 })
 
-export const ColorExample = (): JSX.Element => {
+export const ColorExample: React.FC = () => {
   return (
     <Container>
       {Object.keys(Colors).map((item, key) => (
