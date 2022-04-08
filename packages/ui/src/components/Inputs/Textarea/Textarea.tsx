@@ -116,7 +116,7 @@ export interface TextareaProps {
   }
 }
 
-export const Textarea = ({
+export const Textarea: React.FC<TextareaProps> = ({
   placeholder,
   fullWidth,
   onChange,
@@ -131,7 +131,7 @@ export const Textarea = ({
   padding,
   borderRadius,
   styles,
-}: TextareaProps): JSX.Element => {
+}) => {
   const [isFocus, setIsFocus] = useState(false)
 
   const onChangeTextarea = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {

@@ -25,7 +25,7 @@ const LetterContainer = styled('div', {
 
 const Eat = styled('img', {})
 
-export const OnomatopoeiaEat = (): JSX.Element => {
+export const OnomatopoeiaEat: React.FC = () => {
   return (
     <Container>
       <LetterContainer

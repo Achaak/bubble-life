@@ -25,7 +25,7 @@ const LetterContainer = styled('div', {
 
 const Sleep = styled('img', {})
 
-export const OnomatopoeiaSleep = (): JSX.Element => {
+export const OnomatopoeiaSleep: React.FC = () => {
   return (
     <Container>
       <LetterContainer

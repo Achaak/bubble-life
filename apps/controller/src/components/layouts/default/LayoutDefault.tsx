@@ -6,7 +6,11 @@ const Container = styled('div', {
   padding: 16,
 })
 
-export const LayoutDefault: React.FC = ({ children }) => {
+interface CustomProps {
+  children: React.ReactNode
+}
+
+export const LayoutDefault: React.FC<CustomProps> = ({ children }) => {
   return (
     <>
       <NameModal />

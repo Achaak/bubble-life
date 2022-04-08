@@ -8,6 +8,6 @@ const Container = styled('h1', {
   letterSpacing: '$SMALL',
 })
 
-export const Logo = (): JSX.Element => {
+export const Logo: React.FC = () => {
   return <Container>Bubble Life</Container>
 }

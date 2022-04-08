@@ -12,7 +12,11 @@ const Container = styled('div', {
   userSelect: 'none',
 })
 
-export const DefaultLayout: React.FC = ({ children }) => {
+interface CustomProps {
+  children: React.ReactNode
+}
+
+export const DefaultLayout: React.FC<CustomProps> = ({ children }) => {
   useEffect(() => {
     new BubbleCore()
   }, [])

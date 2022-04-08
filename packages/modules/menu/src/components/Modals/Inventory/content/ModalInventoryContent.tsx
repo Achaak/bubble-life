@@ -9,7 +9,7 @@ const ContentContainer = styled('div', {
   justifyContent: 'center',
 })
 
-export const ModalInventoryContent = (): JSX.Element => {
+export const ModalInventoryContent: React.FC = () => {
   const inventory = useAppSelector(selectInventory)
 
   return (

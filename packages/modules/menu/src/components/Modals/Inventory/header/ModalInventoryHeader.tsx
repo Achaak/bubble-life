@@ -4,7 +4,7 @@ import React from 'react'
 
 const HeaderContainer = styled('div', {})
 
-export const ModalInventoryHeader = (): JSX.Element => {
+export const ModalInventoryHeader: React.FC = () => {
   return (
     <HeaderContainer>
       <Title component="h1">Inventory</Title>

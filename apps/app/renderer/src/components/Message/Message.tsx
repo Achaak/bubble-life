@@ -16,7 +16,7 @@ const Text = styled('p', {
   fontFamily: 'Indie Flower',
 })
 
-export const Message = (): JSX.Element => {
+export const Message: React.FC = () => {
   const { current } = useAppSelector(selectMessage)
 
   if (!current) {

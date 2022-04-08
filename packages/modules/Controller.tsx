@@ -1,6 +1,5 @@
 import { ModulesConfig } from '@bubble/configs/modules'
 import { useEffect, useState } from 'react'
-import { JsxAttributeLike } from 'typescript'
 
 export const ModuleControllerList = async (): Promise<
   {
@@ -29,7 +28,7 @@ export const ModuleControllerList = async (): Promise<
 interface ControllerModuleProps {
   name: string
 }
-export const ControllerModule = ({ name }: ControllerModuleProps): JSX.Element => {
+export const ControllerModule: React.FC<ControllerModuleProps> = ({ name }) => {
   const [container, setContainer] = useState<JSX.Element>()
 
   useEffect(() => {

@@ -16,7 +16,11 @@ const Container = styled('div', {
   alignItems: 'flex-end',
 })
 
-export const Clothes: React.FC = ({ children }) => {
+interface CustomProps {
+  children: React.ReactNode
+}
+
+export const Clothes: React.FC<CustomProps> = ({ children }) => {
   const [clotheDOM, setClotheDOM] = useState<React.ReactNode>(null)
 
   const { clothe } = useAppSelector(selectElements)

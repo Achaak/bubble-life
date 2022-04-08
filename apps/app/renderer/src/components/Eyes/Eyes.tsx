@@ -13,7 +13,11 @@ const Container = styled('div', {
   transform: 'translate(-50%, -50%)',
 })
 
-export const Eyes: React.FC = ({ children }) => {
+interface CustomProps {
+  children: React.ReactNode
+}
+
+export const Eyes: React.FC<CustomProps> = ({ children }) => {
   const [eyesDOM, setEyesDOM] = useState<React.ReactNode>(null)
 
   const { eyes } = useAppSelector(selectElements)

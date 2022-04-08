@@ -22,8 +22,8 @@
     "@bubble/tsconfig": "*",
     "@bubble/types": "*",
     "@types/node": "^17.0.23",
-    "@typescript-eslint/eslint-plugin": "5.17.0",
-    "@typescript-eslint/parser": "5.17.0",
+    "@typescript-eslint/eslint-plugin": "5.18.0",
+    "@typescript-eslint/parser": "5.18.0",
     "eslint": "8.12.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-json": "3.1.0",
@@ -31,8 +31,8 @@
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-react": "7.29.4",
     "eslint-plugin-react-hooks": "4.4.0",
-    "prettier": "2.6.1",
-    "react-redux": "^7.2.7",
+    "prettier": "2.6.2",
+    "react-redux": "^7.2.8",
     "shortid": "^2.2.16",
     "typescript": "~4.6.3"
   }

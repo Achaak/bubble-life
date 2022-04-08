@@ -19,7 +19,7 @@ interface CustomProps {
   onClose: () => void
 }
 
-export const ModalActionsContent = ({ onClose }: CustomProps): JSX.Element => {
+export const ModalActionsContent: React.FC<CustomProps> = ({ onClose }) => {
   const handlePlay = (): void => {
     addPlayActionInWaitingListDefault()
     onClose()

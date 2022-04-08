@@ -9,7 +9,7 @@ export interface ModalInventoryProps {
   onClose: () => void
 }
 
-export const ModalInventory = ({ onClose, visible }: ModalInventoryProps): JSX.Element => {
+export const ModalInventory: React.FC<ModalInventoryProps> = ({ onClose, visible }) => {
   return (
     <Modal
       visible={visible}

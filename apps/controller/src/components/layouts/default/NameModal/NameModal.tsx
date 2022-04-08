@@ -26,7 +26,7 @@ const Container = styled('div', {
   },
 })
 
-export const NameModal = (): JSX.Element => {
+export const NameModal: React.FC = () => {
   const [name, setName] = useState<string>()
   const socket = useContext(SocketContext)
   const currentUser = useAppSelector(selectCurrentUser)
