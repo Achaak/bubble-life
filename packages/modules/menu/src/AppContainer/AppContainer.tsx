@@ -35,13 +35,13 @@ export const Container: React.FC = () => {
 
       <Content>
         <MenuIcon onClick={(): void => setIsActionsOpen(true)}>
-          <span className="material-icons-outlined md-32">sports_soccer</span>
+          <span className="material-icons-outlined size-32">sports_soccer</span>
         </MenuIcon>
         <MenuIcon onClick={(): void => setIsInventoryOpen(true)}>
-          <span className="material-icons-outlined md-32">backpack</span>
+          <span className="material-icons-outlined size-32">backpack</span>
         </MenuIcon>
         {/* <MenuIcon onClick={(): void => setIsStatsOpen(true)}>
-          <span className="material-icons-outlined md-32">bar_chart</span>
+          <span className="material-icons-outlined size-32">bar_chart</span>
         </MenuIcon> */}
       </Content>
     </>

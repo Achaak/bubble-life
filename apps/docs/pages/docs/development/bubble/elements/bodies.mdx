@@ -1,4 +1,4 @@
-import Callout from "nextra-theme-docs/callout";
+import Callout from 'nextra-theme-docs/callout'
 
 # Bodies Element
 
@@ -6,14 +6,29 @@ import Callout from "nextra-theme-docs/callout";
 
 Add a body to the list of bodies.
 
+### Use in app module
+
 ```typescript
-import { addBodyInList } from "@bubble/store";
+import { addBodyInList } from '@bubble/store'
 
 addBodyInList({
-  id: "bodyId",
+  id: 'bodyId',
   importance: 1,
-  name: "BodyName",
-});
+  name: 'BodyName',
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('addBodyInList', {
+  id: 'bodyId',
+  importance: 1,
+  name: 'BodyName',
+})
 ```
 
 #### Parameters
@@ -30,12 +45,25 @@ addBodyInList({
 
 Remove a body from the list of bodies.
 
+### Use in app module
+
 ```typescript
-import { removeBodyInList } from "@bubble/store";
+import { removeBodyInList } from '@bubble/store'
 
 removeBodyInList({
-  id: "bodyId",
-});
+  id: 'bodyId',
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('removeBodyInList', {
+  id: 'bodyId',
+})
 ```
 
 #### Parameters
@@ -50,30 +78,52 @@ removeBodyInList({
 
 Reset the body state.
 
-```typescript
-import { resetBody } from "@bubble/store";
+### Use in app module
 
-resetBody();
+```typescript
+import { resetBody } from '@bubble/store'
+
+resetBody()
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('resetBody')
 ```
 
 ---
 
 ## setActionBody()
 
-<Callout emoji="⚠️">
-  This function is only usable in the core package with the actions class
-  manager.
-</Callout>
+<Callout emoji="⚠️">This function must follow the nomenclature of the available elements.</Callout>
 
 Set the action body.
 
+### Use in app module
+
 ```typescript
-import { setActionBody } from "@bubble/store";
+import { setActionBody } from '@bubble/store'
 
 setActionBody({
-  actionId: "actionId",
-  name: "bodyName",
-});
+  actionId: 'actionId',
+  name: 'bodyName',
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('setActionBody', {
+  actionId: 'actionId',
+  name: 'bodyName',
+})
 ```
 
 #### Parameters
@@ -89,8 +139,19 @@ setActionBody({
 
 Reset the action body.
 
-```typescript
-import { resetActionBody } from "@bubble/store";
+### Use in app module
 
-resetActionBody();
+```typescript
+import { resetActionBody } from '@bubble/store'
+
+resetActionBody()
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('resetActionBody')
 ```

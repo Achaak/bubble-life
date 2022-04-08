@@ -14,8 +14,8 @@
   "dependencies": {
     "@bubble/styles": "*",
     "next": "12.1.4",
-    "nextra": "^2.0.0-alpha.44",
-    "nextra-theme-docs": "^2.0.0-alpha.44",
+    "nextra": "^2.0.0-alpha.48",
+    "nextra-theme-docs": "^2.0.0-alpha.48",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },

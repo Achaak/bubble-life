@@ -4,6 +4,8 @@
 
 Add an eat action in the await list.
 
+### Use in app module
+
 ```typescript
 import { addEatActionInWaitingList } from '@bubble/core'
 
@@ -17,13 +19,29 @@ addEatActionInWaitingList({
 })
 ```
 
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('addEatActionInWaitingList', {
+  start: new Date().getTime(),
+  duration: 10000,
+  importance: 2,
+  memory: {
+    recoverValue: 0.2,
+  },
+})
+```
+
 #### Parameters
 
-| Parameter  | Description                  | Type        | Default    |
-| ---------- | ---------------------------- | ----------- | ---------- |
-| start      | The start time of the action | `number`    | `required` |
-| duration   | The duration of the action   | `number`    | `required` |
-| importance | The importance of the action | `1, 2 or 3` | `required` |
+| Parameter  | Description                  | Type        | Default     |
+| ---------- | ---------------------------- | ----------- | ----------- |
+| start      | The start time of the action | `number`    | `required`  |
+| duration   | The duration of the action   | `number`    | `required`  |
+| importance | The importance of the action | `1, 2 or 3` | `required`  |
 | memory     | The memory of the action     | `object`    | `undefined` |
 
 | Parameter    | Description          | Type     | Default     |
@@ -36,8 +54,19 @@ addEatActionInWaitingList({
 
 Add an eat action in the await list with default values.
 
+### Use in app module
+
 ```typescript
 import { addEatActionInWaitingListDefault } from '@bubble/core'
 
 addEatActionInWaitingListDefault()
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('addEatActionInWaitingListDefault')
 ```

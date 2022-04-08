@@ -4,12 +4,25 @@
 
 Set the saturation of the Bubble.
 
+### Use in app module
+
 ```typescript
-import { setSaturation } from "@bubble/store";
+import { setSaturation } from '@bubble/store'
 
 setSaturation({
   value: 42,
-});
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('setSaturation', {
+  value: 42,
+})
 ```
 
 #### Parameters
@@ -24,10 +37,21 @@ setSaturation({
 
 Reset the saturation of the Bubble.
 
-```typescript
-import { resetSaturation } from "@bubble/store";
+### Use in app module
 
-resetSaturation();
+```typescript
+import { resetSaturation } from '@bubble/store'
+
+resetSaturation()
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('resetSaturation')
 ```
 
 ---
@@ -36,12 +60,25 @@ resetSaturation();
 
 Add to the saturation of the Bubble.
 
+### Use in app module
+
 ```typescript
-import { addSaturation } from "@bubble/store";
+import { addSaturation } from '@bubble/store'
 
 addSaturation({
   value: 42,
-});
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('addSaturation', {
+  value: 42,
+})
 ```
 
 #### Parameters
@@ -56,12 +93,25 @@ addSaturation({
 
 Remove from the saturation of the Bubble.
 
+### Use in app module
+
 ```typescript
-import { removeSaturation } from "@bubble/store";
+import { removeSaturation } from '@bubble/store'
 
 removeSaturation({
   value: 42,
-});
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('removeSaturation', {
+  value: 42,
+})
 ```
 
 #### Parameters

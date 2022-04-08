@@ -43,7 +43,7 @@ export const ItemButton = ({ onClick, text, icon }: CustomProps): JSX.Element =>
       }}
     >
       <IconContainer>
-        <span className="material-icons-outlined md-32">{icon}</span>
+        <span className="material-icons-outlined size-32">{icon}</span>
       </IconContainer>
       <Text>{text}</Text>
     </Container>

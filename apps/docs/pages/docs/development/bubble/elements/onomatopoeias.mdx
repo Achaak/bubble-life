@@ -1,4 +1,4 @@
-import Callout from "nextra-theme-docs/callout";
+import Callout from 'nextra-theme-docs/callout'
 
 # Onomatopoeias Element
 
@@ -6,14 +6,29 @@ import Callout from "nextra-theme-docs/callout";
 
 Add a onomatopoeia to the list of onomatopoeias.
 
+### Use in app module
+
 ```typescript
-import { addOnomatopoeiaInList } from "@bubble/store";
+import { addOnomatopoeiaInList } from '@bubble/store'
 
 addOnomatopoeiaInList({
-  id: "onomatopoeiaId",
+  id: 'onomatopoeiaId',
   importance: 1,
-  name: "OnomatopoeiaName",
-});
+  name: 'OnomatopoeiaName',
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('addOnomatopoeiaInList', {
+  id: 'onomatopoeiaId',
+  importance: 1,
+  name: 'OnomatopoeiaName',
+})
 ```
 
 #### Parameters
@@ -30,12 +45,25 @@ addOnomatopoeiaInList({
 
 Remove a onomatopoeia from the list of onomatopoeias.
 
+### Use in app module
+
 ```typescript
-import { removeOnomatopoeiaInList } from "@bubble/store";
+import { removeOnomatopoeiaInList } from '@bubble/store'
 
 removeOnomatopoeiaInList({
-  id: "onomatopoeiaId",
-});
+  id: 'onomatopoeiaId',
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('removeOnomatopoeiaInList', {
+  id: 'onomatopoeiaId',
+})
 ```
 
 #### Parameters
@@ -50,30 +78,52 @@ removeOnomatopoeiaInList({
 
 Reset the onomatopoeia state.
 
-```typescript
-import { resetOnomatopoeia } from "@bubble/store";
+### Use in app module
 
-resetOnomatopoeia();
+```typescript
+import { resetOnomatopoeia } from '@bubble/store'
+
+resetOnomatopoeia()
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('resetOnomatopoeia')
 ```
 
 ---
 
 ## setActionOnomatopoeia()
 
-<Callout emoji="⚠️">
-  This function is only usable in the core package with the actions class
-  manager.
-</Callout>
+<Callout emoji="⚠️">This function must follow the nomenclature of the available elements.</Callout>
 
 Set the action onomatopoeia.
 
+### Use in app module
+
 ```typescript
-import { setActionOnomatopoeia } from "@bubble/store";
+import { setActionOnomatopoeia } from '@bubble/store'
 
 setActionOnomatopoeia({
-  actionId: "actionId",
-  name: "onomatopoeiaName",
-});
+  actionId: 'actionId',
+  name: 'onomatopoeiaName',
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('setActionOnomatopoeia', {
+  actionId: 'actionId',
+  name: 'onomatopoeiaName',
+})
 ```
 
 #### Parameters
@@ -89,8 +139,19 @@ setActionOnomatopoeia({
 
 Reset the action onomatopoeia.
 
-```typescript
-import { resetActionOnomatopoeia } from "@bubble/store";
+### Use in app module
 
-resetActionOnomatopoeia();
+```typescript
+import { resetActionOnomatopoeia } from '@bubble/store'
+
+resetActionOnomatopoeia()
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('resetActionOnomatopoeia')
 ```

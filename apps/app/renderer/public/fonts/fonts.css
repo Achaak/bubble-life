@@ -125,15 +125,6 @@
   -webkit-font-smoothing: antialiased;
 }
 
-.material-icons.md-8 { font-size: 8px; }
-.material-icons.md-16 { font-size: 16px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-32 { font-size: 32px; }
-.material-icons.md-40 { font-size: 40px; }
-.material-icons.md-48 { font-size: 48px; }
-.material-icons.md-56 { font-size: 56px; }
-.material-icons.md-64 { font-size: 64px; }
-
 @font-face {
   font-family: 'Material Icons Outlined';
   font-style: normal;
@@ -156,15 +147,6 @@
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
 }
-
-.material-icons-outlined.md-8 { font-size: 8px; }
-.material-icons-outlined.md-16 { font-size: 16px; }
-.material-icons-outlined.md-24 { font-size: 24px; }
-.material-icons-outlined.md-32 { font-size: 32px; }
-.material-icons-outlined.md-40 { font-size: 40px; }
-.material-icons-outlined.md-48 { font-size: 48px; }
-.material-icons-outlined.md-56 { font-size: 56px; }
-.material-icons-outlined.md-64 { font-size: 64px; }
 
 /* fallback */
 @font-face {
@@ -190,15 +172,6 @@
   -webkit-font-smoothing: antialiased;
 }
 
-.material-icons-round.md-8 { font-size: 8px; }
-.material-icons-round.md-16 { font-size: 16px; }
-.material-icons-round.md-24 { font-size: 24px; }
-.material-icons-round.md-32 { font-size: 32px; }
-.material-icons-round.md-40 { font-size: 40px; }
-.material-icons-round.md-48 { font-size: 48px; }
-.material-icons-round.md-56 { font-size: 56px; }
-.material-icons-round.md-64 { font-size: 64px; }
-
 /* fallback */
 @font-face {
   font-family: 'Material Icons Sharp';
@@ -223,15 +196,6 @@
   -webkit-font-smoothing: antialiased;
 }
 
-.material-icons-sharp.md-8 { font-size: 8px; }
-.material-icons-sharp.md-16 { font-size: 16px; }
-.material-icons-sharp.md-24 { font-size: 24px; }
-.material-icons-sharp.md-32 { font-size: 32px; }
-.material-icons-sharp.md-40 { font-size: 40px; }
-.material-icons-sharp.md-48 { font-size: 48px; }
-.material-icons-sharp.md-56 { font-size: 56px; }
-.material-icons-sharp.md-64 { font-size: 64px; }
-
 /* fallback */
 @font-face {
   font-family: 'Material Icons Two Tone';
@@ -255,12 +219,3 @@
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
 }
-
-.material-icons-two-tone.md-8 { font-size: 8px; }
-.material-icons-two-tone.md-16 { font-size: 16px; }
-.material-icons-two-tone.md-24 { font-size: 24px; }
-.material-icons-two-tone.md-32 { font-size: 32px; }
-.material-icons-two-tone.md-40 { font-size: 40px; }
-.material-icons-two-tone.md-48 { font-size: 48px; }
-.material-icons-two-tone.md-56 { font-size: 56px; }
-.material-icons-two-tone.md-64 { font-size: 64px; }

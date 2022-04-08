@@ -4,10 +4,28 @@
 
 Add an play action in the await list.
 
+### Use in app module
+
 ```typescript
 import { addPlayActionInWaitingList } from '@bubble/core'
 
 addPlayActionInWaitingList({
+  start: new Date().getTime(),
+  duration: 10000,
+  importance: 2,
+  memory: {
+    recoverValue: 0.2,
+  },
+})
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('addPlayActionInWaitingList', {
   start: new Date().getTime(),
   duration: 10000,
   importance: 2,
@@ -36,8 +54,19 @@ addPlayActionInWaitingList({
 
 Add an play action in the await list with default values.
 
+### Use in app module
+
 ```typescript
 import { addPlayActionInWaitingListDefault } from '@bubble/core'
 
 addPlayActionInWaitingListDefault()
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('addPlayActionInWaitingListDefault')
 ```
