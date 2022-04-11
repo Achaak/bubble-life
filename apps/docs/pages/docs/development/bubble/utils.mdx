@@ -1,0 +1,44 @@
+# Utils Bubble
+
+## getBubble()
+
+Get bubble state.
+
+## hasActionInWaitingListByName()
+
+Get if the given action is in the await list by name.
+
+```typescript
+import { getBubble } from '@bubble/store'
+
+const { current, waitingList, cancelList } = getBubble()
+```
+
+#### Return value
+
+```
+BubbleState
+```
+
+---
+
+## resetBubble()
+
+Reset actions state.
+
+### Use in app module
+
+```typescript
+import { getBubble } from '@bubble/store'
+
+resetBubble()
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common'
+
+const socket = socket()
+socket.emit('resetBubble')
+```

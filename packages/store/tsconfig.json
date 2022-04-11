@@ -1,8 +1,14 @@
 {
   "extends": "@bubble/tsconfig/base.json",
-  "include": ["**/*.ts"],
-  "exclude": ["node_modules"],
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"],
   "compilerOptions": {
-    "rootDir": "src",
-  }
+    "preserveSymlinks": true,
+    "baseUrl": ".",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
 }

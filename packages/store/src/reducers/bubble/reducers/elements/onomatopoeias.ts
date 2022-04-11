@@ -4,7 +4,7 @@ import type {
   BubbleStateElementsOnomatopoeiaAction,
   BubbleStateElementsOnomatopoeiaItemList,
   BubbleState,
-} from '../../types'
+} from '@bubble/types'
 
 export const addOnomatopoeiaInList = (
   state: BubbleState,

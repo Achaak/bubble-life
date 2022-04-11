@@ -4,7 +4,7 @@ import type {
   BubbleStateElementsClotheAction,
   BubbleStateElementsClotheItemList,
   BubbleState,
-} from '../../types'
+} from '@bubble/types'
 
 export const addClotheInList = (
   state: BubbleState,

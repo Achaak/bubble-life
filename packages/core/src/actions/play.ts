@@ -1,6 +1,6 @@
 import { dateToMs, socket } from '@bubble/common'
 import { random } from '@bubble/common'
-import { BubbleConfig } from '@bubble/configs/bubble'
+import { BubbleConfig } from '@bubble/configs'
 import {
   addActionInWaitingList,
   addHappiness,
@@ -8,21 +8,13 @@ import {
   hasActionByName,
   updateMemoryValue,
 } from '@bubble/store'
-import type { Action as ActionType, SocketEvents } from '@bubble/types'
+import type { Action as ActionType, SocketEvents, AddPlayActionInWaitingList } from '@bubble/types'
 import dayjs from 'dayjs'
 
 import { Action } from '../action'
 
 const HAPPINESS_INCREASE_DELAY = dateToMs({ seconds: 1 })
 
-export type AddPlayActionInWaitingList = {
-  start: number
-  duration: number
-  importance: 1 | 2 | 3
-  memory?: {
-    recoverValue?: number
-  }
-}
 export const addPlayActionInWaitingList = ({
   start,
   duration,

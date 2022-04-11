@@ -1,7 +1,7 @@
 {
   "name": "@bubble/tsconfig",
-  "version": "0.0.0",
-  "private": true,
+  "version": "1.0.0",
+  "author": "Axel Lavoie <axel.lavoi@gmail.com>",
   "main": "index.js",
   "files": [
     "base.json",

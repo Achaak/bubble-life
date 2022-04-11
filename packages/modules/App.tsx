@@ -1,4 +1,4 @@
-import { ModulesConfig } from '@bubble/configs/modules'
+import { ModulesConfig } from '@bubble/configs'
 import { styled } from '@bubble/styles'
 import type { ModulePosition } from '@bubble/types'
 import React, { useEffect, useState } from 'react'

@@ -5,7 +5,7 @@ import type {
   AddPlayActionInWaitingList,
   AddShoppingActionInWaitingList,
   AddSleepActionInWaitingList,
-} from '@bubble/core'
+} from './core'
 import type {
   AddActionInCancelList,
   AddActionInWaitingList,
@@ -23,6 +23,9 @@ import type {
   AddSaturation,
   AddTiredness,
   AddWeight,
+  DeleteMemoryValue,
+  HasActionById,
+  HasActionByName,
   HasActionInCancelListById,
   HasActionInCancelListByName,
   HasActionInCurrentById,
@@ -65,7 +68,8 @@ import type {
   TransferActionFromCancelListToCurrent,
   TransferActionFromWaitingListToCurrent,
   TransferMessageFromWaitingListToCurrent,
-} from '@bubble/store'
+  UpdateMemoryValue,
+} from './store'
 
 export interface CommonEvents {
   newUser: (value: { name: string }) => void
@@ -88,6 +92,13 @@ export interface CommonEvents {
   addSleepActionInWaitingList: (params: AddSleepActionInWaitingList) => void
   addSleepActionInWaitingListDefault: () => void
 
+  // Actions store actions
+  resetActions: () => void
+  hasActionByName: (params: HasActionByName) => void
+  hasActionById: (params: HasActionById) => void
+  updateMemoryValue: (params: UpdateMemoryValue) => void
+  deleteMemoryValue: (params: DeleteMemoryValue) => void
+
   // Actions store actions cancelList
   hasActionInCancelListByName: (params: HasActionInCancelListByName) => void
   hasActionInCancelListById: (params: HasActionInCancelListById) => void
@@ -107,6 +118,9 @@ export interface CommonEvents {
   addActionInWaitingList: (params: AddActionInWaitingList) => void
   removeActionFromWaitingList: (params: RemoveActionFromWaitingList) => void
   transferActionFromWaitingListToCurrent: (params: TransferActionFromWaitingListToCurrent) => void
+
+  // Actions store bubble
+  resetBubble: () => void
 
   // Actions store bubble elements bodies
   addBodyInList: (params: AddBodyInList) => void

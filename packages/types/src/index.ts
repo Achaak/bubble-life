@@ -1,4 +1,6 @@
 export * from './action'
+export * from './core'
+export * from './store'
 export * from './animation'
 export * from './bubble'
 export * from './global'

@@ -4,7 +4,7 @@ import type {
   BubbleStateElementsHatAction,
   BubbleStateElementsHatItemList,
   BubbleState,
-} from '../../types'
+} from '@bubble/types'
 
 export const addHatInList = (
   state: BubbleState,

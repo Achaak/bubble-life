@@ -1,6 +1,6 @@
+import type { BubbleState } from '@bubble/types'
 import { bubbleActions } from '..'
 import { store } from '../../../store'
-import type { BubbleState } from '../types'
 
 export * from './elements'
 export * from './vitals'

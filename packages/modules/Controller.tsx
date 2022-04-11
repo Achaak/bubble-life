@@ -1,4 +1,4 @@
-import { ModulesConfig } from '@bubble/configs/modules'
+import { ModulesConfig } from '@bubble/configs'
 import { useEffect, useState } from 'react'
 
 export const ModuleControllerList = async (): Promise<

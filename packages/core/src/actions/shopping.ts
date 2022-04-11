@@ -1,22 +1,17 @@
 import { dateToMs, socket } from '@bubble/common'
 import { random } from '@bubble/common'
-import { BubbleConfig } from '@bubble/configs/bubble'
+import { BubbleConfig } from '@bubble/configs'
 import {
   addActionInWaitingList,
   addInventoryItem,
   hasActionByName,
   hasInventoryItem,
 } from '@bubble/store'
-import type { SocketEvents } from '@bubble/types'
+import type { SocketEvents, AddShoppingActionInWaitingList } from '@bubble/types'
 import dayjs from 'dayjs'
 
 import { Action } from '../action'
 
-export type AddShoppingActionInWaitingList = {
-  start: number
-  duration: number
-  importance: 1 | 2 | 3
-}
 export const addShoppingActionInWaitingList = ({
   start,
   duration,

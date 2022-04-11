@@ -31,7 +31,8 @@ const persistedReducer = persistReducer(
   })
 )
 
-export const store = configureStore({
+// TODO
+export const store: any = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

@@ -2,5 +2,6 @@
   "elements": "Elements",
   "vitals": "Vitals",
   "animations": "Animations",
-  "inventory": "Inventory"
+  "inventory": "Inventory",
+  "utils": "Utils"
 }

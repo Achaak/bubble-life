@@ -1,7 +1,7 @@
 import type { User } from '@bubble/types'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { initialControllerState } from '../state'
-import type { ControllerState } from '../types'
+import type { ControllerState } from '@bubble/types'
 
 export const resetController = (state: ControllerState): void => {
   for (const key in state) {

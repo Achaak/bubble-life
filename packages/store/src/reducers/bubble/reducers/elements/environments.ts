@@ -4,7 +4,7 @@ import type {
   BubbleStateElementsEnvironmentAction,
   BubbleStateElementsEnvironmentItemList,
   BubbleState,
-} from '../../types'
+} from '@bubble/types'
 
 export const addEnvironmentInList = (
   state: BubbleState,

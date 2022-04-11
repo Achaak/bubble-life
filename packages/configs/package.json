@@ -1,19 +1,28 @@
 {
   "name": "@bubble/configs",
-  "version": "0.0.0",
-  "main": "index.js",
-  "license": "MIT",
+  "version": "1.0.0",
+  "author": "Axel Lavoie <axel.lavoi@gmail.com>",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "files": [
-    "**/*"
+    "dist/**/*"
   ],
-  "dependencies": {
+  "scripts": {
+    "build": "tsup src/*.ts --format esm,cjs --dts",
+    "build:app": "pnpm build",
+    "format": "prettier --write \"**/*.{ts,tsx}\"",
+    "lint": "cross-env TIMING=1 eslint src --fix"
+  },
+  "devDependencies": {
     "@bubble/scripts": "*",
     "@bubble/tsconfig": "*",
     "@bubble/types": "*",
-    "@typescript-eslint/eslint-plugin": "^5.18.0",
-    "@typescript-eslint/parser": "^5.18.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^8.12.0",
+    "@pnpm/sort-packages": "^3.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.19.0",
+    "@typescript-eslint/parser": "^5.19.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.13.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jest": "26.1.4",
@@ -22,6 +31,7 @@
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.4.0",
     "prettier": "^2.6.2",
-    "typescript": "^4.6.3"
+    "tsup": "^5.12.4",
+    "typescript": "^4.5.5"
   }
 }

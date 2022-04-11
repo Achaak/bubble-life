@@ -8,21 +8,10 @@ Get actions state.
 
 Get if the given action is in the await list by name.
 
-### Use in app module
-
 ```typescript
 import { getActions } from '@bubble/store'
 
 const { current, waitingList, cancelList } = getActions()
-```
-
-### Use in controller module
-
-```typescript
-import { socket } from '@bubble/common'
-
-const socket = socket()
-socket.emit('getActions')
 ```
 
 #### Return value

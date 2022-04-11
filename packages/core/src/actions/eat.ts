@@ -1,6 +1,6 @@
 import { dateToMs, socket } from '@bubble/common'
 import { random } from '@bubble/common'
-import { BubbleConfig } from '@bubble/configs/bubble'
+import { BubbleConfig } from '@bubble/configs'
 import {
   addActionInWaitingList,
   addSaturation,
@@ -10,21 +10,13 @@ import {
   removeInventoryItem,
   updateMemoryValue,
 } from '@bubble/store'
-import type { Action as ActionType, SocketEvents } from '@bubble/types'
+import type { Action as ActionType, SocketEvents, AddEatActionInWaitingList } from '@bubble/types'
 import dayjs from 'dayjs'
 
 import { Action } from '../action'
 
 const SATURATION_INCREASE_DELAY = dateToMs({ seconds: 1 })
 
-export type AddEatActionInWaitingList = {
-  start: number
-  duration: number
-  importance: 1 | 2 | 3
-  memory?: {
-    recoverValue?: number
-  }
-}
 export const addEatActionInWaitingList = ({
   start,
   duration,

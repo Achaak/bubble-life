@@ -1,5 +1,5 @@
 import { dateToMs } from '@bubble/common'
-import { BubbleConfig } from '@bubble/configs/bubble'
+import { BubbleConfig } from '@bubble/configs'
 import { removeHealth } from '@bubble/store'
 
 import { Vital } from './vital'

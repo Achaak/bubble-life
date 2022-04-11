@@ -1,4 +1,4 @@
-import type { ControllerState } from './types'
+import type { ControllerState } from '@bubble/types'
 
 export const initialControllerState: ControllerState = {
   name: 'Controller',
