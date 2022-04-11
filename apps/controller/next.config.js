@@ -5,9 +5,6 @@ const withTM = require('next-transpile-modules')([
   '@bubble/types',
   '@bubble/styles',
   '@bubble/translate',
-  '@bubble/core',
-  '@bubble/store',
-  '@bubble/configs',
   '@bubble/modules',
   '@bubble/common',
 ])

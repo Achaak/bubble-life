@@ -1,6 +1,6 @@
-import type { InventoryItem } from '@bubble/types/src/inventory'
+import type { InventoryItem } from '@bubble/types'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import type { BubbleState } from '../types'
+import type { BubbleState } from '@bubble/types'
 
 export const addInventoryItem = (
   state: BubbleState,

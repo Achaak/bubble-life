@@ -1,4 +1,4 @@
-import { BubbleConfig } from '@bubble/configs/bubble'
+import { BubbleConfig } from '@bubble/configs'
 import { useAppSelector } from '@bubble/store'
 import { selectName, selectVitals } from '@bubble/store'
 import { styled } from '@bubble/styles'

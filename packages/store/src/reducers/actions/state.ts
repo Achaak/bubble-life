@@ -1,4 +1,4 @@
-import type { ActionsState } from './types'
+import type { ActionsState } from '@bubble/types'
 
 export const initialActionsState: ActionsState = {
   waitingList: [],

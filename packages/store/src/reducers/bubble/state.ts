@@ -1,5 +1,5 @@
-import { BubbleConfig } from '@bubble/configs/bubble'
-import type { BubbleState } from './types'
+import { BubbleConfig } from '@bubble/configs'
+import type { BubbleState } from '@bubble/types'
 
 export const initialBubbleState: BubbleState = {
   name: 'Bubble',

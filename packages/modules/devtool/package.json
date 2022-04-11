@@ -1,8 +1,8 @@
 {
   "name": "bbl-devtool",
   "version": "1.0.0",
+  "author": "Axel Lavoie <axel.lavoi@gmail.com>",
   "description": "",
-  "author": "",
   "repository": {
     "type": "git",
     "url": ""

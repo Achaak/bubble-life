@@ -1,6 +1,6 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { initialBubbleState } from '../state'
-import type { BubbleAnimationAction, BubbleAnimationItemList, BubbleState } from '../types'
+import type { BubbleAnimationAction, BubbleAnimationItemList, BubbleState } from '@bubble/types'
 
 export const resetAnimation = (state: BubbleState): void => {
   state.animation = initialBubbleState.animation

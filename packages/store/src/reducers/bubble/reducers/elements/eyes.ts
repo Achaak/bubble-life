@@ -4,7 +4,7 @@ import type {
   BubbleStateElementsEyesAction,
   BubbleStateElementsEyesItemList,
   BubbleState,
-} from '../../types'
+} from '@bubble/types'
 
 export const addEyesInList = (
   state: BubbleState,

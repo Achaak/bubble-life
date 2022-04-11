@@ -4,7 +4,7 @@ import type {
   BubbleStateElementsBodyAction,
   BubbleStateElementsBodyItemList,
   BubbleState,
-} from '../../types'
+} from '@bubble/types'
 
 export const addBodyInList = (
   state: BubbleState,

@@ -1,9 +1,15 @@
 import { actionsActions } from '..'
 import { store } from '../../../store'
-import type { ActionsState } from '../types'
 import { hasActionInWaitingListById, hasActionInWaitingListByName } from './waitingList'
 import { hasActionInCancelListById, hasActionInCancelListByName } from './cancelList'
 import { hasActionInCurrentById, hasActionInCurrentByName } from './current'
+import type {
+  DeleteMemoryValue,
+  HasActionById,
+  HasActionByName,
+  UpdateMemoryValue,
+  ActionsState,
+} from '@bubble/types'
 
 export * from './cancelList'
 export * from './current'
@@ -15,7 +21,7 @@ export const resetActions = (): void => {
   store.dispatch(actionsActions.resetActions())
 }
 
-export const hasActionByName = ({ name }: { name: string }): boolean => {
+export const hasActionByName = ({ name }: HasActionByName): boolean => {
   return (
     hasActionInWaitingListByName({ name }) ||
     hasActionInCurrentByName({ name }) ||
@@ -23,7 +29,7 @@ export const hasActionByName = ({ name }: { name: string }): boolean => {
   )
 }
 
-export const hasActionById = ({ id }: { id: string }): boolean => {
+export const hasActionById = ({ id }: HasActionById): boolean => {
   return (
     hasActionInWaitingListById({ id }) ||
     hasActionInCurrentById({ id }) ||
@@ -31,24 +37,10 @@ export const hasActionById = ({ id }: { id: string }): boolean => {
   )
 }
 
-export const updateMemoryValue = ({
-  memoryId,
-  actionId,
-  value,
-}: {
-  memoryId: string
-  actionId: string
-  value: unknown
-}): void => {
+export const updateMemoryValue = ({ memoryId, actionId, value }: UpdateMemoryValue): void => {
   store.dispatch(actionsActions.updateMemoryValue({ memoryId, actionId, value }))
 }
 
-export const deleteMemoryValue = ({
-  memoryId,
-  actionId,
-}: {
-  memoryId: string
-  actionId: string
-}): void => {
+export const deleteMemoryValue = ({ memoryId, actionId }: DeleteMemoryValue): void => {
   store.dispatch(actionsActions.deleteMemoryValue({ memoryId, actionId }))
 }

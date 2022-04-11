@@ -1,7 +1,7 @@
 import type { Message } from '@bubble/types'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import shortid from 'shortid'
-import type { BubbleState } from '../../types'
+import type { BubbleState } from '@bubble/types'
 
 export const addMessageInWaitingList = (
   state: BubbleState,

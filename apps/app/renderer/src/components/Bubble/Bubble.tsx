@@ -1,5 +1,5 @@
-import { BubbleConfig } from '@bubble/configs/bubble'
-import { GlobalConfig } from '@bubble/configs/global'
+import { BubbleConfig } from '@bubble/configs'
+import { GlobalConfig } from '@bubble/configs'
 import { addPlayActionInWaitingList } from '@bubble/core/src/actions/play'
 import { useAppSelector } from '@bubble/store'
 import { selectVitals } from '@bubble/store'

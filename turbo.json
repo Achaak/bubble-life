@@ -4,16 +4,25 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"]
     },
+    "build:app": {
+      "outputs": ["dist/**", ".next/**"]
+    },
     "lint": {
       "outputs": []
     },
     "start": {
       "outputs": []
     },
+    "start:app": {
+      "outputs": []
+    },
     "format": {
       "outputs": []
     },
     "dev": {
+      "cache": false
+    },
+    "dev:app": {
       "cache": false
     }
   }

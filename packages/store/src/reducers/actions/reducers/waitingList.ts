@@ -1,6 +1,5 @@
-import type { Action } from '@bubble/types'
+import type { Action, ActionsState } from '@bubble/types'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import type { ActionsState } from '../types'
 import shortid from 'shortid'
 
 export const addActionInWaitingList = (

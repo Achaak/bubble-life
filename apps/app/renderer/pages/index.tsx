@@ -1,4 +1,4 @@
-import { GlobalConfig } from '@bubble/configs/global'
+import { GlobalConfig } from '@bubble/configs'
 import { AppModules } from '@bubble/modules'
 import { styled } from '@bubble/styles'
 import { Bubble } from '@src/components/Bubble'

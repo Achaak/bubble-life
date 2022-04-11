@@ -1,5 +1,5 @@
+import type { ActionsState } from '@bubble/types'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import type { ActionsState } from '../types'
 import { initialActionsState } from '../state'
 
 export * from './cancelList'

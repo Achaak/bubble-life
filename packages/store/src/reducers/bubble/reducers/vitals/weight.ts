@@ -1,6 +1,6 @@
-import { BubbleConfig } from '@bubble/configs/bubble'
+import { BubbleConfig } from '@bubble/configs'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import type { BubbleState } from '../../types'
+import type { BubbleState } from '@bubble/types'
 
 export const setWeight = (state: BubbleState, action: PayloadAction<{ value: number }>): void => {
   if (action.payload.value < BubbleConfig.vitals.weight.min) {

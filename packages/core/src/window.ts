@@ -38,7 +38,7 @@ import type {
   BubbleStateElementsOnomatopoeiaItemList,
   ActionsState,
   BubbleState,
-} from '@bubble/store'
+} from '@bubble/types'
 
 declare global {
   interface Window {

@@ -1,4 +1,4 @@
-import { GlobalConfig } from '@bubble/configs/global'
+import { GlobalConfig } from '@bubble/configs'
 import { styled } from '@bubble/styles'
 import dayjs from 'dayjs'
 import 'dayjs/locale'

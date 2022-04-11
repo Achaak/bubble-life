@@ -1,4 +1,4 @@
-import { GlobalConfig } from '@bubble/configs/global'
+import { GlobalConfig } from '@bubble/configs'
 import type { BrowserWindowConstructorOptions } from 'electron'
 import { BrowserWindow, screen } from 'electron'
 import Store from 'electron-store'
