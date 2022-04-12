@@ -6,6 +6,7 @@ const withTM = require('next-transpile-modules')([
   '@bubble/styles',
   '@bubble/translate',
   '@bubble/modules',
+  '@bubble/store',
   '@bubble/common',
 ])
 const withBundleAnalyzer = require('@next/bundle-analyzer')({

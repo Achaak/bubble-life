@@ -17,7 +17,6 @@
   "devDependencies": {
     "@bubble/scripts": "*",
     "@bubble/tsconfig": "*",
-    "@bubble/types": "*",
     "@pnpm/sort-packages": "^3.0.0",
     "@reduxjs/toolkit": "^1.8.1",
     "@types/node": "^17.0.23",
@@ -39,6 +38,7 @@
   },
   "dependencies": {
     "@bubble/configs": "*",
+    "@bubble/types": "*",
     "react-redux": "^7.2.8",
     "shortid": "^2.2.16"
   }
