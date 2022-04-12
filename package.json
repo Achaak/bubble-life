@@ -6,13 +6,13 @@
   "license": "MIT",
   "workspaces": [
     "apps/*",
-    "packages/*"
+    "packages/**/*"
   ],
   "scripts": {
     "start": "turbo run start",
     "start:app": "turbo run start:app",
     "build": "turbo run build",
-    "build:app": "turbo run build:app",
+    "build:app": "turbo run build --filter=!@bubble/docs --filter=!@bubble/storybook",
     "dev": "turbo run dev",
     "dev:app": "turbo run dev:app",
     "lint": "turbo run lint",
@@ -24,5 +24,6 @@
   "engines": {
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
-  }
+  },
+  "packageManager": "pnpm@6.32.6"
 }

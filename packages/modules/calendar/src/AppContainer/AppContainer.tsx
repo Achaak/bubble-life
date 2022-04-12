@@ -29,13 +29,13 @@ interface CustomProps {
   dateFormat: string
 }
 
-export const Container: React.FC<CustomProps> = ({ dateFormat }: CustomProps) => {
+export const AppContainer: React.FC<CustomProps> = ({ dateFormat }: CustomProps) => {
   const [loaded, setLoaded] = useState(false)
   const [timer, setTimer] = useState<string | null>(null)
   const [date, setDate] = useState<string | null>(null)
 
   const convertToLocale = async (date: Date, locale: string): Promise<dayjs.Dayjs> => {
-    await require(`dayjs/locale/${locale}.js`)
+    await import(`dayjs/locale/${locale}.js`)
 
     return dayjs(date).locale(locale)
   }

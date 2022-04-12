@@ -5,10 +5,6 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"]
     },
-    "build:app": {
-      "dependsOn": ["^build:app"],
-      "outputs": ["dist/**", ".next/**"]
-    },
     "lint": {
       "outputs": []
     },

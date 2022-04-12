@@ -9,14 +9,13 @@
     "dist/**/*"
   ],
   "scripts": {
-    "build": "tsup src/*.ts --format esm,cjs --dts",
-    "build:app": "pnpm build",
+    "build": "tsup",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "lint": "cross-env TIMING=1 eslint src --fix"
   },
   "devDependencies": {
-    "@bubble/scripts": "*",
-    "@bubble/tsconfig": "*",
+    "@bubble/scripts": "workspace:*",
+    "@bubble/tsconfig": "workspace:*",
     "@pnpm/sort-packages": "^3.0.0",
     "@reduxjs/toolkit": "^1.8.1",
     "@types/node": "^17.0.23",
@@ -37,8 +36,8 @@
     "typescript": "^4.5.5"
   },
   "dependencies": {
-    "@bubble/configs": "*",
-    "@bubble/types": "*",
+    "@bubble/configs": "workspace:*",
+    "@bubble/types": "workspace:*",
     "react-redux": "^7.2.8",
     "shortid": "^2.2.16"
   }

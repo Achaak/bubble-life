@@ -66,11 +66,11 @@ export const AppModules: React.FC = () => {
 
     for (const moduleConfig of modulesConfig) {
       try {
-        const { default: ModuleContent } = await require(`./${moduleConfig.name}/App`)
+        const { AppContainer } = await require(`./../${moduleConfig.name}/dist/index`)
 
         modulesDOM.push(
           <Module key={moduleConfig.name}>
-            <ModuleContent {...moduleConfig.config} />
+            <AppContainer {...moduleConfig.config} />
           </Module>
         )
       } catch {

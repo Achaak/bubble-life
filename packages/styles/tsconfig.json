@@ -1,5 +1,5 @@
 {
-  "extends": "@bubble/tsconfig/react-library.json",
+  "extends": "@bubble/tsconfig/package-react.json",
   "include": ["src"],
   "exclude": ["node_modules", "dist"],
   "compilerOptions": {

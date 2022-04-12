@@ -22,7 +22,7 @@ const MenuIcon = styled('div', {
   justifyContent: 'center',
 })
 
-export const Container: React.FC = () => {
+export const AppContainer: React.FC = () => {
   const [isActionsOpen, setIsActionsOpen] = useState(false)
   const [isStatsOpen, setIsStatsOpen] = useState(false)
   const [isInventoryOpen, setIsInventoryOpen] = useState(false)

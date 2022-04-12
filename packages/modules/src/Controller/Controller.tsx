@@ -14,7 +14,7 @@ export const ModuleControllerList = async (): Promise<
 
   for (const moduleConfig of ModulesConfig) {
     try {
-      const { Config } = await require(`./${moduleConfig.name}/Controller`)
+      const { Config } = await require(`./../${moduleConfig.name}/dist/index`)
 
       ModulesConfigList.push(Config)
     } catch {
@@ -34,9 +34,9 @@ export const ControllerModule: React.FC<ControllerModuleProps> = ({ name }) => {
   useEffect(() => {
     const initContainer = async (): Promise<void> => {
       try {
-        const { default: ModuleContent } = await require(`./${name}/Controller`)
+        const { ControllerContainer } = await require(`./../${name}/dist/index`)
 
-        setContainer(<ModuleContent />)
+        setContainer(<ControllerContainer />)
       } catch {
         // ignore
       }

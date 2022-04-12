@@ -1,7 +1,6 @@
 import { resetActions, resetBubble } from '@bubble/store'
 import { styled } from '@bubble/styles'
 import { Button } from '@bubble/ui'
-import 'dayjs/locale'
 import React from 'react'
 
 const ContainerDOM = styled('div', {
@@ -10,7 +9,7 @@ const ContainerDOM = styled('div', {
   customRowGap: 16,
 })
 
-export const Container: React.FC = () => {
+export const AppContainer: React.FC = () => {
   const handleResetBubble = (): void => {
     console.log('[Reset bubble]')
     resetBubble()
