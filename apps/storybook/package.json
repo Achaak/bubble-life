@@ -22,9 +22,9 @@
     ]
   },
   "dependencies": {
-    "@bubble/styles": "*",
-    "@bubble/translate": "*",
-    "@bubble/ui": "*",
+    "@bubble/styles": "workspace:*",
+    "@bubble/translate": "workspace:*",
+    "@bubble/ui": "workspace:*",
     "http-server": "^14.1.0",
     "react": "18.0.0",
     "react-dom": "18.0.0",
@@ -32,8 +32,8 @@
     "webpack-cli": "^4.9.2"
   },
   "devDependencies": {
-    "@bubble/scripts": "*",
-    "@bubble/tsconfig": "*",
+    "@bubble/scripts": "workspace:*",
+    "@bubble/tsconfig": "workspace:*",
     "@storybook/addon-docs": "^6.4.21",
     "@storybook/addon-essentials": "^6.4.21",
     "@storybook/addon-storyshots": "^6.4.21",

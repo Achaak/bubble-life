@@ -4,7 +4,7 @@ import { ItemButton } from '@bubble/ui'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 
-const Container = styled('div', {
+export const Container = styled('div', {
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'center',

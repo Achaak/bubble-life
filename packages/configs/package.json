@@ -9,14 +9,13 @@
     "dist/**/*"
   ],
   "scripts": {
-    "build": "tsup src/*.ts --format esm,cjs --dts",
-    "build:app": "pnpm build",
+    "build": "tsup",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "lint": "cross-env TIMING=1 eslint src --fix"
   },
   "devDependencies": {
-    "@bubble/scripts": "*",
-    "@bubble/tsconfig": "*",
+    "@bubble/scripts": "workspace:*",
+    "@bubble/tsconfig": "workspace:*",
     "@pnpm/sort-packages": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^5.19.0",
     "@typescript-eslint/parser": "^5.19.0",

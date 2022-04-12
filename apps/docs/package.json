@@ -12,7 +12,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@bubble/styles": "*",
+    "@bubble/styles": "workspace:*",
     "next": "12.1.4",
     "nextra": "^2.0.0-alpha.48",
     "nextra-theme-docs": "^2.0.0-alpha.48",
@@ -20,8 +20,8 @@
     "react-dom": "18.0.0"
   },
   "devDependencies": {
-    "@bubble/scripts": "*",
-    "@bubble/tsconfig": "*",
+    "@bubble/scripts": "workspace:*",
+    "@bubble/tsconfig": "workspace:*",
     "@next/eslint-plugin-next": "12.1.4",
     "@types/node": "^17.0.23",
     "@types/react": "^18.0.1",

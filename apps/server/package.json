@@ -5,7 +5,6 @@
   "main": "./dist/index.js",
   "scripts": {
     "build": "tsup ./src/index.ts",
-    "build:app": "pnpm build",
     "start": "node ./dist/index.js",
     "start:app": "pnpm start",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
@@ -14,12 +13,12 @@
     "dev:app": "pnpm dev"
   },
   "dependencies": {
-    "@bubble/types": "*",
+    "@bubble/types": "workspace:*",
     "socket.io": "^4.4.1"
   },
   "devDependencies": {
-    "@bubble/scripts": "*",
-    "@bubble/tsconfig": "*",
+    "@bubble/scripts": "workspace:*",
+    "@bubble/tsconfig": "workspace:*",
     "@types/node": "^17.0.23",
     "@types/react": "^18.0.1",
     "@typescript-eslint/eslint-plugin": "^5.19.0",
