@@ -3,12 +3,13 @@ import { StorePersistGate, StoreProvider } from '@bubble/store'
 import { persistor, store } from '@bubble/store/src/store'
 import { globalStyles } from '@bubble/styles'
 import type { Locales } from '@bubble/translate'
-import { detectLocale, TypesafeI18n } from '@bubble/translate'
-import { loadLocaleAsync } from '@bubble/translate/dist/i18n/i18n-util.async'
+import { detectLocale, TypesafeI18n, i18nUtilsAsync } from '@bubble/translate'
 import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import React, { useEffect, useState } from 'react'
+
+const { loadLocaleAsync } = i18nUtilsAsync
 
 export type NextPageWithLayout<T extends Record<string, unknown> = Record<string, unknown>> =
   NextPage<T> & {
