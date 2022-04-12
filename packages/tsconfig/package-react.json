@@ -3,6 +3,6 @@
   "display": "Package React",
   "extends": "./package-default.json",
   "compilerOptions": {
-    "jsx": "preserve"
+    "jsx": "react-jsx"
   }
 }

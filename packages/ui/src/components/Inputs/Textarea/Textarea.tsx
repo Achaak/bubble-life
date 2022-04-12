@@ -1,8 +1,8 @@
-import { Text } from '../../../components/Text'
 import type { CSS } from '@bubble/styles'
 import { styled } from '@bubble/styles'
 import * as LabelPrimitive from '@radix-ui/react-label'
 import { useState } from 'react'
+import { Text } from '../../Text'
 
 const Container = styled('div', {
   variants: {
@@ -134,7 +134,7 @@ export const Textarea: React.FC<TextareaProps> = ({
 }) => {
   const [isFocus, setIsFocus] = useState(false)
 
-  const onChangeTextarea = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
+  const onChangeTextarea: React.ChangeEventHandler<HTMLTextAreaElement> = (e) => {
     if (setFieldValue && id) {
       setFieldValue(id, e.target.value)
     }
