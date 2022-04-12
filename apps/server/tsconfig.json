@@ -1,5 +1,5 @@
 {
-  "extends": "@bubble/tsconfig/base.json",
+  "extends": "@bubble/tsconfig/package-default.json",
   "compilerOptions": {
     "downlevelIteration": true,
     "baseUrl": ".",
@@ -9,4 +9,6 @@
       ],
     }
   },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"],
 }

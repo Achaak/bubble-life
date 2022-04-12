@@ -11,16 +11,10 @@
     "start": {
       "outputs": []
     },
-    "start:app": {
-      "outputs": []
-    },
     "format": {
       "outputs": []
     },
     "dev": {
-      "cache": false
-    },
-    "dev:app": {
       "cache": false
     }
   }

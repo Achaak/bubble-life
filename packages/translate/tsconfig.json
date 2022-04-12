@@ -1,7 +1,5 @@
 {
-  "extends": "@bubble/tsconfig/base.json",
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"],
+  "extends": "@bubble/tsconfig/package-default.json",
   "compilerOptions": {
     "module": "commonjs",
     "baseUrl": ".",
@@ -11,5 +9,7 @@
     "paths": {
       "@/*": ["./*"]
     }
-  }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"],
 }

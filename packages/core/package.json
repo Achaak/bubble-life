@@ -29,14 +29,14 @@
     "eslint-plugin-react": "7.29.4",
     "eslint-plugin-react-hooks": "4.4.0",
     "prettier": "2.6.2",
-    "tsup": "^5.12.4",
+    "tsup": "^5.12.5",
     "typescript": "^4.5.5"
   },
   "dependencies": {
     "@bubble/common": "workspace:*",
     "@bubble/configs": "workspace:*",
-    "@bubble/types": "workspace:*",
     "@bubble/store": "workspace:*",
+    "@bubble/types": "workspace:*",
     "animejs": "^3.2.1",
     "dayjs": "^1.11.0",
     "shortid": "^2.2.16"

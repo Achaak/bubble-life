@@ -1,7 +1,5 @@
 {
   "extends": "@bubble/tsconfig/nextjs.json",
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"],
-  "exclude": ["node_modules"],
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": ".",
@@ -10,5 +8,7 @@
         "./src/*"
       ]
     }
-  }
+  },
+  "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules"],
 }
