@@ -174,7 +174,7 @@ export const Textfield: React.FC<TextfieldProps> = ({
   const [isFocus, setIsFocus] = useState(false)
   const ref = useRef<HTMLInputElement>(null)
 
-  const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  const onChangeInput: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     if (type === 'number' && ref.current) {
       const value = parseInt(e.target.value)
 
