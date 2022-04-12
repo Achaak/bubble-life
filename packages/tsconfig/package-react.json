@@ -4,6 +4,5 @@
   "extends": "./package-default.json",
   "compilerOptions": {
     "jsx": "preserve"
-  },
-  "include": ["src"]
+  }
 }

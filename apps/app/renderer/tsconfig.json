@@ -2,8 +2,8 @@
   "extends": "../tsconfig.json",
   "include": [
     "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
+    "src/**/*.ts",
+    "src/**/*.tsx"
 , "../../../packages/common/src/date.ts"  ],
   "exclude": [
     "node_modules"
