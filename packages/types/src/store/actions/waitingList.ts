@@ -1,4 +1,4 @@
-import type { Action } from '@/src/action'
+import type { Action } from '@/src/action.js'
 
 export type HasActionInWaitingListByName = { name: string }
 

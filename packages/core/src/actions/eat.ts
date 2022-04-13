@@ -13,7 +13,7 @@ import {
 import type { Action as ActionType, SocketEvents, AddEatActionInWaitingList } from '@bubble/types'
 import dayjs from 'dayjs'
 
-import { Action } from '../action'
+import { Action } from '../action.js'
 
 const SATURATION_INCREASE_DELAY = dateToMs({ seconds: 1 })
 

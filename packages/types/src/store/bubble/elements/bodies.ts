@@ -1,4 +1,4 @@
-import type { BubbleStateElementsBodyAction, BubbleStateElementsBodyItemList } from '../types'
+import type { BubbleStateElementsBodyAction, BubbleStateElementsBodyItemList } from '../types.js'
 
 export type AddBodyInList = BubbleStateElementsBodyItemList
 

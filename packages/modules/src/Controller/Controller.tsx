@@ -14,11 +14,11 @@ export const ModuleControllerList = async (): Promise<
 
   for (const moduleConfig of ModulesConfig) {
     try {
-      const { Config } = await require(`./../${moduleConfig.name}/dist/index`)
+      const { Config } = await import(moduleConfig.name)
 
       ModulesConfigList.push(Config)
     } catch {
-      // ignore
+      console.log(`Module ${moduleConfig.name} not found`)
     }
   }
 
@@ -34,11 +34,11 @@ export const ControllerModule: React.FC<ControllerModuleProps> = ({ name }) => {
   useEffect(() => {
     const initContainer = async (): Promise<void> => {
       try {
-        const { ControllerContainer } = await require(`./../${name}/dist/index`)
+        const { ControllerContainer } = await import(name)
 
         setContainer(<ControllerContainer />)
       } catch {
-        // ignore
+        console.log(`Module ${name} not found`)
       }
     }
 

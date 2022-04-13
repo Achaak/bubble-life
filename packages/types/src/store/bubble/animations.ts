@@ -1,4 +1,4 @@
-import type { BubbleAnimationAction, BubbleAnimationItemList } from './types'
+import type { BubbleAnimationAction, BubbleAnimationItemList } from './types.js'
 
 export type AddAnimationInList = BubbleAnimationItemList
 

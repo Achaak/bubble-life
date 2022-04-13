@@ -1,5 +1,5 @@
-import type { TextProps } from '@bubble/ui/src/components/Text'
-import { Text, TextComponentType, TextVariantType } from '@bubble/ui/src/components/Text'
+import type { TextProps } from '@bubble/ui'
+import { Text, TextComponentType, TextVariantType } from '@bubble/ui'
 import { globalStyles, styled } from '@bubble/styles'
 import type { Story, Meta } from '@storybook/react'
 

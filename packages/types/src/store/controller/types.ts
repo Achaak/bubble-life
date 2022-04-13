@@ -1,4 +1,4 @@
-import type { User } from '@/src/user'
+import type { User } from '@/src/user.js'
 
 export interface ControllerState {
   name: string

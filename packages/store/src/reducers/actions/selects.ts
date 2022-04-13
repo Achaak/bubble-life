@@ -1,5 +1,5 @@
 import type { Action } from '@bubble/types'
-import type { RootState } from '../../store'
+import type { RootState } from '../../store.js'
 
 export const selectActionWaitingList = (state: RootState): Action[] => state.actions.waitingList
 export const selectActionCancelList = (state: RootState): Action[] => state.actions.cancelList

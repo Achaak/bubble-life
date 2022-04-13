@@ -1,13 +1,13 @@
-import { ActionEat } from './eat'
-import { ActionNap } from './nap'
-import { ActionPlay } from './play'
-import { ActionShopping } from './shopping'
-import { ActionSleep } from './sleep'
+import { ActionEat } from './eat.js'
+import { ActionNap } from './nap.js'
+import { ActionPlay } from './play.js'
+import { ActionShopping } from './shopping.js'
+import { ActionSleep } from './sleep.js'
 
-export * from './eat'
-export * from './nap'
-export * from './play'
-export * from './shopping'
-export * from './sleep'
+export * from './eat.js'
+export * from './nap.js'
+export * from './play.js'
+export * from './shopping.js'
+export * from './sleep.js'
 
 export const ActionsList = [ActionEat, ActionSleep, ActionNap, ActionShopping, ActionPlay]

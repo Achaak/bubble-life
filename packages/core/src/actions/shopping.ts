@@ -10,7 +10,7 @@ import {
 import type { SocketEvents, AddShoppingActionInWaitingList } from '@bubble/types'
 import dayjs from 'dayjs'
 
-import { Action } from '../action'
+import { Action } from '../action.js'
 
 export const addShoppingActionInWaitingList = ({
   start,

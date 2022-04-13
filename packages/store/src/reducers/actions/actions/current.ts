@@ -3,9 +3,9 @@ import type {
   HasActionInCurrentByName,
   SetCurrentAction,
 } from '@bubble/types'
-import { getActions } from '.'
-import { actionsActions } from '..'
-import { store } from '../../../store'
+import { getActions } from './index.js'
+import { actionsActions } from '../index.js'
+import { store } from '../../../store.js'
 
 export const setCurrentAction = (action: SetCurrentAction): void => {
   store.dispatch(actionsActions.setCurrentAction(action))

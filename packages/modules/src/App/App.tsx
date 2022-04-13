@@ -66,7 +66,7 @@ export const AppModules: React.FC = () => {
 
     for (const moduleConfig of modulesConfig) {
       try {
-        const { AppContainer } = await require(`./../${moduleConfig.name}/dist/index`)
+        const { AppContainer } = await require(moduleConfig.name)
 
         modulesDOM.push(
           <Module key={moduleConfig.name}>
@@ -74,7 +74,7 @@ export const AppModules: React.FC = () => {
           </Module>
         )
       } catch {
-        // ignore
+        console.log(`Module ${moduleConfig.name} not found`)
       }
     }
 

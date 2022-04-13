@@ -1,6 +1,7 @@
 {
+  "$schema": "https://json.schemastore.org/nodemon.json",
   "watch": ["src"],
   "ext": "ts,json",
   "ignore": ["src/**/*.spec.ts"],
-  "exec": "yarn dlx ts-node ./src/index.ts"
+  "exec": "pnpm build && node ./dist/index.js"
 }

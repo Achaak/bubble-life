@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Server",
+  "extends": "./base.json",
+  "compilerOptions": {
+    "target": "ES5",
+    "lib": ["ESNext"],
+    "module": "ESNext",
+    "allowJs": true,
+    "noEmit": true,
+    "incremental": true
+  }
+}

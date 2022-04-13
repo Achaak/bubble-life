@@ -16,7 +16,8 @@
     "dev": "turbo run dev",
     "dev:app": "turbo run dev --filter=!@bubble/docs --filter=!@bubble/storybook",
     "lint": "turbo run lint",
-    "format": "turbo run format"
+    "format": "turbo run format",
+    "clean": "turbo run clean && rm -rf node_modules"
   },
   "devDependencies": {
     "turbo": "^1.2.2"

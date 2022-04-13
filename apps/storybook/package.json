@@ -7,7 +7,8 @@
     "dev": "start-storybook -p 6006",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "lint": "cross-env TIMING=1 eslint \"./**/*.{ts,tsx,json}\" --fix",
-    "start": "http-server ./storybook-static"
+    "start": "http-server ./storybook-static",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf storybook-static"
   },
   "eslintConfig": {
     "overrides": [
@@ -34,7 +35,6 @@
   "devDependencies": {
     "@bubble/scripts": "workspace:*",
     "@bubble/tsconfig": "workspace:*",
-    "@storybook/addon-docs": "^6.4.21",
     "@storybook/addon-essentials": "^6.4.21",
     "@storybook/addon-storyshots": "^6.4.21",
     "@storybook/addon-storysource": "^6.4.21",
@@ -42,7 +42,6 @@
     "@storybook/cli": "^6.4.21",
     "@storybook/components": "^6.4.21",
     "@storybook/manager-webpack5": "^6.4.21",
-    "@storybook/preset-create-react-app": "^4.1.0",
     "@storybook/react": "^6.4.21",
     "@storybook/theming": "^6.4.21",
     "@types/node": "^17.0.23",

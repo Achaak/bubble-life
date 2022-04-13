@@ -2,26 +2,26 @@
 /* eslint-disable */
 
 import { initFormatters } from './formatters'
-import type { Locales, Translations } from './i18n-types'
+import type { Locales, Translations } from './i18n-types.js'
 import { loadedFormatters, loadedLocales, locales } from './i18n-util'
 
-import en from './en'
-import fr from './fr'
+import en from './en/index.js'
+import fr from './fr/index.js'
 
 const localeTranslations = {
-  en,
-  fr,
+	en,
+	fr,
 }
 
-export const loadLocale = (locale: Locales) => {
-  if (loadedLocales[locale]) return
+export const loadLocale = (locale: Locales): void => {
+	if (loadedLocales[locale]) return
 
-  loadedLocales[locale] = localeTranslations[locale] as unknown as Translations
-  loadFormatters(locale)
+	loadedLocales[locale] = localeTranslations[locale] as unknown as Translations
+	loadFormatters(locale)
 }
 
-export const loadAllLocales = () => locales.forEach(loadLocale)
+export const loadAllLocales = (): void => locales.forEach(loadLocale)
 
-export const loadFormatters = (locale: Locales) => {
-  loadedFormatters[locale] = initFormatters(locale)
+export const loadFormatters = (locale: Locales): void => {
+	loadedFormatters[locale] = initFormatters(locale)
 }

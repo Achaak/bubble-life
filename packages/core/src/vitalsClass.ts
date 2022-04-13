@@ -22,8 +22,8 @@ import {
   setWeight,
 } from '@bubble/store'
 import type { SocketEvents } from '@bubble/types'
-import { VitalsList } from './vitals'
-import type { Vital } from './vitals/vital'
+import { VitalsList } from './vitals/index.js'
+import type { Vital } from './vitals/vital.js'
 
 export class Vitals {
   vitals: {

@@ -1,5 +1,5 @@
 {
-  "extends": "@bubble/tsconfig/nextjs.json",
+  "extends": "@bubble/tsconfig/storybook.json",
   "compilerOptions": {
     "rootDir": ".",
     "baseUrl": ".",
@@ -9,6 +9,6 @@
       ]
     }
   },
-  "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"],
 }

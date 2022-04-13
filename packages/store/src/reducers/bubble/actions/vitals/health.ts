@@ -1,6 +1,6 @@
 import type { AddHealth, RemoveHealth, SetHealth } from '@bubble/types'
-import { bubbleActions } from '../..'
-import { store } from '../../../../store'
+import { bubbleActions } from '../../index.js'
+import { store } from '../../../../store.js'
 
 export const setHealth = (value: SetHealth): void => {
   store.dispatch(bubbleActions.setHealth(value))

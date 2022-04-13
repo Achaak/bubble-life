@@ -2,7 +2,7 @@ import type { CSS } from '@bubble/styles'
 import { styled } from '@bubble/styles'
 import * as LabelPrimitive from '@radix-ui/react-label'
 import { useState } from 'react'
-import { Text } from '../../Text'
+import { Text } from '../../Text/index.js'
 import React from 'react'
 
 const Container = styled('div', {

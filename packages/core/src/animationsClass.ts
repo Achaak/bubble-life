@@ -10,8 +10,8 @@ import type { Animation, AnimationConfig, SocketEvents } from '@bubble/types'
 import anime from 'animejs'
 import { getMaxImportantItemInList, socket } from '@bubble/common'
 
-import { AnimationList } from './animations'
-import { AnimationDefault } from './animations/default'
+import { AnimationList } from './animations/index.js'
+import { AnimationDefault } from './animations/default.js'
 
 export class Animations {
   currentAnimation: AnimationConfig | null

@@ -1,4 +1,4 @@
-import type { Message } from '@/src/message'
+import type { Message } from '@/src/message.js'
 
 export type SetCurrentMessage = Message
 
