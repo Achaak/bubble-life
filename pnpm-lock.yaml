@@ -223,7 +223,6 @@ importers:
       '@bubble/tsconfig': workspace:*
       '@bubble/types': workspace:*
       '@types/node': ^17.0.23
-      '@types/react': 18.0.1
       '@typescript-eslint/eslint-plugin': ^5.19.0
       '@typescript-eslint/parser': ^5.19.0
       cross-env: ^7.0.3
@@ -243,7 +242,6 @@ importers:
       '@bubble/scripts': link:../../packages/scripts
       '@bubble/tsconfig': link:../../packages/tsconfig
       '@types/node': 17.0.23
-      '@types/react': 18.0.1
       '@typescript-eslint/eslint-plugin': 5.19.0_6ef2b2619ce6f8a097fe0bcf1d4c3961
       '@typescript-eslint/parser': 5.19.0_eslint@8.13.0+typescript@4.5.5
       cross-env: 7.0.3
@@ -550,12 +548,10 @@ importers:
       tsup: ^5.12.5
       typescript: ^4.5.5
     dependencies:
+      '@bubble/configs': link:../../configs
       '@bubble/styles': link:../../styles
       dayjs: 1.11.0
-      react: 18.0.0
-      react-dom: 18.0.0_react@18.0.0
     devDependencies:
-      '@bubble/configs': link:../../configs
       '@bubble/scripts': link:../../scripts
       '@bubble/tsconfig': link:../../tsconfig
       '@pnpm/sort-packages': 3.0.0
@@ -573,6 +569,8 @@ importers:
       eslint-plugin-react: 7.29.4_eslint@8.13.0
       eslint-plugin-react-hooks: 4.4.0_eslint@8.13.0
       prettier: 2.6.2
+      react: 18.0.0
+      react-dom: 18.0.0_react@18.0.0
       tsup: 5.12.5_typescript@4.5.5
       typescript: 4.5.5
 
@@ -604,13 +602,11 @@ importers:
       tsup: ^5.12.5
       typescript: ^4.5.5
     dependencies:
+      '@bubble/configs': link:../../configs
       '@bubble/store': link:../../store
       '@bubble/styles': link:../../styles
       '@bubble/ui': link:../../ui
-      react: 18.0.0
-      react-dom: 18.0.0_react@18.0.0
     devDependencies:
-      '@bubble/configs': link:../../configs
       '@bubble/scripts': link:../../scripts
       '@bubble/tsconfig': link:../../tsconfig
       '@pnpm/sort-packages': 3.0.0
@@ -628,6 +624,8 @@ importers:
       eslint-plugin-react: 7.29.4_eslint@8.13.0
       eslint-plugin-react-hooks: 4.4.0_eslint@8.13.0
       prettier: 2.6.2
+      react: 18.0.0
+      react-dom: 18.0.0_react@18.0.0
       tsup: 5.12.5_typescript@4.5.5
       typescript: 4.5.5
 
@@ -656,10 +654,8 @@ importers:
       tsup: ^5.12.5
       typescript: ^4.5.5
     dependencies:
-      react: 18.0.0
-      react-dom: 18.0.0_react@18.0.0
-    devDependencies:
       '@bubble/configs': link:../../configs
+    devDependencies:
       '@bubble/scripts': link:../../scripts
       '@bubble/tsconfig': link:../../tsconfig
       '@pnpm/sort-packages': 3.0.0
@@ -677,6 +673,8 @@ importers:
       eslint-plugin-react: 7.29.4_eslint@8.13.0
       eslint-plugin-react-hooks: 4.4.0_eslint@8.13.0
       prettier: 2.6.2
+      react: 18.0.0
+      react-dom: 18.0.0_react@18.0.0
       tsup: 5.12.5_typescript@4.5.5
       typescript: 4.5.5
 
@@ -709,14 +707,12 @@ importers:
       tsup: ^5.12.5
       typescript: ^4.5.5
     dependencies:
+      '@bubble/configs': link:../../configs
       '@bubble/core': link:../../core
       '@bubble/store': link:../../store
       '@bubble/styles': link:../../styles
       '@bubble/ui': link:../../ui
-      react: 18.0.0
-      react-dom: 18.0.0_react@18.0.0
     devDependencies:
-      '@bubble/configs': link:../../configs
       '@bubble/scripts': link:../../scripts
       '@bubble/tsconfig': link:../../tsconfig
       '@pnpm/sort-packages': 3.0.0
@@ -734,6 +730,8 @@ importers:
       eslint-plugin-react: 7.29.4_eslint@8.13.0
       eslint-plugin-react-hooks: 4.4.0_eslint@8.13.0
       prettier: 2.6.2
+      react: 18.0.0
+      react-dom: 18.0.0_react@18.0.0
       tsup: 5.12.5_typescript@4.5.5
       typescript: 4.5.5
 
@@ -821,8 +819,6 @@ importers:
       '@pnpm/sort-packages': ^3.0.0
       '@stitches/react': ^1.2.7
       '@types/node': ^17.0.23
-      '@types/react': 18.0.1
-      '@types/react-dom': ^18.0.0
       '@typescript-eslint/eslint-plugin': ^5.19.0
       '@typescript-eslint/parser': ^5.19.0
       cross-env: ^7.0.3
@@ -847,8 +843,6 @@ importers:
       '@bubble/tsconfig': link:../tsconfig
       '@pnpm/sort-packages': 3.0.0
       '@types/node': 17.0.23
-      '@types/react': 18.0.1
-      '@types/react-dom': 18.0.0
       '@typescript-eslint/eslint-plugin': 5.19.0_6ef2b2619ce6f8a097fe0bcf1d4c3961
       '@typescript-eslint/parser': 5.19.0_eslint@8.13.0+typescript@4.5.5
       cross-env: 7.0.3
@@ -976,8 +970,6 @@ importers:
       '@radix-ui/react-dialog': 0.1.7_d1b655986da7bf62d1172c7ae6e89165
       '@radix-ui/react-label': 0.1.5_react@18.0.0
       '@radix-ui/react-separator': 0.1.4_react@18.0.0
-      react: 18.0.0
-      react-dom: 18.0.0_react@18.0.0
       react-spinners: 0.11.0_d1b655986da7bf62d1172c7ae6e89165
     devDependencies:
       '@bubble/scripts': link:../scripts
@@ -997,6 +989,8 @@ importers:
       eslint-plugin-react: 7.29.4_eslint@8.13.0
       eslint-plugin-react-hooks: 4.4.0_eslint@8.13.0
       prettier: 2.6.2
+      react: 18.0.0
+      react-dom: 18.0.0_react@18.0.0
       tsup: 5.12.5_typescript@4.5.5
       typescript: 4.5.5
 
@@ -19448,6 +19442,7 @@ packages:
   /xmlbuilder/9.0.7:
     resolution: {integrity: sha1-Ey7mPS7FVlxVfiD0wi35rKaGsQ0=}
     engines: {node: '>=4.0'}
+    requiresBuild: true
     dev: true
 
   /xmlhttprequest-ssl/2.0.0:
