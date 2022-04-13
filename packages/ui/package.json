@@ -10,6 +10,7 @@
   ],
   "scripts": {
     "build": "tsup",
+    "dev": "tsup --watch",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "lint": "cross-env TIMING=1 eslint src --fix"
   },
@@ -20,14 +21,14 @@
     "@radix-ui/react-dialog": "^0.1.7",
     "@radix-ui/react-label": "^0.1.5",
     "@radix-ui/react-separator": "^0.1.4",
-    "react": "18.0.0",
-    "react-dom": "18.0.0",
     "react-spinners": "0.11.0"
   },
   "devDependencies": {
     "@bubble/scripts": "workspace:*",
     "@bubble/tsconfig": "workspace:*",
     "@pnpm/sort-packages": "^3.0.0",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
     "@types/node": "^17.0.23",
     "@types/react": "18.0.1",
     "@types/react-dom": "18.0.0",

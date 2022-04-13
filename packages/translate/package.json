@@ -10,6 +10,7 @@
   ],
   "scripts": {
     "build": "tsup",
+    "dev": "tsup --watch",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "i18n": "typesafe-i18n",
     "i18n:generate": "ts-node i18n-generate && typesafe-i18n --no-watch && yarn build",

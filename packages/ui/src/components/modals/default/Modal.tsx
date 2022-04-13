@@ -1,7 +1,7 @@
 import type { CSS } from '@bubble/styles'
 import { styled } from '@bubble/styles'
 import * as Dialog from '@radix-ui/react-dialog'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Overlay = styled(Dialog.Overlay, {
   position: 'fixed',

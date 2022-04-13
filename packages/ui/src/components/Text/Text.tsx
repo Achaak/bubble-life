@@ -1,5 +1,6 @@
 import type { CSS } from '@bubble/styles'
 import { styled } from '@bubble/styles'
+import React from 'react'
 
 const ComponentStyle = styled('p', {
   color: '$WHITE',

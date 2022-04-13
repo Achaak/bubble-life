@@ -3,6 +3,7 @@ import { styled } from '@bubble/styles'
 import * as LabelPrimitive from '@radix-ui/react-label'
 import { useState } from 'react'
 import { Text } from '../../Text'
+import React from 'react'
 
 const Container = styled('div', {
   variants: {
