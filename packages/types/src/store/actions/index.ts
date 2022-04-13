@@ -1,7 +1,7 @@
-export * from './cancelList'
-export * from './current'
-export * from './waitingList'
-export * from './types'
+export * from './cancelList.js'
+export * from './current.js'
+export * from './waitingList.js'
+export * from './types.js'
 
 export type HasActionByName = { name: string }
 

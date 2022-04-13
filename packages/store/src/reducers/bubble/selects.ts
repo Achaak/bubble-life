@@ -1,6 +1,6 @@
 import type { BubbleStateElements, BubbleStateMessage, BubbleStateVitals } from '@bubble/types'
 import type { InventoryItemStock } from '@bubble/types'
-import type { RootState } from '../../store'
+import type { RootState } from '../../store.js'
 
 export const selectName = (state: RootState): string => state.bubble.name
 export const selectVitals = (state: RootState): BubbleStateVitals => state.bubble.vitals

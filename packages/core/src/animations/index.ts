@@ -1,6 +1,6 @@
-import { AnimationBounce } from './bounce'
-import { AnimationDefault } from './default'
-import { AnimationShake } from './shake'
+import { AnimationBounce } from './bounce.js'
+import { AnimationDefault } from './default.js'
+import { AnimationShake } from './shake.js'
 
 export const AnimationList = [AnimationDefault, AnimationBounce, AnimationShake]
 

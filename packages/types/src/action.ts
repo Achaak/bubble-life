@@ -1,5 +1,5 @@
-import type { Animation } from './animation'
-import type { Bodies, Clothes, Environments, Eyes, Hats, Onomatopoeias } from './bubble'
+import type { Animation } from './animation.js'
+import type { Bodies, Clothes, Environments, Eyes, Hats, Onomatopoeias } from './bubble.js'
 
 export interface ActionElement {
   id?: string

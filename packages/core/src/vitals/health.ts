@@ -2,7 +2,7 @@ import { dateToMs } from '@bubble/common'
 import { BubbleConfig } from '@bubble/configs'
 import { removeHealth } from '@bubble/store'
 
-import { Vital } from './vital'
+import { Vital } from './vital.js'
 
 export class VitalHealth extends Vital {
   constructor() {

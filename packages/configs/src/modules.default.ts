@@ -2,7 +2,7 @@ import type { ModulesConfigType } from '@bubble/types'
 
 export const ModulesConfig: ModulesConfigType[] = [
   {
-    name: 'calendar',
+    name: 'bbl-calendar',
     position: 'top-left',
     config: {
       dateFormat: 'dddd, D MMMM, YYYY', // https://day.js.org/docs/en/display/format
@@ -10,7 +10,7 @@ export const ModulesConfig: ModulesConfigType[] = [
     },
   },
   {
-    name: 'menu',
+    name: 'bbl-menu',
     position: 'bottom-right',
   },
 ]

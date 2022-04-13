@@ -6,6 +6,8 @@
   "files": [
     "base.json",
     "nextjs.json",
+    "server.json",
+    "storybook.json",
     "package-default.json",
     "package-react.json"
   ]

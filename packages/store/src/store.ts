@@ -12,9 +12,9 @@ import {
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
-import actionsReducer from './reducers/actions'
-import bubbleReducer from './reducers/bubble'
-import controllerReducer from './reducers/controller'
+import actionsReducer from './reducers/actions/index.js'
+import bubbleReducer from './reducers/bubble/index.js'
+import controllerReducer from './reducers/controller/index.js'
 
 const persistConfig = {
   key: 'root',

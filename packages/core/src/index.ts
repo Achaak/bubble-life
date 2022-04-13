@@ -1,12 +1,12 @@
-import { Actions } from './actionsClass'
-import { Animations } from './animationsClass'
-import { Elements } from './elementsClass'
-import { Inventory } from './inventoryClass'
-import { Message } from './messageClass'
-import { Vitals } from './vitalsClass'
-import { initWindow } from './window'
+import { Actions } from './actionsClass.js'
+import { Animations } from './animationsClass.js'
+import { Elements } from './elementsClass.js'
+import { Inventory } from './inventoryClass.js'
+import { Message } from './messageClass.js'
+import { Vitals } from './vitalsClass.js'
+import { initWindow } from './window.js'
 
-export * from './actions'
+export * from './actions/index.js'
 
 export class BubbleCore {
   lastRender: number

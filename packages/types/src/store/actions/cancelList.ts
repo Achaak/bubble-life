@@ -1,4 +1,4 @@
-import type { Action } from '@/src/action'
+import type { Action } from '../../index.js'
 
 export type HasActionInCancelListByName = { name: string }
 

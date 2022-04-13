@@ -15,7 +15,6 @@
     "lint": "cross-env TIMING=1 eslint src --fix"
   },
   "devDependencies": {
-    "@bubble/configs": "workspace:*",
     "@bubble/scripts": "workspace:*",
     "@bubble/tsconfig": "workspace:*",
     "@pnpm/sort-packages": "^3.0.0",
@@ -37,8 +36,13 @@
     "typescript": "^4.5.5"
   },
   "dependencies": {
+    "@bubble/configs": "workspace:*",
     "@bubble/styles": "workspace:*",
     "@bubble/types": "workspace:*",
+    "bbl-calendar": "workspace:*",
+    "bbl-devtool": "workspace:*",
+    "bbl-example": "workspace:*",
+    "bbl-menu": "workspace:*",
     "react": "18.0.0",
     "react-dom": "18.0.0"
   }

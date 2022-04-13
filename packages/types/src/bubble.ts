@@ -1,4 +1,4 @@
-import type { InventoryItemStock } from './inventory'
+import type { InventoryItemStock } from './inventory.js'
 
 export type Eyes = 'enjoy' | 'sleep' | 'afraid' | 'sunglass'
 export type Clothes = 'coat' | null

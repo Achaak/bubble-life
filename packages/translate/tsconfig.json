@@ -6,9 +6,7 @@
     "rootDir": "./src",
     "outDir": "./dist",
     "jsx": "react",
-    "paths": {
-      "@/*": ["./*"]
-    }
+    "suppressImplicitAnyIndexErrors": true,
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "dist"],

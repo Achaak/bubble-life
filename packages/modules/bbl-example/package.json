@@ -1,5 +1,5 @@
 {
-  "name": "bbl-menu",
+  "name": "bbl-example",
   "version": "1.0.0",
   "author": "Axel Lavoie <axel.lavoi@gmail.com>",
   "description": "",
@@ -14,7 +14,8 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
-    "lint": "cross-env TIMING=1 eslint src --fix"
+    "lint": "cross-env TIMING=1 eslint src --fix",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "devDependencies": {
     "@bubble/scripts": "workspace:*",
@@ -22,6 +23,8 @@
     "@pnpm/sort-packages": "^3.0.0",
     "@types/node": "^17.0.23",
     "@types/react": "18.0.1",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
     "@types/react-dom": "18.0.0",
     "@typescript-eslint/eslint-plugin": "5.19.0",
     "@typescript-eslint/parser": "5.19.0",
@@ -35,15 +38,9 @@
     "eslint-plugin-react-hooks": "4.4.0",
     "prettier": "2.6.2",
     "tsup": "^5.12.5",
-    "typescript": "^4.5.5",
-    "react": "18.0.0",
-    "react-dom": "18.0.0"
+    "typescript": "^4.5.5"
   },
   "dependencies": {
-    "@bubble/configs": "workspace:*",
-    "@bubble/core": "workspace:*",
-    "@bubble/store": "workspace:*",
-    "@bubble/styles": "workspace:*",
-    "@bubble/ui": "workspace:*"
+    "@bubble/configs": "workspace:*"
   }
 }

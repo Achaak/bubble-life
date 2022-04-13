@@ -11,7 +11,7 @@ import {
 import type { Action as ActionType, SocketEvents, AddPlayActionInWaitingList } from '@bubble/types'
 import dayjs from 'dayjs'
 
-import { Action } from '../action'
+import { Action } from '../action.js'
 
 const HAPPINESS_INCREASE_DELAY = dateToMs({ seconds: 1 })
 

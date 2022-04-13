@@ -1,7 +1,7 @@
 import type { HasMessageInCurrentById, SetCurrentMessage } from '@bubble/types'
-import { getBubble } from '..'
-import { bubbleActions } from '../..'
-import { store } from '../../../../store'
+import { getBubble } from '../index.js'
+import { bubbleActions } from '../../index.js'
+import { store } from '../../../../store.js'
 
 export const setCurrentMessage = (action: SetCurrentMessage): void => {
   store.dispatch(bubbleActions.setCurrentMessage(action))

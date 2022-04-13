@@ -1,6 +1,6 @@
 import type { AddSaturation, RemoveSaturation, SetSaturation } from '@bubble/types'
-import { bubbleActions } from '../..'
-import { store } from '../../../../store'
+import { bubbleActions } from '../../index.js'
+import { store } from '../../../../store.js'
 
 export const setSaturation = (value: SetSaturation): void => {
   store.dispatch(bubbleActions.setSaturation(value))

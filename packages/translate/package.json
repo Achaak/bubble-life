@@ -12,13 +12,14 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
-    "i18n": "typesafe-i18n",
-    "i18n:generate": "ts-node i18n-generate && typesafe-i18n --no-watch && yarn build",
-    "lint": "cross-env TIMING=1 eslint src --fix"
+    "i18n-watch": "typesafe-i18n",
+    "i18n": "ts-node i18n-generate && typesafe-i18n --no-watch && pnpm build",
+    "lint": "cross-env TIMING=1 eslint src --fix",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "dependencies": {
     "react": "^18.0.0",
-    "typesafe-i18n": "^5.3.3"
+    "typesafe-i18n": "^5.3.6"
   },
   "devDependencies": {
     "@bubble/scripts": "workspace:*",

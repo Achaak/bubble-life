@@ -8,7 +8,8 @@
     "build:nextron": "nextron build",
     "format": "prettier --write \"./**/*.{ts,tsx}\"",
     "lint": "cd renderer && cross-env TIMING=1 next lint --fix",
-    "start": "set NODE_ENV=production && nextron"
+    "start": "set NODE_ENV=production && nextron",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf app"
   },
   "dependencies": {
     "@bubble/common": "workspace:*",
@@ -42,15 +43,15 @@
     "cross-env": "^7.0.3",
     "dotenv-flow": "^3.2.0",
     "electron": "18.0.3",
-    "electron-builder": "^22.14.13",
+    "electron-builder": "^23.0.3",
     "eslint": "^8.13.0",
-    "eslint-config-next": "^12.1.4",
+    "eslint-config-next": "^12.1.5",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.4.0",
-    "next": "^12.1.4",
+    "next": "^12.1.5",
     "next-compose-plugins": "^2.2.1",
     "next-transpile-modules": "^9.0.0",
     "nextron": "^8.0.0",

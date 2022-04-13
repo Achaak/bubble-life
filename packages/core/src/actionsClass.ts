@@ -33,8 +33,8 @@ import type { Action as ActionType, SocketEvents } from '@bubble/types'
 import dayjs from 'dayjs'
 import shortid from 'shortid'
 
-import type { Action } from './action'
-import { ActionsList } from './actions'
+import type { Action } from './action.js'
+import { ActionsList } from './actions/index.js'
 import { socket } from '@bubble/common'
 
 export class Actions {

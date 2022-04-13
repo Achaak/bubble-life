@@ -1,5 +1,5 @@
-import { bubbleActions } from '../..'
-import { store } from '../../../../store'
+import { bubbleActions } from '../../index'
+import { store } from '../../../../store.js'
 import type { AddClotheInList, SetActionClothe } from '@bubble/types'
 
 export const addClotheInList = (clothe: AddClotheInList): void => {

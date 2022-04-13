@@ -1,3 +1,3 @@
-export * from './actions'
-export * from './bubble'
-export * from './controller'
+export * from './actions/index.js'
+export * from './bubble/index.js'
+export * from './controller/index.js'

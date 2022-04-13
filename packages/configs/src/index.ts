@@ -1,3 +1,3 @@
-export * from './bubble'
-export * from './global'
-export * from './modules'
+export * from './bubble.js'
+export * from './global.js'
+export * from './modules.js'
