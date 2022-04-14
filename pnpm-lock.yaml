@@ -54,7 +54,7 @@ importers:
       react-toast-notifications: ^2.5.1
       shortid: ^2.2.16
       socket.io-client: ^4.4.1
-      typescript: ^4.5.5
+      typescript: 4.5.5
     dependencies:
       '@bubble/common': link:../../packages/common
       '@bubble/configs': link:../../packages/configs
@@ -130,7 +130,6 @@ importers:
       next: 12.1.5
       next-compose-plugins: ^2.2.1
       next-pwa: ^5.4.7
-      next-transpile-modules: ^9.0.0
       prettier: ^2.6.2
       react: 18.0.0
       react-dom: 18.0.0
@@ -149,7 +148,6 @@ importers:
       next: 12.1.5_react-dom@18.0.0+react@18.0.0
       next-compose-plugins: 2.2.1
       next-pwa: 5.5.0_next@12.1.5
-      next-transpile-modules: 9.0.0
       react: 18.0.0
       react-dom: 18.0.0_react@18.0.0
       socket.io-client: 4.4.1
@@ -192,7 +190,7 @@ importers:
       prettier: ^2.6.2
       react: 18.0.0
       react-dom: 18.0.0
-      typescript: ^4.5.5
+      typescript: 4.5.5
     dependencies:
       '@bubble/styles': link:../../packages/styles
       next: 12.1.5_react-dom@18.0.0+react@18.0.0
@@ -235,7 +233,7 @@ importers:
       socket.io: ^4.4.1
       ts-node: ^10.7.0
       tsup: ^5.12.5
-      typescript: ^4.5.5
+      typescript: 4.5.5
     dependencies:
       '@bubble/types': link:../../packages/types
       socket.io: 4.4.1
@@ -391,7 +389,7 @@ importers:
       eslint-plugin-react-hooks: ^4.4.0
       prettier: ^2.6.2
       tsup: ^5.12.5
-      typescript: ^4.5.5
+      typescript: 4.5.5
     dependencies:
       '@bubble/types': link:../types
     devDependencies:
@@ -438,7 +436,7 @@ importers:
       prettier: 2.6.2
       shortid: ^2.2.16
       tsup: ^5.12.5
-      typescript: ^4.5.5
+      typescript: 4.5.5
     dependencies:
       '@bubble/common': link:../common
       '@bubble/configs': link:../configs
@@ -495,7 +493,7 @@ importers:
       react: 18.0.0
       react-dom: 18.0.0
       tsup: ^5.12.5
-      typescript: ^4.5.5
+      typescript: 4.5.5
     dependencies:
       '@bubble/configs': link:../configs
       '@bubble/styles': link:../styles
@@ -552,7 +550,7 @@ importers:
       react: 18.0.0
       react-dom: 18.0.0
       tsup: ^5.12.5
-      typescript: ^4.5.5
+      typescript: 4.5.5
     dependencies:
       '@bubble/configs': link:../../configs
       '@bubble/styles': link:../../styles
@@ -606,7 +604,7 @@ importers:
       react: 18.0.0
       react-dom: 18.0.0
       tsup: ^5.12.5
-      typescript: ^4.5.5
+      typescript: 4.5.5
     dependencies:
       '@bubble/configs': link:../../configs
       '@bubble/store': link:../../store
@@ -658,7 +656,7 @@ importers:
       react: 18.0.0
       react-dom: 18.0.0
       tsup: ^5.12.5
-      typescript: ^4.5.5
+      typescript: 4.5.5
     dependencies:
       '@bubble/configs': link:../../configs
     devDependencies:
@@ -711,7 +709,7 @@ importers:
       react: 18.0.0
       react-dom: 18.0.0
       tsup: ^5.12.5
-      typescript: ^4.5.5
+      typescript: 4.5.5
     dependencies:
       '@bubble/configs': link:../../configs
       '@bubble/core': link:../../core
@@ -785,22 +783,24 @@ importers:
       eslint-plugin-react: 7.29.4
       eslint-plugin-react-hooks: 4.4.0
       prettier: 2.6.2
+      react: ^18.0.0
       react-redux: ^7.2.8
       redux: ^4.1.2
       redux-persist: ^6.0.0
       shortid: ^2.2.16
       tsup: ^5.12.5
-      typescript: ^4.5.5
+      typescript: 4.5.5
     dependencies:
       '@bubble/configs': link:../configs
       '@bubble/types': link:../types
-      react-redux: 7.2.8
+      react: 18.0.0
+      react-redux: 7.2.8_react@18.0.0
       shortid: 2.2.16
     devDependencies:
       '@bubble/scripts': link:../scripts
       '@bubble/tsconfig': link:../tsconfig
       '@pnpm/sort-packages': 3.0.0
-      '@reduxjs/toolkit': 1.8.1_react-redux@7.2.8
+      '@reduxjs/toolkit': 1.8.1_react-redux@7.2.8+react@18.0.0
       '@types/node': 17.0.23
       '@typescript-eslint/eslint-plugin': 5.19.0_6ef2b2619ce6f8a097fe0bcf1d4c3961
       '@typescript-eslint/parser': 5.19.0_eslint@8.13.0+typescript@4.5.5
@@ -839,7 +839,7 @@ importers:
       react: ^18.0.0
       react-dom: ^18.0.0
       tsup: ^5.12.5
-      typescript: ^4.5.5
+      typescript: 4.5.5
     dependencies:
       '@stitches/react': 1.2.7_react@18.0.0
       react: 18.0.0
@@ -916,7 +916,7 @@ importers:
       prettier: ^2.6.2
       socket.io-client: ^4.4.1
       tsup: ^5.12.5
-      typescript: ^4.5.5
+      typescript: 4.5.5
     devDependencies:
       '@bubble/scripts': link:../scripts
       '@bubble/tsconfig': link:../tsconfig
@@ -968,7 +968,7 @@ importers:
       react-dom: 18.0.0
       react-spinners: 0.11.0
       tsup: ^5.12.5
-      typescript: ^4.5.5
+      typescript: 4.5.5
     dependencies:
       '@bubble/styles': link:../styles
       '@bubble/translate': link:../translate
@@ -4283,7 +4283,7 @@ packages:
       warning: 4.0.3
     dev: false
 
-  /@reduxjs/toolkit/1.8.1_react-redux@7.2.8:
+  /@reduxjs/toolkit/1.8.1_react-redux@7.2.8+react@18.0.0:
     resolution: {integrity: sha512-Q6mzbTpO9nOYRnkwpDlFOAbQnd3g7zj7CtHAZWz5SzE5lcV97Tf8f3SzOO8BoPOMYBFgfZaqTUZqgGu+a0+Fng==}
     peerDependencies:
       react: ^16.9.0 || ^17.0.0 || ^18
@@ -4295,7 +4295,8 @@ packages:
         optional: true
     dependencies:
       immer: 9.0.12
-      react-redux: 7.2.8
+      react: 18.0.0
+      react-redux: 7.2.8_react@18.0.0
       redux: 4.1.2
       redux-thunk: 2.4.1_redux@4.1.2
       reselect: 4.1.5
@@ -14273,6 +14274,7 @@ packages:
     dependencies:
       enhanced-resolve: 5.9.2
       escalade: 3.1.1
+    dev: true
 
   /next/12.1.5_react-dom@18.0.0+react@18.0.0:
     resolution: {integrity: sha512-YGHDpyfgCfnT5GZObsKepmRnne7Kzp7nGrac07dikhutWQug7hHg85/+sPJ4ZW5Q2pDkb+n0FnmLkmd44htIJQ==}
@@ -15819,7 +15821,7 @@ packages:
       warning: 4.0.3
     dev: true
 
-  /react-redux/7.2.8:
+  /react-redux/7.2.8_react@18.0.0:
     resolution: {integrity: sha512-6+uDjhs3PSIclqoCk0kd6iX74gzrGc3W5zcAjbrFgEdIjRSQObdIwfx80unTkVUYvbQ95Y8Av3OvFHq1w5EOUw==}
     peerDependencies:
       react: ^16.8.3 || ^17 || ^18
@@ -15836,6 +15838,7 @@ packages:
       hoist-non-react-statics: 3.3.2
       loose-envify: 1.4.0
       prop-types: 15.8.1
+      react: 18.0.0
       react-is: 17.0.2
     dev: false
 
