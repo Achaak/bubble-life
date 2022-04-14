@@ -5,12 +5,10 @@ import { initialActionsState } from './state.js'
 
 export * from './selects'
 
-const actionsSlice = createSlice({
+export const actionsSlice = createSlice({
   name: 'actions',
   initialState: initialActionsState,
   reducers: reducers,
 })
 
 export const actionsActions = actionsSlice.actions
-
-export default actionsSlice.reducer

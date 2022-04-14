@@ -2,6 +2,6 @@ export * from './ControllerContainer'
 export * from './AppContainer'
 
 export const ControllerConfig = {
-  name: 'example',
+  name: 'bbl-example',
   icon: 'cruelty_free',
 }

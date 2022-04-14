@@ -1,14 +1,5 @@
 const withPWA = require('next-pwa')
 const withPlugins = require('next-compose-plugins')
-const withTM = require('next-transpile-modules')([
-  '@bubble/ui',
-  '@bubble/types',
-  '@bubble/styles',
-  '@bubble/translate',
-  '@bubble/modules',
-  '@bubble/store',
-  '@bubble/common',
-])
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })

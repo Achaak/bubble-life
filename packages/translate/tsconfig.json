@@ -2,7 +2,6 @@
   "extends": "@bubble/tsconfig/package-default.json",
   "compilerOptions": {
     "module": "commonjs",
-    "baseUrl": ".",
     "rootDir": "./src",
     "outDir": "./dist",
     "jsx": "react",

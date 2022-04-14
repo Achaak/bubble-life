@@ -1,4 +1,5 @@
 import type { AddHappiness, RemoveHappiness, SetHappiness } from '@bubble/types'
+import { store } from '../../../../store.js'
 import { bubbleActions } from '../../index.js'
 
 export const setHappiness = (value: SetHappiness): void => {

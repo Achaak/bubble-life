@@ -1,7 +1,6 @@
 {
   "extends": "@bubble/tsconfig/package-default.json",
   "compilerOptions": {
-    "baseUrl": ".",
     "rootDir": "./src",
     "outDir": "./dist",
   },

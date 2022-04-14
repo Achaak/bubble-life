@@ -2,7 +2,7 @@
   "extends": "@bubble/tsconfig/package-default.json",
   "compilerOptions": {
     "preserveSymlinks": true,
-    "baseUrl": ".",
+    "baseUrl": "src",
     "rootDir": "./src",
     "outDir": "./dist",
   },

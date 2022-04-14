@@ -1,4 +1,4 @@
-import type { Action } from '@/src/action.js'
+import { Action } from "./../../action";
 
 export interface ActionsState {
   waitingList: Action[]
