@@ -13,8 +13,8 @@
     "start:app": "turbo run start --filter=!@bubble/docs --filter=!@bubble/storybook",
     "build": "turbo run build",
     "build:app": "turbo run build --filter=!@bubble/docs --filter=!@bubble/storybook",
-    "dev": "turbo run dev",
-    "dev:app": "turbo run dev --filter=!@bubble/docs --filter=!@bubble/storybook",
+    "dev": "turbo run dev --parallel",
+    "dev:app": "turbo run dev --parallel --filter=!@bubble/docs --filter=!@bubble/storybook",
     "lint": "turbo run lint",
     "format": "turbo run format",
     "clean": "turbo run clean && rm -rf node_modules"

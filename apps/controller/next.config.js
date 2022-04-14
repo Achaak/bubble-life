@@ -6,7 +6,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const runtimeCaching = require('next-pwa/cache')
 require('dotenv-flow').config({ path: '../..' })
 
-const plugins = [withBundleAnalyzer, withTM, withPWA]
+const plugins = [withBundleAnalyzer, withPWA]
 const nextConfig = {
   swcMinify: false,
   pwa: {
