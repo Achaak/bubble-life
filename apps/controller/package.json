@@ -24,7 +24,6 @@
     "next": "12.1.5",
     "next-compose-plugins": "^2.2.1",
     "next-pwa": "^5.4.7",
-    "next-transpile-modules": "^9.0.0",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "socket.io-client": "^4.4.1"
