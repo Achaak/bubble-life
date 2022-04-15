@@ -14,10 +14,13 @@ export const ModuleControllerList = async (): Promise<
 
   for (const moduleConfig of ModulesConfig) {
     try {
-      const { Config } = await import(moduleConfig.name)
+      console.log(moduleConfig.name)
+      const { ControllerConfig } = await import(moduleConfig.name)
+      console.log(ControllerConfig)
 
-      ModulesConfigList.push(Config)
-    } catch {
+      ModulesConfigList.push(ControllerConfig)
+    } catch (e) {
+      console.log(e)
       console.log(`Module ${moduleConfig.name} not found`)
     }
   }
@@ -46,7 +49,7 @@ export const ControllerModule: React.FC<ControllerModuleProps> = ({ name }) => {
   }, [name])
 
   if (!container) {
-    return <></>
+    return <>Module not found</>
   }
   return container
 }

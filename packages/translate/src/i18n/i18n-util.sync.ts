@@ -2,11 +2,11 @@
 /* eslint-disable */
 
 import { initFormatters } from './formatters'
-import type { Locales, Translations } from './i18n-types.js'
+import type { Locales, Translations } from './i18n-types'
 import { loadedFormatters, loadedLocales, locales } from './i18n-util'
 
-import en from './en/index.js'
-import fr from './fr/index.js'
+import en from './en'
+import fr from './fr'
 
 const localeTranslations = {
 	en,

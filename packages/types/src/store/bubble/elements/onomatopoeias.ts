@@ -1,7 +1,7 @@
 import type {
   BubbleStateElementsOnomatopoeiaAction,
   BubbleStateElementsOnomatopoeiaItemList,
-} from '../types.js'
+} from '../types'
 
 export type AddOnomatopoeiaInList = BubbleStateElementsOnomatopoeiaItemList
 

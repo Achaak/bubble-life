@@ -1,4 +1,4 @@
-import type { Message } from '../../../message.js'
+import type { Message } from '../../../message'
 
 export type HasMessageInWaitingListById = { id: string }
 

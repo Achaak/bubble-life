@@ -1,7 +1,4 @@
-import type {
-  BubbleStateElementsClotheAction,
-  BubbleStateElementsClotheItemList,
-} from '../types.js'
+import type { BubbleStateElementsClotheAction, BubbleStateElementsClotheItemList } from '../types'
 
 export type AddClotheInList = BubbleStateElementsClotheItemList
 

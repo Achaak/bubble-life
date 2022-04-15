@@ -1,10 +1,10 @@
 import type { ActionsState } from '@bubble/types'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { initialActionsState } from '../state.js'
+import { initialActionsState } from '../state'
 
-export * from './cancelList.js'
-export * from './current.js'
-export * from './waitingList.js'
+export * from './cancelList'
+export * from './current'
+export * from './waitingList'
 
 export const resetActions = (state: ActionsState): void => {
   for (const key in state) {

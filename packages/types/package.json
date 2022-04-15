@@ -2,18 +2,14 @@
   "name": "@bubble/types",
   "version": "1.0.0",
   "author": "Axel Lavoie <axel.lavoi@gmail.com>",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "main": "./src/index.ts",
   "files": [
-    "dist/**/*"
+    "src/**/*"
   ],
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "lint": "cross-env TIMING=1 eslint src --fix",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+    "clean": "rm -rf .turbo && rm -rf node_modules"
   },
   "devDependencies": {
     "@bubble/scripts": "workspace:*",
@@ -34,7 +30,6 @@
     "eslint-plugin-react-hooks": "^4.4.0",
     "prettier": "^2.6.2",
     "socket.io-client": "^4.4.1",
-    "tsup": "^5.12.5",
     "typescript": "4.5.5"
   }
 }

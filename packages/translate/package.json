@@ -2,18 +2,14 @@
   "name": "@bubble/translate",
   "version": "1.0.0",
   "author": "Axel Lavoie <axel.lavoi@gmail.com>",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "main": "./src/index.ts",
   "files": [
-    "dist/**/*"
+    "src/**/*"
   ],
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "i18n-watch": "typesafe-i18n",
-    "i18n": "ts-node i18n-generate && typesafe-i18n --no-watch && pnpm build",
+    "i18n": "ts-node i18n-generate && typesafe-i18n --no-watch",
     "lint": "cross-env TIMING=1 eslint src --fix",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
@@ -30,7 +26,6 @@
     "eslint": "^8.13.0",
     "prettier": "^2.6.2",
     "ts-node": "^10.7.0",
-    "tsup": "^5.12.5",
     "typescript": "4.5.5"
   }
 }

@@ -106,6 +106,7 @@ importers:
   apps/controller:
     specifiers:
       '@bubble/common': workspace:*
+      '@bubble/configs': workspace:^1.0.0
       '@bubble/modules': workspace:*
       '@bubble/scripts': workspace:*
       '@bubble/store': workspace:*
@@ -130,6 +131,7 @@ importers:
       next: 12.1.5
       next-compose-plugins: ^2.2.1
       next-pwa: ^5.4.7
+      next-transpile-modules: ^9.0.0
       prettier: ^2.6.2
       react: 18.0.0
       react-dom: 18.0.0
@@ -137,6 +139,7 @@ importers:
       typescript: 4.5.5
     dependencies:
       '@bubble/common': link:../../packages/common
+      '@bubble/configs': link:../../packages/configs
       '@bubble/modules': link:../../packages/modules
       '@bubble/store': link:../../packages/store
       '@bubble/styles': link:../../packages/styles
@@ -148,6 +151,7 @@ importers:
       next: 12.1.5_react-dom@18.0.0+react@18.0.0
       next-compose-plugins: 2.2.1
       next-pwa: 5.5.0_next@12.1.5
+      next-transpile-modules: 9.0.0
       react: 18.0.0
       react-dom: 18.0.0_react@18.0.0
       socket.io-client: 4.4.1
@@ -346,7 +350,6 @@ importers:
       eslint-plugin-react-hooks: 4.4.0
       prettier: 2.6.2
       socket.io-client: ^4.4.1
-      tsup: ^5.12.5
       typescript: 4.5.5
     dependencies:
       '@bubble/types': link:../types
@@ -367,7 +370,6 @@ importers:
       eslint-plugin-react: 7.29.4_eslint@8.13.0
       eslint-plugin-react-hooks: 4.4.0_eslint@8.13.0
       prettier: 2.6.2
-      tsup: 5.12.5_typescript@4.5.5
       typescript: 4.5.5
 
   packages/configs:
@@ -388,7 +390,6 @@ importers:
       eslint-plugin-react: ^7.29.4
       eslint-plugin-react-hooks: ^4.4.0
       prettier: ^2.6.2
-      tsup: ^5.12.5
       typescript: 4.5.5
     dependencies:
       '@bubble/types': link:../types
@@ -408,7 +409,6 @@ importers:
       eslint-plugin-react: 7.29.4_eslint@8.13.0
       eslint-plugin-react-hooks: 4.4.0_eslint@8.13.0
       prettier: 2.6.2
-      tsup: 5.12.5_typescript@4.5.5
       typescript: 4.5.5
 
   packages/core:
@@ -788,7 +788,6 @@ importers:
       redux: ^4.1.2
       redux-persist: ^6.0.0
       shortid: ^2.2.16
-      tsup: ^5.12.5
       typescript: 4.5.5
     dependencies:
       '@bubble/configs': link:../configs
@@ -815,7 +814,6 @@ importers:
       prettier: 2.6.2
       redux: 4.1.2
       redux-persist: 6.0.0_redux@4.1.2
-      tsup: 5.12.5_typescript@4.5.5
       typescript: 4.5.5
 
   packages/styles:
@@ -838,7 +836,6 @@ importers:
       prettier: ^2.6.2
       react: ^18.0.0
       react-dom: ^18.0.0
-      tsup: ^5.12.5
       typescript: 4.5.5
     dependencies:
       '@stitches/react': 1.2.7_react@18.0.0
@@ -860,7 +857,6 @@ importers:
       eslint-plugin-react: 7.29.4_eslint@8.13.0
       eslint-plugin-react-hooks: 4.4.0_eslint@8.13.0
       prettier: 2.6.2
-      tsup: 5.12.5_typescript@4.5.5
       typescript: 4.5.5
 
   packages/translate:
@@ -874,7 +870,6 @@ importers:
       prettier: ^2.6.2
       react: ^18.0.0
       ts-node: ^10.7.0
-      tsup: ^5.12.5
       typesafe-i18n: ^5.3.6
       typescript: 4.5.5
     dependencies:
@@ -889,7 +884,6 @@ importers:
       eslint: 8.13.0
       prettier: 2.6.2
       ts-node: 10.7.0_f617194e5939c51b27c7a156f2544bd6
-      tsup: 5.12.5_ts-node@10.7.0+typescript@4.5.5
       typescript: 4.5.5
 
   packages/tsconfig:
@@ -915,7 +909,6 @@ importers:
       eslint-plugin-react-hooks: ^4.4.0
       prettier: ^2.6.2
       socket.io-client: ^4.4.1
-      tsup: ^5.12.5
       typescript: 4.5.5
     devDependencies:
       '@bubble/scripts': link:../scripts
@@ -936,7 +929,6 @@ importers:
       eslint-plugin-react-hooks: 4.4.0_eslint@8.13.0
       prettier: 2.6.2
       socket.io-client: 4.4.1
-      tsup: 5.12.5_typescript@4.5.5
       typescript: 4.5.5
 
   packages/ui:
@@ -14274,7 +14266,6 @@ packages:
     dependencies:
       enhanced-resolve: 5.9.2
       escalade: 3.1.1
-    dev: true
 
   /next/12.1.5_react-dom@18.0.0+react@18.0.0:
     resolution: {integrity: sha512-YGHDpyfgCfnT5GZObsKepmRnne7Kzp7nGrac07dikhutWQug7hHg85/+sPJ4ZW5Q2pDkb+n0FnmLkmd44htIJQ==}

@@ -2,12 +2,12 @@
 /* eslint-disable */
 
 import { initFormatters } from './formatters'
-import type { Locales, Translations } from './i18n-types.js'
+import type { Locales, Translations } from './i18n-types'
 import { loadedFormatters, loadedLocales, locales } from './i18n-util'
 
 const localeTranslationLoaders = {
-	en: () => import('./en/index.js'),
-	fr: () => import('./fr/index.js'),
+	en: () => import('./en'),
+	fr: () => import('./fr'),
 }
 
 const updateDictionary = (locale: Locales, dictionary: Partial<Translations>) =>
