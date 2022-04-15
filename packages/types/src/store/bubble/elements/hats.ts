@@ -1,4 +1,4 @@
-import type { BubbleStateElementsHatAction, BubbleStateElementsHatItemList } from '../types.js'
+import type { BubbleStateElementsHatAction, BubbleStateElementsHatItemList } from '../types'
 
 export type AddHatInList = BubbleStateElementsHatItemList
 

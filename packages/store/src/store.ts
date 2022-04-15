@@ -12,15 +12,25 @@ import {
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
+import { actionsSlice } from './reducers/actions'
+import { bubbleSlice } from './reducers/bubble'
+import { controllerSlice } from './reducers/controller'
+
 const persistConfig = {
   key: 'root',
   version: 1,
   storage,
 }
 
-const persistedReducer = persistReducer(persistConfig, combineReducers({}))
+const persistedReducer = persistReducer(
+  persistConfig,
+  combineReducers({
+    actions: actionsSlice.reducer,
+    bubble: bubbleSlice.reducer,
+    controller: controllerSlice.reducer,
+  })
+)
 
-// TODO
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>

@@ -1,4 +1,4 @@
-import type { BubbleStateElementsEyesAction, BubbleStateElementsEyesItemList } from '../types.js'
+import type { BubbleStateElementsEyesAction, BubbleStateElementsEyesItemList } from '../types'
 
 export type AddEyesInList = BubbleStateElementsEyesItemList
 

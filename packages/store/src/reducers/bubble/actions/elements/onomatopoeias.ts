@@ -1,6 +1,6 @@
 import type { AddOnomatopoeiaInList, SetActionOnomatopoeia } from '@bubble/types'
-import { bubbleActions } from '../../index.js'
-import { store } from '../../../../store.js'
+import { bubbleActions } from '../../index'
+import { store } from '../../../../store'
 
 export const addOnomatopoeiaInList = (onomatopoeia: AddOnomatopoeiaInList): void => {
   store.dispatch(bubbleActions.addOnomatopoeiaInList(onomatopoeia))

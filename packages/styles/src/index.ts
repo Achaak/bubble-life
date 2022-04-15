@@ -1,3 +1,3 @@
-export * from './css.js'
-export * from './colors.js'
-export * from './shadows.js'
+export * from './css'
+export * from './colors'
+export * from './shadows'

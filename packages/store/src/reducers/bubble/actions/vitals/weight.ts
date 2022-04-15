@@ -1,6 +1,6 @@
 import type { AddWeight, RemoveWeight, SetWeight } from '@bubble/types'
-import { bubbleActions } from '../../index.js'
-import { store } from '../../../../store.js'
+import { bubbleActions } from '../../index'
+import { store } from '../../../../store'
 
 export const setWeight = (value: SetWeight): void => {
   store.dispatch(bubbleActions.setWeight(value))

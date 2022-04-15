@@ -1,5 +1,5 @@
-import type { User } from '../../user.js'
+import type { User } from '../../user'
 
-export * from './types.js'
+export * from './types'
 
 export type SetCurrentUser = User
