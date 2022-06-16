@@ -41,7 +41,7 @@
     "@typescript-eslint/parser": "^5.16.0",
     "cross-env": "^7.0.3",
     "dotenv-flow": "^3.2.0",
-    "electron": "17.1.2",
+    "electron": "17.2.0",
     "electron-builder": "^22.14.13",
     "eslint": "^8.11.0",
     "eslint-config-next": "^12.1.0",
