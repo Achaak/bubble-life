@@ -1,6 +1,6 @@
 import { SocketProvider } from '@/components/components/SocketProvider'
 import { StorePersistGate, StoreProvider } from '@bubble/store'
-import { persistor, store } from '@bubble/store/src/store'
+import { persistor, store } from '@bubble/store/dist/store'
 import { globalStyles } from '@bubble/styles'
 import type { Locales } from '@bubble/translate'
 import { detectLocale, TypesafeI18n, i18nUtilsAsync } from '@bubble/translate'

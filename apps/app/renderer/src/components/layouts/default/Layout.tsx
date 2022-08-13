@@ -1,4 +1,4 @@
-import { BubbleCore } from '@bubble/core/src'
+import { BubbleCore } from '@bubble/core'
 import { styled } from '@bubble/styles'
 import { useEffect } from 'react'
 
