@@ -12,6 +12,6 @@ export default defineConfig((options) => {
     target: 'esnext',
     platform: 'browser',
     bundle: false,
-    external: ['react'],
+    external: ['react', 'react-dom'],
   }
 })

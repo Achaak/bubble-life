@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@bubble/common": "workspace:*",
-    "@bubble/configs": "workspace:^1.0.0",
+    "@bubble/configs": "workspace:*",
     "@bubble/modules": "workspace:*",
     "@bubble/store": "workspace:*",
     "@bubble/styles": "workspace:*",
