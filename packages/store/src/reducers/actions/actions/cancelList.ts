@@ -4,43 +4,51 @@ import type {
   HasActionInCancelListByName,
   RemoveActionFromCancelList,
   TransferActionFromCancelListToCurrent,
-} from '@bubble/types'
-import { getActions } from './index'
-import { actionsActions } from '../index'
-import { store } from '../../../store'
-import { setCurrentAction } from './current'
+} from '@bubble/types';
+import { getActions } from './index';
+import { actionsActions } from '../index';
+import { store } from '../../../store';
+import { setCurrentAction } from './current';
 
-export const hasActionInCancelListByName = ({ name }: HasActionInCancelListByName): boolean => {
-  const { cancelList } = getActions()
+export const hasActionInCancelListByName = ({
+  name,
+}: HasActionInCancelListByName): boolean => {
+  const { cancelList } = getActions();
 
-  return cancelList.filter((item) => item.name === name).length > 0
-}
+  return cancelList.filter((item) => item.name === name).length > 0;
+};
 
-export const hasActionInCancelListById = ({ id }: HasActionInCancelListById): boolean => {
-  const { cancelList } = getActions()
+export const hasActionInCancelListById = ({
+  id,
+}: HasActionInCancelListById): boolean => {
+  const { cancelList } = getActions();
 
-  return cancelList.filter((item) => item.id === id).length > 0
-}
+  return cancelList.filter((item) => item.id === id).length > 0;
+};
 
-export const addActionInCancelList = ({ action }: AddActionInCancelList): void => {
-  store.dispatch(actionsActions.addActionInCancelList(action))
-}
+export const addActionInCancelList = ({
+  action,
+}: AddActionInCancelList): void => {
+  store.dispatch(actionsActions.addActionInCancelList(action));
+};
 
-export const removeActionFromCancelList = ({ id }: RemoveActionFromCancelList): void => {
-  store.dispatch(actionsActions.removeActionFromCancelList({ id }))
-}
+export const removeActionFromCancelList = ({
+  id,
+}: RemoveActionFromCancelList): void => {
+  store.dispatch(actionsActions.removeActionFromCancelList({ id }));
+};
 
 export const transferActionFromCancelListToCurrent = ({
   id,
 }: TransferActionFromCancelListToCurrent): void => {
-  const { cancelList } = getActions()
+  const { cancelList } = getActions();
 
-  const action = cancelList.find((item) => item.id === id)
+  const action = cancelList.find((item) => item.id === id);
 
   if (!action) {
-    return
+    return;
   }
 
-  removeActionFromCancelList({ id })
-  setCurrentAction(action)
-}
+  removeActionFromCancelList({ id });
+  setCurrentAction(action);
+};

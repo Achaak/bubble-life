@@ -1,5 +1,5 @@
-import { styled } from '@bubble/styles'
-import React from 'react'
+import { styled } from '@pikas-ui/styles';
+import React from 'react';
 
 const ButtonDOM = styled('button', {
   all: 'unset',
@@ -62,16 +62,22 @@ const ButtonDOM = styled('button', {
       },
     },
   },
-})
+});
 
 export interface ButtonProps {
-  onClick: () => void
-  type?: 'button' | 'submit' | 'reset'
-  disabled?: boolean
-  effect?: 'scale' | 'opacity' | 'reverse'
-  children: React.ReactNode
+  onClick: () => void;
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
+  effect?: 'scale' | 'opacity' | 'reverse';
+  children: React.ReactNode;
 }
-export const Button: React.FC<ButtonProps> = ({ children, onClick, type, disabled, effect }) => {
+export const Button: React.FC<ButtonProps> = ({
+  children,
+  onClick,
+  type,
+  disabled,
+  effect,
+}) => {
   return (
     <ButtonDOM
       type={type}
@@ -82,10 +88,10 @@ export const Button: React.FC<ButtonProps> = ({ children, onClick, type, disable
     >
       {children}
     </ButtonDOM>
-  )
-}
+  );
+};
 
 Button.defaultProps = {
   type: 'button',
   effect: 'reverse',
-}
+};

@@ -1,7 +1,10 @@
-import type { BubbleStateElementsEyesAction, BubbleStateElementsEyesItemList } from '../types'
+import type {
+  BubbleStateElementsEyesAction,
+  BubbleStateElementsEyesItemList,
+} from '../types';
 
-export type AddEyesInList = BubbleStateElementsEyesItemList
+export type AddEyesInList = BubbleStateElementsEyesItemList;
 
-export type RemoveEyesInList = { id: string }
+export type RemoveEyesInList = { id: string };
 
-export type SetActionEyes = BubbleStateElementsEyesAction
+export type SetActionEyes = BubbleStateElementsEyesAction;

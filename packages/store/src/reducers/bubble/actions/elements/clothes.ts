@@ -1,23 +1,23 @@
-import { bubbleActions } from '../../index'
-import { store } from '../../../../store'
-import type { AddClotheInList, SetActionClothe } from '@bubble/types'
+import { bubbleActions } from '../../index';
+import { store } from '../../../../store';
+import type { AddClotheInList, SetActionClothe } from '@bubble/types';
 
 export const addClotheInList = (clothe: AddClotheInList): void => {
-  store.dispatch(bubbleActions.addClotheInList(clothe))
-}
+  store.dispatch(bubbleActions.addClotheInList(clothe));
+};
 
 export const removeClotheInList = ({ id }: { id: string }): void => {
-  store.dispatch(bubbleActions.removeClotheInList({ id }))
-}
+  store.dispatch(bubbleActions.removeClotheInList({ id }));
+};
 
 export const resetClothe = (): void => {
-  store.dispatch(bubbleActions.resetClothe())
-}
+  store.dispatch(bubbleActions.resetClothe());
+};
 
 export const setActionClothe = (clothe: SetActionClothe): void => {
-  store.dispatch(bubbleActions.setActionClothe(clothe))
-}
+  store.dispatch(bubbleActions.setActionClothe(clothe));
+};
 
 export const resetActionClothe = (): void => {
-  store.dispatch(bubbleActions.resetActionClothe())
-}
+  store.dispatch(bubbleActions.resetActionClothe());
+};

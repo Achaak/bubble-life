@@ -1,4 +1,4 @@
-import { theme } from '@bubble/styles'
+import { theme } from '@pikas-ui/styles'
 import { create } from '@storybook/theming'
 
 export default create({

@@ -1,3 +1,3 @@
-import { EyesAfraid } from './Afraid'
+import { EyesAfraid } from './Afraid';
 
-export default EyesAfraid
+export default EyesAfraid;

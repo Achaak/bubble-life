@@ -1,17 +1,17 @@
-import type { PayloadAction } from '@reduxjs/toolkit'
-import { initialBubbleState } from '../../state'
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { initialBubbleState } from '../../state';
 import type {
   BubbleStateElementsBodyAction,
   BubbleStateElementsBodyItemList,
   BubbleState,
-} from '@bubble/types'
+} from '@bubble/types';
 
 export const addBodyInList = (
   state: BubbleState,
   action: PayloadAction<BubbleStateElementsBodyItemList>
 ): void => {
-  state.elements.body.list = [...state.elements.body.list, action.payload]
-}
+  state.elements.body.list = [...state.elements.body.list, action.payload];
+};
 
 export const removeBodyInList = (
   state: BubbleState,
@@ -19,20 +19,20 @@ export const removeBodyInList = (
 ): void => {
   state.elements.body.list = state.elements.body.list.filter(
     (item) => item.id !== action.payload.id
-  )
-}
+  );
+};
 
 export const resetBody = (state: BubbleState): void => {
-  state.elements.body = initialBubbleState.elements.body
-}
+  state.elements.body = initialBubbleState.elements.body;
+};
 
 export const setActionBody = (
   state: BubbleState,
   action: PayloadAction<BubbleStateElementsBodyAction>
 ): void => {
-  state.elements.body.action = action.payload
-}
+  state.elements.body.action = action.payload;
+};
 
 export const resetActionBody = (state: BubbleState): void => {
-  state.elements.body.action = null
-}
+  state.elements.body.action = null;
+};

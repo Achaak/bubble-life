@@ -1,3 +1,3 @@
-import { OnomatopoeiaSleep } from './Sleep'
+import { OnomatopoeiaSleep } from './Sleep';
 
-export default OnomatopoeiaSleep
+export default OnomatopoeiaSleep;

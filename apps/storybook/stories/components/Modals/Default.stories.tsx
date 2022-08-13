@@ -1,4 +1,4 @@
-import { globalStyles } from '@bubble/styles'
+import { globalStyles } from '@pikas-ui/styles'
 import type { ModalProps } from '@bubble/ui'
 import { Modal } from '@bubble/ui'
 import type { Meta, Story } from '@storybook/react'

@@ -1,4 +1,4 @@
-import type { GlobalConfigType } from '@bubble/types'
+import type { GlobalConfigType } from '@bubble/types';
 
 export const GlobalConfig: GlobalConfigType = {
   lang: 'fr',
@@ -10,4 +10,4 @@ export const GlobalConfig: GlobalConfigType = {
     kiosk: true,
     menuBar: true,
   },
-}
+};

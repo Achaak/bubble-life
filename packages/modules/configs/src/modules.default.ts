@@ -1,6 +1,6 @@
-import type { ModulesType } from '@bubble/types'
-import BBLCalendar from 'bbl-calendar'
-import BBLMenu from 'bbl-menu'
+import type { ModulesType } from '@bubble/types';
+import BBLCalendar from 'bbl-calendar';
+import BBLMenu from 'bbl-menu';
 
 export const ModulesConfig: ModulesType[] = [
   {
@@ -15,4 +15,4 @@ export const ModulesConfig: ModulesType[] = [
     module: BBLMenu,
     position: 'bottom-right',
   },
-]
+];

@@ -3,15 +3,15 @@ export const random = ({
   min,
   round,
 }: {
-  min: number
-  max: number
-  round?: boolean
+  min: number;
+  max: number;
+  round?: boolean;
 }): number => {
-  const randomValue = Math.random() * (max - min) + min
+  const randomValue = Math.random() * (max - min) + min;
 
   if (round) {
-    return Math.round(randomValue)
+    return Math.round(randomValue);
   }
 
-  return randomValue
-}
+  return randomValue;
+};

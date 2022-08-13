@@ -1,6 +1,6 @@
-import { selectMessage, useAppSelector } from '@bubble/store'
-import { styled } from '@bubble/styles'
-import React from 'react'
+import { selectMessage, useAppSelector } from '@bubble/store';
+import { styled } from '@bubble/ui';
+import React from 'react';
 
 const Text = styled('p', {
   position: 'absolute',
@@ -14,14 +14,14 @@ const Text = styled('p', {
   textDecoration: 'none',
   whiteSpace: 'pre-line',
   fontFamily: 'Indie Flower',
-})
+});
 
 export const Message: React.FC = () => {
-  const { current } = useAppSelector(selectMessage)
+  const { current } = useAppSelector(selectMessage);
 
   if (!current) {
-    return <></>
+    return <></>;
   }
 
-  return <Text>{current.content}</Text>
-}
+  return <Text>{current.content}</Text>;
+};

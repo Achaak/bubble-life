@@ -1,17 +1,17 @@
-import type { PayloadAction } from '@reduxjs/toolkit'
-import { initialBubbleState } from '../../state'
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { initialBubbleState } from '../../state';
 import type {
   BubbleStateElementsEyesAction,
   BubbleStateElementsEyesItemList,
   BubbleState,
-} from '@bubble/types'
+} from '@bubble/types';
 
 export const addEyesInList = (
   state: BubbleState,
   action: PayloadAction<BubbleStateElementsEyesItemList>
 ): void => {
-  state.elements.eyes.list = [...state.elements.eyes.list, action.payload]
-}
+  state.elements.eyes.list = [...state.elements.eyes.list, action.payload];
+};
 
 export const removeEyesInList = (
   state: BubbleState,
@@ -19,20 +19,20 @@ export const removeEyesInList = (
 ): void => {
   state.elements.eyes.list = state.elements.eyes.list.filter(
     (item) => item.id !== action.payload.id
-  )
-}
+  );
+};
 
 export const resetEyes = (state: BubbleState): void => {
-  state.elements.eyes = initialBubbleState.elements.eyes
-}
+  state.elements.eyes = initialBubbleState.elements.eyes;
+};
 
 export const setActionEyes = (
   state: BubbleState,
   action: PayloadAction<BubbleStateElementsEyesAction>
 ): void => {
-  state.elements.eyes.action = action.payload
-}
+  state.elements.eyes.action = action.payload;
+};
 
 export const resetActionEyes = (state: BubbleState): void => {
-  state.elements.eyes.action = null
-}
+  state.elements.eyes.action = null;
+};

@@ -1,5 +1,5 @@
-import { BubbleConfig } from '@bubble/configs'
-import type { BubbleState } from '@bubble/types'
+import { BubbleConfig } from '@bubble/configs';
+import type { BubbleState } from '@bubble/types';
 
 export const initialBubbleState: BubbleState = {
   name: 'Bubble',
@@ -52,4 +52,4 @@ export const initialBubbleState: BubbleState = {
       list: [],
     },
   },
-}
+};

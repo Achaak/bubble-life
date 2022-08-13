@@ -1,13 +1,13 @@
-import { styled } from '@bubble/styles'
-import React from 'react'
-import { NameModal } from './NameModal'
+import { styled } from '@bubble/ui';
+import React from 'react';
+import { NameModal } from './NameModal';
 
 const Container = styled('div', {
   padding: 16,
-})
+});
 
 interface CustomProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export const LayoutDefault: React.FC<CustomProps> = ({ children }) => {
@@ -17,5 +17,5 @@ export const LayoutDefault: React.FC<CustomProps> = ({ children }) => {
 
       <Container>{children}</Container>
     </>
-  )
-}
+  );
+};

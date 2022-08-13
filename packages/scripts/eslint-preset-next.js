@@ -15,12 +15,14 @@ module.exports = {
         format: ["camelCase", "PascalCase"],
         leadingUnderscore: "allow",
       },
+
       {
         selector: "memberLike",
         modifiers: ["private"],
         format: ["camelCase", "PascalCase"],
         leadingUnderscore: "require",
       },
+
       {
         selector: "typeLike",
         format: ["PascalCase"],

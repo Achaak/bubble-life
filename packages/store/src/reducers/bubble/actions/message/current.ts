@@ -1,20 +1,22 @@
-import type { HasMessageInCurrentById, SetCurrentMessage } from '@bubble/types'
-import { getBubble } from '../index'
-import { bubbleActions } from '../../index'
-import { store } from '../../../../store'
+import type { HasMessageInCurrentById, SetCurrentMessage } from '@bubble/types';
+import { getBubble } from '../index';
+import { bubbleActions } from '../../index';
+import { store } from '../../../../store';
 
 export const setCurrentMessage = (action: SetCurrentMessage): void => {
-  store.dispatch(bubbleActions.setCurrentMessage(action))
-}
+  store.dispatch(bubbleActions.setCurrentMessage(action));
+};
 
 export const resetCurrentMessage = (): void => {
-  store.dispatch(bubbleActions.resetCurrentMessage())
-}
+  store.dispatch(bubbleActions.resetCurrentMessage());
+};
 
-export const hasMessageInCurrentById = ({ id }: HasMessageInCurrentById): boolean => {
+export const hasMessageInCurrentById = ({
+  id,
+}: HasMessageInCurrentById): boolean => {
   const {
     message: { current },
-  } = getBubble()
+  } = getBubble();
 
-  return current?.id === id
-}
+  return current?.id === id;
+};

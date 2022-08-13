@@ -1,3 +1,3 @@
-import { EyesSleep } from './Sleep'
+import { EyesSleep } from './Sleep';
 
-export default EyesSleep
+export default EyesSleep;

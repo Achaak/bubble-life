@@ -1,25 +1,25 @@
-import { dateToMs } from '@bubble/common'
-import { BubbleConfig } from '@bubble/configs'
-import { removeHealth } from '@bubble/store'
+import { dateToMs } from '@bubble/common';
+import { BubbleConfig } from '@bubble/configs';
+import { removeHealth } from '@bubble/store';
 
-import { Vital } from './vital.js'
+import { Vital } from './vital.js';
 
 export class VitalHealth extends Vital {
   constructor() {
-    super()
+    super();
 
-    this.name = 'health'
+    this.name = 'health';
   }
 
   update = (timestamp: number): void => {
     if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) {
-      return
+      return;
     }
 
     removeHealth({
       value: BubbleConfig.vitals.health.decrease,
-    })
+    });
 
-    this.lastRender = timestamp
-  }
+    this.lastRender = timestamp;
+  };
 }

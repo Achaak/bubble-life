@@ -1,9 +1,0 @@
-{
-  "extends": "@bubble/tsconfig/package-react.json",
-  "compilerOptions": {
-    "rootDir": "./src",
-    "outDir": "./dist",
-  },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "dist"],
-}

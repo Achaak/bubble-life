@@ -1,1 +1,1 @@
-export * from './ModalInventoryContent.js'
+export * from './ModalInventoryContent.js';

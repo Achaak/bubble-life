@@ -1,9 +1,9 @@
-import type { CSS } from '@bubble/styles'
-import { styled } from '@bubble/styles'
-import * as LabelPrimitive from '@radix-ui/react-label'
-import { useState } from 'react'
-import { Text } from '../../Text/index.js'
-import React from 'react'
+import type { CSS } from '@pikas-ui/styles';
+import { styled } from '@pikas-ui/styles';
+import * as LabelPrimitive from '@radix-ui/react-label';
+import { useState } from 'react';
+import { Text } from '../../Text/index.js';
+import React from 'react';
 
 const Container = styled('div', {
   variants: {
@@ -19,7 +19,7 @@ const Container = styled('div', {
       },
     },
   },
-})
+});
 
 const TextareaComponent = styled('textarea', {
   border: 'none',
@@ -58,13 +58,13 @@ const TextareaComponent = styled('textarea', {
     },
     borderRadius: {
       1: {
-        br: 1,
+        br: 'sm',
       },
       2: {
-        br: 2,
+        br: 'md',
       },
       3: {
-        br: 3,
+        br: 'lg',
       },
       round: {
         br: 'round',
@@ -87,7 +87,7 @@ const TextareaComponent = styled('textarea', {
     borderSize: 'md',
     borderRadius: 3,
   },
-})
+});
 
 const Label = styled(LabelPrimitive.Root, {
   fontSize: '$EM-LARGE',
@@ -96,25 +96,25 @@ const Label = styled(LabelPrimitive.Root, {
   cursor: 'pointer',
   display: 'flex',
   alignItems: 'center',
-})
+});
 
 export interface TextareaProps {
-  placeholder?: string
-  fullWidth?: boolean
-  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
-  setFieldValue?: (id: string, res: string) => void
-  id?: string
-  textError?: string
-  label?: string
-  defaultValue?: string
-  fontSize?: 'sm' | 'md' | 'lg'
-  description?: string
-  borderSize?: 'sm' | 'md' | 'lg'
-  padding?: 'sm' | 'md' | 'lg'
-  borderRadius?: 1 | 2 | 3 | 'round'
+  placeholder?: string;
+  fullWidth?: boolean;
+  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  setFieldValue?: (id: string, res: string) => void;
+  id?: string;
+  textError?: string;
+  label?: string;
+  defaultValue?: string;
+  fontSize?: 'sm' | 'md' | 'lg';
+  description?: string;
+  borderSize?: 'sm' | 'md' | 'lg';
+  padding?: 'sm' | 'md' | 'lg';
+  borderRadius?: 1 | 2 | 3 | 'round';
   styles?: {
-    container?: CSS
-  }
+    container?: CSS;
+  };
 }
 
 export const Textarea: React.FC<TextareaProps> = ({
@@ -133,15 +133,17 @@ export const Textarea: React.FC<TextareaProps> = ({
   borderRadius,
   styles,
 }) => {
-  const [isFocus, setIsFocus] = useState(false)
+  const [isFocus, setIsFocus] = useState(false);
 
-  const onChangeTextarea: React.ChangeEventHandler<HTMLTextAreaElement> = (e) => {
+  const onChangeTextarea: React.ChangeEventHandler<HTMLTextAreaElement> = (
+    e
+  ) => {
     if (setFieldValue && id) {
-      setFieldValue(id, e.target.value)
+      setFieldValue(id, e.target.value);
     }
 
-    onChange?.(e)
-  }
+    onChange?.(e);
+  };
 
   return (
     <Container
@@ -178,5 +180,5 @@ export const Textarea: React.FC<TextareaProps> = ({
         </Text>
       ) : null}
     </Container>
-  )
-}
+  );
+};

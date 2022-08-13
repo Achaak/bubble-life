@@ -1,14 +1,14 @@
 export class Vital {
-  lastRender: number
+  lastRender: number;
 
-  name: string
+  name: string;
 
   constructor() {
-    this.lastRender = 0
-    this.name = 'actions'
+    this.lastRender = 0;
+    this.name = 'actions';
   }
 
   update = (timestamp: number): void => {
-    this.lastRender = timestamp
-  }
+    this.lastRender = timestamp;
+  };
 }

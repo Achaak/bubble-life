@@ -1,7 +1,7 @@
-import type { Action } from './../../action'
+import type { Action } from './../../action';
 
 export interface ActionsState {
-  waitingList: Action[]
-  cancelList: Action[]
-  current: Action | null
+  waitingList: Action[];
+  cancelList: Action[];
+  current: Action | null;
 }

@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-import { Modal } from '@bubble/ui'
-import { ModalStatsContent } from './content/index.js'
-import { ModalStatsHeader } from './header/index.js'
+import { Modal } from '@bubble/ui';
+import { ModalStatsContent } from './content/index.js';
+import { ModalStatsHeader } from './header/index.js';
 
 export interface ModalStatsProps {
-  visible: boolean
-  onClose: () => void
+  visible: boolean;
+  onClose: () => void;
 }
 
 export const ModalStats: React.FC<ModalStatsProps> = ({ onClose, visible }) => {
@@ -20,5 +20,5 @@ export const ModalStats: React.FC<ModalStatsProps> = ({ onClose, visible }) => {
       header={<ModalStatsHeader />}
       content={<ModalStatsContent />}
     />
-  )
-}
+  );
+};

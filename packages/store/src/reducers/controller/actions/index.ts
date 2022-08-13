@@ -1,13 +1,13 @@
-import type { SetCurrentUser, ControllerState } from '@bubble/types'
-import { controllerActions } from '../index'
-import { store } from '../../../store'
+import type { SetCurrentUser, ControllerState } from '@bubble/types';
+import { controllerActions } from '../index';
+import { store } from '../../../store';
 
 export const resetController = (): void => {
-  store.dispatch(controllerActions.resetController())
-}
+  store.dispatch(controllerActions.resetController());
+};
 
-export const getController = (): ControllerState => store.getState().controller
+export const getController = (): ControllerState => store.getState().controller;
 
 export const setCurrentUser = (currentUser: SetCurrentUser): void => {
-  store.dispatch(controllerActions.setCurrentUser(currentUser))
-}
+  store.dispatch(controllerActions.setCurrentUser(currentUser));
+};

@@ -1,78 +1,78 @@
-import { Actions } from './actionsClass.js'
-import { Animations } from './animationsClass.js'
-import { Elements } from './elementsClass.js'
-import { Inventory } from './inventoryClass.js'
-import { Message } from './messageClass.js'
-import { Vitals } from './vitalsClass.js'
-import { initWindow } from './window.js'
+import { Actions } from './actionsClass.js';
+import { Animations } from './animationsClass.js';
+import { Elements } from './elementsClass.js';
+import { Inventory } from './inventoryClass.js';
+import { Message } from './messageClass.js';
+import { Vitals } from './vitalsClass.js';
+import { initWindow } from './window.js';
 
-export * from './actions/index.js'
+export * from './actions/index.js';
 
 export class BubbleCore {
-  lastRender: number
+  lastRender: number;
 
-  loopRunning: boolean
+  loopRunning: boolean;
 
-  actions: Actions
+  actions: Actions;
 
-  animations: Animations
+  animations: Animations;
 
-  elements: Elements
+  elements: Elements;
 
-  message: Message
+  message: Message;
 
-  inventory: Inventory
+  inventory: Inventory;
 
-  vitals: Vitals
+  vitals: Vitals;
 
   constructor() {
-    this.lastRender = 0
-    this.loopRunning = false
+    this.lastRender = 0;
+    this.loopRunning = false;
 
-    this.actions = new Actions()
-    this.vitals = new Vitals()
-    this.message = new Message()
-    this.animations = new Animations()
-    this.elements = new Elements()
-    this.inventory = new Inventory()
+    this.actions = new Actions();
+    this.vitals = new Vitals();
+    this.message = new Message();
+    this.animations = new Animations();
+    this.elements = new Elements();
+    this.inventory = new Inventory();
 
-    initWindow()
+    initWindow();
 
-    this.startLoop()
+    this.startLoop();
   }
 
   update = async (timestamp: number): Promise<void> => {
     // ACTIONS
-    this.actions.update(timestamp)
+    this.actions.update(timestamp);
 
     // VITALS
-    this.vitals.update(timestamp)
+    this.vitals.update(timestamp);
 
     // Message
-    this.message.update()
+    this.message.update();
 
     // ANIMATIONS
-    this.animations.update()
-  }
+    this.animations.update();
+  };
 
   loop = (timestamp?: number): void => {
-    this.update(timestamp || 0)
+    this.update(timestamp || 0);
 
-    this.lastRender = timestamp || 0
+    this.lastRender = timestamp || 0;
 
     if (this.loopRunning) {
-      requestAnimationFrame(this.loop.bind(this))
+      requestAnimationFrame(this.loop.bind(this));
     }
-  }
+  };
 
   // Start the loop
   startLoop = (): void => {
-    this.loopRunning = true
-    this.loop()
-  }
+    this.loopRunning = true;
+    this.loop();
+  };
 
   // Stop the loop
   stopLoop = (): void => {
-    this.loopRunning = false
-  }
+    this.loopRunning = false;
+  };
 }

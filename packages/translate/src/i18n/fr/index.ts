@@ -1,22 +1,16 @@
 /* eslint-disable */
-import type { Translation } from '../i18n-types'
+import type { Translation } from '../i18n-types';
 
 const fr: Translation = {
-	common: {
+  common: {},
+  home: {},
+  modals: {},
+  words: {
+    saturation: 'saturation',
+    happiness: 'happiness',
+    tiredness: 'tiredness',
+    health: 'health',
+  },
+};
 
-	},
-	home: {
-
-	},
-	modals: {
-
-	},
-	words: {
-		saturation: 'saturation',
-		happiness: 'happiness',
-		tiredness: 'tiredness',
-		health: 'health',
-	},
-}
-
-export default fr
+export default fr;

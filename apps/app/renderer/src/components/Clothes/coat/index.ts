@@ -1,3 +1,3 @@
-import { ClotheCoat } from './Coat'
+import { ClotheCoat } from './Coat';
 
-export default ClotheCoat
+export default ClotheCoat;

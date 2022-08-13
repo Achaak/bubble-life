@@ -1,2 +1,2 @@
-export * from './bubble.js'
-export * from './global.js'
+export * from './bubble.js';
+export * from './global.js';

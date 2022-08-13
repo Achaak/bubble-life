@@ -1,12 +1,12 @@
-import type { InventoryItem } from '@bubble/types'
-import type { PayloadAction } from '@reduxjs/toolkit'
-import type { BubbleState } from '@bubble/types'
+import type { InventoryItem } from '@bubble/types';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import type { BubbleState } from '@bubble/types';
 
 export const addInventoryItem = (
   state: BubbleState,
   action: PayloadAction<{
-    type: InventoryItem
-    number: number
+    type: InventoryItem;
+    number: number;
   }>
 ): void => {
   // If inventory item exist
@@ -16,11 +16,11 @@ export const addInventoryItem = (
         return {
           ...item,
           stock: item.stock + action.payload.number,
-        }
+        };
       }
 
-      return item
-    })
+      return item;
+    });
   } else {
     // If inventory item not exist
     state.inventory = [
@@ -29,15 +29,15 @@ export const addInventoryItem = (
         stock: action.payload.number,
         type: action.payload.type,
       },
-    ]
+    ];
   }
-}
+};
 
 export const removeInventoryItem = (
   state: BubbleState,
   action: PayloadAction<{
-    type: InventoryItem
-    number: number
+    type: InventoryItem;
+    number: number;
   }>
 ): void => {
   // Remove stock
@@ -46,14 +46,14 @@ export const removeInventoryItem = (
       return {
         ...item,
         stock: item.stock - action.payload.number,
-      }
+      };
     }
 
-    return item
-  })
+    return item;
+  });
 
   // Remove stock under 0
   state.inventory = state.inventory.filter((item) => {
-    return item.stock > 0
-  })
-}
+    return item.stock > 0;
+  });
+};

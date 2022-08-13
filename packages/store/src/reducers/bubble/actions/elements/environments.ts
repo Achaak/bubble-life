@@ -1,23 +1,27 @@
-import type { AddEnvironmentInList, SetActionEnvironment } from '@bubble/types'
-import { bubbleActions } from '../../index'
-import { store } from '../../../../store'
+import type { AddEnvironmentInList, SetActionEnvironment } from '@bubble/types';
+import { bubbleActions } from '../../index';
+import { store } from '../../../../store';
 
-export const addEnvironmentInList = (environment: AddEnvironmentInList): void => {
-  store.dispatch(bubbleActions.addEnvironmentInList(environment))
-}
+export const addEnvironmentInList = (
+  environment: AddEnvironmentInList
+): void => {
+  store.dispatch(bubbleActions.addEnvironmentInList(environment));
+};
 
 export const removeEnvironmentInList = ({ id }: { id: string }): void => {
-  store.dispatch(bubbleActions.removeEnvironmentInList({ id }))
-}
+  store.dispatch(bubbleActions.removeEnvironmentInList({ id }));
+};
 
 export const resetEnvironment = (): void => {
-  store.dispatch(bubbleActions.resetEnvironment())
-}
+  store.dispatch(bubbleActions.resetEnvironment());
+};
 
-export const setActionEnvironment = (environment: SetActionEnvironment): void => {
-  store.dispatch(bubbleActions.setActionEnvironment(environment))
-}
+export const setActionEnvironment = (
+  environment: SetActionEnvironment
+): void => {
+  store.dispatch(bubbleActions.setActionEnvironment(environment));
+};
 
 export const resetActionEnvironment = (): void => {
-  store.dispatch(bubbleActions.resetActionEnvironment())
-}
+  store.dispatch(bubbleActions.resetActionEnvironment());
+};

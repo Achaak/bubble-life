@@ -1,1 +1,1 @@
-export * from './ModalActionsContent.js'
+export * from './ModalActionsContent.js';

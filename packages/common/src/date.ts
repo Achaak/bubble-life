@@ -4,25 +4,25 @@ export const dateToMs = ({
   minutes,
   seconds,
 }: {
-  days?: number
-  hours?: number
-  minutes?: number
-  seconds?: number
+  days?: number;
+  hours?: number;
+  minutes?: number;
+  seconds?: number;
 }): number => {
-  let ms = 0
+  let ms = 0;
 
   if (days) {
-    ms += days * 24 * 60 * 60 * 1000
+    ms += days * 24 * 60 * 60 * 1000;
   }
   if (hours) {
-    ms += hours * 60 * 60 * 1000
+    ms += hours * 60 * 60 * 1000;
   }
   if (minutes) {
-    ms += minutes * 60 * 1000
+    ms += minutes * 60 * 1000;
   }
   if (seconds) {
-    ms += seconds * 1000
+    ms += seconds * 1000;
   }
 
-  return ms
-}
+  return ms;
+};

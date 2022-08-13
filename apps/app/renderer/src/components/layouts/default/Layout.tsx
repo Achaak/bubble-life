@@ -1,6 +1,6 @@
-import { BubbleCore } from '@bubble/core'
-import { styled } from '@bubble/styles'
-import { useEffect } from 'react'
+import { BubbleCore } from '@bubble/core';
+import { styled } from '@bubble/ui';
+import { useEffect } from 'react';
 
 const Container = styled('div', {
   position: 'absolute',
@@ -10,16 +10,16 @@ const Container = styled('div', {
   left: 0,
   cursor: process.env.NODE_ENV === 'development' ? 'default' : 'none',
   userSelect: 'none',
-})
+});
 
 interface CustomProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export const DefaultLayout: React.FC<CustomProps> = ({ children }) => {
   useEffect(() => {
-    new BubbleCore()
-  }, [])
+    new BubbleCore();
+  }, []);
 
-  return <Container>{children}</Container>
-}
+  return <Container>{children}</Container>;
+};

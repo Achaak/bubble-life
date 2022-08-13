@@ -1,7 +1,10 @@
-import type { BubbleStateElementsHatAction, BubbleStateElementsHatItemList } from '../types'
+import type {
+  BubbleStateElementsHatAction,
+  BubbleStateElementsHatItemList,
+} from '../types';
 
-export type AddHatInList = BubbleStateElementsHatItemList
+export type AddHatInList = BubbleStateElementsHatItemList;
 
-export type RemoveHatInList = { id: string }
+export type RemoveHatInList = { id: string };
 
-export type SetActionHat = BubbleStateElementsHatAction
+export type SetActionHat = BubbleStateElementsHatAction;

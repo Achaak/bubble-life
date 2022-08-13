@@ -1,10 +1,10 @@
 import type {
   BubbleStateElementsOnomatopoeiaAction,
   BubbleStateElementsOnomatopoeiaItemList,
-} from '../types'
+} from '../types';
 
-export type AddOnomatopoeiaInList = BubbleStateElementsOnomatopoeiaItemList
+export type AddOnomatopoeiaInList = BubbleStateElementsOnomatopoeiaItemList;
 
-export type RemoveOnomatopoeiaInList = { id: string }
+export type RemoveOnomatopoeiaInList = { id: string };
 
-export type SetActionOnomatopoeia = BubbleStateElementsOnomatopoeiaAction
+export type SetActionOnomatopoeia = BubbleStateElementsOnomatopoeiaAction;

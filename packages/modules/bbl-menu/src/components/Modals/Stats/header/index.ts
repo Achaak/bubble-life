@@ -1,1 +1,1 @@
-export * from './ModalStatsHeader.js'
+export * from './ModalStatsHeader.js';

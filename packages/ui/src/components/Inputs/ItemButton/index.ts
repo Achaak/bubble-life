@@ -1,1 +1,1 @@
-export * from './ItemButton.js'
+export * from './ItemButton.js';

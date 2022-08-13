@@ -1,12 +1,12 @@
-import { App } from './App/index.js'
+import { App } from './App/index.js';
 // import { Controller } from './Controller/index.js'
-import type { ModuleConfig } from '@bubble/types'
+import type { ModuleConfig } from '@bubble/types';
 
 const config: ModuleConfig = {
   name: 'menu',
   icon: 'cruelty_free',
   App,
   // Controller,
-}
+};
 
-export default config
+export default config;

@@ -1,9 +1,9 @@
-import type { Message } from '../../../message'
+import type { Message } from '../../../message';
 
-export type HasMessageInWaitingListById = { id: string }
+export type HasMessageInWaitingListById = { id: string };
 
-export type AddMessageInWaitingList = Message
+export type AddMessageInWaitingList = Message;
 
-export type RemoveMessageFromWaitingList = { id: string }
+export type RemoveMessageFromWaitingList = { id: string };
 
-export type TransferMessageFromWaitingListToCurrent = { id: string }
+export type TransferMessageFromWaitingListToCurrent = { id: string };

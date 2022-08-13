@@ -1,7 +1,7 @@
-import type { CSS } from '@bubble/styles'
-import { styled } from '@bubble/styles'
-import * as Dialog from '@radix-ui/react-dialog'
-import React, { useEffect, useState } from 'react'
+import type { CSS } from '@pikas-ui/styles';
+import { styled } from '@pikas-ui/styles';
+import * as Dialog from '@radix-ui/react-dialog';
+import React, { useEffect, useState } from 'react';
 
 const Overlay = styled(Dialog.Overlay, {
   position: 'fixed',
@@ -18,7 +18,7 @@ const Overlay = styled(Dialog.Overlay, {
       },
     },
   },
-})
+});
 
 const Container = styled(Dialog.Content, {
   inset: 'initial',
@@ -48,7 +48,7 @@ const Container = styled(Dialog.Content, {
     left: '50%',
     bottom: 'initial',
     right: 'initial',
-    br: 2,
+    br: 'md',
     transformOrigin: '0% 0%',
     transform: 'scale(0.8) translate(-50%, -50%)',
   },
@@ -102,28 +102,28 @@ const Container = styled(Dialog.Content, {
       },
     },
   },
-})
+});
 
 const HeaderLeft = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'flex-start',
   flex: 1,
-})
+});
 
 const HeaderCenter = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   flex: 8,
-})
+});
 
 const HeaderRight = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'flex-end',
   flex: 1,
-})
+});
 
 const CloseBtn = styled('div', {
   cursor: 'pointer',
@@ -134,8 +134,8 @@ const CloseBtn = styled('div', {
   borderWidth: 3,
   borderStyle: 'solid',
   borderColor: '$WHITE',
-  br: 3,
-})
+  br: 'lg',
+});
 
 const Header = styled('div', {
   display: 'flex',
@@ -171,7 +171,7 @@ const Header = styled('div', {
       },
     },
   },
-})
+});
 
 const Content = styled('div', {
   display: 'flex',
@@ -208,7 +208,7 @@ const Content = styled('div', {
       },
     },
   },
-})
+});
 
 const Footer = styled('div', {
   display: 'flex',
@@ -244,37 +244,37 @@ const Footer = styled('div', {
       },
     },
   },
-})
+});
 
 export interface ModalProps {
-  visible: boolean
-  onClose: () => void
-  hasCloseBtn?: boolean
+  visible: boolean;
+  onClose: () => void;
+  hasCloseBtn?: boolean;
   styles?: {
-    container?: CSS
-    header?: CSS
-    content?: CSS
-    footer?: CSS
-  }
-  closeClickOutside?: boolean
-  onOpen?: () => void
-  width?: string | number
-  height?: string | number
+    container?: CSS;
+    header?: CSS;
+    content?: CSS;
+    footer?: CSS;
+  };
+  closeClickOutside?: boolean;
+  onOpen?: () => void;
+  width?: string | number;
+  height?: string | number;
   padding?: {
-    container?: 'no-padding' | 'sm' | 'md' | 'lg'
-    header?: 'no-padding' | 'sm' | 'md' | 'lg'
-    content?: 'no-padding' | 'sm' | 'md' | 'lg'
-    footer?: 'no-padding' | 'sm' | 'md' | 'lg'
-  }
+    container?: 'no-padding' | 'sm' | 'md' | 'lg';
+    header?: 'no-padding' | 'sm' | 'md' | 'lg';
+    content?: 'no-padding' | 'sm' | 'md' | 'lg';
+    footer?: 'no-padding' | 'sm' | 'md' | 'lg';
+  };
   gap?: {
-    container?: 'no-gap' | 'sm' | 'md' | 'lg'
-    header?: 'no-gap' | 'sm' | 'md' | 'lg'
-    content?: 'no-gap' | 'sm' | 'md' | 'lg'
-    footer?: 'no-gap' | 'sm' | 'md' | 'lg'
-  }
-  header?: React.ReactNode
-  footer?: React.ReactNode
-  content?: React.ReactNode
+    container?: 'no-gap' | 'sm' | 'md' | 'lg';
+    header?: 'no-gap' | 'sm' | 'md' | 'lg';
+    content?: 'no-gap' | 'sm' | 'md' | 'lg';
+    footer?: 'no-gap' | 'sm' | 'md' | 'lg';
+  };
+  header?: React.ReactNode;
+  footer?: React.ReactNode;
+  content?: React.ReactNode;
 }
 
 export const Modal: React.FC<ModalProps> = ({
@@ -292,30 +292,30 @@ export const Modal: React.FC<ModalProps> = ({
   content,
   gap,
 }) => {
-  const [visibleStyle, setVisibleStyle] = useState(false)
-  const [visibleDOM, setVisibleDOM] = useState(false)
+  const [visibleStyle, setVisibleStyle] = useState(false);
+  const [visibleDOM, setVisibleDOM] = useState(false);
 
   useEffect(() => {
     if (visible) {
-      setVisibleDOM(visible)
+      setVisibleDOM(visible);
 
       setTimeout(() => {
-        setVisibleStyle(visible)
-      }, 100)
+        setVisibleStyle(visible);
+      }, 100);
     } else {
-      setVisibleStyle(visible)
+      setVisibleStyle(visible);
 
       setTimeout(() => {
-        setVisibleDOM(visible)
-      }, 500)
+        setVisibleDOM(visible);
+      }, 500);
     }
-  }, [visible])
+  }, [visible]);
 
   const handleClose = (): void => {
     if (onClose) {
-      onClose()
+      onClose();
     }
-  }
+  };
 
   return (
     <Dialog.Root
@@ -323,9 +323,9 @@ export const Modal: React.FC<ModalProps> = ({
       modal={true}
       onOpenChange={(value): void => {
         if (value) {
-          onOpen?.()
+          onOpen?.();
         } else {
-          onClose?.()
+          onClose?.();
         }
       }}
     >
@@ -333,7 +333,7 @@ export const Modal: React.FC<ModalProps> = ({
         visible={visibleStyle}
         onClick={(): void => {
           if (closeClickOutside) {
-            handleClose()
+            handleClose();
           }
         }}
         css={{
@@ -397,8 +397,8 @@ export const Modal: React.FC<ModalProps> = ({
         )}
       </Container>
     </Dialog.Root>
-  )
-}
+  );
+};
 
 Modal.defaultProps = {
   width: 500,
@@ -415,4 +415,4 @@ Modal.defaultProps = {
     header: 'md',
   },
   hasCloseBtn: true,
-}
+};

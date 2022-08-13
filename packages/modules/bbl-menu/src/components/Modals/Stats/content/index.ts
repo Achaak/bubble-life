@@ -1,1 +1,1 @@
-export * from './ModalStatsContent.js'
+export * from './ModalStatsContent.js';
