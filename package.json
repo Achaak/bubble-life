@@ -14,7 +14,7 @@
     "start:controller": "turbo run start --filter=@bubble/controller",
     "start:docs": "turbo run start --filter=@bubble/docs",
     "start:storybook": "turbo run start --filter=@bubble/storybook",
-    "build": "turbo run build --filter=@bubble/app... --filter=@bubble/controller... --filter=@bubble/server... --concurrency=1",
+    "build": "turbo run build --filter=@bubble/app... --filter=@bubble/controller... --filter=@bubble/server...",
     "build:app": "turbo run build --filter=@bubble/app",
     "build:controller": "turbo run build --filter=@bubble/controller...",
     "build:docs": "turbo run build --filter=@bubble/docs...",
