@@ -1,6 +1,6 @@
 import type { TextProps } from '@bubble/ui'
 import { Text, TextComponentType, TextVariantType } from '@bubble/ui'
-import { globalStyles, styled } from '@bubble/styles'
+import { globalStyles, styled } from '@pikas-ui/styles'
 import type { Story, Meta } from '@storybook/react'
 
 export default {

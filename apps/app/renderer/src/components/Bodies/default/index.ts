@@ -1,3 +1,3 @@
-import { BodyDefault } from './Default'
+import { BodyDefault } from './Default';
 
-export default BodyDefault
+export default BodyDefault;

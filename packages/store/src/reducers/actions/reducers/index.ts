@@ -1,21 +1,21 @@
-import type { ActionsState } from '@bubble/types'
-import type { PayloadAction } from '@reduxjs/toolkit'
-import { initialActionsState } from '../state'
+import type { ActionsState } from '@bubble/types';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { initialActionsState } from '../state';
 
-export * from './cancelList'
-export * from './current'
-export * from './waitingList'
+export * from './cancelList';
+export * from './current';
+export * from './waitingList';
 
 export const resetActions = (state: ActionsState): void => {
   for (const key in state) {
     // @ts-expect-error Never
-    delete state[key]
+    delete state[key];
   }
 
-  state.waitingList = initialActionsState.waitingList
-  state.current = initialActionsState.current
-  state.cancelList = initialActionsState.cancelList
-}
+  state.waitingList = initialActionsState.waitingList;
+  state.current = initialActionsState.current;
+  state.cancelList = initialActionsState.cancelList;
+};
 
 export const updateMemoryValue = (
   state: ActionsState,
@@ -24,38 +24,38 @@ export const updateMemoryValue = (
   // Update current action memory value
   if (state.current) {
     if (!state.current.memory) {
-      state.current.memory = {}
+      state.current.memory = {};
     }
 
-    state.current.memory[action.payload.memoryId] = action.payload.value
+    state.current.memory[action.payload.memoryId] = action.payload.value;
   }
 
   // Update wait list memory value
   state.waitingList = state.waitingList.map((item) => {
     if (item.id === action.payload.actionId) {
       if (!item.memory) {
-        item.memory = {}
+        item.memory = {};
       }
 
-      item.memory[action.payload.memoryId] = action.payload.value
+      item.memory[action.payload.memoryId] = action.payload.value;
     }
 
-    return item
-  })
+    return item;
+  });
 
   // Update cancel list memory value
   state.cancelList = state.cancelList.map((item) => {
     if (item.id === action.payload.actionId) {
       if (!item.memory) {
-        item.memory = {}
+        item.memory = {};
       }
 
-      item.memory[action.payload.memoryId] = action.payload.value
+      item.memory[action.payload.memoryId] = action.payload.value;
     }
 
-    return item
-  })
-}
+    return item;
+  });
+};
 
 export const deleteMemoryValue = (
   state: ActionsState,
@@ -64,35 +64,35 @@ export const deleteMemoryValue = (
   // Update current action memory value
   if (state.current) {
     if (!state.current.memory) {
-      state.current.memory = {}
+      state.current.memory = {};
     }
 
-    delete state.current.memory[action.payload.memoryId]
+    delete state.current.memory[action.payload.memoryId];
   }
 
   // Update wait list memory value
   state.waitingList = state.waitingList.map((item) => {
     if (item.id === action.payload.actionId) {
       if (!item.memory) {
-        item.memory = {}
+        item.memory = {};
       }
 
-      delete item.memory[action.payload.memoryId]
+      delete item.memory[action.payload.memoryId];
     }
 
-    return item
-  })
+    return item;
+  });
 
   // Update cancel list memory value
   state.cancelList = state.cancelList.map((item) => {
     if (item.id === action.payload.actionId) {
       if (!item.memory) {
-        item.memory = {}
+        item.memory = {};
       }
 
-      delete item.memory[action.payload.memoryId]
+      delete item.memory[action.payload.memoryId];
     }
 
-    return item
-  })
-}
+    return item;
+  });
+};

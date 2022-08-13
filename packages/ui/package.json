@@ -16,9 +16,11 @@
     "clean": "rm -rf .turbo && rm -rf node_modules"
   },
   "dependencies": {
-    "@bubble/styles": "workspace:*",
     "@bubble/translate": "workspace:*",
     "@bubble/types": "workspace:*",
+    "@pikas-ui/icons": "^2.1.2",
+    "@pikas-ui/loader": "^2.1.2",
+    "@pikas-ui/styles": "^2.3.2",
     "@radix-ui/react-dialog": "^1.0.0",
     "@radix-ui/react-label": "^1.0.0",
     "@radix-ui/react-separator": "^1.0.0",
@@ -28,7 +30,7 @@
     "@bubble/scripts": "workspace:*",
     "@bubble/tsconfig": "workspace:*",
     "@pnpm/sort-packages": "^3.0.7",
-    "@types/node": "^18.7.2",
+    "@types/node": "^18.7.3",
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
     "@typescript-eslint/eslint-plugin": "5.33.0",

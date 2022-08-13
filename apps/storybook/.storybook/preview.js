@@ -1,7 +1,7 @@
-import { theme } from "@bubble/styles";
+import { theme } from '@bubble/ui'
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
+  actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {},
   },

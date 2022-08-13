@@ -1,1 +1,1 @@
-export * from './IndexContainer'
+export * from './IndexContainer';

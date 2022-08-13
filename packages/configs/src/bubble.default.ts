@@ -1,4 +1,4 @@
-import type { BubbleConfigType } from '@bubble/types'
+import type { BubbleConfigType } from '@bubble/types';
 
 export const BubbleConfig: BubbleConfigType = {
   vitals: {
@@ -75,4 +75,4 @@ export const BubbleConfig: BubbleConfigType = {
       stock: 1,
     },
   ],
-}
+};

@@ -1,9 +1,9 @@
-import { getMaxImportantItemInList } from '@bubble/common'
-import { useAppSelector } from '@bubble/store'
-import { selectElements } from '@bubble/store'
-import { styled } from '@bubble/styles'
-import React, { useEffect, useState } from 'react'
-import type { Onomatopoeias as OnomatopoeiasType } from '@bubble/types'
+import { getMaxImportantItemInList } from '@bubble/common';
+import { useAppSelector } from '@bubble/store';
+import { selectElements } from '@bubble/store';
+import { styled } from '@bubble/ui';
+import React, { useEffect, useState } from 'react';
+import type { Onomatopoeias as OnomatopoeiasType } from '@bubble/types';
 
 const Container = styled('div', {
   position: 'absolute',
@@ -11,45 +11,48 @@ const Container = styled('div', {
   bottom: 0,
   left: 0,
   right: 0,
-})
+});
 
 interface CustomProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export const Onomatopoeias: React.FC<CustomProps> = ({ children }) => {
-  const [onomatopoeiaDOM, setOnomatopoeiaDOM] = useState<React.ReactNode>(null)
+  const [onomatopoeiaDOM, setOnomatopoeiaDOM] = useState<React.ReactNode>(null);
 
-  const { onomatopoeia } = useAppSelector(selectElements)
+  const { onomatopoeia } = useAppSelector(selectElements);
 
   useEffect(() => {
     const getOnomatopoeia = async (): Promise<void> => {
-      let onomatopoeiaName: OnomatopoeiasType | null = null
+      let onomatopoeiaName: OnomatopoeiasType | null = null;
 
       if (onomatopoeia.action) {
-        onomatopoeiaName = onomatopoeia.action.name
+        onomatopoeiaName = onomatopoeia.action.name;
       } else if (onomatopoeia.list.length > 0) {
-        onomatopoeiaName = getMaxImportantItemInList<OnomatopoeiasType>(onomatopoeia.list)
+        onomatopoeiaName = getMaxImportantItemInList<OnomatopoeiasType>(
+          onomatopoeia.list
+        );
       } else if (onomatopoeia.default) {
-        onomatopoeiaName = onomatopoeia.default
+        onomatopoeiaName = onomatopoeia.default;
       }
 
       if (onomatopoeiaName) {
-        const { default: Onomatopoeia } = await require(`./${onomatopoeiaName}/index`)
+        const { default: Onomatopoeia } =
+          await require(`./${onomatopoeiaName}/index`);
 
-        setOnomatopoeiaDOM(<Onomatopoeia />)
+        setOnomatopoeiaDOM(<Onomatopoeia />);
       } else {
-        setOnomatopoeiaDOM(null)
+        setOnomatopoeiaDOM(null);
       }
-    }
+    };
 
-    getOnomatopoeia()
-  }, [onomatopoeia])
+    getOnomatopoeia();
+  }, [onomatopoeia]);
 
   return (
     <Container>
       {onomatopoeiaDOM}
       {children}
     </Container>
-  )
-}
+  );
+};

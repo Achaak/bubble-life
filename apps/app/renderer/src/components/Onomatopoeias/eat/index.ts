@@ -1,3 +1,3 @@
-import { OnomatopoeiaEat } from './Eat'
+import { OnomatopoeiaEat } from './Eat';
 
-export default OnomatopoeiaEat
+export default OnomatopoeiaEat;

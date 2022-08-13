@@ -1,9 +1,9 @@
-import { SocketContext } from '@/components/components/SocketProvider'
-import { setCurrentUser, useAppSelector } from '@bubble/store'
-import { selectCurrentUser } from '@bubble/store'
-import { styled } from '@bubble/styles'
-import { Button, Textfield } from '@bubble/ui'
-import React, { useContext, useState } from 'react'
+import { SocketContext } from '@/components/components/SocketProvider';
+import { setCurrentUser, useAppSelector } from '@bubble/store';
+import { selectCurrentUser } from '@bubble/store';
+import { styled } from '@bubble/ui';
+import { Button, Textfield } from '@bubble/ui';
+import React, { useContext, useState } from 'react';
 
 const Container = styled('div', {
   position: 'fixed',
@@ -24,33 +24,33 @@ const Container = styled('div', {
       },
     },
   },
-})
+});
 
 export const NameModal: React.FC = () => {
-  const [name, setName] = useState<string>()
-  const socket = useContext(SocketContext)
-  const currentUser = useAppSelector(selectCurrentUser)
+  const [name, setName] = useState<string>();
+  const socket = useContext(SocketContext);
+  const currentUser = useAppSelector(selectCurrentUser);
 
-  console.log(currentUser)
+  console.log(currentUser);
   const handleConnect = (): void => {
     if (!name) {
-      return
+      return;
     }
 
-    socket?.emit('newUser', { name: name })
+    socket?.emit('newUser', { name: name });
 
-    console.log("emit 'newUser'")
+    console.log("emit 'newUser'");
     // Set in store
     setCurrentUser({
       name: name,
-    })
-  }
+    });
+  };
 
   return (
     <Container visible={!currentUser}>
       <Textfield
         onChange={(e): void => {
-          setName(e.target.value)
+          setName(e.target.value);
         }}
       />
 
@@ -58,5 +58,5 @@ export const NameModal: React.FC = () => {
         Validate
       </Button>
     </Container>
-  )
-}
+  );
+};

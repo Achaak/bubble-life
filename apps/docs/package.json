@@ -13,7 +13,7 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "dependencies": {
-    "@bubble/styles": "workspace:*",
+    "@bubble/ui": "workspace:*",
     "next": "12.2.5",
     "nextra": "^2.0.0-alpha.48",
     "nextra-theme-docs": "^2.0.0-alpha.48",
@@ -24,7 +24,7 @@
     "@bubble/scripts": "workspace:*",
     "@bubble/tsconfig": "workspace:*",
     "@next/eslint-plugin-next": "12.2.5",
-    "@types/node": "^18.7.2",
+    "@types/node": "^18.7.3",
     "@types/react": "18.0.17",
     "@typescript-eslint/eslint-plugin": "^5.33.0",
     "@typescript-eslint/parser": "^5.33.0",

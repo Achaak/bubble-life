@@ -1,4 +1,4 @@
-import type { AnimationConfig } from '@bubble/types'
+import type { AnimationConfig } from '@bubble/types';
 
 export const AnimationBounce: AnimationConfig = {
   name: 'bounce',
@@ -28,4 +28,4 @@ export const AnimationBounce: AnimationConfig = {
       easing: 'easeOutQuart',
     },
   ],
-}
+};

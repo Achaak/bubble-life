@@ -1,10 +1,10 @@
 import type {
   BubbleStateElementsEnvironmentAction,
   BubbleStateElementsEnvironmentItemList,
-} from '../types'
+} from '../types';
 
-export type AddEnvironmentInList = BubbleStateElementsEnvironmentItemList
+export type AddEnvironmentInList = BubbleStateElementsEnvironmentItemList;
 
-export type RemoveEnvironmentInList = { id: string }
+export type RemoveEnvironmentInList = { id: string };
 
-export type SetActionEnvironment = BubbleStateElementsEnvironmentAction
+export type SetActionEnvironment = BubbleStateElementsEnvironmentAction;

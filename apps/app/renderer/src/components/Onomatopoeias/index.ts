@@ -1,1 +1,1 @@
-export * from './Onomatopoeias'
+export * from './Onomatopoeias';

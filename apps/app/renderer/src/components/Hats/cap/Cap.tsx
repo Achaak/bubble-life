@@ -1,8 +1,8 @@
-import { styled } from '@bubble/styles'
-import React from 'react'
+import { styled } from '@bubble/ui';
+import React from 'react';
 
-const Hat = styled('img', {})
+const Hat = styled('img', {});
 
 export const HatCap: React.FC = () => {
-  return <Hat src="/svg/hats/cap.svg" width="80%" height="100%" />
-}
+  return <Hat src="/svg/hats/cap.svg" width="80%" height="100%" />;
+};

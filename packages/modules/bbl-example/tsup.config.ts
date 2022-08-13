@@ -1,4 +1,4 @@
-import { defineConfig } from 'tsup'
+import { defineConfig } from 'tsup';
 
 export default defineConfig((options) => {
   return {
@@ -13,5 +13,5 @@ export default defineConfig((options) => {
     platform: 'browser',
     bundle: false,
     external: ['react', 'react-dom'],
-  }
-})
+  };
+});

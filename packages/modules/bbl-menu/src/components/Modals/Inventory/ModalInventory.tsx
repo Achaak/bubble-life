@@ -1,15 +1,18 @@
-import React from 'react'
+import React from 'react';
 
-import { Modal } from '@bubble/ui'
-import { ModalInventoryContent } from './content/index.js'
-import { ModalInventoryHeader } from './header/index.js'
+import { Modal } from '@bubble/ui';
+import { ModalInventoryContent } from './content/index.js';
+import { ModalInventoryHeader } from './header/index.js';
 
 export interface ModalInventoryProps {
-  visible: boolean
-  onClose: () => void
+  visible: boolean;
+  onClose: () => void;
 }
 
-export const ModalInventory: React.FC<ModalInventoryProps> = ({ onClose, visible }) => {
+export const ModalInventory: React.FC<ModalInventoryProps> = ({
+  onClose,
+  visible,
+}) => {
   return (
     <Modal
       visible={visible}
@@ -20,5 +23,5 @@ export const ModalInventory: React.FC<ModalInventoryProps> = ({ onClose, visible
       header={<ModalInventoryHeader />}
       content={<ModalInventoryContent />}
     />
-  )
-}
+  );
+};

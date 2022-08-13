@@ -1,6 +1,6 @@
-import type { CSS } from '@bubble/styles'
-import { styled } from '@bubble/styles'
-import React from 'react'
+import type { CSS } from '@pikas-ui/styles';
+import { styled } from '@pikas-ui/styles';
+import React from 'react';
 
 const TitleStyle = styled('h1', {
   color: '$WHITE',
@@ -36,7 +36,7 @@ const TitleStyle = styled('h1', {
       },
     },
   },
-})
+});
 
 export const TitleComponentType = {
   h1: true,
@@ -44,8 +44,8 @@ export const TitleComponentType = {
   h3: true,
   h4: true,
   h5: true,
-}
-export const TitleVariantType = TitleComponentType
+};
+export const TitleVariantType = TitleComponentType;
 
 export const WhiteSpaceType = {
   nowrap: true,
@@ -53,18 +53,18 @@ export const WhiteSpaceType = {
   pre: true,
   preLine: true,
   preWrap: true,
-}
+};
 
 export interface TitleProps {
-  component: keyof typeof TitleComponentType
-  variant?: keyof typeof TitleVariantType
-  whiteSpace?: keyof typeof WhiteSpaceType
+  component: keyof typeof TitleComponentType;
+  variant?: keyof typeof TitleVariantType;
+  whiteSpace?: keyof typeof WhiteSpaceType;
   dangerouslySetInnerHTML?: {
-    __html: string
-  }
-  style?: CSS
-  id?: string
-  children?: React.ReactNode
+    __html: string;
+  };
+  style?: CSS;
+  id?: string;
+  children?: React.ReactNode;
 }
 
 export const Title: React.FC<TitleProps> = ({
@@ -90,5 +90,5 @@ export const Title: React.FC<TitleProps> = ({
     >
       {children}
     </TitleStyle>
-  )
-}
+  );
+};

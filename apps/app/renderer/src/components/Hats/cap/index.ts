@@ -1,3 +1,3 @@
-import { HatCap } from './Cap'
+import { HatCap } from './Cap';
 
-export default HatCap
+export default HatCap;

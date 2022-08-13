@@ -1,7 +1,7 @@
-import type { BubbleAnimationAction, BubbleAnimationItemList } from './types'
+import type { BubbleAnimationAction, BubbleAnimationItemList } from './types';
 
-export type AddAnimationInList = BubbleAnimationItemList
+export type AddAnimationInList = BubbleAnimationItemList;
 
-export type RemoveAnimationInList = { id: string }
+export type RemoveAnimationInList = { id: string };
 
-export type SetActionAnimation = BubbleAnimationAction
+export type SetActionAnimation = BubbleAnimationAction;

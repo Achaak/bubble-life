@@ -27,7 +27,7 @@ import {
   setSaturation,
   setTiredness,
   setWeight,
-} from '@bubble/store'
+} from '@bubble/store';
 import type {
   BubbleAnimationItemList,
   BubbleStateElementsBodyItemList,
@@ -38,167 +38,173 @@ import type {
   BubbleStateElementsOnomatopoeiaItemList,
   ActionsState,
   BubbleState,
-} from '@bubble/types'
+} from '@bubble/types';
 
 declare global {
   interface Window {
-    resetBubble: () => void
+    resetBubble: () => void;
 
     /* -------------------- VITALS -------------------- */
-    setWeight: (value: { value: number }) => void
-    resetWeight: () => void
+    setWeight: (value: { value: number }) => void;
+    resetWeight: () => void;
 
-    setSaturation: (value: { value: number }) => void
-    resetSaturation: () => void
+    setSaturation: (value: { value: number }) => void;
+    resetSaturation: () => void;
 
-    setHappiness: (value: { value: number }) => void
-    resetHappiness: () => void
+    setHappiness: (value: { value: number }) => void;
+    resetHappiness: () => void;
 
-    setTiredness: (value: { value: number }) => void
-    resetTiredness: () => void
+    setTiredness: (value: { value: number }) => void;
+    resetTiredness: () => void;
 
-    setHealth: (value: { value: number }) => void
-    resetHealth: () => void
+    setHealth: (value: { value: number }) => void;
+    resetHealth: () => void;
 
     /* -------------------- ELEMENTS -------------------- */
     /* ---------- EYES ---------- */
-    addEyesInList: (eyesElementListItem: BubbleStateElementsEyesItemList) => void
-    resetEyes: () => void
+    addEyesInList: (
+      eyesElementListItem: BubbleStateElementsEyesItemList
+    ) => void;
+    resetEyes: () => void;
 
     /* ---------- HAT ---------- */
-    addHatInList: (HatElementListItem: BubbleStateElementsHatItemList) => void
-    resetHat: () => void
+    addHatInList: (HatElementListItem: BubbleStateElementsHatItemList) => void;
+    resetHat: () => void;
 
     /* ---------- CLOTHE ---------- */
-    addClotheInList: (ClotheElementListItem: BubbleStateElementsClotheItemList) => void
-    resetClothe: () => void
+    addClotheInList: (
+      ClotheElementListItem: BubbleStateElementsClotheItemList
+    ) => void;
+    resetClothe: () => void;
 
     /* ---------- BODY ---------- */
-    addBodyInList: (BodyElementListItem: BubbleStateElementsBodyItemList) => void
-    resetBody: () => void
+    addBodyInList: (
+      BodyElementListItem: BubbleStateElementsBodyItemList
+    ) => void;
+    resetBody: () => void;
 
     /* ---------- ENVIRONMENT ---------- */
     addEnvironmentInList: (
       EnvironmentElementListItem: BubbleStateElementsEnvironmentItemList
-    ) => void
-    resetEnvironment: () => void
+    ) => void;
+    resetEnvironment: () => void;
 
     /* ---------- ONOMATOPOEIA ---------- */
     addOnomatopoeiaInList: (
       onomatopoeiaElementListItem: BubbleStateElementsOnomatopoeiaItemList
-    ) => void
-    resetOnomatopoeia: () => void
+    ) => void;
+    resetOnomatopoeia: () => void;
 
     /* -------------------- ANIMATIONS -------------------- */
-    addAnimationInList: (animationtListItem: BubbleAnimationItemList) => void
-    resetAnimation: () => void
+    addAnimationInList: (animationtListItem: BubbleAnimationItemList) => void;
+    resetAnimation: () => void;
 
     /* -------------------- STATS -------------------- */
-    bubble: () => void
-    actions: () => void
+    bubble: () => void;
+    actions: () => void;
   }
 }
 
 export const initWindow = (): void => {
   window.resetBubble = (): void => {
-    resetBubble()
-    resetActions()
-  }
+    resetBubble();
+    resetActions();
+  };
 
   /* -------------------- VITALS -------------------- */
   window.setWeight = ({ value }): void => {
-    setWeight({ value })
-  }
+    setWeight({ value });
+  };
   window.resetWeight = (): void => {
-    resetWeight()
-  }
+    resetWeight();
+  };
 
   window.setSaturation = ({ value }): void => {
-    setSaturation({ value })
-  }
+    setSaturation({ value });
+  };
   window.resetSaturation = (): void => {
-    resetSaturation()
-  }
+    resetSaturation();
+  };
 
   window.setHappiness = ({ value }): void => {
-    setHappiness({ value })
-  }
+    setHappiness({ value });
+  };
   window.resetHappiness = (): void => {
-    resetHappiness()
-  }
+    resetHappiness();
+  };
 
   window.setTiredness = ({ value }): void => {
-    setTiredness({ value })
-  }
+    setTiredness({ value });
+  };
   window.resetTiredness = (): void => {
-    resetTiredness()
-  }
+    resetTiredness();
+  };
 
   window.setHealth = ({ value }): void => {
-    setHealth({ value })
-  }
+    setHealth({ value });
+  };
   window.resetHealth = (): void => {
-    resetHealth()
-  }
+    resetHealth();
+  };
 
   /* -------------------- ELEMENTS -------------------- */
   /* ---------- EYES ---------- */
   window.addEyesInList = (eyesElementListItem): void => {
-    addEyesInList(eyesElementListItem)
-  }
+    addEyesInList(eyesElementListItem);
+  };
   window.resetEyes = (): void => {
-    resetEyes()
-  }
+    resetEyes();
+  };
 
   /* ---------- HAT ---------- */
   window.addHatInList = (HatElementListItem): void => {
-    addHatInList(HatElementListItem)
-  }
+    addHatInList(HatElementListItem);
+  };
   window.resetHat = (): void => {
-    resetHat()
-  }
+    resetHat();
+  };
 
   /* ---------- CLOTHE ---------- */
   window.addClotheInList = (ClotheElementListItem): void => {
-    addClotheInList(ClotheElementListItem)
-  }
+    addClotheInList(ClotheElementListItem);
+  };
   window.resetClothe = (): void => {
-    resetClothe()
-  }
+    resetClothe();
+  };
 
   /* ---------- BODY ---------- */
   window.addBodyInList = (BodyElementListItem): void => {
-    addBodyInList(BodyElementListItem)
-  }
+    addBodyInList(BodyElementListItem);
+  };
   window.resetBody = (): void => {
-    resetBody()
-  }
+    resetBody();
+  };
 
   /* ---------- ENVIRONMENT ---------- */
   window.addEnvironmentInList = (EnvironmentElementListItem): void => {
-    addEnvironmentInList(EnvironmentElementListItem)
-  }
+    addEnvironmentInList(EnvironmentElementListItem);
+  };
   window.resetEnvironment = (): void => {
-    resetEnvironment()
-  }
+    resetEnvironment();
+  };
 
   /* ---------- ONOMATOPOEIA ---------- */
   window.addOnomatopoeiaInList = (onomatopoeiaElementListItem): void => {
-    addOnomatopoeiaInList(onomatopoeiaElementListItem)
-  }
+    addOnomatopoeiaInList(onomatopoeiaElementListItem);
+  };
   window.resetOnomatopoeia = (): void => {
-    resetOnomatopoeia()
-  }
+    resetOnomatopoeia();
+  };
 
   /* -------------------- ANIMATIONS -------------------- */
   window.addAnimationInList = (animationListItem): void => {
-    addAnimationInList(animationListItem)
-  }
+    addAnimationInList(animationListItem);
+  };
   window.resetAnimation = (): void => {
-    resetAnimation()
-  }
+    resetAnimation();
+  };
 
   /* -------------------- STATS -------------------- */
-  window.bubble = (): BubbleState => getBubble()
-  window.actions = (): ActionsState => getActions()
-}
+  window.bubble = (): BubbleState => getBubble();
+  window.actions = (): ActionsState => getActions();
+};

@@ -1,1 +1,1 @@
-module.exports = require("@bubble/scripts/eslint-preset-next");
+module.exports = require('@bubble/scripts/eslint-preset-react')

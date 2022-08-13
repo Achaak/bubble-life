@@ -1,32 +1,32 @@
-import { ModuleControllerList } from '@bubble/modules'
-import { styled } from '@bubble/styles'
-import { ItemButton } from '@bubble/ui'
-import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
+import { ModuleControllerList } from '@bubble/modules';
+import { styled } from '@bubble/ui';
+import { ItemButton } from '@bubble/ui';
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
 
 const Container = styled('div', {
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'center',
   alignItems: 'center',
-})
+});
 
 export const IndexContainer: React.FC = () => {
   const [modulesConfig, setModulesConfig] = useState<
     {
-      name: string
-      icon: string
+      name: string;
+      icon: string;
     }[]
-  >([])
-  const router = useRouter()
+  >([]);
+  const router = useRouter();
 
   useEffect(() => {
     const initModulesConfig = async (): Promise<void> => {
-      setModulesConfig(await ModuleControllerList())
-    }
+      setModulesConfig(await ModuleControllerList());
+    };
 
-    initModulesConfig()
-  }, [])
+    initModulesConfig();
+  }, []);
 
   return (
     <Container>
@@ -34,7 +34,7 @@ export const IndexContainer: React.FC = () => {
         icon="message"
         text="Message"
         onClick={(): void => {
-          router.push('/message')
+          router.push('/message');
         }}
       />
 
@@ -44,10 +44,10 @@ export const IndexContainer: React.FC = () => {
           icon={moduleConfig.icon}
           text={moduleConfig.name}
           onClick={(): void => {
-            router.push(`/${moduleConfig.name}`)
+            router.push(`/${moduleConfig.name}`);
           }}
         />
       ))}
     </Container>
-  )
-}
+  );
+};

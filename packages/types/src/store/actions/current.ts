@@ -1,7 +1,7 @@
-import type { Action } from '../../index'
+import type { Action } from '../../index';
 
-export type SetCurrentAction = Action
+export type SetCurrentAction = Action;
 
-export type HasActionInCurrentByName = { name: string }
+export type HasActionInCurrentByName = { name: string };
 
-export type HasActionInCurrentById = { id: string }
+export type HasActionInCurrentById = { id: string };

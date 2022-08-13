@@ -1,3 +1,3 @@
-import { EyesSunglass } from './Sunglass'
+import { EyesSunglass } from './Sunglass';
 
-export default EyesSunglass
+export default EyesSunglass;

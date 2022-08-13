@@ -1,22 +1,22 @@
-import type { Action as ActionType } from '@bubble/types'
+import type { Action as ActionType } from '@bubble/types';
 
 export class Action {
-  lastRender: number
+  lastRender: number;
 
-  name: string
+  name: string;
 
   actions: {
-    name: string
-    function: (action: ActionType) => void
-  }[]
+    name: string;
+    function: (action: ActionType) => void;
+  }[];
 
   constructor() {
-    this.lastRender = 0
-    this.name = 'actions'
-    this.actions = []
+    this.lastRender = 0;
+    this.name = 'actions';
+    this.actions = [];
   }
 
   update = (timestamp: number): void => {
-    this.lastRender = timestamp
-  }
+    this.lastRender = timestamp;
+  };
 }

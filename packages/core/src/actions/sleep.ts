@@ -1,19 +1,23 @@
-import { dateToMs, socket } from '@bubble/common'
-import { random } from '@bubble/common'
-import { BubbleConfig } from '@bubble/configs'
+import { dateToMs, socket } from '@bubble/common';
+import { random } from '@bubble/common';
+import { BubbleConfig } from '@bubble/configs';
 import {
   addActionInWaitingList,
   addTiredness,
   getBubble,
   hasActionByName,
   updateMemoryValue,
-} from '@bubble/store'
-import type { Action as ActionType, SocketEvents, AddSleepActionInWaitingList } from '@bubble/types'
-import dayjs from 'dayjs'
+} from '@bubble/store';
+import type {
+  Action as ActionType,
+  SocketEvents,
+  AddSleepActionInWaitingList,
+} from '@bubble/types';
+import dayjs from 'dayjs';
 
-import { Action } from '../action.js'
+import { Action } from '../action.js';
 
-const TIREDNESS_INCREASE_DELAY = dateToMs({ seconds: 1 })
+const TIREDNESS_INCREASE_DELAY = dateToMs({ seconds: 1 });
 
 export const addSleepActionInWaitingList = ({
   start,
@@ -37,11 +41,11 @@ export const addSleepActionInWaitingList = ({
       },
     },
     importance: importance,
-  })
-}
+  });
+};
 
 export const addSleepActionInWaitingListDefault = (): void => {
-  const startSleep = dayjs()
+  const startSleep = dayjs();
   const endSleep = dayjs(startSleep).add(
     BubbleConfig.actions.sleep.duration +
       random({
@@ -50,26 +54,26 @@ export const addSleepActionInWaitingListDefault = (): void => {
         round: true,
       }),
     'minute'
-  )
+  );
 
   addSleepActionInWaitingList({
     start: startSleep.valueOf(),
     duration: endSleep.valueOf() - startSleep.valueOf(),
     importance: 2,
-  })
-}
+  });
+};
 
 export class ActionSleep extends Action {
-  lastRenderUpdateSleep: number
+  lastRenderUpdateSleep: number;
 
-  socket?: SocketEvents
+  socket?: SocketEvents;
 
   constructor() {
-    super()
+    super();
 
-    this.lastRenderUpdateSleep = 0
+    this.lastRenderUpdateSleep = 0;
 
-    this.name = 'sleep'
+    this.name = 'sleep';
     this.actions = [
       {
         name: 'sleep:start',
@@ -87,26 +91,31 @@ export class ActionSleep extends Action {
         name: 'sleep:cancel',
         function: this.handleCancelSleep,
       },
-    ]
+    ];
 
     this.socket = socket({
       localhost: true,
-    })
+    });
 
-    this.socket.on('addSleepActionInWaitingList', addSleepActionInWaitingList)
-    this.socket.on('addSleepActionInWaitingListDefault', addSleepActionInWaitingListDefault)
+    this.socket.on('addSleepActionInWaitingList', addSleepActionInWaitingList);
+    this.socket.on(
+      'addSleepActionInWaitingListDefault',
+      addSleepActionInWaitingListDefault
+    );
   }
 
   update = (timestamp: number): void => {
     if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) {
-      return
+      return;
     }
 
     if (!hasActionByName({ name: 'sleep' })) {
-      const hourStart = parseInt(BubbleConfig.actions.sleep.startAt.split(':')[0]) || 0
-      const minuteStart = parseInt(BubbleConfig.actions.sleep.startAt.split(':')[1]) || 0
+      const hourStart =
+        parseInt(BubbleConfig.actions.sleep.startAt.split(':')[0]) || 0;
+      const minuteStart =
+        parseInt(BubbleConfig.actions.sleep.startAt.split(':')[1]) || 0;
 
-      const currentDate = dayjs()
+      const currentDate = dayjs();
 
       let startSleep = dayjs(
         new Date(
@@ -121,10 +130,10 @@ export class ActionSleep extends Action {
           }),
           0
         )
-      )
+      );
 
       if (currentDate.valueOf() > startSleep.valueOf()) {
-        startSleep = startSleep.add(1, 'day')
+        startSleep = startSleep.add(1, 'day');
       }
 
       const endSleep = dayjs(startSleep).add(
@@ -135,44 +144,44 @@ export class ActionSleep extends Action {
             round: true,
           }),
         'minute'
-      )
+      );
 
       addSleepActionInWaitingList({
         start: startSleep.valueOf(),
         duration: endSleep.valueOf() - startSleep.valueOf(),
         importance: 2,
-      })
+      });
     }
 
-    this.lastRender = timestamp
-  }
+    this.lastRender = timestamp;
+  };
 
   getTirednessPerSecond = (action: ActionType): number => {
     const {
       vitals: { tiredness },
-    } = getBubble()
+    } = getBubble();
 
-    const timestamp = Date.now()
+    const timestamp = Date.now();
 
-    const tirednessEnd = action.memory?.tirednessEnd as number
+    const tirednessEnd = action.memory?.tirednessEnd as number;
 
     // Get time left
-    const actionEnd = action.start + action.duration
-    const timeLeft = (actionEnd - timestamp) / TIREDNESS_INCREASE_DELAY
+    const actionEnd = action.start + action.duration;
+    const timeLeft = (actionEnd - timestamp) / TIREDNESS_INCREASE_DELAY;
 
     // Get tiredness missing
-    const tirednessMissing = tirednessEnd - tiredness
+    const tirednessMissing = tirednessEnd - tiredness;
 
     // Get tiredness per second
-    const tirednessPerSecond = tirednessMissing / timeLeft
+    const tirednessPerSecond = tirednessMissing / timeLeft;
 
-    return tirednessPerSecond
-  }
+    return tirednessPerSecond;
+  };
 
   handleStartSleep = (action: ActionType): void => {
     const {
       vitals: { tiredness },
-    } = getBubble()
+    } = getBubble();
 
     const recoverValue =
       (action.memory?.recoverValue as number | undefined) ||
@@ -181,9 +190,10 @@ export class ActionSleep extends Action {
           min: BubbleConfig.actions.sleep.recoverMargin * -1,
           max: BubbleConfig.actions.sleep.recoverMargin,
           round: false,
-        })
+        });
 
-    const tirednessEnd = tiredness + BubbleConfig.vitals.tiredness.max * recoverValue
+    const tirednessEnd =
+      tiredness + BubbleConfig.vitals.tiredness.max * recoverValue;
 
     if (action.id) {
       updateMemoryValue({
@@ -193,28 +203,28 @@ export class ActionSleep extends Action {
           tirednessEnd > BubbleConfig.vitals.tiredness.max
             ? BubbleConfig.vitals.tiredness.max
             : tirednessEnd,
-      })
+      });
     }
-  }
+  };
 
   handleUpdateSleep = (action: ActionType): void => {
-    const timestamp = Date.now()
+    const timestamp = Date.now();
     if (timestamp - this.lastRenderUpdateSleep < TIREDNESS_INCREASE_DELAY) {
-      return
+      return;
     }
 
     addTiredness({
       value: this.getTirednessPerSecond(action),
-    })
+    });
 
-    this.lastRenderUpdateSleep = timestamp
-  }
+    this.lastRenderUpdateSleep = timestamp;
+  };
 
   handleEndSleep = (): void => {
     // NOTHING
-  }
+  };
 
   handleCancelSleep = (): void => {
     // NOTHING
-  }
+  };
 }

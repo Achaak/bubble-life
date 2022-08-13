@@ -1,6 +1,6 @@
-import type { CSS } from '@bubble/styles'
-import { styled } from '@bubble/styles'
-import React from 'react'
+import type { CSS } from '@pikas-ui/styles';
+import { styled } from '@pikas-ui/styles';
+import React from 'react';
 
 const ComponentStyle = styled('p', {
   color: '$WHITE',
@@ -47,7 +47,7 @@ const ComponentStyle = styled('p', {
       },
     },
   },
-})
+});
 
 export const TextComponentType = {
   span: true,
@@ -56,22 +56,22 @@ export const TextComponentType = {
   li: true,
   ul: true,
   label: true,
-}
+};
 export const TextVariantType = {
   ...TextComponentType,
   error: true,
   info: true,
-}
+};
 
 export interface TextProps {
-  component: keyof typeof TextComponentType
-  variant?: keyof typeof TextVariantType
-  style?: CSS
-  href?: string
+  component: keyof typeof TextComponentType;
+  variant?: keyof typeof TextVariantType;
+  style?: CSS;
+  href?: string;
   dangerouslySetInnerHTML?: {
-    __html: string
-  }
-  children?: React.ReactNode
+    __html: string;
+  };
+  children?: React.ReactNode;
 }
 
 export const Text: React.FC<TextProps> = ({
@@ -96,7 +96,7 @@ export const Text: React.FC<TextProps> = ({
       >
         {children}
       </ComponentStyle>
-    )
+    );
   }
 
   // OTHER
@@ -111,9 +111,9 @@ export const Text: React.FC<TextProps> = ({
     >
       {children}
     </ComponentStyle>
-  )
-}
+  );
+};
 
 Text.defaultProps = {
   component: 'span',
-}
+};

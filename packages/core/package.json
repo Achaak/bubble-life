@@ -19,7 +19,7 @@
     "@bubble/scripts": "workspace:*",
     "@bubble/tsconfig": "workspace:*",
     "@pnpm/sort-packages": "^3.0.7",
-    "@types/node": "^18.7.2",
+    "@types/node": "^18.7.3",
     "@typescript-eslint/eslint-plugin": "5.33.0",
     "@typescript-eslint/parser": "5.33.0",
     "cross-env": "^7.0.3",

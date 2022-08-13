@@ -1,16 +1,22 @@
-require('dotenv-flow').config({ path: '../..' })
-const withPlugins = require('next-compose-plugins')
-const withTM = require('next-transpile-modules')(['@bubble/translate', '@bubble/store'])
+require('dotenv-flow').config({ path: '../..' });
 
-const plugins = [withTM]
+const withPlugins = require('next-compose-plugins');
+const withTM = require('next-transpile-modules')([
+  '@bubble/translate',
+  '@bubble/store',
+]);
+
+const plugins = [withTM];
+
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack: (config, { isServer }) => {
     if (!isServer) {
-      config.target = 'electron-renderer'
+      config.target = 'electron-renderer';
     }
 
-    return config
+    return config;
   },
-}
+};
 
-module.exports = withPlugins(plugins, nextConfig)
+module.exports = withPlugins(plugins, nextConfig);

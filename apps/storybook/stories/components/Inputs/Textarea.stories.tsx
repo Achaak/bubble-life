@@ -1,4 +1,4 @@
-import { globalStyles } from '@bubble/styles'
+import { globalStyles } from '@pikas-ui/styles'
 import type { TextareaProps } from '@bubble/ui'
 import { Textarea } from '@bubble/ui'
 import type { Meta, Story } from '@storybook/react'

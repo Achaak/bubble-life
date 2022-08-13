@@ -1,5 +1,5 @@
-export type SetTiredness = { value: number }
+export type SetTiredness = { value: number };
 
-export type AddTiredness = { value: number }
+export type AddTiredness = { value: number };
 
-export type RemoveTiredness = { value: number }
+export type RemoveTiredness = { value: number };

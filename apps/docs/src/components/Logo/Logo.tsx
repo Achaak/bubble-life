@@ -1,4 +1,4 @@
-import { styled } from '@bubble/styles'
+import { styled } from '@bubble/ui';
 
 const Container = styled('h1', {
   all: 'unset',
@@ -6,8 +6,8 @@ const Container = styled('h1', {
   fontSize: '$EM-XX-LARGE',
   fontWeight: '$BOLD',
   letterSpacing: '$SMALL',
-})
+});
 
 export const Logo: React.FC = () => {
-  return <Container>Bubble Life</Container>
-}
+  return <Container>Bubble Life</Container>;
+};

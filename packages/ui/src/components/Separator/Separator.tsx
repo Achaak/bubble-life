@@ -1,7 +1,7 @@
-import type { CSS } from '@bubble/styles'
-import { styled } from '@bubble/styles'
-import * as SeparatorPrimitive from '@radix-ui/react-separator'
-import React from 'react'
+import type { CSS } from '@pikas-ui/styles';
+import { styled } from '@pikas-ui/styles';
+import * as SeparatorPrimitive from '@radix-ui/react-separator';
+import React from 'react';
 
 const StyledSeparator = styled(SeparatorPrimitive.Root, {
   backgroundColor: '$GRAY_LIGHTER',
@@ -16,11 +16,11 @@ const StyledSeparator = styled(SeparatorPrimitive.Root, {
     minWidth: 2,
     width: 2,
   },
-})
+});
 
 export interface SeparatorProps {
-  orientation?: 'vertical' | 'horizontal'
-  style?: CSS
+  orientation?: 'vertical' | 'horizontal';
+  style?: CSS;
 }
 
 export const Separator: React.FC<SeparatorProps> = ({ orientation, style }) => {
@@ -31,9 +31,9 @@ export const Separator: React.FC<SeparatorProps> = ({ orientation, style }) => {
         ...style,
       }}
     />
-  )
-}
+  );
+};
 
 Separator.defaultProps = {
   orientation: 'horizontal',
-}
+};

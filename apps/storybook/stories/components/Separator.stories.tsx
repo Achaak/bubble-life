@@ -1,4 +1,4 @@
-import { globalStyles, styled } from '@bubble/styles'
+import { globalStyles, styled } from '@pikas-ui/styles'
 import type { SeparatorProps } from '@bubble/ui'
 import { Separator } from '@bubble/ui'
 import type { Meta, Story } from '@storybook/react'

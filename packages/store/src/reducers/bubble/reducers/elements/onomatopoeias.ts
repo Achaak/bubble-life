@@ -1,17 +1,20 @@
-import type { PayloadAction } from '@reduxjs/toolkit'
-import { initialBubbleState } from '../../state'
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { initialBubbleState } from '../../state';
 import type {
   BubbleStateElementsOnomatopoeiaAction,
   BubbleStateElementsOnomatopoeiaItemList,
   BubbleState,
-} from '@bubble/types'
+} from '@bubble/types';
 
 export const addOnomatopoeiaInList = (
   state: BubbleState,
   action: PayloadAction<BubbleStateElementsOnomatopoeiaItemList>
 ): void => {
-  state.elements.onomatopoeia.list = [...state.elements.onomatopoeia.list, action.payload]
-}
+  state.elements.onomatopoeia.list = [
+    ...state.elements.onomatopoeia.list,
+    action.payload,
+  ];
+};
 
 export const removeOnomatopoeiaInList = (
   state: BubbleState,
@@ -19,20 +22,20 @@ export const removeOnomatopoeiaInList = (
 ): void => {
   state.elements.onomatopoeia.list = state.elements.onomatopoeia.list.filter(
     (item) => item.id !== action.payload.id
-  )
-}
+  );
+};
 
 export const resetOnomatopoeia = (state: BubbleState): void => {
-  state.elements.onomatopoeia = initialBubbleState.elements.onomatopoeia
-}
+  state.elements.onomatopoeia = initialBubbleState.elements.onomatopoeia;
+};
 
 export const setActionOnomatopoeia = (
   state: BubbleState,
   action: PayloadAction<BubbleStateElementsOnomatopoeiaAction>
 ): void => {
-  state.elements.onomatopoeia.action = action.payload
-}
+  state.elements.onomatopoeia.action = action.payload;
+};
 
 export const resetActionOnomatopoeia = (state: BubbleState): void => {
-  state.elements.onomatopoeia.action = null
-}
+  state.elements.onomatopoeia.action = null;
+};

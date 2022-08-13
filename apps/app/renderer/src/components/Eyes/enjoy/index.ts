@@ -1,3 +1,3 @@
-import { EyesEnjoy } from './Enjoy'
+import { EyesEnjoy } from './Enjoy';
 
-export default EyesEnjoy
+export default EyesEnjoy;

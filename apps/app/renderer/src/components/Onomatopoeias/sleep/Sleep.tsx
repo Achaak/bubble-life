@@ -1,10 +1,10 @@
-import { keyframes, styled } from '@bubble/styles'
-import React from 'react'
+import { keyframes, styled } from '@bubble/ui';
+import React from 'react';
 
 const scale = keyframes({
   '0%, 100%': { transform: 'scale(0)' },
   '50%': { transform: 'scale(1)' },
-})
+});
 
 const Container = styled('div', {
   position: 'absolute',
@@ -12,7 +12,7 @@ const Container = styled('div', {
   bottom: 0,
   left: 0,
   right: 0,
-})
+});
 
 const LetterContainer = styled('div', {
   display: 'flex',
@@ -21,9 +21,9 @@ const LetterContainer = styled('div', {
   position: 'absolute',
   animation: `${scale} 3000ms infinite`,
   transitionTimingFunction: 'easeInOutCirc',
-})
+});
 
-const Sleep = styled('img', {})
+const Sleep = styled('img', {});
 
 export const OnomatopoeiaSleep: React.FC = () => {
   return (
@@ -59,5 +59,5 @@ export const OnomatopoeiaSleep: React.FC = () => {
         <Sleep src="/svg/onomatopoeias/sleep.svg" width="100%" />
       </LetterContainer>
     </Container>
-  )
-}
+  );
+};

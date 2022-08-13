@@ -1,8 +1,8 @@
-import type { CSS } from '@bubble/styles'
-import { styled } from '@bubble/styles'
-import * as LabelPrimitive from '@radix-ui/react-label'
-import React, { useRef, useState } from 'react'
-import { Text } from '../../Text/index.js'
+import type { CSS } from '@pikas-ui/styles';
+import { styled } from '@pikas-ui/styles';
+import * as LabelPrimitive from '@radix-ui/react-label';
+import React, { useRef, useState } from 'react';
+import { Text } from '../../Text/index.js';
 
 const Container = styled('div', {
   width: '100%',
@@ -22,12 +22,12 @@ const Container = styled('div', {
       },
     },
   },
-})
+});
 
 const InputContainer = styled('div', {
   flex: 1,
   overflow: 'hidden',
-  br: 3,
+  br: 'lg',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -55,13 +55,13 @@ const InputContainer = styled('div', {
     },
     borderRadius: {
       1: {
-        br: 1,
+        br: 'sm',
       },
       2: {
-        br: 2,
+        br: 'md',
       },
       3: {
-        br: 3,
+        br: 'lg',
       },
       round: {
         br: 'round',
@@ -84,7 +84,7 @@ const InputContainer = styled('div', {
     borderSize: 'md',
     borderRadius: 'round',
   },
-})
+});
 
 const Input = styled('input', {
   width: '100%',
@@ -97,7 +97,7 @@ const Input = styled('input', {
   '&::placeholder': {
     color: '$GRAY',
   },
-})
+});
 
 const Label = styled(LabelPrimitive.Root, {
   fontSize: '$EM-LARGE',
@@ -105,48 +105,48 @@ const Label = styled(LabelPrimitive.Root, {
   marginBottom: 8,
   cursor: 'pointer',
   display: 'block',
-})
+});
 
 const LeftContainer = styled(LabelPrimitive.Root, {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   marginRight: 8,
-})
+});
 
 const RightContainer = styled(LabelPrimitive.Root, {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   marginLeft: 8,
-})
+});
 
 export interface TextfieldProps {
-  placeholder?: string
-  type?: string
-  id?: string
-  label?: string
-  name?: string
-  borderRadius?: 1 | 2 | 3 | 'round'
-  padding?: 'sm' | 'md' | 'lg'
-  fontSize?: 'sm' | 'md' | 'lg'
-  borderSize?: 'sm' | 'md' | 'lg'
-  textError?: string
+  placeholder?: string;
+  type?: string;
+  id?: string;
+  label?: string;
+  name?: string;
+  borderRadius?: 1 | 2 | 3 | 'round';
+  padding?: 'sm' | 'md' | 'lg';
+  fontSize?: 'sm' | 'md' | 'lg';
+  borderSize?: 'sm' | 'md' | 'lg';
+  textError?: string;
 
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
-  setFieldValue?: (id: string, res: string) => void
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  setFieldValue?: (id: string, res: string) => void;
   styles?: {
-    container?: CSS
-    inputContainer?: CSS
-    input?: CSS
-  }
-  defaultValue?: string | number
-  autoComplete?: string
-  min?: number
-  max?: number
-  right?: React.ReactNode
-  left?: React.ReactNode
-  description?: string
+    container?: CSS;
+    inputContainer?: CSS;
+    input?: CSS;
+  };
+  defaultValue?: string | number;
+  autoComplete?: string;
+  min?: number;
+  max?: number;
+  right?: React.ReactNode;
+  left?: React.ReactNode;
+  description?: string;
 }
 
 export const Textfield: React.FC<TextfieldProps> = ({
@@ -171,28 +171,28 @@ export const Textfield: React.FC<TextfieldProps> = ({
   left,
   description,
 }) => {
-  const [isFocus, setIsFocus] = useState(false)
-  const ref = useRef<HTMLInputElement>(null)
+  const [isFocus, setIsFocus] = useState(false);
+  const ref = useRef<HTMLInputElement>(null);
 
   const onChangeInput: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     if (type === 'number' && ref.current) {
-      const value = parseInt(e.target.value)
+      const value = parseInt(e.target.value);
 
       if (max !== undefined && value > max) {
-        ref.current.value = `${max}`
+        ref.current.value = `${max}`;
       } else if (min !== undefined && value < min) {
-        ref.current.value = `${min}`
+        ref.current.value = `${min}`;
       }
     }
 
     if (setFieldValue && id) {
-      setFieldValue(id, e.target.value)
+      setFieldValue(id, e.target.value);
     }
 
     if (onChange) {
-      onChange(e)
+      onChange(e);
     }
-  }
+  };
 
   return (
     <Container
@@ -245,9 +245,9 @@ export const Textfield: React.FC<TextfieldProps> = ({
         </Text>
       )}
     </Container>
-  )
-}
+  );
+};
 
 Textfield.defaultProps = {
   padding: 'md',
-}
+};

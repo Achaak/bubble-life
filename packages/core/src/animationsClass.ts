@@ -5,86 +5,95 @@ import {
   resetActionAnimation,
   resetAnimation,
   setActionAnimation,
-} from '@bubble/store'
-import type { Animation, AnimationConfig, SocketEvents } from '@bubble/types'
-import anime from 'animejs'
-import { getMaxImportantItemInList, socket } from '@bubble/common'
+} from '@bubble/store';
+import type { Animation, AnimationConfig, SocketEvents } from '@bubble/types';
+import anime from 'animejs';
+import { getMaxImportantItemInList, socket } from '@bubble/common';
 
-import { AnimationList } from './animations/index.js'
-import { AnimationDefault } from './animations/default.js'
+import { AnimationList } from './animations/index.js';
+import { AnimationDefault } from './animations/default.js';
 
 export class Animations {
-  currentAnimation: AnimationConfig | null
+  currentAnimation: AnimationConfig | null;
 
-  socket?: SocketEvents
+  socket?: SocketEvents;
 
   constructor() {
-    this.currentAnimation = null
+    this.currentAnimation = null;
 
     this.socket = socket({
       localhost: true,
-    })
+    });
 
-    this.socket.on('resetAnimation', resetAnimation)
-    this.socket.on('addAnimationInList', addAnimationInList)
-    this.socket.on('removeAnimationInList', removeAnimationInList)
-    this.socket.on('setActionAnimation', setActionAnimation)
-    this.socket.on('resetActionAnimation', resetActionAnimation)
+    this.socket.on('resetAnimation', resetAnimation);
+    this.socket.on('addAnimationInList', addAnimationInList);
+    this.socket.on('removeAnimationInList', removeAnimationInList);
+    this.socket.on('setActionAnimation', setActionAnimation);
+    this.socket.on('resetActionAnimation', resetActionAnimation);
   }
 
   update = (): void => {
     if (!this.currentAnimation && document.getElementById('bubble-content')) {
-      this.onStartAnimation()
+      this.onStartAnimation();
     }
-  }
+  };
 
   onStartAnimation = (): void => {
     const {
-      animation: { action: animationAction, default: animationDefault, list: animationList },
-    } = getBubble()
+      animation: {
+        action: animationAction,
+        default: animationDefault,
+        list: animationList,
+      },
+    } = getBubble();
 
-    let animationName: Animation | null = null
+    let animationName: Animation | null = null;
 
     if (animationAction) {
-      animationName = animationAction.name
+      animationName = animationAction.name;
     } else if (animationList.length > 0) {
-      animationName = getMaxImportantItemInList(animationList)
+      animationName = getMaxImportantItemInList(animationList);
     } else if (animationDefault) {
-      animationName = animationDefault
+      animationName = animationDefault;
     }
 
-    const animationFind = AnimationList.find((item) => item.name === animationName)
+    const animationFind = AnimationList.find(
+      (item) => item.name === animationName
+    );
 
     if (animationFind) {
-      this.currentAnimation = animationFind
+      this.currentAnimation = animationFind;
     } else {
-      this.currentAnimation = AnimationDefault
+      this.currentAnimation = AnimationDefault;
     }
 
-    this.onAnimation()
-  }
+    this.onAnimation();
+  };
 
   onEndAnimation = (): void => {
-    this.currentAnimation = null
-  }
+    this.currentAnimation = null;
+  };
 
   onAnimation = (): void => {
     if (!this.currentAnimation) {
-      return
+      return;
     }
 
     const timeline = anime.timeline({
       autoplay: true,
-    })
+    });
 
     for (let i = 0; i < this.currentAnimation.configs.length; i++) {
-      const config = this.currentAnimation.configs[i]
+      const config = this.currentAnimation.configs[i];
 
       timeline.add({
         targets: '#bubble-content',
         ...config,
-        complete: this.currentAnimation.configs.length - 1 === i ? this.onEndAnimation : undefined,
-      })
+        complete:
+          this.currentAnimation.configs.length - 1 === i
+            ? this.onEndAnimation
+            : undefined,
+      });
     }
-  }
+  };
 }

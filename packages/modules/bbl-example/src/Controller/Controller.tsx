@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 export interface ControllerProps {}
 
 export const Controller: React.FC<ControllerProps> = () => {
-  return <>Hello world</>
-}
+  return <>Hello world</>;
+};
