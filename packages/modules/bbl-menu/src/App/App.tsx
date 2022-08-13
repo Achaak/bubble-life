@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { styled } from '@bubble/styles'
-import { ModalInventory } from '../components/Modals/Inventory'
-import { ModalStats } from '../components/Modals/Stats'
-import { ModalActions } from '../components/Modals/Actions'
+import { ModalInventory } from '../components/Modals/Inventory/index.js'
+import { ModalStats } from '../components/Modals/Stats/index.js'
+import { ModalActions } from '../components/Modals/Actions/index.js'
 
 const Content = styled('div', {
   display: 'flex',
@@ -22,7 +22,9 @@ const MenuIcon = styled('div', {
   justifyContent: 'center',
 })
 
-export const AppContainer: React.FC = () => {
+export interface AppProps {}
+
+export const App: React.FC<AppProps> = () => {
   const [isActionsOpen, setIsActionsOpen] = useState(false)
   const [isStatsOpen, setIsStatsOpen] = useState(false)
   const [isInventoryOpen, setIsInventoryOpen] = useState(false)

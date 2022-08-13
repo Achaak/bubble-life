@@ -1,6 +1,6 @@
 import type { AddAnimationInList, RemoveAnimationInList, SetActionAnimation } from '@bubble/types'
-import { bubbleActions } from '../index'
-import { store } from '../../../store'
+import { bubbleActions } from '../index.js'
+import { store } from '../../../store.js'
 
 export const resetAnimation = (): void => {
   store.dispatch(bubbleActions.resetAnimation())

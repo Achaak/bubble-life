@@ -4,10 +4,10 @@ import type {
   RemoveMessageFromWaitingList,
   TransferMessageFromWaitingListToCurrent,
 } from '@bubble/types'
-import { getBubble } from '../index'
-import { bubbleActions } from '../../index'
-import { store } from '../../../../store'
-import { setCurrentMessage } from './current'
+import { getBubble } from '../index.js'
+import { bubbleActions } from '../../index.js'
+import { store } from '../../../../store.js'
+import { setCurrentMessage } from './current.js'
 
 export const hasMessageInWaitingListById = ({ id }: HasMessageInWaitingListById): boolean => {
   const {

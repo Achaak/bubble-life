@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { Modal } from '@bubble/ui'
-import { ModalActionsContent } from './content'
-import { ModalActionsHeader } from './header'
+import { ModalActionsContent } from './content/index.js'
+import { ModalActionsHeader } from './header/index.js'
 
 export interface ModalActionsProps {
   visible: boolean

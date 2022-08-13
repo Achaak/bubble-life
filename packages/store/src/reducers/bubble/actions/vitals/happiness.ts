@@ -1,6 +1,6 @@
 import type { AddHappiness, RemoveHappiness, SetHappiness } from '@bubble/types'
-import { store } from '../../../../store'
-import { bubbleActions } from '../../index'
+import { store } from '../../../../store.js'
+import { bubbleActions } from '../../index.js'
 
 export const setHappiness = (value: SetHappiness): void => {
   store.dispatch(bubbleActions.setHappiness(value))

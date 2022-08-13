@@ -1,1 +1,1 @@
-export * from './default/index'
+export * from './default/index.js'

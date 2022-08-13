@@ -9,7 +9,9 @@ const ContainerDOM = styled('div', {
   customRowGap: 16,
 })
 
-export const AppContainer: React.FC = () => {
+export interface AppProps {}
+
+export const App: React.FC<AppProps> = () => {
   const handleResetBubble = (): void => {
     console.log('[Reset bubble]')
     resetBubble()

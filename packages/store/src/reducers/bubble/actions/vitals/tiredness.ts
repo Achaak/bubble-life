@@ -1,6 +1,6 @@
 import type { AddTiredness, RemoveTiredness, SetTiredness } from '@bubble/types'
-import { bubbleActions } from '../../index'
-import { store } from '../../../../store'
+import { bubbleActions } from '../../index.js'
+import { store } from '../../../../store.js'
 
 export const setTiredness = (value: SetTiredness): void => {
   store.dispatch(bubbleActions.setTiredness(value))

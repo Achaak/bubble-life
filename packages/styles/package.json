@@ -12,26 +12,26 @@
     "clean": "rm -rf .turbo && rm -rf node_modules"
   },
   "dependencies": {
-    "@stitches/react": "^1.2.7",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "@stitches/react": "^1.2.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@bubble/scripts": "workspace:*",
     "@bubble/tsconfig": "workspace:*",
-    "@pnpm/sort-packages": "^3.0.0",
-    "@types/node": "^17.0.23",
-    "@typescript-eslint/eslint-plugin": "^5.19.0",
-    "@typescript-eslint/parser": "^5.19.0",
+    "@pnpm/sort-packages": "^3.0.7",
+    "@types/node": "^18.7.2",
+    "@typescript-eslint/eslint-plugin": "^5.33.0",
+    "@typescript-eslint/parser": "^5.33.0",
     "cross-env": "^7.0.3",
-    "eslint": "^8.13.0",
+    "eslint": "^8.21.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-json": "^3.1.0",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.29.4",
-    "eslint-plugin-react-hooks": "^4.4.0",
-    "prettier": "^2.6.2",
-    "typescript": "4.5.5"
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.7.1",
+    "typescript": "4.7.4"
   }
 }

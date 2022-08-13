@@ -1,6 +1,6 @@
 import type { SetCurrentUser, ControllerState } from '@bubble/types'
-import { controllerActions } from '../index'
-import { store } from '../../../store'
+import { controllerActions } from '../index.js'
+import { store } from '../../../store.js'
 
 export const resetController = (): void => {
   store.dispatch(controllerActions.resetController())

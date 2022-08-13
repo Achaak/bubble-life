@@ -1,6 +1,6 @@
 import type { AddHatInList, SetActionHat } from '@bubble/types'
-import { bubbleActions } from '../../index'
-import { store } from '../../../../store'
+import { bubbleActions } from '../../index.js'
+import { store } from '../../../../store.js'
 
 export const addHatInList = (hat: AddHatInList): void => {
   store.dispatch(bubbleActions.addHatInList(hat))

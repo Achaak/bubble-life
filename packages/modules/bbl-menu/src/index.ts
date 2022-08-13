@@ -1,7 +1,12 @@
-// export * from './ControllerContainer'
-export * from './AppContainer'
+import { App } from './App/index.js'
+// import { Controller } from './Controller/index.js'
+import type { ModuleConfig } from '@bubble/types'
 
-// export const ControllerConfig = {
-//   name: 'example',
-//   icon: 'cruelty_free',
-// }
+const config: ModuleConfig = {
+  name: 'example',
+  icon: 'cruelty_free',
+  App,
+  // Controller,
+}
+
+export default config

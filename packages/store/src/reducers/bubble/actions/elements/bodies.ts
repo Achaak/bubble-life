@@ -1,6 +1,6 @@
 import type { AddBodyInList, SetActionBody } from '@bubble/types'
-import { bubbleActions } from '../../index'
-import { store } from '../../../../store'
+import { bubbleActions } from '../../index.js'
+import { store } from '../../../../store.js'
 
 export const addBodyInList = (body: AddBodyInList): void => {
   store.dispatch(bubbleActions.addBodyInList(body))
