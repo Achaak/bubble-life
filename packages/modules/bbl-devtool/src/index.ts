@@ -3,7 +3,7 @@ import { App } from './App/index.js'
 import type { ModuleConfig } from '@bubble/types'
 
 const config: ModuleConfig = {
-  name: 'example',
+  name: 'devtool',
   icon: 'cruelty_free',
   App,
   // Controller,

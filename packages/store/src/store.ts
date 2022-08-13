@@ -12,9 +12,9 @@ import {
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
-import { actionsSlice } from './reducers/actions/index.js'
-import { bubbleSlice } from './reducers/bubble/index.js'
-import { controllerSlice } from './reducers/controller/index.js'
+import { actionsSlice } from './reducers/actions/index'
+import { bubbleSlice } from './reducers/bubble/index'
+import { controllerSlice } from './reducers/controller/index'
 
 const persistConfig = {
   key: 'root',

@@ -31,6 +31,7 @@ export const NameModal: React.FC = () => {
   const socket = useContext(SocketContext)
   const currentUser = useAppSelector(selectCurrentUser)
 
+  console.log(currentUser)
   const handleConnect = (): void => {
     if (!name) {
       return
@@ -38,6 +39,7 @@ export const NameModal: React.FC = () => {
 
     socket?.emit('newUser', { name: name })
 
+    console.log("emit 'newUser'")
     // Set in store
     setCurrentUser({
       name: name,

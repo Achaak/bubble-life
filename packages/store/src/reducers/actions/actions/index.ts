@@ -1,8 +1,8 @@
-import { actionsActions } from '../index.js'
-import { store } from '../../../store.js'
-import { hasActionInWaitingListById, hasActionInWaitingListByName } from './waitingList.js'
-import { hasActionInCancelListById, hasActionInCancelListByName } from './cancelList.js'
-import { hasActionInCurrentById, hasActionInCurrentByName } from './current.js'
+import { actionsActions } from '../index'
+import { store } from '../../../store'
+import { hasActionInWaitingListById, hasActionInWaitingListByName } from './waitingList'
+import { hasActionInCancelListById, hasActionInCancelListByName } from './cancelList'
+import { hasActionInCurrentById, hasActionInCurrentByName } from './current'
 import type {
   DeleteMemoryValue,
   HasActionById,
@@ -11,9 +11,9 @@ import type {
   ActionsState,
 } from '@bubble/types'
 
-export * from './cancelList.js'
-export * from './current.js'
-export * from './waitingList.js'
+export * from './cancelList'
+export * from './current'
+export * from './waitingList'
 
 export const getActions = (): ActionsState => store.getState().actions
 

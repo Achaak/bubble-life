@@ -1,7 +1,7 @@
 import type { AddInventoryItem, HasInventoryItem, RemoveInventoryItem } from '@bubble/types'
-import { getBubble } from './index.js'
-import { bubbleActions } from '../index.js'
-import { store } from '../../../store.js'
+import { getBubble } from './index'
+import { bubbleActions } from '../index'
+import { store } from '../../../store'
 
 export const addInventoryItem = (params: AddInventoryItem): void => {
   store.dispatch(bubbleActions.addInventoryItem(params))
