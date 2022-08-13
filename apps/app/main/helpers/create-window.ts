@@ -8,11 +8,11 @@ const window = (windowName: string, options: BrowserWindowConstructorOptions): B
   const name = `window-state-${windowName}`
   const store = new Store({ name })
   const defaultSize = {
-    width: options.width,
-    height: options.height,
+    width: options.width || 500,
+    height: options.height || 500,
   }
   let state = {}
-  let win: BrowserWindow = null
+  let win: BrowserWindow
 
   const restore = () => store.get(key, defaultSize)
 
@@ -32,6 +32,7 @@ const window = (windowName: string, options: BrowserWindowConstructorOptions): B
     }
   }
 
+  // @ts-ignore
   const windowWithinBounds = (windowState, bounds): boolean => {
     return (
       windowState.x >= bounds.x &&
@@ -44,17 +45,18 @@ const window = (windowName: string, options: BrowserWindowConstructorOptions): B
   const resetToDefaults = (): {
     width: number
     height: number
-  } & {
     x: number
     y: number
   } => {
     const bounds = screen.getPrimaryDisplay().bounds
+    // @ts-ignore
     return Object.assign({}, defaultSize, {
       x: (bounds.width - defaultSize.width) / 2,
       y: (bounds.height - defaultSize.height) / 2,
     })
   }
 
+  // @ts-ignore
   const ensureVisibleOnSomeDisplay = (windowState) => {
     const visible = screen.getAllDisplays().some((display) => {
       return windowWithinBounds(windowState, display.bounds)

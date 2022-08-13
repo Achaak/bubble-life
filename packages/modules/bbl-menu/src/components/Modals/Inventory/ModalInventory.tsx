@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { Modal } from '@bubble/ui'
-import { ModalInventoryContent } from './content'
-import { ModalInventoryHeader } from './header'
+import { ModalInventoryContent } from './content/index.js'
+import { ModalInventoryHeader } from './header/index.js'
 
 export interface ModalInventoryProps {
   visible: boolean

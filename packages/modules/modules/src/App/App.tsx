@@ -1,4 +1,4 @@
-import { ModulesConfig } from '@bubble/configs'
+import { ModulesConfig } from '@bubble/configs-modules'
 import { styled } from '@bubble/styles'
 import type { ModulePosition } from '@bubble/types'
 import React, { useEffect, useState } from 'react'
@@ -65,16 +65,12 @@ export const AppModules: React.FC = () => {
     const modulesConfig = ModulesConfig.filter((item) => item.position === position)
 
     for (const moduleConfig of modulesConfig) {
-      try {
-        const { AppContainer } = await require(moduleConfig.name)
-
+      if (moduleConfig.module?.App) {
         modulesDOM.push(
-          <Module key={moduleConfig.name}>
-            <AppContainer {...moduleConfig.config} />
+          <Module key={moduleConfig.module.name}>
+            <moduleConfig.module.App {...moduleConfig.config} />
           </Module>
         )
-      } catch {
-        console.log(`Module ${moduleConfig.name} not found`)
       }
     }
 

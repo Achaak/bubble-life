@@ -25,11 +25,11 @@ const DateDOM = styled('span', {
   marginBottom: 4,
 })
 
-interface CustomProps {
+export interface AppProps {
   dateFormat: string
 }
 
-export const AppContainer: React.FC<CustomProps> = ({ dateFormat }: CustomProps) => {
+export const App: React.FC<AppProps> = ({ dateFormat }) => {
   const [loaded, setLoaded] = useState(false)
   const [timer, setTimer] = useState<string | null>(null)
   const [date, setDate] = useState<string | null>(null)

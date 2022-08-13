@@ -1,5 +1,5 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { initialBubbleState } from '../../state'
+import { initialBubbleState } from '../../state.js'
 import type {
   BubbleStateElementsBodyAction,
   BubbleStateElementsBodyItemList,

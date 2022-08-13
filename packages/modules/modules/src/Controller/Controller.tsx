@@ -1,4 +1,4 @@
-import { ModulesConfig } from '@bubble/configs'
+import { ModulesConfig } from '@bubble/configs-modules'
 import { useEffect, useState } from 'react'
 
 export const ModuleControllerList = async (): Promise<
@@ -13,15 +13,11 @@ export const ModuleControllerList = async (): Promise<
   }[] = []
 
   for (const moduleConfig of ModulesConfig) {
-    try {
-      console.log(moduleConfig.name)
-      const { ControllerConfig } = await import(moduleConfig.name)
-      console.log(ControllerConfig)
-
-      ModulesConfigList.push(ControllerConfig)
-    } catch (e) {
-      console.log(e)
-      console.log(`Module ${moduleConfig.name} not found`)
+    if (moduleConfig.module?.Controller) {
+      ModulesConfigList.push({
+        name: moduleConfig.module.name,
+        icon: moduleConfig.module.icon,
+      })
     }
   }
 
@@ -36,11 +32,11 @@ export const ControllerModule: React.FC<ControllerModuleProps> = ({ name }) => {
 
   useEffect(() => {
     const initContainer = async (): Promise<void> => {
-      try {
-        const { ControllerContainer } = await import(name)
+      const m = ModulesConfig.find((item) => item.module?.name === name)
 
-        setContainer(<ControllerContainer />)
-      } catch {
+      if (m && m.module.Controller) {
+        setContainer(<m.module.Controller />)
+      } else {
         console.log(`Module ${name} not found`)
       }
     }

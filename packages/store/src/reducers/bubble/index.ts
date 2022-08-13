@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import * as reducers from './reducers/index'
-import { initialBubbleState } from './state'
+import * as reducers from './reducers/index.js'
+import { initialBubbleState } from './state.js'
 
-export * from './selects'
+export * from './selects.js'
 
 export const bubbleSlice = createSlice({
   name: 'bubble',

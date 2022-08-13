@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import * as reducers from './reducers/index'
-import { initialControllerState } from './state'
+import * as reducers from './reducers/index.js'
+import { initialControllerState } from './state.js'
 
-export * from './selects'
+export * from './selects.js'
 
 export const controllerSlice = createSlice({
   name: 'controller',
