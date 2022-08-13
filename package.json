@@ -20,7 +20,7 @@
     "build:docs": "turbo run build --filter=@bubble/docs...",
     "build:storybook": "turbo run build --filter=@bubble/storybook...",
     "build:packages": "turbo run build --filter=./packages/*",
-    "dev": "turbo run dev --parallel --filter=@bubble/app... --filter=@bubble/controller... --filter=@bubble/server...",
+    "dev": "turbo run dev --parallel --filter=@bubble/app... --filter=@bubble/controller... --filter=@bubble/server... --concurrency=1",
     "dev:app": "turbo run dev --parallel --filter=@bubble/app...",
     "dev:controller": "turbo run dev --parallel --filter=@bubble/controller...",
     "dev:docs": "turbo run dev --parallel --filter=@bubble/docs...",
