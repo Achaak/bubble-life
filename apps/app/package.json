@@ -12,6 +12,7 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf app"
   },
   "dependencies": {
+    "@babel/runtime-corejs3": "^7.18.9",
     "@bubble/common": "workspace:*",
     "@bubble/configs": "workspace:*",
     "@bubble/core": "workspace:*",

@@ -4,7 +4,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
 
-const withTM = require('next-transpile-modules')(['@bubble/translate'])
+const withTM = require('next-transpile-modules')(['@bubble/translate', '@bubble/store'])
 const runtimeCaching = require('next-pwa/cache')
 require('dotenv-flow').config({ path: '../..' })
 

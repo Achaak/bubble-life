@@ -1,2 +1,2 @@
-export * from './current.js'
-export * from './waitingList.js'
+export * from './current'
+export * from './waitingList'

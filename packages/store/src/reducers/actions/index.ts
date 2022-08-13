@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import * as reducers from './reducers/index.js'
-import { initialActionsState } from './state.js'
+import * as reducers from './reducers/index'
+import { initialActionsState } from './state'
 
-export * from './selects.js'
+export * from './selects'
 
 export const actionsSlice = createSlice({
   name: 'actions',

@@ -1,6 +1,6 @@
 import type { AddEnvironmentInList, SetActionEnvironment } from '@bubble/types'
-import { bubbleActions } from '../../index.js'
-import { store } from '../../../../store.js'
+import { bubbleActions } from '../../index'
+import { store } from '../../../../store'
 
 export const addEnvironmentInList = (environment: AddEnvironmentInList): void => {
   store.dispatch(bubbleActions.addEnvironmentInList(environment))
