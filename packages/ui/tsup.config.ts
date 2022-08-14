@@ -9,7 +9,7 @@ export default defineConfig((options) => {
     clean: true,
     dts: true,
     format: ['cjs', 'esm'],
-    target: 'esnext',
+    target: 'es6',
     platform: 'browser',
     bundle: false,
     external: ['react', 'react-dom'],

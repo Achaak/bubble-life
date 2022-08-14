@@ -2,7 +2,8 @@ import { globalCss } from '@pikas-ui/styles';
 
 export const customGlobalCss = globalCss({
   'html, body, #__next': {
-    color: '$BLACK',
+    color: '$WHITE',
+    backgroundColor: '$BACKGROUND',
     fontFamily: '$roboto',
     scrollBehavior: 'smooth',
   },

@@ -10,9 +10,9 @@ export class Action {
     function: (action: ActionType) => void;
   }[];
 
-  constructor() {
+  constructor({ name }: { name: string }) {
     this.lastRender = 0;
-    this.name = 'actions';
+    this.name = name;
     this.actions = [];
   }
 
