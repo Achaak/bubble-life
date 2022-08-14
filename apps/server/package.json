@@ -7,7 +7,7 @@
     "build": "tsup ./src/index.ts",
     "start": "node ./dist/index.js",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
-    "lint": "cross-env TIMING=1 eslint \"./**/*.{ts,tsx,json}\" --fix",
+    "lint": "cross-env TIMING=1 eslint \"./**/*.{ts,tsx}\" --fix",
     "dev": "nodemon",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },

@@ -1,8 +1,8 @@
-import type { TitleProps } from '@bubble/ui'
-import { WhiteSpaceType } from '@bubble/ui'
-import { Title, TitleComponentType, TitleVariantType } from '@bubble/ui'
-import { globalStyles, styled } from '@pikas-ui/styles'
-import type { Story, Meta } from '@storybook/react'
+import type { TitleProps } from '@bubble/ui';
+import { WhiteSpaceType } from '@bubble/ui';
+import { Title, TitleComponentType, TitleVariantType } from '@bubble/ui';
+import { globalStyles, styled } from '@pikas-ui/styles';
+import type { Story, Meta } from '@storybook/react';
 
 export default {
   title: 'Components/Title',
@@ -61,29 +61,29 @@ export default {
       },
     },
   },
-} as Meta<TitleProps>
+} as Meta<TitleProps>;
 
 const Top = styled('div', {
   marginBottom: 20,
-})
+});
 
 const Component = styled('div', {
   marginBottom: 20,
-})
+});
 
 const Element = styled('div', {
   margin: '10px 0',
-})
+});
 
-const Label = styled('span', {})
+const Label = styled('span', {});
 
 const Template: Story<TitleProps> = (args) => {
-  globalStyles()
+  globalStyles();
 
   return (
     <>
       <Top>
-        <Title {...(args as never)} />
+        <Title {...args} />
       </Top>
 
       <Component>
@@ -113,10 +113,10 @@ const Template: Story<TitleProps> = (args) => {
         </Element>
       </Component>
     </>
-  )
-}
+  );
+};
 
-export const Example = Template.bind({})
+export const Example = Template.bind({});
 Example.args = {
   children: 'Hello world',
   whiteSpace: 'normal',
@@ -124,4 +124,4 @@ Example.args = {
   id: 'title',
   style: {},
   variant: 'h1',
-}
+};

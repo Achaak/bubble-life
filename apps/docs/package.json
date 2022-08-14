@@ -8,7 +8,7 @@
     "build:docker": "cd ../../ && docker build . -f dockerfiles/website.Dockerfile -t docs:latest --build-arg SCOPE=@bubble/docs",
     "dev": "next dev",
     "format": "prettier --write \"**/*.{ts,tsx,.md}\"",
-    "lint": "cross-env TIMING=1 eslint \"./**/*.{ts,tsx,json}\" --fix",
+    "lint": "cross-env TIMING=1 eslint \"./**/*.{ts,tsx}\" --fix",
     "start": "next start",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },

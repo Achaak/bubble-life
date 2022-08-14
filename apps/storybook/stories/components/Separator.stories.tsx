@@ -1,7 +1,7 @@
-import { globalStyles, styled } from '@pikas-ui/styles'
-import type { SeparatorProps } from '@bubble/ui'
-import { Separator } from '@bubble/ui'
-import type { Meta, Story } from '@storybook/react'
+import { globalStyles, styled } from '@pikas-ui/styles';
+import type { SeparatorProps } from '@bubble/ui';
+import { Separator } from '@bubble/ui';
+import type { Meta, Story } from '@storybook/react';
 
 export default {
   title: 'Components/Separators',
@@ -24,24 +24,24 @@ export default {
       },
     },
   },
-} as Meta<SeparatorProps>
+} as Meta<SeparatorProps>;
 
 const Container = styled('div', {
   height: 500,
-})
+});
 
 const Template: Story<SeparatorProps> = (args) => {
-  globalStyles()
+  globalStyles();
 
   return (
     <Container>
-      <Separator {...(args as never)} />
+      <Separator {...args} />
     </Container>
-  )
-}
+  );
+};
 
-export const Example = Template.bind({})
+export const Example = Template.bind({});
 Example.args = {
   orientation: 'horizontal',
   style: {},
-}
+};

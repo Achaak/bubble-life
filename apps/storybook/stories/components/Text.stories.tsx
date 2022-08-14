@@ -1,7 +1,7 @@
-import type { TextProps } from '@bubble/ui'
-import { Text, TextComponentType, TextVariantType } from '@bubble/ui'
-import { globalStyles, styled } from '@pikas-ui/styles'
-import type { Story, Meta } from '@storybook/react'
+import type { TextProps } from '@bubble/ui';
+import { Text, TextComponentType, TextVariantType } from '@bubble/ui';
+import { globalStyles, styled } from '@pikas-ui/styles';
+import type { Story, Meta } from '@storybook/react';
 
 export default {
   title: 'Components/Text',
@@ -52,33 +52,33 @@ export default {
       },
     },
   },
-} as Meta<TextProps>
+} as Meta<TextProps>;
 
 const Top = styled('div', {
   marginBottom: 20,
-})
+});
 
 const Component = styled('div', {
   marginBottom: 20,
-})
+});
 
 const Variant = styled('div', {
   marginBottom: 20,
-})
+});
 
 const Element = styled('div', {
   margin: '10px 0',
-})
+});
 
-const Label = styled('span', {})
+const Label = styled('span', {});
 
 const Template: Story<TextProps> = (args) => {
-  globalStyles()
+  globalStyles();
 
   return (
     <>
       <Top>
-        <Text {...(args as never)} />
+        <Text {...args} />
       </Top>
 
       <Component>
@@ -123,10 +123,10 @@ const Template: Story<TextProps> = (args) => {
         </Element>
       </Variant>
     </>
-  )
-}
+  );
+};
 
-export const Example = Template.bind({})
+export const Example = Template.bind({});
 Example.args = {
   children: 'Hello world',
   component: 'span',
@@ -134,4 +134,4 @@ Example.args = {
   href: undefined,
   style: {},
   variant: undefined,
-}
+};

@@ -3,7 +3,7 @@ import { styled } from '@bubble/ui';
 import { useEffect } from 'react';
 
 const Container = styled('div', {
-  position: 'absolute',
+  position: 'fixed',
   top: 0,
   bottom: 0,
   right: 0,

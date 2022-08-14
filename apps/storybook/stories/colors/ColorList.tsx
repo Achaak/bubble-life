@@ -1,10 +1,10 @@
-import { Colors, styled } from '@pikas-ui/styles'
+import { Colors, styled } from '@pikas-ui/styles';
 
 const Container = styled('div', {
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'space-between',
-})
+});
 
 const Element = styled('div', {
   margin: 15,
@@ -12,20 +12,20 @@ const Element = styled('div', {
   flexDirection: 'column',
   alignItems: 'center',
   width: '12%',
-})
+});
 
 const ColorBlock = styled('div', {
   height: 50,
   width: 50,
   border: '1px solid gray',
-})
+});
 
 const Name = styled('span', {
   marginTop: 10,
   textAlign: 'center',
   fontFamily: 'Roboto',
   fontSize: '$EM-X-SMALL',
-})
+});
 
 export const ColorExample: React.FC = () => {
   return (
@@ -41,5 +41,5 @@ export const ColorExample: React.FC = () => {
         </Element>
       ))}
     </Container>
-  )
-}
+  );
+};
