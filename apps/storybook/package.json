@@ -6,7 +6,7 @@
     "build": "build-storybook",
     "dev": "start-storybook -p 6006",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
-    "lint": "cross-env TIMING=1 eslint \"./**/*.{ts,tsx,json}\" --fix",
+    "lint": "cross-env TIMING=1 eslint \"./**/*.{ts,tsx}\" --fix",
     "start": "http-server ./storybook-static",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf storybook-static"
   },

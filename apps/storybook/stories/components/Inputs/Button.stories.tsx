@@ -1,7 +1,7 @@
-import { globalStyles } from '@pikas-ui/styles'
-import type { ButtonProps } from '@bubble/ui'
-import { Button } from '@bubble/ui'
-import type { Meta, Story } from '@storybook/react'
+import { globalStyles } from '@pikas-ui/styles';
+import type { ButtonProps } from '@bubble/ui';
+import { Button } from '@bubble/ui';
+import type { Meta, Story } from '@storybook/react';
 
 export default {
   title: 'Components/Inputs/Button',
@@ -23,18 +23,18 @@ export default {
       },
     },
   },
-} as Meta<ButtonProps>
+} as Meta<ButtonProps>;
 
 const Template: Story<ButtonProps> = (args) => {
-  globalStyles()
+  globalStyles();
 
-  return <Button {...(args as never)}>Button</Button>
-}
+  return <Button {...args}>Button</Button>;
+};
 
-export const Example = Template.bind({})
+export const Example = Template.bind({});
 Example.args = {
   onClick: (): void => {
-    console.log('clicked')
+    console.log('clicked');
   },
   type: 'button',
-}
+};

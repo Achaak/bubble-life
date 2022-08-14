@@ -1,7 +1,7 @@
-import { globalStyles } from '@pikas-ui/styles'
-import type { TextareaProps } from '@bubble/ui'
-import { Textarea } from '@bubble/ui'
-import type { Meta, Story } from '@storybook/react'
+import { globalStyles } from '@pikas-ui/styles';
+import type { TextareaProps } from '@bubble/ui';
+import { Textarea } from '@bubble/ui';
+import type { Meta, Story } from '@storybook/react';
 
 export default {
   title: 'Components/Inputs/Textarea',
@@ -111,15 +111,15 @@ export default {
       },
     },
   },
-} as Meta<TextareaProps>
+} as Meta<TextareaProps>;
 
 const Template: Story<TextareaProps> = (args) => {
-  globalStyles()
+  globalStyles();
 
-  return <Textarea {...(args as never)} />
-}
+  return <Textarea {...args} />;
+};
 
-export const Example = Template.bind({})
+export const Example = Template.bind({});
 Example.args = {
   borderRadius: 2,
   borderSize: 'md',
@@ -130,13 +130,13 @@ Example.args = {
   id: '',
   label: 'Label',
   onChange: (): void => {
-    console.log('changed')
+    console.log('changed');
   },
   placeholder: 'Placeholder',
   padding: 'md',
   setFieldValue: (): void => {
-    console.log('setFieldValue')
+    console.log('setFieldValue');
   },
   styles: {},
   textError: 'Test error',
-}
+};

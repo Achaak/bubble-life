@@ -15,8 +15,9 @@ const window = (
     height: options.height || 500,
   };
   let state = {};
-  let win: BrowserWindow;
+  let win: BrowserWindow = new BrowserWindow(options);
 
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const restore = () => store.get(key, defaultSize);
 
   const getCurrentPosition = (): {
@@ -35,6 +36,7 @@ const window = (
     };
   };
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const windowWithinBounds = (windowState, bounds): boolean => {
     return (
@@ -52,6 +54,7 @@ const window = (
     y: number;
   } => {
     const bounds = screen.getPrimaryDisplay().bounds;
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     return Object.assign({}, defaultSize, {
       x: (bounds.width - defaultSize.width) / 2,
@@ -59,7 +62,9 @@ const window = (
     });
   };
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const ensureVisibleOnSomeDisplay = (windowState) => {
     const visible = screen.getAllDisplays().some((display) => {
       return windowWithinBounds(windowState, display.bounds);

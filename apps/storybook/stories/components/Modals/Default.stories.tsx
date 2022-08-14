@@ -1,8 +1,8 @@
-import { globalStyles } from '@pikas-ui/styles'
-import type { ModalProps } from '@bubble/ui'
-import { Modal } from '@bubble/ui'
-import type { Meta, Story } from '@storybook/react'
-import { useState } from 'react'
+import { globalStyles } from '@pikas-ui/styles';
+import type { ModalProps } from '@bubble/ui';
+import { Modal } from '@bubble/ui';
+import type { Meta, Story } from '@storybook/react';
+import { useState } from 'react';
 
 export default {
   title: 'Components/Modals/Default',
@@ -169,27 +169,27 @@ export default {
       },
     },
   },
-} as Meta<ModalProps>
+} as Meta<ModalProps>;
 
 const Template: Story<ModalProps> = (args) => {
-  const [visible, setVisible] = useState(args.visible)
-  globalStyles()
+  const [visible, setVisible] = useState(args.visible);
+  globalStyles();
 
   return (
     <Modal
-      {...(args as never)}
+      {...args}
       visible={visible}
       onClose={(): void => {
-        setVisible(false)
+        setVisible(false);
       }}
       onOpen={(): void => {
-        setVisible(true)
+        setVisible(true);
       }}
     />
-  )
-}
+  );
+};
 
-export const Example = Template.bind({})
+export const Example = Template.bind({});
 Example.args = {
   visible: true,
   closeClickOutside: true,
@@ -200,10 +200,10 @@ Example.args = {
     header: 'md',
   },
   onClose: (): void => {
-    console.log('closed')
+    console.log('closed');
   },
   onOpen: (): void => {
-    console.log('opened')
+    console.log('opened');
   },
   styles: {
     container: {},
@@ -223,8 +223,9 @@ Example.args = {
   content: (
     <div>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consectetur, ipsum eu
-        dignissim sodales, nisi nisi aliquet nunc, quis congue erat nunc euismod erat.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+        consectetur, ipsum eu dignissim sodales, nisi nisi aliquet nunc, quis
+        congue erat nunc euismod erat.
       </p>
     </div>
   ),
@@ -236,9 +237,9 @@ Example.args = {
   header: (
     <div>
       <p>
-        Do magna Lorem officia reprehenderit nisi ipsum aliqua ipsum fugiat qui excepteur veniam
-        voluptate.
+        Do magna Lorem officia reprehenderit nisi ipsum aliqua ipsum fugiat qui
+        excepteur veniam voluptate.
       </p>
     </div>
   ),
-}
+};
