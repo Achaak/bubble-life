@@ -7,5 +7,6 @@ export interface GlobalConfigType {
     devTools: boolean;
     kiosk: boolean;
     menuBar: boolean;
+    fullscreen: boolean;
   };
 }

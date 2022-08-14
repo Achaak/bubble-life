@@ -9,5 +9,6 @@ export const GlobalConfig: GlobalConfigType = {
     devTools: false,
     kiosk: false,
     menuBar: false,
+    fullscreen: true,
   },
 };
