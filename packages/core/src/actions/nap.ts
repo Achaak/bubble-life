@@ -1,5 +1,4 @@
-import { dateToMs, socket } from '@bubble/common';
-import { random } from '@bubble/common';
+import { dateToMs, socket, random } from '@bubble/common';
 import { BubbleConfig } from '@bubble/configs';
 import {
   addActionInWaitingList,
@@ -71,12 +70,13 @@ export class ActionNap extends Action {
   socket?: SocketEvents;
 
   constructor() {
-    super();
+    super({
+      name: 'nap',
+    });
 
     this.lastRenderUpdateNap = 0;
     this.recoverValue = 0;
 
-    this.name = 'nap';
     this.actions = [
       {
         name: 'nap:start',

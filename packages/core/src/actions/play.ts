@@ -1,5 +1,4 @@
-import { dateToMs, socket } from '@bubble/common';
-import { random } from '@bubble/common';
+import { dateToMs, socket, random } from '@bubble/common';
 import { BubbleConfig } from '@bubble/configs';
 import {
   addActionInWaitingList,
@@ -66,11 +65,12 @@ export class ActionPlay extends Action {
   socket?: SocketEvents;
 
   constructor() {
-    super();
+    super({
+      name: 'play',
+    });
 
     this.lastRenderUpdatePlay = 0;
 
-    this.name = 'play';
     this.actions = [
       {
         name: 'play:start',

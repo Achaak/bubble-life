@@ -18,13 +18,13 @@
   "devDependencies": {
     "@bubble/scripts": "workspace:*",
     "@bubble/tsconfig": "workspace:*",
+    "@pnpm/sort-packages": "^3.0.7",
     "bbl-calendar": "workspace:*",
     "bbl-devtool": "workspace:*",
     "bbl-example": "workspace:*",
     "bbl-menu": "workspace:*",
-    "@pnpm/sort-packages": "^3.0.7",
     "cross-env": "^7.0.3",
-    "eslint": "^8.21.0",
+    "eslint": "^8.22.0",
     "prettier": "^2.7.1",
     "tsup": "^6.2.2",
     "typescript": "4.7.4"

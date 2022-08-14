@@ -19,13 +19,13 @@
     "build:controller": "turbo run build --filter=@bubble/controller...",
     "build:docs": "turbo run build --filter=@bubble/docs...",
     "build:storybook": "turbo run build --filter=@bubble/storybook...",
-    "build:packages": "turbo run build --filter=./packages/*",
+    "build:packages": "turbo run build --filter=./packages/**/*",
     "dev": "turbo run dev --parallel --filter=@bubble/app... --filter=@bubble/controller... --filter=@bubble/server...",
     "dev:app": "turbo run dev --parallel --filter=@bubble/app...",
     "dev:controller": "turbo run dev --parallel --filter=@bubble/controller...",
     "dev:docs": "turbo run dev --parallel --filter=@bubble/docs...",
     "dev:storybook": "turbo run dev --filter=@bubble/storybook...",
-    "dev:packages": "turbo run dev --parallel --filter=./packages/*",
+    "dev:packages": "turbo run dev --parallel --filter=./packages/**/*",
     "lint": "turbo run lint",
     "format": "turbo run format",
     "clean": "turbo run clean && rm -rf node_modules"
@@ -37,5 +37,5 @@
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
   },
-  "packageManager": "pnpm@6.32.6"
+  "packageManager": "pnpm@7.9.0"
 }

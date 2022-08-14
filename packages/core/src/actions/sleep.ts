@@ -1,5 +1,4 @@
-import { dateToMs, socket } from '@bubble/common';
-import { random } from '@bubble/common';
+import { dateToMs, socket, random } from '@bubble/common';
 import { BubbleConfig } from '@bubble/configs';
 import {
   addActionInWaitingList,
@@ -69,11 +68,12 @@ export class ActionSleep extends Action {
   socket?: SocketEvents;
 
   constructor() {
-    super();
+    super({
+      name: 'sleep',
+    });
 
     this.lastRenderUpdateSleep = 0;
 
-    this.name = 'sleep';
     this.actions = [
       {
         name: 'sleep:start',
