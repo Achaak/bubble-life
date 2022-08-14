@@ -6,8 +6,8 @@ export const GlobalConfig: GlobalConfigType = {
 
   development: {
     showFPS: false,
-    devTools: true,
-    kiosk: true,
-    menuBar: true,
+    devTools: false,
+    kiosk: false,
+    menuBar: false,
   },
 };
