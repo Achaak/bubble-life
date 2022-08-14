@@ -1,14 +1,14 @@
-import { theme } from '@pikas-ui/styles'
-import { create } from '@storybook/theming'
+import { theme } from '@bubble/ui';
+import { create } from '@storybook/theming';
 
 export default create({
   base: 'light',
 
-  // colorPrimary: theme.colors.PRIMARY.value,
-  // colorSecondary: theme.colors.SECONDARY.value,
+  colorPrimary: theme.colors.PRIMARY.value,
+  colorSecondary: theme.colors.SECONDARY.value,
 
   // UI
-  // appBg: theme.colors.PRIMARY_LIGHTEST_1.value,
+  appBg: theme.colors.PRIMARY_LIGHTEST_1.value,
   appContentBg: theme.colors.WHITE.value,
   appBorderColor: theme.colors.GRAY.value,
   appBorderRadius: 4,
@@ -23,7 +23,7 @@ export default create({
 
   // Toolbar default and active colors
   barTextColor: theme.colors.GRAY.value,
-  // barSelectedColor: theme.colors.PRIMARY_DARKER.value,
+  barSelectedColor: theme.colors.PRIMARY_DARKER.value,
   barBg: theme.colors.WHITE.value,
 
   // Form colors
@@ -32,7 +32,7 @@ export default create({
   inputTextColor: theme.colors.BLACK.value,
   inputBorderRadius: 4,
 
-  brandTitle: 'Bubble Storybook',
-  // brandUrl: 'https://bubble.com',
-  // brandImage: 'https://bubble.me/bubble-logo/bubble_Logo_Long.png',
-})
+  brandTitle: 'Digimat Storybook',
+  brandUrl: 'https://digimat.com',
+  brandImage: 'https://digimat.me/digimat-logo/Digimat_Logo_Long.png',
+});
