@@ -10,6 +10,7 @@ const Container = styled('div', {
   left: 0,
   cursor: process.env.NODE_ENV === 'development' ? 'default' : 'none',
   userSelect: 'none',
+  backgroundColor: '$BACKGROUND',
 });
 
 interface CustomProps {

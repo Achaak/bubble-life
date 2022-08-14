@@ -85,6 +85,7 @@ const window = (
     ...options,
     ...state,
     kiosk: GlobalConfig.development.kiosk,
+    fullscreen: GlobalConfig.development.fullscreen,
     darkTheme: true,
     webPreferences: {
       nodeIntegration: true,
