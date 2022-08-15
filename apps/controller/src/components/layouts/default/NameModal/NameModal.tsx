@@ -3,7 +3,9 @@ import { setCurrentUser, useAppSelector } from '@bubble/store';
 import { selectCurrentUser } from '@bubble/store';
 import { styled } from '@bubble/ui';
 import { Button, Textfield } from '@bubble/ui';
-import React, { useContext, useState } from 'react';
+import { useFormik } from 'formik';
+import React, { useContext } from 'react';
+import Yup from 'yup';
 
 const Container = styled('div', {
   position: 'fixed',
@@ -15,6 +17,10 @@ const Container = styled('div', {
   opacity: 0,
   pointerEvents: 'none',
   transition: 'opacity 0.3s ease-in-out',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
 
   variants: {
     visible: {
@@ -27,36 +33,39 @@ const Container = styled('div', {
 });
 
 export const NameModal: React.FC = () => {
-  const [name, setName] = useState<string>();
   const socket = useContext(SocketContext);
   const currentUser = useAppSelector(selectCurrentUser);
 
-  console.log(currentUser);
-  const handleConnect = (): void => {
-    if (!name) {
-      return;
-    }
+  const { handleSubmit, handleChange, values } = useFormik({
+    initialValues: {
+      name: '',
+    },
+    validationSchema: Yup.object().shape({
+      name: Yup.string().required('Name is required'),
+    }),
+    onSubmit: ({ name }) => {
+      if (!name) {
+        return;
+      }
 
-    socket?.emit('newUser', { name: name });
+      socket?.emit('newUser', { name: name });
 
-    console.log("emit 'newUser'");
-    // Set in store
-    setCurrentUser({
-      name: name,
-    });
-  };
+      // Set in store
+      setCurrentUser({
+        name: name,
+      });
+    },
+  });
 
   return (
     <Container visible={!currentUser}>
-      <Textfield
-        onChange={(e): void => {
-          setName(e.target.value);
-        }}
-      />
+      <form onSubmit={handleSubmit}>
+        <Textfield onChange={handleChange} />
 
-      <Button onClick={handleConnect} disabled={!name}>
-        Validate
-      </Button>
+        <Button type="submit" disabled={!values.name}>
+          Validate
+        </Button>
+      </form>
     </Container>
   );
 };

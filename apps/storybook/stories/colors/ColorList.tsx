@@ -1,4 +1,4 @@
-import { Colors, styled } from '@pikas-ui/styles';
+import { Colors, styled } from '@bubble/ui';
 
 const Container = styled('div', {
   display: 'flex',

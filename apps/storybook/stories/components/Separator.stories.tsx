@@ -1,4 +1,4 @@
-import { globalStyles, styled } from '@pikas-ui/styles';
+import { customGlobalCss, styled } from '@bubble/ui';
 import type { SeparatorProps } from '@bubble/ui';
 import { Separator } from '@bubble/ui';
 import type { Meta, Story } from '@storybook/react';
@@ -31,7 +31,7 @@ const Container = styled('div', {
 });
 
 const Template: Story<SeparatorProps> = (args) => {
-  globalStyles();
+  customGlobalCss();
 
   return (
     <Container>

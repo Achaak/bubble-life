@@ -1,6 +1,6 @@
 import type { TextProps } from '@bubble/ui';
 import { Text, TextComponentType, TextVariantType } from '@bubble/ui';
-import { globalStyles, styled } from '@pikas-ui/styles';
+import { customGlobalCss, styled } from '@bubble/ui';
 import type { Story, Meta } from '@storybook/react';
 
 export default {
@@ -73,7 +73,7 @@ const Element = styled('div', {
 const Label = styled('span', {});
 
 const Template: Story<TextProps> = (args) => {
-  globalStyles();
+  customGlobalCss();
 
   return (
     <>

@@ -1,4 +1,4 @@
-import { globalStyles } from '@pikas-ui/styles';
+import { customGlobalCss } from '@bubble/ui';
 import type { ModalProps } from '@bubble/ui';
 import { Modal } from '@bubble/ui';
 import type { Meta, Story } from '@storybook/react';
@@ -173,7 +173,7 @@ export default {
 
 const Template: Story<ModalProps> = (args) => {
   const [visible, setVisible] = useState(args.visible);
-  globalStyles();
+  customGlobalCss();
 
   return (
     <Modal
