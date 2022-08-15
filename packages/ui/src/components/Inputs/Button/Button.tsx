@@ -26,9 +26,25 @@ export type {
 } from '@pikas-ui/button';
 
 export const Button: React.FC<ButtonProps> = (props) => {
-  return <ButtonPikasUI boxShadow="none" borderWidth={1} {...props} />;
+  return (
+    <ButtonPikasUI
+      boxShadow="none"
+      color="WHITE"
+      outlined
+      borderWidth={2}
+      {...props}
+    />
+  );
 };
 
 export const ButtonLink: React.FC<ButtonLinkProps> = (props) => {
-  return <ButtonLinkPikasUI boxShadow="none" borderWidth={1} {...props} />;
+  return (
+    <ButtonLinkPikasUI
+      boxShadow="none"
+      color="WHITE"
+      outlined
+      borderWidth={2}
+      {...props}
+    />
+  );
 };

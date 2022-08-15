@@ -5,7 +5,7 @@ import { styled } from '@bubble/ui';
 import { Button, Textfield } from '@bubble/ui';
 import { useFormik } from 'formik';
 import React, { useContext } from 'react';
-import Yup from 'yup';
+import * as Yup from 'yup';
 
 const Container = styled('div', {
   position: 'fixed',
@@ -30,6 +30,15 @@ const Container = styled('div', {
       },
     },
   },
+});
+
+const Form = styled('form', {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  customRowGap: 8,
+  marginTop: 24,
 });
 
 export const NameModal: React.FC = () => {
@@ -59,13 +68,19 @@ export const NameModal: React.FC = () => {
 
   return (
     <Container visible={!currentUser}>
-      <form onSubmit={handleSubmit}>
-        <Textfield onChange={handleChange} />
+      <h1>Bubble Life</h1>
+      <Form onSubmit={handleSubmit}>
+        <Textfield
+          onChange={handleChange}
+          id="name"
+          label="Your name"
+          placeholder="Bubble friend's"
+        />
 
-        <Button type="submit" disabled={!values.name}>
+        <Button type="submit" disabled={!values.name} borderRadius="round">
           Validate
         </Button>
-      </form>
+      </Form>
     </Container>
   );
 };

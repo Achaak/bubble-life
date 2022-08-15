@@ -12,9 +12,13 @@ export type {
 } from '@pikas-ui/button';
 
 export const ButtonIcon: React.FC<ButtonIconProps> = (props) => {
-  return <ButtonIconPikasUI boxShadow="none" {...props} />;
+  return (
+    <ButtonIconPikasUI boxShadow="none" color="WHITE" outlined {...props} />
+  );
 };
 
 export const ButtonIconLink: React.FC<ButtonIconLinkProps> = (props) => {
-  return <ButtonIconLinkPikasUI boxShadow="none" {...props} />;
+  return (
+    <ButtonIconLinkPikasUI boxShadow="none" color="WHITE" outlined {...props} />
+  );
 };
