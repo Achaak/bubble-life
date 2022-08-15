@@ -1,18 +1,18 @@
 import { customGlobalCss } from '@bubble/ui';
-import type { ButtonProps } from '@bubble/ui';
-import { Button } from '@bubble/ui';
+import type { ButtonIconProps } from '@bubble/ui';
+import { ButtonIcon } from '@bubble/ui';
 import type { Meta, Story } from '@storybook/react';
 
 export default {
-  title: 'Components/Inputs/Button',
-  component: Button,
+  title: 'Components/Inputs/ButtonIcon',
+  component: ButtonIcon,
   argTypes: {},
-} as Meta<ButtonProps>;
+} as Meta<ButtonIconProps>;
 
-const Template: Story<ButtonProps> = (args) => {
+const Template: Story<ButtonIconProps> = (args) => {
   customGlobalCss();
 
-  return <Button {...args}>Button</Button>;
+  return <ButtonIcon {...args}>ButtonIcon</ButtonIcon>;
 };
 
 export const Example = Template.bind({});
