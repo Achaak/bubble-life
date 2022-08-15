@@ -20,5 +20,4 @@ Example.args = {
   onClick: (): void => {
     console.log('clicked');
   },
-  type: 'button',
 };

@@ -1,22 +1,42 @@
 import { SocketContext } from '@/components/components/SocketProvider';
 import { LayoutDefault } from '@/components/layouts/default';
-import { Button, Textarea } from '@bubble/ui';
-import React, { useContext, useState } from 'react';
+import { Button, styled, Textarea } from '@bubble/ui';
+import { useFormik } from 'formik';
+import React, { useContext } from 'react';
+import * as Yup from 'yup';
 
 import type { NextPageWithLayout } from './_app';
 
+const Form = styled('form', {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  customRowGap: 8,
+});
+
 const Message: NextPageWithLayout = () => {
-  const [messageValue, setMessageValue] = useState('');
   const socket = useContext(SocketContext);
 
-  const sendMessage = (): void => {
-    socket?.emit('message', { content: messageValue });
-  };
+  const { handleSubmit, handleChange, values } = useFormik({
+    initialValues: {
+      message: '',
+    },
+    validationSchema: Yup.object().shape({
+      message: Yup.string().required('Message is required'),
+    }),
+    onSubmit: ({ message }) => {
+      socket?.emit('message', { content: message });
+    },
+  });
+
   return (
-    <>
-      <Textarea onChange={(e): void => setMessageValue(e.target.value)} />
-      <Button onClick={sendMessage}>Send Message</Button>
-    </>
+    <Form onSubmit={handleSubmit}>
+      <Textarea onChange={handleChange} />
+      <Button type="submit" disabled={!values.message}>
+        Send Message
+      </Button>
+    </Form>
   );
 };
 

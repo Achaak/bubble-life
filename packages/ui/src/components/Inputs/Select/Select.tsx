@@ -10,6 +10,17 @@ export type {
   SelectStylesType,
 } from '@pikas-ui/select';
 
-export const Select: React.FC<SelectProps> = (props) => {
-  return <SelectPikasUI {...props} />;
+export const Select: React.FC<SelectProps> = ({ styles, ...props }) => {
+  return (
+    <SelectPikasUI
+      styles={{
+        ...styles,
+        label: {
+          color: '$WHITE',
+          ...styles?.label,
+        },
+      }}
+      {...props}
+    />
+  );
 };

@@ -9,6 +9,17 @@ export type {
   TextareaStylesType,
 } from '@pikas-ui/textarea';
 
-export const Textarea: React.FC<TextareaProps> = (props) => {
-  return <TextareaPikasUI {...props} />;
+export const Textarea: React.FC<TextareaProps> = ({ styles, ...props }) => {
+  return (
+    <TextareaPikasUI
+      styles={{
+        ...styles,
+        label: {
+          color: '$WHITE',
+          ...styles?.label,
+        },
+      }}
+      {...props}
+    />
+  );
 };

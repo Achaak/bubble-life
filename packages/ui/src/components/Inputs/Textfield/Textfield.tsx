@@ -16,7 +16,19 @@ export type {
 } from '@pikas-ui/textfield';
 
 export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
-  (props, ref) => {
-    return <TextfieldPikasUI ref={ref} {...props} />;
+  ({ styles, ...props }, ref) => {
+    return (
+      <TextfieldPikasUI
+        ref={ref}
+        styles={{
+          ...styles,
+          label: {
+            color: '$WHITE',
+            ...styles?.label,
+          },
+        }}
+        {...props}
+      />
+    );
   }
 );

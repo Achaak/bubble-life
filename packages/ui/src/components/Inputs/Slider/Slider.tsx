@@ -9,6 +9,17 @@ export type {
   SliderStylesType,
 } from '@pikas-ui/slider';
 
-export const Slider: React.FC<SliderProps> = (props) => {
-  return <SliderPikasUI {...props} />;
+export const Slider: React.FC<SliderProps> = ({ styles, ...props }) => {
+  return (
+    <SliderPikasUI
+      styles={{
+        ...styles,
+        label: {
+          color: '$WHITE',
+          ...styles?.label,
+        },
+      }}
+      {...props}
+    />
+  );
 };
