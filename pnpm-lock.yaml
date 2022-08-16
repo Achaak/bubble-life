@@ -475,6 +475,43 @@ importers:
       tsup: 6.2.2_typescript@4.7.4
       typescript: 4.7.4
 
+  packages/modules/bbl-magic-ball:
+    specifiers:
+      '@bubble/configs': workspace:*
+      '@bubble/scripts': workspace:*
+      '@bubble/tsconfig': workspace:*
+      '@bubble/types': workspace:*
+      '@bubble/ui': workspace:*
+      '@pnpm/sort-packages': ^3.0.7
+      '@types/node': ^18.7.4
+      '@types/react': 18.0.17
+      '@types/react-dom': 18.0.6
+      cross-env: ^7.0.3
+      eslint: 8.22.0
+      prettier: 2.7.1
+      react: 18.2.0
+      react-dom: 18.2.0
+      tsup: ^6.2.2
+      typescript: 4.7.4
+    dependencies:
+      '@bubble/configs': link:../../configs
+      '@bubble/types': link:../../types
+    devDependencies:
+      '@bubble/scripts': link:../../scripts
+      '@bubble/tsconfig': link:../../tsconfig
+      '@bubble/ui': link:../../ui
+      '@pnpm/sort-packages': 3.0.7
+      '@types/node': 18.7.4
+      '@types/react': 18.0.17
+      '@types/react-dom': 18.0.6
+      cross-env: 7.0.3
+      eslint: 8.22.0
+      prettier: 2.7.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      tsup: 6.2.2_typescript@4.7.4
+      typescript: 4.7.4
+
   packages/modules/bbl-menu:
     specifiers:
       '@bubble/configs': workspace:*
@@ -525,6 +562,7 @@ importers:
       bbl-calendar: workspace:*
       bbl-devtool: workspace:*
       bbl-example: workspace:*
+      bbl-magic-ball: workspace:*
       bbl-menu: workspace:*
       cross-env: ^7.0.3
       eslint: ^8.22.0
@@ -540,6 +578,7 @@ importers:
       bbl-calendar: link:../bbl-calendar
       bbl-devtool: link:../bbl-devtool
       bbl-example: link:../bbl-example
+      bbl-magic-ball: link:../bbl-magic-ball
       bbl-menu: link:../bbl-menu
       cross-env: 7.0.3
       eslint: 8.22.0
@@ -558,10 +597,6 @@ importers:
       '@types/node': ^18.7.4
       '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
-      bbl-calendar: workspace:*
-      bbl-devtool: workspace:*
-      bbl-example: workspace:*
-      bbl-menu: workspace:*
       cross-env: ^7.0.3
       eslint: 8.22.0
       prettier: 2.7.1
@@ -573,10 +608,6 @@ importers:
       '@bubble/configs-modules': link:../configs
       '@bubble/types': link:../../types
       '@bubble/ui': link:../../ui
-      bbl-calendar: link:../bbl-calendar
-      bbl-devtool: link:../bbl-devtool
-      bbl-example: link:../bbl-example
-      bbl-menu: link:../bbl-menu
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     devDependencies:

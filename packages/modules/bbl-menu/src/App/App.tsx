@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { styled } from '@bubble/ui';
+import type { IconProps } from '@bubble/ui';
+import { styled, ButtonIcon, IconByName } from '@bubble/ui';
 import { ModalInventory } from '../components/Modals/Inventory/index.js';
 import { ModalStats } from '../components/Modals/Stats/index.js';
 import { ModalActions } from '../components/Modals/Actions/index.js';
@@ -9,18 +10,17 @@ const Content = styled('div', {
   customColumnGap: 16,
 });
 
-const MenuIcon = styled('div', {
-  borderWidth: 3,
-  borderStyle: 'solid',
-  borderColor: '$WHITE',
-  br: 'lg',
-  cursor: 'pointer',
-  width: 52,
-  height: 52,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-});
+const SportsSoccerIcon: React.FC<IconProps> = (props) => {
+  return <IconByName name="material-symbols:sports-soccer" {...props} />;
+};
+
+const BackpackIcon: React.FC<IconProps> = (props) => {
+  return <IconByName name="material-symbols:backpack" {...props} />;
+};
+
+// const BarChartIcon: React.FC<IconProps> = (props) => {
+//   return <IconByName name="material-symbols:bar-chart" {...props} />;
+// };
 
 export interface AppProps {}
 
@@ -45,15 +45,18 @@ export const App: React.FC<AppProps> = () => {
       />
 
       <Content>
-        <MenuIcon onClick={(): void => setIsActionsOpen(true)}>
-          <span className="material-icons-outlined size-32">sports_soccer</span>
-        </MenuIcon>
-        <MenuIcon onClick={(): void => setIsInventoryOpen(true)}>
-          <span className="material-icons-outlined size-32">backpack</span>
-        </MenuIcon>
-        {/* <MenuIcon onClick={(): void => setIsStatsOpen(true)}>
-          <span className="material-icons-outlined size-32">bar_chart</span>
-        </MenuIcon> */}
+        <ButtonIcon
+          Icon={SportsSoccerIcon}
+          onClick={(): void => setIsActionsOpen(true)}
+        />
+        <ButtonIcon
+          Icon={BackpackIcon}
+          onClick={(): void => setIsInventoryOpen(true)}
+        />
+        {/* <ButtonIcon
+          Icon={BarChartIcon}
+          onClick={(): void => setIsStatsOpen(true)}
+        /> */}
       </Content>
     </>
   );

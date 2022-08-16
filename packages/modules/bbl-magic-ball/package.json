@@ -1,7 +1,9 @@
 {
-  "name": "@bubble/configs-modules",
+  "name": "bbl-magic-ball",
   "version": "1.0.0",
   "author": "Axel Lavoie <axel.lavoi@gmail.com>",
+  "description": "",
+  "license": "MIT",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -13,24 +15,26 @@
     "dev": "tsup --watch",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "lint": "cross-env TIMING=1 eslint src --fix",
-    "clean": "rm -rf .turbo && rm -rf node_modules"
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "devDependencies": {
     "@bubble/scripts": "workspace:*",
     "@bubble/tsconfig": "workspace:*",
+    "@bubble/ui": "workspace:*",
     "@pnpm/sort-packages": "^3.0.7",
-    "bbl-calendar": "workspace:*",
-    "bbl-devtool": "workspace:*",
-    "bbl-example": "workspace:*",
-    "bbl-menu": "workspace:*",
-    "bbl-magic-ball": "workspace:*",
+    "@types/node": "^18.7.4",
+    "@types/react": "18.0.17",
+    "@types/react-dom": "18.0.6",
     "cross-env": "^7.0.3",
-    "eslint": "^8.22.0",
-    "prettier": "^2.7.1",
+    "eslint": "8.22.0",
+    "prettier": "2.7.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "tsup": "^6.2.2",
     "typescript": "4.7.4"
   },
   "dependencies": {
+    "@bubble/configs": "workspace:*",
     "@bubble/types": "workspace:*"
   }
 }

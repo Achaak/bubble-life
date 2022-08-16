@@ -32,10 +32,6 @@
     "@bubble/configs-modules": "workspace:*",
     "@bubble/types": "workspace:*",
     "@bubble/ui": "workspace:*",
-    "bbl-calendar": "workspace:*",
-    "bbl-devtool": "workspace:*",
-    "bbl-example": "workspace:*",
-    "bbl-menu": "workspace:*",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   }
