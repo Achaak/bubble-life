@@ -52,6 +52,7 @@ const ResultView = styled('div', {
     visible: {
       true: {
         opacity: 1,
+        pointerEvents: 'initial',
       },
     },
   },
