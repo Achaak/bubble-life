@@ -17,6 +17,7 @@
     "@pnpm/sort-packages": "^3.0.7",
     "@reduxjs/toolkit": "^1.8.4",
     "@types/node": "^18.7.4",
+    "@types/shortid": "^0.0.29",
     "cross-env": "^7.0.3",
     "eslint": "^8.22.0",
     "prettier": "2.7.1",
