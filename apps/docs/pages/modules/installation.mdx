@@ -1,5 +1,33 @@
-import Callout from "nextra-theme-docs/callout";
+import Callout from 'nextra-theme-docs/callout';
 
 # Module Installation
 
-<Callout emoji="⚠️">Coming soon</Callout>
+To install the module, you have two options:
+
+## Import the module
+
+You must go to `packages/modules` and run the following command:
+
+```bash
+git clone your-repo-url
+```
+
+After cloning the repository, you can install the module in the config packages in `packages/modules/configs`.
+
+```bash
+pnpm add your-module
+```
+
+## Install the module
+
+You can install the module in the config packages in `packages/modules/configs`.
+
+```bash
+pnpm add your-module
+```
+
+## Configuration
+
+You can configure the module in the config packages in `packages/modules/configs/src/modules.ts`.
+
+If you want to configure the module, you can following the instructions in this <a href="/docs/configuration/modules">page</a>.

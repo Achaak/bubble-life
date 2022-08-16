@@ -2,21 +2,23 @@
 
 ## Configure
 
-1. Copy `/packages/configs/src/modules.default.ts` to `/packages/configs/src/modules.ts`.
+1. Copy `/packages/modules/configs/src/modules.default.ts` to `/packages/modules/configs/src/modules.ts`.
 
-2. Modify `/packages/configs/src/modules.ts` to your needs.
+2. Modify `/packages/modules/configs/src/modules.ts` to your needs.
 
 ---
 
 ## Properties
 
-When you want to use a module, you need to add a property to `/packages/configs/src/modules.ts`.
+When you want to use a module, you need to add a property to `/packages/modules/configs/src/modules.ts`.
 
-| Option     | Description                      |
-| ---------- | -------------------------------- |
-| `name`     | The name of the module.          |
-| `position` | The position of the module.      |
-| `config`   | The configuration of the module. |
+You can check how to install a module in this <a href="/modules/installation">page</a>.
+
+| Option     | Description                                            |
+| ---------- | ------------------------------------------------------ |
+| `module`   | You need import the module and add it to the property. |
+| `position` | The position of the module.                            |
+| `config`   | The configuration of the module.                       |
 
 #### Positions
 
