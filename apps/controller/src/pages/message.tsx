@@ -33,7 +33,7 @@ const Message: NextPageWithLayout = () => {
   return (
     <Form onSubmit={handleSubmit}>
       <Textarea onChange={handleChange} />
-      <Button type="submit" disabled={!values.message}>
+      <Button type="submit" disabled={!values.message.length}>
         Send Message
       </Button>
     </Form>
