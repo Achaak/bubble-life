@@ -1,6 +1,7 @@
 export interface GlobalConfigType {
   lang: string;
   clickable: boolean;
+  showCursor: boolean;
 
   development: {
     showFPS: boolean;
