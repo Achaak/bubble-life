@@ -2,7 +2,7 @@ import { BubbleConfig } from '@bubble/configs';
 import type { BubbleState } from '@bubble/types';
 
 export const initialBubbleState: BubbleState = {
-  name: 'Bubble',
+  name: BubbleConfig.defaultName,
   animation: {
     action: null,
     default: 'default',

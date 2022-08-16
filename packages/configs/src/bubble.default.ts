@@ -1,6 +1,7 @@
 import type { BubbleConfigType } from '@bubble/types';
 
 export const BubbleConfig: BubbleConfigType = {
+  defaultName: 'Bubble',
   vitals: {
     weight: {
       default: 20,

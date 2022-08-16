@@ -4,7 +4,7 @@ import type { ModuleConfig } from '@bubble/types';
 
 const config: ModuleConfig = {
   name: 'example',
-  icon: 'cruelty_free',
+  icon: 'bx:baguette',
   App,
   Controller,
 };

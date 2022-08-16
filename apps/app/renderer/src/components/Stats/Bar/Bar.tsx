@@ -1,4 +1,4 @@
-import { styled } from '@bubble/ui';
+import { IconByName, styled } from '@bubble/ui';
 import React from 'react';
 
 const Container = styled('div', {
@@ -70,7 +70,7 @@ export const Bar: React.FC<CustomProps> = ({ percentage, icon }) => {
 
   return (
     <Container>
-      <span className="material-icons-outlined size-32">{icon}</span>
+      <IconByName name={icon} size={40} />
 
       <BarContainer>
         <BarContent>

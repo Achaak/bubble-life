@@ -31,7 +31,7 @@ export const IndexContainer: React.FC = () => {
   return (
     <Container>
       <ItemButton
-        icon="message"
+        icon="bx:message-detail"
         text="Message"
         onClick={(): void => {
           router.push('/message');
@@ -48,6 +48,14 @@ export const IndexContainer: React.FC = () => {
           }}
         />
       ))}
+
+      <ItemButton
+        icon="bx:cog"
+        text="Settings"
+        onClick={(): void => {
+          router.push('/settings');
+        }}
+      />
     </Container>
   );
 };

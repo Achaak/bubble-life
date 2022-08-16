@@ -1,3 +1,4 @@
+import { IconByName } from '@pikas-ui/icons';
 import type { CSS } from '@pikas-ui/styles';
 import { styled } from '@pikas-ui/styles';
 import * as Dialog from '@radix-ui/react-dialog';
@@ -367,7 +368,7 @@ export const Modal: React.FC<ModalProps> = ({
             <HeaderRight>
               {hasCloseBtn && (
                 <CloseBtn onClick={handleClose}>
-                  <span className="material-icons-outlined size-32">close</span>
+                  <IconByName name="bx:x" size={32} />
                 </CloseBtn>
               )}
             </HeaderRight>

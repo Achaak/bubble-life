@@ -8,6 +8,7 @@ export type Bodies = 'default';
 export type Onomatopoeias = 'sleep' | 'eat' | null;
 
 export interface BubbleConfigType {
+  defaultName: string;
   vitals: {
     weight: {
       default: number;

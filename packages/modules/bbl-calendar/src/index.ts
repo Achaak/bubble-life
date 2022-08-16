@@ -4,7 +4,7 @@ import type { ModuleConfig } from '@bubble/types';
 
 const config: ModuleConfig = {
   name: 'calendar',
-  icon: 'cruelty_free',
+  icon: 'bx:calendar',
   App,
   // Controller,
 };

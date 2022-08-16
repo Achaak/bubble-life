@@ -4,7 +4,7 @@ import type { ModuleConfig } from '@bubble/types';
 
 const config: ModuleConfig = {
   name: 'devtool',
-  icon: 'cruelty_free',
+  icon: 'fluent:window-dev-tools-16-filled',
   App,
   Controller,
 };

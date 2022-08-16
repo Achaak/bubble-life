@@ -4,7 +4,7 @@ import type { ModuleConfig } from '@bubble/types';
 
 const config: ModuleConfig = {
   name: 'Magic Ball',
-  icon: 'cruelty_free',
+  icon: 'fluent-emoji-high-contrast:pool-8-ball',
   App,
   // Controller,
 };

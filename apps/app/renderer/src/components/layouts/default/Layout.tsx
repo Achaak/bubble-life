@@ -9,9 +9,12 @@ const Container = styled('div', {
   bottom: 0,
   right: 0,
   left: 0,
-  // cursor: GlobalConfig.showCursor ? 'default' : 'none',
   userSelect: 'none',
   backgroundColor: '$BACKGROUND',
+
+  '*': {
+    cursor: GlobalConfig.showCursor ? undefined : 'none !important',
+  },
 });
 
 interface CustomProps {

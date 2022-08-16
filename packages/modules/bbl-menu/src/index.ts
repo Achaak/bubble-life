@@ -4,7 +4,7 @@ import type { ModuleConfig } from '@bubble/types';
 
 const config: ModuleConfig = {
   name: 'menu',
-  icon: 'cruelty_free',
+  icon: 'bx:grid-alt',
   App,
   // Controller,
 };

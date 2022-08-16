@@ -1,24 +1,21 @@
 import React from 'react';
 import { styled } from '@pikas-ui/styles';
+import { IconByName } from '@pikas-ui/icons';
 
-const Container = styled('div', {
+const Container = styled('button', {
+  all: 'unset',
   display: 'flex',
   alignItems: 'center',
+  cursor: 'pointer',
   justifyContent: 'space-evenly',
   flexDirection: 'column',
   borderWidth: 3,
   borderStyle: 'solid',
   borderColor: '$WHITE',
   br: 'lg',
-  height: 80,
-  width: 80,
-  margin: 8,
-});
-
-const IconContainer = styled('div', {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
+  height: 120,
+  width: 120,
+  margin: 12,
 });
 
 const Text = styled('span', {
@@ -26,6 +23,7 @@ const Text = styled('span', {
   alignItems: 'center',
   justifyContent: 'center',
   fontSize: '$EM-SMALL',
+  textTransform: 'capitalize',
 });
 
 interface CustomProps {
@@ -36,15 +34,8 @@ interface CustomProps {
 
 export const ItemButton: React.FC<CustomProps> = ({ onClick, text, icon }) => {
   return (
-    <Container
-      onClick={onClick}
-      css={{
-        cursor: onClick ? 'pointer' : 'default',
-      }}
-    >
-      <IconContainer>
-        <span className="material-icons-outlined size-32">{icon}</span>
-      </IconContainer>
+    <Container onClick={onClick}>
+      <IconByName name={icon} size={48} />
       <Text>{text}</Text>
     </Container>
   );
