@@ -19,13 +19,19 @@ const Container = styled('div', {
 const Content = styled('div', {
   display: 'flex',
   flexDirection: 'column',
+  marginTop: 16,
 });
 
 const Top = styled('div', {
   display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
 });
 
-const Title = styled('h1', {});
+const Title = styled('h1', {
+  textTransform: 'capitalize',
+  fontSize: '$EM-XX-LARGE',
+});
 
 interface CustomProps {
   children: React.ReactNode;
@@ -39,14 +45,14 @@ export const LayoutDefault: React.FC<CustomProps> = ({ children }) => {
       <NameModal />
 
       <Container>
-        {router.pathname !== '/' && (
+        {router.asPath !== '/' && (
           <Top>
             <IconByName
-              name="bxs:arrow-left"
+              name="bxs:chevron-left"
               onClick={(): void => router.back()}
-              size={20}
+              size={32}
             />
-            <Title>{router.pathname.replace('/', '')}</Title>
+            <Title>{router.asPath.replace('/', '')}</Title>
           </Top>
         )}
         <Content>{children}</Content>
