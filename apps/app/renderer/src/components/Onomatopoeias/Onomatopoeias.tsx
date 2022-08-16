@@ -13,11 +13,7 @@ const Container = styled('div', {
   right: 0,
 });
 
-interface CustomProps {
-  children: React.ReactNode;
-}
-
-export const Onomatopoeias: React.FC<CustomProps> = ({ children }) => {
+export const Onomatopoeias: React.FC = () => {
   const [onomatopoeiaDOM, setOnomatopoeiaDOM] = useState<React.ReactNode>(null);
 
   const { onomatopoeia } = useAppSelector(selectElements);
@@ -49,10 +45,5 @@ export const Onomatopoeias: React.FC<CustomProps> = ({ children }) => {
     getOnomatopoeia();
   }, [onomatopoeia]);
 
-  return (
-    <Container>
-      {onomatopoeiaDOM}
-      {children}
-    </Container>
-  );
+  return <Container>{onomatopoeiaDOM}</Container>;
 };

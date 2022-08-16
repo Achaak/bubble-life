@@ -13,11 +13,7 @@ const Container = styled('div', {
   transform: 'translate(-50%, -50%)',
 });
 
-interface CustomProps {
-  children: React.ReactNode;
-}
-
-export const Eyes: React.FC<CustomProps> = ({ children }) => {
+export const Eyes: React.FC = () => {
   const [eyesDOM, setEyesDOM] = useState<React.ReactNode>(null);
 
   const { eyes } = useAppSelector(selectElements);
@@ -46,10 +42,5 @@ export const Eyes: React.FC<CustomProps> = ({ children }) => {
     getEyes();
   }, [eyes]);
 
-  return (
-    <Container>
-      {eyesDOM}
-      {children}
-    </Container>
-  );
+  return <Container>{eyesDOM}</Container>;
 };
