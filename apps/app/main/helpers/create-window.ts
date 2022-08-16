@@ -15,7 +15,7 @@ const window = (
     height: options.height || 500,
   };
   let state = {};
-  let win: BrowserWindow = new BrowserWindow(options);
+  let win: BrowserWindow | undefined = undefined;
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const restore = () => store.get(key, defaultSize);
@@ -26,6 +26,15 @@ const window = (
     width: number;
     height: number;
   } => {
+    if (!win) {
+      return {
+        x: 0,
+        y: 0,
+        width: 0,
+        height: 0,
+      };
+    }
+
     const position = win.getPosition();
     const size = win.getSize();
     return {
@@ -78,7 +87,7 @@ const window = (
   };
 
   const saveState = (): void => {
-    if (!win.isMinimized() && !win.isMaximized()) {
+    if (win && !win.isMinimized() && !win.isMaximized()) {
       Object.assign(state, getCurrentPosition());
     }
     store.set(key, state);

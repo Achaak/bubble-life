@@ -1,4 +1,5 @@
 import { globalCss } from '@pikas-ui/styles';
+import { GlobalConfig } from '@bubble/configs';
 
 export const customGlobalCss = globalCss({
   'html, body, #__next': {
@@ -11,6 +12,7 @@ export const customGlobalCss = globalCss({
     margin: 0,
     padding: 0,
     boxSizing: 'border-box',
+    cursor: GlobalConfig.showCursor ? 'default' : 'none !important',
   },
   li: {
     listStyle: 'none',

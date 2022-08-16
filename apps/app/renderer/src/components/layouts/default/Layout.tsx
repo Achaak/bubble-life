@@ -1,3 +1,4 @@
+import { GlobalConfig } from '@bubble/configs';
 import { BubbleCore } from '@bubble/core';
 import { styled } from '@bubble/ui';
 import { useEffect } from 'react';
@@ -8,7 +9,7 @@ const Container = styled('div', {
   bottom: 0,
   right: 0,
   left: 0,
-  cursor: process.env.NODE_ENV === 'development' ? 'default' : 'none',
+  // cursor: GlobalConfig.showCursor ? 'default' : 'none',
   userSelect: 'none',
   backgroundColor: '$BACKGROUND',
 });

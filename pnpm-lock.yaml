@@ -727,6 +727,7 @@ importers:
 
   packages/ui:
     specifiers:
+      '@bubble/configs': workspace:*
       '@bubble/scripts': workspace:*
       '@bubble/translate': workspace:*
       '@bubble/tsconfig': workspace:*
@@ -766,6 +767,7 @@ importers:
       tsup: ^6.2.2
       typescript: 4.7.4
     dependencies:
+      '@bubble/configs': link:../configs
       '@bubble/translate': link:../translate
       '@bubble/types': link:../types
       '@pikas-ui/button': 2.1.2

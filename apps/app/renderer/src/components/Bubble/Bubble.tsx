@@ -19,7 +19,7 @@ const Container = styled('div', {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: '30%',
-  cursor: GlobalConfig.showCursor ? 'default' : 'none',
+  cursor: GlobalConfig.clickable ? 'pointer' : 'default',
 });
 
 const Size = styled('div', {
