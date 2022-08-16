@@ -18,7 +18,6 @@
   "dependencies": {
     "@bubble/translate": "workspace:*",
     "@bubble/types": "workspace:*",
-    "@bubble/configs": "workspace:*",
     "@pikas-ui/button": "^2.1.2",
     "@pikas-ui/checkbox": "^2.1.3",
     "@pikas-ui/icons": "^2.1.2",
