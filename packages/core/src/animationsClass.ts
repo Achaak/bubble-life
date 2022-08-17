@@ -13,6 +13,11 @@ import { getMaxImportantItemInList, socket } from '@bubble/common';
 import { AnimationList } from './animations/index.js';
 import { AnimationDefault } from './animations/default.js';
 
+const timeline = anime.timeline({
+  autoplay: true,
+  targets: '#bubble-content',
+});
+
 export class Animations {
   currentAnimation: AnimationConfig | null;
 
@@ -79,15 +84,10 @@ export class Animations {
       return;
     }
 
-    const timeline = anime.timeline({
-      autoplay: true,
-    });
-
     for (let i = 0; i < this.currentAnimation.configs.length; i++) {
       const config = this.currentAnimation.configs[i];
 
       timeline.add({
-        targets: '#bubble-content',
         ...config,
         complete:
           this.currentAnimation.configs.length - 1 === i
