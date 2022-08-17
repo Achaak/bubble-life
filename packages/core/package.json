@@ -20,7 +20,7 @@
     "@bubble/tsconfig": "workspace:*",
     "@pnpm/sort-packages": "^3.0.7",
     "@types/animejs": "^3.1.5",
-    "@types/node": "^18.7.4",
+    "@types/node": "^18.7.6",
     "@types/shortid": "^0.0.29",
     "cross-env": "^7.0.3",
     "eslint": "^8.22.0",

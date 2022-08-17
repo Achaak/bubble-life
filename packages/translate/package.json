@@ -14,21 +14,21 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "dependencies": {
-    "typesafe-i18n": "^5.11.0"
+    "typesafe-i18n": "^5.12.0"
   },
   "devDependencies": {
     "@bubble/scripts": "workspace:*",
     "@bubble/tsconfig": "workspace:*",
     "@pnpm/sort-packages": "^3.0.7",
-    "@types/node": "^18.7.4",
+    "@types/node": "^18.7.6",
+    "@types/react": "18.0.17",
+    "@types/react-dom": "18.0.6",
     "cross-env": "^7.0.3",
     "eslint": "^8.22.0",
     "prettier": "^2.7.1",
-    "ts-node": "^10.9.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "@types/react": "18.0.17",
-    "@types/react-dom": "18.0.6",
+    "ts-node": "^10.9.1",
     "typescript": "4.7.4"
   }
 }
