@@ -31,7 +31,7 @@
   "dependencies": {
     "@bubble/configs-modules": "workspace:*",
     "@bubble/types": "workspace:*",
-    "@bubble/ui": "workspace:*",
+    "@bubble/styles": "workspace:*",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   }
