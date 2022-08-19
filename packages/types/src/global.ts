@@ -4,7 +4,6 @@ export interface GlobalConfigType {
   showCursor: boolean;
 
   development: {
-    showFPS: boolean;
     devTools: boolean;
     kiosk: boolean;
     menuBar: boolean;

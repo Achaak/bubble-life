@@ -5,7 +5,7 @@ import type {
   AddPlayActionInWaitingList,
   AddShoppingActionInWaitingList,
   AddSleepActionInWaitingList,
-} from './core/index';
+} from './core/index.js';
 import type {
   AddActionInCancelList,
   AddActionInWaitingList,
@@ -69,7 +69,7 @@ import type {
   TransferActionFromWaitingListToCurrent,
   TransferMessageFromWaitingListToCurrent,
   UpdateMemoryValue,
-} from './store/index';
+} from './store/index.js';
 
 export interface CommonEvents {
   newUser: (value: { name: string }) => void;

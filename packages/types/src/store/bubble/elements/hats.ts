@@ -1,7 +1,7 @@
 import type {
   BubbleStateElementsHatAction,
   BubbleStateElementsHatItemList,
-} from '../types';
+} from '../types.js';
 
 export type AddHatInList = BubbleStateElementsHatItemList;
 

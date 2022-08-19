@@ -4,4 +4,6 @@ export * from './reducers/bubble/actions/index';
 export * from './reducers/bubble/selects';
 export * from './reducers/controller/actions/index';
 export * from './reducers/controller/selects';
+export * from './reducers/settings/actions/index';
+export * from './reducers/settings/selects';
 export * from './hooks';

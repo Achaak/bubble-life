@@ -41,7 +41,6 @@ importers:
       prettier: ^2.7.1
       react: ^18.2.0
       react-dom: ^18.2.0
-      react-fps-stats: ^0.2.3
       react-toast-notifications: ^2.5.1
       shortid: ^2.2.16
       socket.io-client: ^4.5.1
@@ -60,7 +59,6 @@ importers:
       dayjs: 1.11.5
       electron-serve: 1.1.0
       electron-store: 8.1.0
-      react-fps-stats: 0.2.3_react@18.2.0
       react-toast-notifications: 2.5.1_biqbaboplfbrettd7655fr4n2y
       shortid: 2.2.16
       socket.io-client: 4.5.1
@@ -15730,15 +15728,6 @@ packages:
 
   /react-fast-compare/2.0.4:
     resolution: {integrity: sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==}
-    dev: false
-
-  /react-fps-stats/0.2.3_react@18.2.0:
-    resolution: {integrity: sha512-iZdOXxir58e3Tn5nhyxHcLWcMxEdvUU5/yg+L7xPl5S1be4WORwsaBNFkoNxT4eNVKAWF8G7wvluMwKpfd8XVA==}
-    peerDependencies:
-      prop-types: ^15.6.2
-      react: '>=16'
-    dependencies:
-      react: 18.2.0
     dev: false
 
   /react-innertext/1.1.5_ug65io7jkbhmo4fihdmbrh3ina:
