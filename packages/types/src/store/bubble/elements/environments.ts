@@ -1,7 +1,7 @@
 import type {
   BubbleStateElementsEnvironmentAction,
   BubbleStateElementsEnvironmentItemList,
-} from '../types';
+} from '../types.js';
 
 export type AddEnvironmentInList = BubbleStateElementsEnvironmentItemList;
 

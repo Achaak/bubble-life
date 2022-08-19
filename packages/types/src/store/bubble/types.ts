@@ -1,4 +1,4 @@
-import type { Animation } from '../../animation';
+import type { Animation } from '../../animation.js';
 import type {
   Bodies,
   Clothes,
@@ -6,9 +6,9 @@ import type {
   Eyes,
   Hats,
   Onomatopoeias,
-} from '../../bubble';
-import type { InventoryItemStock } from '../../inventory';
-import type { Message } from '../../message';
+} from '../../bubble.js';
+import type { InventoryItemStock } from '../../inventory.js';
+import type { Message } from '../../message.js';
 
 export interface BubbleStateVitals {
   weight: number;

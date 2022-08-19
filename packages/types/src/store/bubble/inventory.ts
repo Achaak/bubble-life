@@ -1,4 +1,4 @@
-import type { InventoryItem } from './../../inventory';
+import type { InventoryItem } from './../../inventory.js';
 
 export type AddInventoryItem = { type: InventoryItem; number: number };
 

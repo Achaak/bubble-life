@@ -1,14 +1,13 @@
-import { GlobalConfig } from '@bubble/configs';
 import { AppModules } from '@bubble/modules';
 import { styled } from '@bubble/styles';
 import { Bubble } from '@src/components/Bubble';
 import { Stats } from '@src/components/Stats';
 import { DefaultLayout } from '@src/components/layouts/default';
 import React from 'react';
-// @ts-expect-error No types available for 'react-fps-stats'
-import FPSStats from 'react-fps-stats';
 
 import type { NextPageWithLayout } from './_app';
+import { selectShowFPS, useAppSelector } from '@bubble/store';
+import { FPSStats } from '@src/components/FPSStats';
 
 const Overlay = styled('div', {
   position: 'fixed',
@@ -21,9 +20,11 @@ const Overlay = styled('div', {
 });
 
 const Home: NextPageWithLayout = () => {
+  const showFPS = useAppSelector(selectShowFPS);
+
   return (
     <>
-      {GlobalConfig.development.showFPS ? <FPSStats /> : null}
+      {showFPS ? <FPSStats /> : null}
 
       <Overlay>
         <AppModules />

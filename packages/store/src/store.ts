@@ -15,6 +15,7 @@ import storage from 'redux-persist/lib/storage';
 import { actionsSlice } from './reducers/actions/index';
 import { bubbleSlice } from './reducers/bubble/index';
 import { controllerSlice } from './reducers/controller/index';
+import { settingsSlice } from './reducers/settings/index';
 
 const persistConfig = {
   key: 'root',
@@ -28,6 +29,7 @@ const persistedReducer = persistReducer(
     actions: actionsSlice.reducer,
     bubble: bubbleSlice.reducer,
     controller: controllerSlice.reducer,
+    settings: settingsSlice.reducer,
   })
 );
 

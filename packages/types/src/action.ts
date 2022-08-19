@@ -1,4 +1,4 @@
-import type { Animation } from './animation';
+import type { Animation } from './animation.js';
 import type {
   Bodies,
   Clothes,
@@ -6,7 +6,7 @@ import type {
   Eyes,
   Hats,
   Onomatopoeias,
-} from './bubble';
+} from './bubble.js';
 
 export interface ActionElement {
   id?: string;
