@@ -1,5 +1,5 @@
 import { GlobalConfig } from '@bubble/configs';
-import { styled } from '@bubble/ui';
+import { styled } from '@bubble/styles';
 import dayjs from 'dayjs';
 import 'dayjs/locale';
 import updateLocale from 'dayjs/plugin/updateLocale';

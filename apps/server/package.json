@@ -1,7 +1,7 @@
 {
   "name": "@bubble/server",
   "version": "1.0.0",
-  "author": "Axel Lavoie <axel.lavoi@gmail.com>",
+  "author": "Axel Lavoie <axel.lavoie@gmail.com>",
   "main": "./dist/index.js",
   "scripts": {
     "build": "tsup ./src/index.ts",

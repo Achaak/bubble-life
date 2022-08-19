@@ -1,4 +1,4 @@
-import { styled } from '@bubble/ui';
+import { styled } from '@bubble/styles';
 import {
   addEatActionInWaitingListDefault,
   addNapActionInWaitingListDefault,

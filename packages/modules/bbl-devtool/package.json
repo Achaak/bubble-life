@@ -1,7 +1,7 @@
 {
   "name": "bbl-devtool",
   "version": "1.0.0",
-  "author": "Axel Lavoie <axel.lavoi@gmail.com>",
+  "author": "Axel Lavoie <axel.lavoie@gmail.com>",
   "description": "",
   "license": "MIT",
   "main": "./dist/index.js",
@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "@bubble/configs": "workspace:*",
+    "@bubble/styles": "workspace:*",
     "@bubble/store": "workspace:*",
     "@bubble/types": "workspace:*",
     "@bubble/ui": "workspace:*"

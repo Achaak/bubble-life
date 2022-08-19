@@ -1,7 +1,7 @@
 {
   "name": "@bubble/core",
   "version": "1.0.0",
-  "author": "Axel Lavoie <axel.lavoi@gmail.com>",
+  "author": "Axel Lavoie <axel.lavoie@gmail.com>",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -19,7 +19,6 @@
     "@bubble/scripts": "workspace:*",
     "@bubble/tsconfig": "workspace:*",
     "@pnpm/sort-packages": "^3.0.7",
-    "@types/animejs": "^3.1.5",
     "@types/node": "^18.7.6",
     "@types/shortid": "^0.0.29",
     "cross-env": "^7.0.3",
@@ -33,7 +32,6 @@
     "@bubble/configs": "workspace:*",
     "@bubble/store": "workspace:*",
     "@bubble/types": "workspace:*",
-    "animejs": "^3.2.1",
     "dayjs": "^1.11.5",
     "shortid": "^2.2.16"
   }

@@ -1,4 +1,4 @@
-import { styled } from '@bubble/ui';
+import { styled } from '@bubble/styles';
 import React from 'react';
 
 const Clothe = styled('img', {

@@ -1,4 +1,4 @@
-import { styled } from '@bubble/ui';
+import { styled } from '@bubble/styles';
 import { useAppSelector, selectInventory } from '@bubble/store';
 import React from 'react';
 import { getIconOfInventoryItem, ItemButton } from '@bubble/ui';

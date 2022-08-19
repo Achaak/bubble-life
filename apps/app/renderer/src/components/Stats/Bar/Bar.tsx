@@ -1,4 +1,5 @@
-import { IconByName, styled } from '@bubble/ui';
+import { IconByName } from '@bubble/ui';
+import { styled } from '@bubble/styles';
 import React from 'react';
 
 const Container = styled('div', {

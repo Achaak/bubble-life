@@ -1,7 +1,7 @@
 {
   "name": "@bubble/controller",
   "version": "1.0.0",
-  "author": "Axel Lavoie <axel.lavoi@gmail.com>",
+  "author": "Axel Lavoie <axel.lavoie@gmail.com>",
   "scripts": {
     "analyze": "ANALYZE=true yarn build",
     "build": "next build",
@@ -16,6 +16,7 @@
     "@bubble/configs": "workspace:*",
     "@bubble/modules": "workspace:*",
     "@bubble/store": "workspace:*",
+    "@bubble/styles": "workspace:*",
     "@bubble/translate": "workspace:*",
     "@bubble/types": "workspace:*",
     "@bubble/ui": "workspace:*",
@@ -33,7 +34,6 @@
   "devDependencies": {
     "@bubble/scripts": "workspace:*",
     "@bubble/tsconfig": "workspace:*",
-    "@next/eslint-plugin-next": "12.2.5",
     "@types/node": "^18.7.6",
     "@types/react": "18.0.17",
     "@types/react-dom": "^18.0.6",

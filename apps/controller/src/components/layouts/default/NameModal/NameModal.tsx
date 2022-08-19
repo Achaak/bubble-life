@@ -1,7 +1,7 @@
 import { SocketContext } from '@/components/components/SocketProvider';
 import { setCurrentUser, useAppSelector } from '@bubble/store';
 import { selectCurrentUser } from '@bubble/store';
-import { styled } from '@bubble/ui';
+import { styled } from '@bubble/styles';
 import { Button, Textfield } from '@bubble/ui';
 import { useFormik } from 'formik';
 import React, { useContext } from 'react';

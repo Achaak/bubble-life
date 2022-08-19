@@ -1,9 +1,10 @@
 import { BubbleConfig } from '@bubble/configs';
 import { GlobalConfig } from '@bubble/configs';
 import { addPlayActionInWaitingList } from '@bubble/core/dist/actions/play';
-import { useAppSelector } from '@bubble/store';
+import { getBubble, useAppSelector } from '@bubble/store';
 import { selectVitals } from '@bubble/store';
-import { styled } from '@bubble/ui';
+import { AnimationList } from '@bubble/core';
+import { keyframes, styled } from '@bubble/styles';
 import React, { useEffect, useState } from 'react';
 
 import { Bodies } from '../Bodies';
@@ -12,6 +13,8 @@ import { Eyes } from '../Eyes';
 import { Hats } from '../Hats';
 import { Onomatopoeias } from '../Onomatopoeias';
 import { Message } from '../Message';
+import { getMaxImportantItemInList } from '@bubble/common';
+import type { AnimationConfig } from '@bubble/types';
 
 const Container = styled('div', {
   position: 'fixed',
@@ -38,6 +41,16 @@ const SCALE_MIN = 0.5;
 
 export const Bubble: React.FC = () => {
   const [scale, setScale] = useState<number>(1);
+  const [animationPart, setAnimationPart] = useState<string | undefined>(
+    undefined
+  );
+  const animationPartInfosRef = React.useRef<{
+    endAt: number;
+    id: number;
+  }>();
+  const requestRef = React.useRef<number>();
+  // const previousTimeRef = React.useRef<number>();
+  const currentAnimationRef = React.useRef<AnimationConfig | undefined>();
 
   const { weight } = useAppSelector(selectVitals);
 
@@ -83,6 +96,93 @@ export const Bubble: React.FC = () => {
     });
   };
 
+  const getAnimation = (): void => {
+    const {
+      animation: {
+        action: animationAction,
+        default: animationDefault,
+        list: animationList,
+      },
+    } = getBubble();
+
+    let animationName: string | null = null;
+
+    if (animationAction) {
+      animationName = animationAction.name;
+    } else if (animationList.length > 0) {
+      animationName = getMaxImportantItemInList(animationList);
+    } else if (animationDefault) {
+      animationName = animationDefault;
+    }
+
+    const animationFind = AnimationList.find(
+      (item) => item.name === animationName
+    );
+
+    currentAnimationRef.current = animationFind;
+  };
+
+  const applyAnimation = (timestamp: number): void => {
+    if (!currentAnimationRef.current) {
+      return;
+    }
+
+    const { configs } = currentAnimationRef.current;
+
+    if (!animationPartInfosRef.current) {
+      const config = configs[0];
+      const k = keyframes(config.style);
+      setAnimationPart(`${k} ${config.duration}ms ${config.easing} forwards`);
+      animationPartInfosRef.current = {
+        endAt: timestamp + config.duration,
+        id: 0,
+      };
+      return;
+    } else if (animationPartInfosRef.current.endAt < timestamp) {
+      if (animationPartInfosRef.current.id >= configs.length - 1) {
+        setAnimationPart(undefined);
+        animationPartInfosRef.current = undefined;
+        currentAnimationRef.current = undefined;
+        return;
+      }
+
+      const { endAt, id } = animationPartInfosRef.current;
+      if (timestamp >= endAt) {
+        const config = configs[id + 1];
+        const k = keyframes(config.style);
+        setAnimationPart(`${k} ${config.duration}ms ${config.easing} forwards`);
+        animationPartInfosRef.current = {
+          endAt:
+            timestamp + currentAnimationRef.current.configs[id + 1].duration,
+          id: id + 1,
+        };
+      }
+    }
+  };
+
+  const loop = (timestamp?: number): void => {
+    if (!timestamp) {
+      timestamp = 0;
+    }
+
+    applyAnimation(timestamp);
+
+    if (!currentAnimationRef.current) {
+      getAnimation();
+    }
+
+    requestRef.current = requestAnimationFrame(loop);
+  };
+
+  React.useEffect(() => {
+    requestRef.current = requestAnimationFrame(loop);
+    return () => {
+      if (requestRef.current) {
+        cancelAnimationFrame(requestRef.current);
+      }
+    };
+  }, []);
+
   return (
     <Container onClick={handleClickOnBubble}>
       <Size
@@ -90,7 +190,11 @@ export const Bubble: React.FC = () => {
           transform: `scale(${scale})`,
         }}
       >
-        <Content id="bubble-content">
+        <Content
+          css={{
+            animation: animationPart,
+          }}
+        >
           <Bodies>
             <Eyes />
           </Bodies>

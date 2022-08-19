@@ -2,6 +2,7 @@ import type {
   BubbleStateElements,
   BubbleStateMessage,
   BubbleStateVitals,
+  BubbleStateAnimation,
 } from '@bubble/types';
 import type { InventoryItemStock } from '@bubble/types';
 import type { RootState } from '../../store';
@@ -15,3 +16,5 @@ export const selectInventory = (state: RootState): InventoryItemStock[] =>
   state.bubble.inventory;
 export const selectMessage = (state: RootState): BubbleStateMessage =>
   state.bubble.message;
+export const selectAnimation = (state: RootState): BubbleStateAnimation =>
+  state.bubble.animation;

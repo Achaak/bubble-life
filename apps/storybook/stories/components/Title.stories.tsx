@@ -1,7 +1,8 @@
 import type { TitleProps } from '@bubble/ui';
 import { WhiteSpaceType } from '@bubble/ui';
 import { Title, TitleComponentType, TitleVariantType } from '@bubble/ui';
-import { customGlobalCss, styled } from '@bubble/ui';
+import { customGlobalCss } from '@bubble/ui';
+import { styled } from '@bubble/styles';
 import type { Story, Meta } from '@storybook/react';
 
 export default {

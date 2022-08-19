@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import type { IconProps } from '@bubble/ui';
-import { styled, ButtonIcon, IconByName } from '@bubble/ui';
+import { ButtonIcon, IconByName } from '@bubble/ui';
+import { styled } from '@bubble/styles';
 import { ModalInventory } from '../components/Modals/Inventory/index.js';
 import { ModalStats } from '../components/Modals/Stats/index.js';
 import { ModalActions } from '../components/Modals/Actions/index.js';

@@ -17,16 +17,15 @@ importers:
       '@bubble/modules': workspace:*
       '@bubble/scripts': workspace:*
       '@bubble/store': workspace:*
+      '@bubble/styles': workspace:*
       '@bubble/translate': workspace:*
       '@bubble/tsconfig': workspace:*
       '@bubble/types': workspace:*
       '@bubble/ui': workspace:*
-      '@types/animejs': ^3.1.5
       '@types/node': ^18.7.6
       '@types/react': 18.0.17
       '@types/react-dom': ^18.0.6
       '@types/shortid': ^0.0.29
-      animejs: ^3.2.1
       cross-env: ^7.0.3
       dayjs: ^1.11.5
       dotenv-flow: ^3.2.0
@@ -54,10 +53,10 @@ importers:
       '@bubble/core': link:../../packages/core
       '@bubble/modules': link:../../packages/modules/modules
       '@bubble/store': link:../../packages/store
+      '@bubble/styles': link:../../packages/styles
       '@bubble/translate': link:../../packages/translate
       '@bubble/types': link:../../packages/types
       '@bubble/ui': link:../../packages/ui
-      animejs: 3.2.1
       dayjs: 1.11.5
       electron-serve: 1.1.0
       electron-store: 8.1.0
@@ -68,7 +67,6 @@ importers:
     devDependencies:
       '@bubble/scripts': link:../../packages/scripts
       '@bubble/tsconfig': link:../../packages/tsconfig
-      '@types/animejs': 3.1.5
       '@types/node': 18.7.6
       '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
@@ -94,12 +92,12 @@ importers:
       '@bubble/modules': workspace:*
       '@bubble/scripts': workspace:*
       '@bubble/store': workspace:*
+      '@bubble/styles': workspace:*
       '@bubble/translate': workspace:*
       '@bubble/tsconfig': workspace:*
       '@bubble/types': workspace:*
       '@bubble/ui': workspace:*
       '@next/bundle-analyzer': ^12.2.5
-      '@next/eslint-plugin-next': 12.2.5
       '@types/node': ^18.7.6
       '@types/react': 18.0.17
       '@types/react-dom': ^18.0.6
@@ -121,6 +119,7 @@ importers:
       '@bubble/configs': link:../../packages/configs
       '@bubble/modules': link:../../packages/modules/modules
       '@bubble/store': link:../../packages/store
+      '@bubble/styles': link:../../packages/styles
       '@bubble/translate': link:../../packages/translate
       '@bubble/types': link:../../packages/types
       '@bubble/ui': link:../../packages/ui
@@ -137,7 +136,6 @@ importers:
     devDependencies:
       '@bubble/scripts': link:../../packages/scripts
       '@bubble/tsconfig': link:../../packages/tsconfig
-      '@next/eslint-plugin-next': 12.2.5
       '@types/node': 18.7.6
       '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
@@ -151,7 +149,6 @@ importers:
       '@bubble/scripts': workspace:*
       '@bubble/tsconfig': workspace:*
       '@bubble/ui': workspace:*
-      '@next/eslint-plugin-next': 12.2.5
       '@types/node': ^18.7.6
       '@types/react': 18.0.17
       cross-env: ^7.0.3
@@ -174,7 +171,6 @@ importers:
     devDependencies:
       '@bubble/scripts': link:../../packages/scripts
       '@bubble/tsconfig': link:../../packages/tsconfig
-      '@next/eslint-plugin-next': 12.2.5
       '@types/node': 18.7.6
       '@types/react': 18.0.17
       cross-env: 7.0.3
@@ -216,6 +212,7 @@ importers:
     specifiers:
       '@babel/core': ^7.18.10
       '@bubble/scripts': workspace:*
+      '@bubble/styles': workspace:*
       '@bubble/translate': workspace:*
       '@bubble/tsconfig': workspace:*
       '@bubble/ui': workspace:*
@@ -242,6 +239,7 @@ importers:
       webpack: ^5.74.0
       webpack-cli: ^4.10.0
     dependencies:
+      '@bubble/styles': link:../../packages/styles
       '@bubble/translate': link:../../packages/translate
       '@bubble/ui': link:../../packages/ui
       http-server: 14.1.1
@@ -330,10 +328,8 @@ importers:
       '@bubble/tsconfig': workspace:*
       '@bubble/types': workspace:*
       '@pnpm/sort-packages': ^3.0.7
-      '@types/animejs': ^3.1.5
       '@types/node': ^18.7.6
       '@types/shortid': ^0.0.29
-      animejs: ^3.2.1
       cross-env: ^7.0.3
       dayjs: ^1.11.5
       eslint: ^8.22.0
@@ -346,14 +342,12 @@ importers:
       '@bubble/configs': link:../configs
       '@bubble/store': link:../store
       '@bubble/types': link:../types
-      animejs: 3.2.1
       dayjs: 1.11.5
       shortid: 2.2.16
     devDependencies:
       '@bubble/scripts': link:../scripts
       '@bubble/tsconfig': link:../tsconfig
       '@pnpm/sort-packages': 3.0.7
-      '@types/animejs': 3.1.5
       '@types/node': 18.7.6
       '@types/shortid': 0.0.29
       cross-env: 7.0.3
@@ -366,6 +360,7 @@ importers:
     specifiers:
       '@bubble/configs': workspace:*
       '@bubble/scripts': workspace:*
+      '@bubble/styles': workspace:*
       '@bubble/tsconfig': workspace:*
       '@bubble/types': workspace:*
       '@bubble/ui': workspace:*
@@ -388,6 +383,7 @@ importers:
       dayjs: 1.11.5
     devDependencies:
       '@bubble/scripts': link:../../scripts
+      '@bubble/styles': link:../../styles
       '@bubble/tsconfig': link:../../tsconfig
       '@pnpm/sort-packages': 3.0.7
       '@types/node': 18.7.6
@@ -406,6 +402,7 @@ importers:
       '@bubble/configs': workspace:*
       '@bubble/scripts': workspace:*
       '@bubble/store': workspace:*
+      '@bubble/styles': workspace:*
       '@bubble/tsconfig': workspace:*
       '@bubble/types': workspace:*
       '@bubble/ui': workspace:*
@@ -423,6 +420,7 @@ importers:
     dependencies:
       '@bubble/configs': link:../../configs
       '@bubble/store': link:../../store
+      '@bubble/styles': link:../../styles
       '@bubble/types': link:../../types
       '@bubble/ui': link:../../ui
     devDependencies:
@@ -479,6 +477,7 @@ importers:
     specifiers:
       '@bubble/configs': workspace:*
       '@bubble/scripts': workspace:*
+      '@bubble/styles': workspace:*
       '@bubble/tsconfig': workspace:*
       '@bubble/types': workspace:*
       '@bubble/ui': workspace:*
@@ -498,6 +497,7 @@ importers:
       '@bubble/types': link:../../types
     devDependencies:
       '@bubble/scripts': link:../../scripts
+      '@bubble/styles': link:../../styles
       '@bubble/tsconfig': link:../../tsconfig
       '@bubble/ui': link:../../ui
       '@pnpm/sort-packages': 3.0.7
@@ -518,6 +518,7 @@ importers:
       '@bubble/core': workspace:*
       '@bubble/scripts': workspace:*
       '@bubble/store': workspace:*
+      '@bubble/styles': workspace:*
       '@bubble/tsconfig': workspace:*
       '@bubble/types': workspace:*
       '@bubble/ui': workspace:*
@@ -540,6 +541,7 @@ importers:
       '@bubble/ui': link:../../ui
     devDependencies:
       '@bubble/scripts': link:../../scripts
+      '@bubble/styles': link:../../styles
       '@bubble/tsconfig': link:../../tsconfig
       '@pnpm/sort-packages': 3.0.7
       '@types/node': 18.7.6
@@ -690,6 +692,39 @@ importers:
       redux-persist: 6.0.0_react@18.2.0+redux@4.2.0
       typescript: 4.7.4
 
+  packages/styles:
+    specifiers:
+      '@bubble/scripts': workspace:*
+      '@bubble/tsconfig': workspace:*
+      '@pikas-ui/styles': ^2.3.2
+      '@pnpm/sort-packages': ^3.0.7
+      '@types/node': ^18.7.6
+      '@types/react': 18.0.17
+      '@types/react-dom': 18.0.6
+      cross-env: ^7.0.3
+      eslint: 8.22.0
+      prettier: 2.7.1
+      react: 18.2.0
+      react-dom: 18.2.0
+      tsup: ^6.2.2
+      typescript: 4.7.4
+    dependencies:
+      '@pikas-ui/styles': 2.3.2_react@18.2.0
+    devDependencies:
+      '@bubble/scripts': link:../scripts
+      '@bubble/tsconfig': link:../tsconfig
+      '@pnpm/sort-packages': 3.0.7
+      '@types/node': 18.7.6
+      '@types/react': 18.0.17
+      '@types/react-dom': 18.0.6
+      cross-env: 7.0.3
+      eslint: 8.22.0
+      prettier: 2.7.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      tsup: 6.2.2_typescript@4.7.4
+      typescript: 4.7.4
+
   packages/translate:
     specifiers:
       '@bubble/scripts': workspace:*
@@ -729,9 +764,9 @@ importers:
   packages/types:
     specifiers:
       '@bubble/scripts': workspace:*
+      '@bubble/styles': workspace:*
       '@bubble/tsconfig': workspace:*
       '@pnpm/sort-packages': ^3.0.7
-      '@types/animejs': ^3.1.5
       '@types/node': ^18.7.6
       '@types/react': 18.0.17
       '@types/react-dom': ^18.0.6
@@ -743,9 +778,9 @@ importers:
       typescript: 4.7.4
     devDependencies:
       '@bubble/scripts': link:../scripts
+      '@bubble/styles': link:../styles
       '@bubble/tsconfig': link:../tsconfig
       '@pnpm/sort-packages': 3.0.7
-      '@types/animejs': 3.1.5
       '@types/node': 18.7.6
       '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
@@ -759,6 +794,7 @@ importers:
   packages/ui:
     specifiers:
       '@bubble/scripts': workspace:*
+      '@bubble/styles': workspace:*
       '@bubble/translate': workspace:*
       '@bubble/tsconfig': workspace:*
       '@bubble/types': workspace:*
@@ -775,28 +811,18 @@ importers:
       '@pikas-ui/textfield': ^2.1.4
       '@pnpm/sort-packages': ^3.0.7
       '@radix-ui/react-dialog': ^1.0.0
-      '@radix-ui/react-label': ^1.0.0
-      '@radix-ui/react-separator': ^1.0.0
       '@types/node': ^18.7.6
       '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
-      '@typescript-eslint/eslint-plugin': 5.33.1
-      '@typescript-eslint/parser': 5.33.1
       cross-env: ^7.0.3
       eslint: 8.22.0
-      eslint-config-prettier: 8.5.0
-      eslint-plugin-json: 3.1.0
-      eslint-plugin-jsx-a11y: 6.6.1
-      eslint-plugin-prettier: 4.2.1
-      eslint-plugin-react: 7.30.1
-      eslint-plugin-react-hooks: 4.6.0
       prettier: 2.7.1
       react: 18.2.0
       react-dom: 18.2.0
-      react-spinners: 0.13.4
       tsup: ^6.2.2
       typescript: 4.7.4
     dependencies:
+      '@bubble/styles': link:../styles
       '@bubble/translate': link:../translate
       '@bubble/types': link:../types
       '@pikas-ui/button': 2.1.2
@@ -811,9 +837,6 @@ importers:
       '@pikas-ui/textarea': 2.1.4_@types+react@18.0.17
       '@pikas-ui/textfield': 2.1.4_@types+react@18.0.17
       '@radix-ui/react-dialog': 1.0.0_zxljzmqdrxwnuenbkrz77w74uy
-      '@radix-ui/react-label': 1.0.0_biqbaboplfbrettd7655fr4n2y
-      '@radix-ui/react-separator': 1.0.0_biqbaboplfbrettd7655fr4n2y
-      react-spinners: 0.13.4_biqbaboplfbrettd7655fr4n2y
     devDependencies:
       '@bubble/scripts': link:../scripts
       '@bubble/tsconfig': link:../tsconfig
@@ -821,16 +844,8 @@ importers:
       '@types/node': 18.7.6
       '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
-      '@typescript-eslint/eslint-plugin': 5.33.1_vsoshirnpb7xw6mr7xomgfas2i
-      '@typescript-eslint/parser': 5.33.1_4rv7y5c6xz3vfxwhbrcxxi73bq
       cross-env: 7.0.3
       eslint: 8.22.0
-      eslint-config-prettier: 8.5.0_eslint@8.22.0
-      eslint-plugin-json: 3.1.0
-      eslint-plugin-jsx-a11y: 6.6.1_eslint@8.22.0
-      eslint-plugin-prettier: 4.2.1_i2cojdczqdiurzgttlwdgf764e
-      eslint-plugin-react: 7.30.1_eslint@8.22.0
-      eslint-plugin-react-hooks: 4.6.0_eslint@8.22.0
       prettier: 2.7.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -6204,10 +6219,6 @@ packages:
       '@types/estree': 0.0.51
     dev: false
 
-  /@types/animejs/3.1.5:
-    resolution: {integrity: sha512-4i3i1YuNaNEPoHBJY78uzYu8qKIwyx96G04tnVtNhRMQC9I1Xhg6fY9GeWmZAzudaesKKrPkQgTCthT1zSGYyg==}
-    dev: true
-
   /@types/babel__traverse/7.18.0:
     resolution: {integrity: sha512-v4Vwdko+pgymgS+A2UIaJru93zQd85vIGWObM5ekZNdXCKtDYqATlEYnWgfo86Q6I1Lh0oXnksDnMU1cwmlPDw==}
     dependencies:
@@ -6564,53 +6575,6 @@ packages:
       - supports-color
     dev: true
 
-  /@typescript-eslint/eslint-plugin/5.33.1_vsoshirnpb7xw6mr7xomgfas2i:
-    resolution: {integrity: sha512-S1iZIxrTvKkU3+m63YUOxYPKaP+yWDQrdhxTglVDVEVBf+aCSw85+BmJnyUaQQsk5TXFG/LpBu9fa+LrAQ91fQ==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    peerDependencies:
-      '@typescript-eslint/parser': ^5.0.0
-      eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
-      typescript: '*'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@typescript-eslint/parser': 5.33.1_4rv7y5c6xz3vfxwhbrcxxi73bq
-      '@typescript-eslint/scope-manager': 5.33.1
-      '@typescript-eslint/type-utils': 5.33.1_4rv7y5c6xz3vfxwhbrcxxi73bq
-      '@typescript-eslint/utils': 5.33.1_4rv7y5c6xz3vfxwhbrcxxi73bq
-      debug: 4.3.4
-      eslint: 8.22.0
-      functional-red-black-tree: 1.0.1
-      ignore: 5.2.0
-      regexpp: 3.2.0
-      semver: 7.3.7
-      tsutils: 3.21.0_typescript@4.7.4
-      typescript: 4.7.4
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
-  /@typescript-eslint/parser/5.33.1_4rv7y5c6xz3vfxwhbrcxxi73bq:
-    resolution: {integrity: sha512-IgLLtW7FOzoDlmaMoXdxG8HOCByTBXrB1V2ZQYSEV1ggMmJfAkMWTwUjjzagS6OkfpySyhKFkBw7A9jYmcHpZA==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    peerDependencies:
-      eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
-      typescript: '*'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@typescript-eslint/scope-manager': 5.33.1
-      '@typescript-eslint/types': 5.33.1
-      '@typescript-eslint/typescript-estree': 5.33.1_typescript@4.7.4
-      debug: 4.3.4
-      eslint: 8.22.0
-      typescript: 4.7.4
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
   /@typescript-eslint/parser/5.33.1_eslint@8.22.0:
     resolution: {integrity: sha512-IgLLtW7FOzoDlmaMoXdxG8HOCByTBXrB1V2ZQYSEV1ggMmJfAkMWTwUjjzagS6OkfpySyhKFkBw7A9jYmcHpZA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -6636,25 +6600,6 @@ packages:
     dependencies:
       '@typescript-eslint/types': 5.33.1
       '@typescript-eslint/visitor-keys': 5.33.1
-    dev: true
-
-  /@typescript-eslint/type-utils/5.33.1_4rv7y5c6xz3vfxwhbrcxxi73bq:
-    resolution: {integrity: sha512-X3pGsJsD8OiqhNa5fim41YtlnyiWMF/eKsEZGsHID2HcDqeSC5yr/uLOeph8rNF2/utwuI0IQoAK3fpoxcLl2g==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    peerDependencies:
-      eslint: '*'
-      typescript: '*'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@typescript-eslint/utils': 5.33.1_4rv7y5c6xz3vfxwhbrcxxi73bq
-      debug: 4.3.4
-      eslint: 8.22.0
-      tsutils: 3.21.0_typescript@4.7.4
-      typescript: 4.7.4
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   /@typescript-eslint/type-utils/5.33.1_eslint@8.22.0:
@@ -6698,45 +6643,6 @@ packages:
       tsutils: 3.21.0
     transitivePeerDependencies:
       - supports-color
-    dev: true
-
-  /@typescript-eslint/typescript-estree/5.33.1_typescript@4.7.4:
-    resolution: {integrity: sha512-JOAzJ4pJ+tHzA2pgsWQi4804XisPHOtbvwUyqsuuq8+y5B5GMZs7lI1xDWs6V2d7gE/Ez5bTGojSK12+IIPtXA==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    peerDependencies:
-      typescript: '*'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@typescript-eslint/types': 5.33.1
-      '@typescript-eslint/visitor-keys': 5.33.1
-      debug: 4.3.4
-      globby: 11.1.0
-      is-glob: 4.0.3
-      semver: 7.3.7
-      tsutils: 3.21.0_typescript@4.7.4
-      typescript: 4.7.4
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
-  /@typescript-eslint/utils/5.33.1_4rv7y5c6xz3vfxwhbrcxxi73bq:
-    resolution: {integrity: sha512-uphZjkMaZ4fE8CR4dU7BquOV6u0doeQAr8n6cQenl/poMaIyJtBu8eys5uk6u5HiDH01Mj5lzbJ5SfeDz7oqMQ==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    peerDependencies:
-      eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
-    dependencies:
-      '@types/json-schema': 7.0.11
-      '@typescript-eslint/scope-manager': 5.33.1
-      '@typescript-eslint/types': 5.33.1
-      '@typescript-eslint/typescript-estree': 5.33.1_typescript@4.7.4
-      eslint: 8.22.0
-      eslint-scope: 5.1.1
-      eslint-utils: 3.0.0_eslint@8.22.0
-    transitivePeerDependencies:
-      - supports-color
-      - typescript
     dev: true
 
   /@typescript-eslint/utils/5.33.1_eslint@8.22.0:
@@ -7179,10 +7085,6 @@ packages:
       json-schema-traverse: 1.0.0
       require-from-string: 2.0.2
       uri-js: 4.4.1
-    dev: false
-
-  /animejs/3.2.1:
-    resolution: {integrity: sha512-sWno3ugFryK5nhiDm/2BKeFCpZv7vzerWUcUPyAZLDhMek3+S/p418ldZJbJXo5ZUOpfm2kP2XRO4NJcULMy9A==}
     dev: false
 
   /ansi-align/3.0.1:
@@ -18012,16 +17914,6 @@ packages:
       typescript: '>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta'
     dependencies:
       tslib: 1.14.1
-    dev: true
-
-  /tsutils/3.21.0_typescript@4.7.4:
-    resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}
-    engines: {node: '>= 6'}
-    peerDependencies:
-      typescript: '>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta'
-    dependencies:
-      tslib: 1.14.1
-      typescript: 4.7.4
     dev: true
 
   /tty-browserify/0.0.0:

@@ -1,7 +1,7 @@
 {
   "name": "bubble-life",
   "version": "1.0.0",
-  "author": "Axel Lavoie <axel.lavoi@gmail.com>",
+  "author": "Axel Lavoie <axel.lavoie@gmail.com>",
   "description": "Bubble-life is a NodeJs project for various device. He can inform you of the weather, the time or your calendar. All this with Bubble who will live this life according to your modules.",
   "license": "MIT",
   "workspaces": [

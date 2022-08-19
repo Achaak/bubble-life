@@ -1,6 +1,7 @@
 import type { TextProps } from '@bubble/ui';
 import { Text, TextComponentType, TextVariantType } from '@bubble/ui';
-import { customGlobalCss, styled } from '@bubble/ui';
+import { customGlobalCss } from '@bubble/ui';
+import { styled } from '@bubble/styles';
 import type { Story, Meta } from '@storybook/react';
 
 export default {

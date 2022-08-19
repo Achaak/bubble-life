@@ -1,5 +1,5 @@
 // import { resetActions, resetBubble } from '@bubble/store';
-import { styled } from '@bubble/ui';
+import { styled } from '@bubble/styles';
 import { Button } from '@bubble/ui';
 import React from 'react';
 

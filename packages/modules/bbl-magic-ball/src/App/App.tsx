@@ -1,6 +1,7 @@
 import React from 'react';
 import type { IconProps } from '@bubble/ui';
-import { styled, IconByName, ButtonIcon } from '@bubble/ui';
+import { IconByName, ButtonIcon } from '@bubble/ui';
+import { styled } from '@bubble/styles';
 
 const possibilities = [
   'It is certain.',

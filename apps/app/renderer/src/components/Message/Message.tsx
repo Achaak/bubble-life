@@ -1,5 +1,5 @@
 import { selectMessage, useAppSelector } from '@bubble/store';
-import { styled } from '@bubble/ui';
+import { styled } from '@bubble/styles';
 import React from 'react';
 
 const Text = styled('p', {

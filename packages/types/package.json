@@ -1,7 +1,7 @@
 {
   "name": "@bubble/types",
   "version": "1.0.0",
-  "author": "Axel Lavoie <axel.lavoi@gmail.com>",
+  "author": "Axel Lavoie <axel.lavoie@gmail.com>",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -18,8 +18,8 @@
   "devDependencies": {
     "@bubble/scripts": "workspace:*",
     "@bubble/tsconfig": "workspace:*",
+    "@bubble/styles": "workspace:*",
     "@pnpm/sort-packages": "^3.0.7",
-    "@types/animejs": "^3.1.5",
     "@types/node": "^18.7.6",
     "@types/react": "18.0.17",
     "@types/react-dom": "^18.0.6",

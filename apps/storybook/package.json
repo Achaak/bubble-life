@@ -1,7 +1,7 @@
 {
   "name": "@bubble/storybook",
   "version": "1.0.0",
-  "author": "Axel Lavoie <axel.lavoi@gmail.com>",
+  "author": "Axel Lavoie <axel.lavoie@gmail.com>",
   "scripts": {
     "build": "build-storybook",
     "dev": "start-storybook -p 6006",
@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@bubble/translate": "workspace:*",
+    "@bubble/styles": "workspace:*",
     "@bubble/ui": "workspace:*",
     "http-server": "^14.1.1",
     "react": "18.2.0",

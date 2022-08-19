@@ -1,6 +1,7 @@
 import { StorePersistGate, StoreProvider } from '@bubble/store';
 import { persistor, store } from '@bubble/store/src/store';
-import { customGlobalCss, defaultTheme, PikasUIProvider } from '@bubble/ui';
+import { customGlobalCss, defaultTheme } from '@bubble/ui';
+import { PikasUIProvider } from '@bubble/styles';
 import type { Locales } from '@bubble/translate';
 import { detectLocale, TypesafeI18n, i18nUtilsAsync } from '@bubble/translate';
 import type { NextPage } from 'next';

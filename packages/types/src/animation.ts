@@ -1,8 +1,12 @@
-import type anime from 'animejs';
+import type { CSS } from '@bubble/styles';
 
 export type Animation = 'default' | 'bounce' | 'shake';
 
 export type AnimationConfig = {
   name: string;
-  configs: anime.AnimeAnimParams[];
+  configs: {
+    style: { [offset: string]: CSS };
+    duration: number;
+    easing: string;
+  }[];
 };

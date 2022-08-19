@@ -1,7 +1,7 @@
 import { getMaxImportantItemInList } from '@bubble/common';
 import { useAppSelector } from '@bubble/store';
 import { selectElements } from '@bubble/store';
-import { styled } from '@bubble/ui';
+import { styled } from '@bubble/styles';
 import React, { useEffect, useState } from 'react';
 import type { Onomatopoeias as OnomatopoeiasType } from '@bubble/types';
 

@@ -1,7 +1,7 @@
 import { useAppSelector } from '@bubble/store';
 import { selectElements } from '@bubble/store';
 import { getMaxImportantItemInList } from '@bubble/common';
-import { styled } from '@bubble/ui';
+import { styled } from '@bubble/styles';
 import type { Bodies as BodiesType } from '@bubble/types';
 import React, { useEffect, useState } from 'react';
 

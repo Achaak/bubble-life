@@ -1,6 +1,7 @@
 import { SocketContext } from '@/components/components/SocketProvider';
 import { LayoutDefault } from '@/components/layouts/default';
-import { Button, styled, Textarea } from '@bubble/ui';
+import { Button, Textarea } from '@bubble/ui';
+import { styled } from '@bubble/styles';
 import { useFormik } from 'formik';
 import React, { useContext } from 'react';
 import * as Yup from 'yup';

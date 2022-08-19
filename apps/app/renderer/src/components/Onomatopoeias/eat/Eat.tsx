@@ -1,4 +1,4 @@
-import { keyframes, styled } from '@bubble/ui';
+import { keyframes, styled } from '@bubble/styles';
 import React from 'react';
 
 const scale = keyframes({

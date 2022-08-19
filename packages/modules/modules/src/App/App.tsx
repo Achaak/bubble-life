@@ -1,5 +1,5 @@
 import { ModulesConfig } from '@bubble/configs-modules';
-import { styled } from '@bubble/ui';
+import { styled } from '@bubble/styles';
 import type { ModulePosition } from '@bubble/types';
 import React, { useEffect, useState } from 'react';
 

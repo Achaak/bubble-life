@@ -1,4 +1,5 @@
-import { IconByName, styled } from '@bubble/ui';
+import { IconByName } from '@bubble/ui';
+import { styled } from '@bubble/styles';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { NameModal } from './NameModal';

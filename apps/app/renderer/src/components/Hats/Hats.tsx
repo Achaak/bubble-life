@@ -1,6 +1,6 @@
 import { useAppSelector } from '@bubble/store';
 import { selectElements } from '@bubble/store';
-import { styled } from '@bubble/ui';
+import { styled } from '@bubble/styles';
 import React, { useEffect, useState } from 'react';
 import type { Hats as HatsType } from '@bubble/types';
 import { getMaxImportantItemInList } from '@bubble/common';

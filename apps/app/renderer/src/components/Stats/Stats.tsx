@@ -1,7 +1,7 @@
 import { BubbleConfig } from '@bubble/configs';
 import { useAppSelector } from '@bubble/store';
 import { selectName, selectVitals } from '@bubble/store';
-import { styled } from '@bubble/ui';
+import { styled } from '@bubble/styles';
 import React from 'react';
 
 import { Bar } from './Bar';

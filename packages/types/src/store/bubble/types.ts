@@ -133,13 +133,15 @@ export interface BubbleStateMessage {
   waitingList: Message[];
 }
 
+export interface BubbleStateAnimation {
+  default: Animation;
+  action: BubbleAnimationAction | null;
+  list: BubbleAnimationItemList[];
+}
+
 export interface BubbleState {
   name: string;
-  animation: {
-    default: Animation;
-    action: BubbleAnimationAction | null;
-    list: BubbleAnimationItemList[];
-  };
+  animation: BubbleStateAnimation;
   message: BubbleStateMessage;
   vitals: BubbleStateVitals;
   elements: BubbleStateElements;

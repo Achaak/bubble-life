@@ -4,14 +4,26 @@ export const AnimationDefault: AnimationConfig = {
   name: 'default',
   configs: [
     {
-      scaleY: 1.1,
+      style: {
+        from: {},
+        to: {
+          transform: 'scaleY(1.1)',
+        },
+      },
       duration: 1500,
-      easing: 'easeInOutQuad',
+      easing: 'cubic-bezier(0.45, 0, 0.55, 1)',
     },
     {
-      scaleY: 1,
+      style: {
+        from: {
+          transform: 'scaleY(1.1)',
+        },
+        to: {
+          transform: 'scaleY(1)',
+        },
+      },
       duration: 1500,
-      easing: 'easeInOutQuad',
+      easing: 'cubic-bezier(0.45, 0, 0.55, 1)',
     },
   ],
 };

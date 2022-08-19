@@ -1,4 +1,4 @@
-import { styled } from '@bubble/ui';
+import { styled } from '@bubble/styles';
 import { Title } from '@bubble/ui';
 import React from 'react';
 

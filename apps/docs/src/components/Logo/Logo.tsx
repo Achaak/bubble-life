@@ -1,4 +1,4 @@
-import { styled } from '@bubble/ui';
+import { styled } from '@bubble/styles';
 
 const Container = styled('h1', {
   all: 'unset',

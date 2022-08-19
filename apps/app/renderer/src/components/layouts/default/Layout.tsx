@@ -1,6 +1,6 @@
 import { GlobalConfig } from '@bubble/configs';
 import { BubbleCore } from '@bubble/core';
-import { styled } from '@bubble/ui';
+import { styled } from '@bubble/styles';
 import { useEffect } from 'react';
 
 const Container = styled('div', {

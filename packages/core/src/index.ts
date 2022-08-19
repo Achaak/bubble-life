@@ -7,6 +7,7 @@ import { Vitals } from './vitalsClass.js';
 import { initWindow } from './window.js';
 
 export * from './actions/index.js';
+export * from './animations/index.js';
 
 export class BubbleCore {
   lastRender: number;
@@ -50,9 +51,6 @@ export class BubbleCore {
 
     // Message
     this.message.update();
-
-    // ANIMATIONS
-    this.animations.update();
   };
 
   loop = (timestamp?: number): void => {

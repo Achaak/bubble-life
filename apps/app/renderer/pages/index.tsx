@@ -1,6 +1,6 @@
 import { GlobalConfig } from '@bubble/configs';
 import { AppModules } from '@bubble/modules';
-import { styled } from '@bubble/ui';
+import { styled } from '@bubble/styles';
 import { Bubble } from '@src/components/Bubble';
 import { Stats } from '@src/components/Stats';
 import { DefaultLayout } from '@src/components/layouts/default';

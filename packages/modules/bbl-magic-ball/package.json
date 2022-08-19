@@ -1,7 +1,7 @@
 {
   "name": "bbl-magic-ball",
   "version": "1.0.0",
-  "author": "Axel Lavoie <axel.lavoi@gmail.com>",
+  "author": "Axel Lavoie <axel.lavoie@gmail.com>",
   "description": "",
   "license": "MIT",
   "main": "./dist/index.js",
@@ -20,6 +20,7 @@
   "devDependencies": {
     "@bubble/scripts": "workspace:*",
     "@bubble/tsconfig": "workspace:*",
+    "@bubble/styles": "workspace:*",
     "@bubble/ui": "workspace:*",
     "@pnpm/sort-packages": "^3.0.7",
     "@types/node": "^18.7.6",
