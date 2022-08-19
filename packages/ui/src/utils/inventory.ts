@@ -3,8 +3,8 @@ import type { InventoryItem } from '@bubble/types';
 export const getIconOfInventoryItem = (item: InventoryItem): string => {
   switch (item) {
     case 'food':
-      return 'bakery_dining';
+      return 'material-symbols:bakery-dining';
     default:
-      return 'close';
+      return 'bx:x';
   }
 };

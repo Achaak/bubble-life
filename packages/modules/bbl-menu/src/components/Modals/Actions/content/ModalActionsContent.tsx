@@ -47,15 +47,27 @@ export const ModalActionsContent: React.FC<CustomProps> = ({ onClose }) => {
 
   return (
     <ContentContainer>
-      <ItemButton icon="restaurant" onClick={handleEat} text="Eat" />
-      <ItemButton icon="bed" onClick={handleNap} text="Nap" />
-      <ItemButton icon="sports_soccer" onClick={handlePlay} text="Play" />
       <ItemButton
-        icon="shopping_cart"
+        icon="material-symbols:restaurant"
+        onClick={handleEat}
+        text="Eat"
+      />
+      <ItemButton icon="material-symbols:bed" onClick={handleNap} text="Nap" />
+      <ItemButton
+        icon="material-symbols:sports-soccer"
+        onClick={handlePlay}
+        text="Play"
+      />
+      <ItemButton
+        icon="material-symbols:shopping-cart"
         onClick={handleShopping}
         text="Shopping"
       />
-      <ItemButton icon="bed" onClick={handleSleep} text="Sleep" />
+      <ItemButton
+        icon="material-symbols:bed"
+        onClick={handleSleep}
+        text="Sleep"
+      />
     </ContentContainer>
   );
 };

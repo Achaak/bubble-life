@@ -59,11 +59,11 @@ export const Stats: React.FC = () => {
       <Left>
         <Bar
           percentage={(100 / BubbleConfig.vitals.saturation.max) * saturation}
-          icon="restaurant"
+          icon="material-symbols:restaurant"
         />
         <Bar
           percentage={(100 / BubbleConfig.vitals.happiness.max) * happiness}
-          icon="celebration"
+          icon="material-symbols:celebration"
         />
       </Left>
       <Center>
@@ -72,11 +72,11 @@ export const Stats: React.FC = () => {
       <Right>
         <Bar
           percentage={(100 / BubbleConfig.vitals.tiredness.max) * tiredness}
-          icon="bed"
+          icon="material-symbols:bed"
         />
         <Bar
           percentage={(100 / BubbleConfig.vitals.health.max) * health}
-          icon="favorite_border"
+          icon="ic:baseline-favorite-border"
         />
       </Right>
     </Container>
