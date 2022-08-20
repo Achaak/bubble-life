@@ -9,7 +9,14 @@ export const resetController = (state: ControllerState): void => {
     delete state[key];
   }
 
-  state = initialControllerState;
+  state.currentUser = initialControllerState.currentUser;
+};
+
+export const setController = (
+  state: ControllerState,
+  action: PayloadAction<{ controller: ControllerState }>
+): void => {
+  state.currentUser = action.payload.controller.currentUser;
 };
 
 export const setCurrentUser = (

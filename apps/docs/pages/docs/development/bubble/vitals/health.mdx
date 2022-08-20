@@ -7,22 +7,21 @@ Set the health of the Bubble.
 ### Use in app module
 
 ```typescript
-import { setHealth } from '@bubble/store'
+import { setHealth } from '@bubble/store';
 
 setHealth({
   value: 42,
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('setHealth', {
+socket().emit('setHealth', {
   value: 42,
-})
+});
 ```
 
 #### Parameters
@@ -40,18 +39,17 @@ Reset the health of the Bubble.
 ### Use in app module
 
 ```typescript
-import { resetHealth } from '@bubble/store'
+import { resetHealth } from '@bubble/store';
 
-resetHealth()
+resetHealth();
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('resetHealth')
+socket().emit('resetHealth');
 ```
 
 ---
@@ -63,22 +61,21 @@ Add to the health of the Bubble.
 ### Use in app module
 
 ```typescript
-import { addHealth } from '@bubble/store'
+import { addHealth } from '@bubble/store';
 
 addHealth({
   value: 42,
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('addHealth', {
+socket().emit('addHealth', {
   value: 42,
-})
+});
 ```
 
 #### Parameters
@@ -96,22 +93,21 @@ Remove from the health of the Bubble.
 ### Use in app module
 
 ```typescript
-import { removeHealth } from '@bubble/store'
+import { removeHealth } from '@bubble/store';
 
 removeHealth({
   value: 42,
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('removeHealth', {
+socket().emit('removeHealth', {
   value: 42,
-})
+});
 ```
 
 #### Parameters

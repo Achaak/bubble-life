@@ -9,9 +9,9 @@ Get bubble state.
 Get if the given action is in the await list by name.
 
 ```typescript
-import { getBubble } from '@bubble/store'
+import { getBubble } from '@bubble/store';
 
-const { current, waitingList, cancelList } = getBubble()
+const { current, waitingList, cancelList } = getBubble();
 ```
 
 #### Return value
@@ -29,16 +29,15 @@ Reset actions state.
 ### Use in app module
 
 ```typescript
-import { getBubble } from '@bubble/store'
+import { getBubble } from '@bubble/store';
 
-resetBubble()
+resetBubble();
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('resetBubble')
+socket().emit('resetBubble');
 ```

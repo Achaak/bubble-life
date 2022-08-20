@@ -1,4 +1,4 @@
-import Callout from 'nextra-theme-docs/callout'
+import Callout from 'nextra-theme-docs/callout';
 
 # Clothes Element
 
@@ -9,26 +9,25 @@ Add a clothe to the list of clothes.
 ### Use in app module
 
 ```typescript
-import { addClotheInList } from '@bubble/store'
+import { addClotheInList } from '@bubble/store';
 
 addClotheInList({
   id: 'clotheId',
   importance: 1,
   name: 'ClotheName',
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('addClotheInList', {
+socket().emit('addClotheInList', {
   id: 'clotheId',
   importance: 1,
   name: 'ClotheName',
-})
+});
 ```
 
 #### Parameters
@@ -48,22 +47,21 @@ Remove a clothe from the list of clothes.
 ### Use in app module
 
 ```typescript
-import { removeClotheInList } from '@bubble/store'
+import { removeClotheInList } from '@bubble/store';
 
 removeClotheInList({
   id: 'clotheId',
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('removeClotheInList', {
+socket().emit('removeClotheInList', {
   id: 'clotheId',
-})
+});
 ```
 
 #### Parameters
@@ -81,49 +79,49 @@ Reset the clothe state.
 ### Use in app module
 
 ```typescript
-import { resetClothe } from '@bubble/store'
+import { resetClothe } from '@bubble/store';
 
-resetClothe()
+resetClothe();
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('resetClothe')
+socket().emit('resetClothe');
 ```
 
 ---
 
 ## setActionClothe()
 
-<Callout emoji="⚠️">This function must follow the nomenclature of the available elements.</Callout>
+<Callout emoji="⚠️">
+  This function must follow the nomenclature of the available elements.
+</Callout>
 
 Set the action clothe.
 
 ### Use in app module
 
 ```typescript
-import { setActionClothe } from '@bubble/store'
+import { setActionClothe } from '@bubble/store';
 
 setActionClothe({
   actionId: 'actionId',
   name: 'clotheName',
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('setActionClothe', {
+socket().emit('setActionClothe', {
   actionId: 'actionId',
   name: 'clotheName',
-})
+});
 ```
 
 #### Parameters
@@ -142,16 +140,15 @@ Reset the action clothe.
 ### Use in app module
 
 ```typescript
-import { resetActionClothe } from '@bubble/store'
+import { resetActionClothe } from '@bubble/store';
 
-resetActionClothe()
+resetActionClothe();
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('resetActionClothe')
+socket().emit('resetActionClothe');
 ```

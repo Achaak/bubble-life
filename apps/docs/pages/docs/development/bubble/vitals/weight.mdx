@@ -7,22 +7,21 @@ Set the weight of the Bubble.
 ### Use in app module
 
 ```typescript
-import { setWeight } from '@bubble/store'
+import { setWeight } from '@bubble/store';
 
 setWeight({
   value: 42,
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('setWeight', {
+socket().emit('setWeight', {
   value: 42,
-})
+});
 ```
 
 #### Parameters
@@ -40,18 +39,17 @@ Reset the weight of the Bubble.
 ### Use in app module
 
 ```typescript
-import { resetWeight } from '@bubble/store'
+import { resetWeight } from '@bubble/store';
 
-resetWeight()
+resetWeight();
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('resetWeight')
+socket().emit('resetWeight');
 ```
 
 ---
@@ -63,22 +61,21 @@ Add to the weight of the Bubble.
 ### Use in app module
 
 ```typescript
-import { addWeight } from '@bubble/store'
+import { addWeight } from '@bubble/store';
 
 addWeight({
   value: 42,
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('addWeight', {
+socket().emit('addWeight', {
   value: 42,
-})
+});
 ```
 
 #### Parameters
@@ -96,22 +93,21 @@ Remove from the weight of the Bubble.
 ### Use in app module
 
 ```typescript
-import { removeWeight } from '@bubble/store'
+import { removeWeight } from '@bubble/store';
 
 removeWeight({
   value: 42,
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('removeWeight', {
+socket().emit('removeWeight', {
   value: 42,
-})
+});
 ```
 
 #### Parameters

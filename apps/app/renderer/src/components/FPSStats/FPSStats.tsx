@@ -1,25 +1,44 @@
+import { styled } from '@bubble/styles';
 import React, { useEffect, useReducer, useRef } from 'react';
 
+const Container = styled('div', {
+  zIndex: '$XXX-HIGH',
+  position: 'fixed',
+  width: 100,
+  padding: 4,
+  fontWeight: 'bold',
+  pointerEvents: 'none',
+});
+
+const Span = styled('span', {
+  fontSize: '$EM-SMALL',
+  color: '$PRIMARY',
+});
+
+const BarContainer = styled('div', {
+  position: 'relative',
+  background: '$GRAY_DARKER',
+  height: 40,
+  br: 'xs',
+  overflow: 'hidden',
+});
+
+const Bar = styled('div', {
+  position: 'absolute',
+  bottom: 0,
+  width: '1%',
+  background: '$PRIMARY',
+});
+
 type FPSStatsProps = {
-  top?: string | number;
-  right?: string | number;
-  bottom?: string | number;
-  left?: string | number;
   graphHeight?: number;
   graphWidth?: number;
 };
 
-export const FPSStats: React.FC<FPSStatsProps> = ({
-  top = 0,
-  right = 'auto',
-  bottom = 'auto',
-  left = 0,
-  graphHeight = 30,
-  graphWidth = 70,
-}) => {
+export const FPSStats: React.FC<FPSStatsProps> = () => {
   const [state, dispatch] = useReducer(
     (state: {
-      len: number;
+      length: number;
       max: number;
       frames: number;
       prevTime: number;
@@ -32,8 +51,8 @@ export const FPSStats: React.FC<FPSStatsProps> = ({
         );
         return {
           max: Math.max(state.max, nextFPS),
-          len: Math.min(state.len + 1, graphWidth),
-          fps: [...state.fps, nextFPS].slice(-graphWidth),
+          length: Math.min(state.length + 1, 100),
+          fps: [...state.fps, nextFPS].slice(-100),
           frames: 1,
           prevTime: currentTime,
         };
@@ -42,7 +61,7 @@ export const FPSStats: React.FC<FPSStatsProps> = ({
       }
     },
     {
-      len: 0,
+      length: 0,
       max: 0,
       frames: 0,
       prevTime: Date.now(),
@@ -65,57 +84,24 @@ export const FPSStats: React.FC<FPSStatsProps> = ({
     };
   }, []);
 
-  const { fps, max, len } = state;
+  const { fps, max, length } = state;
+
+  console.log(length);
 
   return (
-    <div
-      style={{
-        zIndex: 999999,
-        position: 'fixed',
-        height: 46,
-        width: graphWidth + 6,
-        padding: 3,
-        backgroundColor: '#000',
-        color: '#00ffff',
-        fontSize: '9px',
-        lineHeight: '10px',
-        fontFamily: 'Helvetica, Arial, sans-serif',
-        fontWeight: 'bold',
-        boxSizing: 'border-box',
-        pointerEvents: 'none',
-        top,
-        right,
-        bottom,
-        left,
-      }}
-    >
-      <span>{fps[len - 1]} FPS</span>
-      <div
-        style={{
-          position: 'absolute',
-          left: 3,
-          right: 3,
-          bottom: 3,
-          height: graphHeight,
-          background: '#282844',
-          boxSizing: 'border-box',
-        }}
-      >
+    <Container>
+      <Span>{fps[length - 1]} FPS</Span>
+      <BarContainer>
         {fps.map((frame, i) => (
-          <div
+          <Bar
             key={`fps-${i}`}
-            style={{
-              position: 'absolute',
-              bottom: 0,
-              right: `${len - 1 - i}px`,
-              height: `${(graphHeight * frame) / max}px`,
-              width: 1,
-              background: '#00ffff',
-              boxSizing: 'border-box',
+            css={{
+              right: `${length - 1 - i}%`,
+              height: `${(100 * frame) / max}%`,
             }}
           />
         ))}
-      </div>
-    </div>
+      </BarContainer>
+    </Container>
   );
 };

@@ -1,4 +1,4 @@
-import Callout from 'nextra-theme-docs/callout'
+import Callout from 'nextra-theme-docs/callout';
 
 # Hats Element
 
@@ -9,26 +9,25 @@ Add a hat to the list of hats.
 ### Use in app module
 
 ```typescript
-import { addHatInList } from '@bubble/store'
+import { addHatInList } from '@bubble/store';
 
 addHatInList({
   id: 'hatId',
   importance: 1,
   name: 'HatName',
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('addHatInList', {
+socket().emit('addHatInList', {
   id: 'hatId',
   importance: 1,
   name: 'HatName',
-})
+});
 ```
 
 #### Parameters
@@ -48,22 +47,21 @@ Remove a hat from the list of hats.
 ### Use in app module
 
 ```typescript
-import { removeHatInList } from '@bubble/store'
+import { removeHatInList } from '@bubble/store';
 
 removeHatInList({
   id: 'hatId',
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('removeHatInList', {
+socket().emit('removeHatInList', {
   id: 'hatId',
-})
+});
 ```
 
 #### Parameters
@@ -81,49 +79,49 @@ Reset the hat state.
 ### Use in app module
 
 ```typescript
-import { resetHat } from '@bubble/store'
+import { resetHat } from '@bubble/store';
 
-resetHat()
+resetHat();
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('resetHat')
+socket().emit('resetHat');
 ```
 
 ---
 
 ## setActionHat()
 
-<Callout emoji="⚠️">This function must follow the nomenclature of the available elements.</Callout>
+<Callout emoji="⚠️">
+  This function must follow the nomenclature of the available elements.
+</Callout>
 
 Set the action hat.
 
 ### Use in app module
 
 ```typescript
-import { setActionHat } from '@bubble/store'
+import { setActionHat } from '@bubble/store';
 
 setActionHat({
   actionId: 'actionId',
   name: 'hatName',
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('setActionHat', {
+socket().emit('setActionHat', {
   actionId: 'actionId',
   name: 'hatName',
-})
+});
 ```
 
 #### Parameters
@@ -142,16 +140,15 @@ Reset the action hat.
 ### Use in app module
 
 ```typescript
-import { resetActionHat } from '@bubble/store'
+import { resetActionHat } from '@bubble/store';
 
-resetActionHat()
+resetActionHat();
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('resetActionHat')
+socket().emit('resetActionHat');
 ```

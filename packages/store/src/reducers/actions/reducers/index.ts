@@ -17,6 +17,15 @@ export const resetActions = (state: ActionsState): void => {
   state.cancelList = initialActionsState.cancelList;
 };
 
+export const setActions = (
+  state: ActionsState,
+  action: PayloadAction<{ actions: ActionsState }>
+): void => {
+  state.waitingList = action.payload.actions.waitingList;
+  state.current = action.payload.actions.current;
+  state.cancelList = action.payload.actions.cancelList;
+};
+
 export const updateMemoryValue = (
   state: ActionsState,
   action: PayloadAction<{ memoryId: string; value: unknown; actionId: string }>

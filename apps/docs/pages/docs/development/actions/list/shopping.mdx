@@ -22,8 +22,7 @@ addShoppingActionInWaitingList({
 ```typescript
 import { socket } from '@bubble/common'
 
-const socket = socket()
-socket.emit('addShoppingActionInWaitingList', {
+socket().emit('addShoppingActionInWaitingList', {
   start: new Date().getTime(),
   duration: 10000,
   importance, 2
@@ -47,16 +46,15 @@ Add an shopping action in the await list with default values.
 ### Use in app module
 
 ```typescript
-import { addShoppingActionInWaitingListDefault } from '@bubble/core'
+import { addShoppingActionInWaitingListDefault } from '@bubble/core';
 
-addShoppingActionInWaitingListDefault()
+addShoppingActionInWaitingListDefault();
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('addShoppingActionInWaitingListDefault')
+socket().emit('addShoppingActionInWaitingListDefault');
 ```

@@ -1,5 +1,5 @@
 import { socket } from '@bubble/common';
-import { resetBubble } from '@bubble/store';
+import { getActions, getBubble, getSettings, resetBubble } from '@bubble/store';
 import type { SocketEvents } from '@bubble/types';
 import { Actions } from './actionsClass.js';
 import { Animations } from './animationsClass.js';
@@ -34,8 +34,11 @@ export class BubbleCore {
 
   socket?: SocketEvents;
 
+  lastRenderEmitSocket: number;
+
   constructor() {
     this.lastRender = 0;
+    this.lastRenderEmitSocket = 0;
     this.loopRunning = false;
 
     this.actions = new Actions();
@@ -57,6 +60,19 @@ export class BubbleCore {
     this.socket.on('resetBubble', resetBubble);
   }
 
+  handleEmitSocket = (timestamp: number): void => {
+    if (timestamp - this.lastRenderEmitSocket < 1000) {
+      return;
+    }
+
+    // Emit update store
+    this.socket?.emit('actionsStore', getActions());
+    this.socket?.emit('bubbleStore', getBubble());
+    this.socket?.emit('settingsStore', getSettings());
+
+    this.lastRenderEmitSocket = timestamp;
+  };
+
   update = async (timestamp: number): Promise<void> => {
     // ACTIONS
     this.actions.update(timestamp);
@@ -66,6 +82,9 @@ export class BubbleCore {
 
     // Message
     this.message.update();
+
+    // Emit socket
+    this.handleEmitSocket(timestamp);
   };
 
   loop = (timestamp?: number): void => {
