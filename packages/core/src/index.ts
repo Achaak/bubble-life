@@ -1,8 +1,12 @@
+import { socket } from '@bubble/common';
+import { resetBubble } from '@bubble/store';
+import type { SocketEvents } from '@bubble/types';
 import { Actions } from './actionsClass.js';
 import { Animations } from './animationsClass.js';
 import { Elements } from './elementsClass.js';
 import { Inventory } from './inventoryClass.js';
 import { Message } from './messageClass.js';
+import { Settings } from './settingsClass.js';
 import { Vitals } from './vitalsClass.js';
 import { initWindow } from './window.js';
 
@@ -26,6 +30,10 @@ export class BubbleCore {
 
   vitals: Vitals;
 
+  settings: Settings;
+
+  socket?: SocketEvents;
+
   constructor() {
     this.lastRender = 0;
     this.loopRunning = false;
@@ -36,10 +44,17 @@ export class BubbleCore {
     this.animations = new Animations();
     this.elements = new Elements();
     this.inventory = new Inventory();
+    this.settings = new Settings();
 
     initWindow();
 
     this.startLoop();
+
+    this.socket = socket({
+      localhost: true,
+    });
+
+    this.socket.on('resetBubble', resetBubble);
   }
 
   update = async (timestamp: number): Promise<void> => {

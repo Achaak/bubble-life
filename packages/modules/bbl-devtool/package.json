@@ -35,6 +35,7 @@
   "dependencies": {
     "@bubble/configs": "workspace:*",
     "@bubble/styles": "workspace:*",
+    "@bubble/common": "workspace:*",
     "@bubble/store": "workspace:*",
     "@bubble/types": "workspace:*",
     "@bubble/ui": "workspace:*"

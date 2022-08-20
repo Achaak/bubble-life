@@ -1,6 +1,6 @@
-// import { resetActions, resetBubble } from '@bubble/store';
 import { styled } from '@bubble/styles';
 import { Button } from '@bubble/ui';
+import { socket } from '@bubble/common';
 import React from 'react';
 
 const ContainerDOM = styled('div', {
@@ -12,15 +12,14 @@ const ContainerDOM = styled('div', {
 export interface ControllerProps {}
 
 export const Controller: React.FC<ControllerProps> = () => {
-  // const socket = useContext(SocketContext);
   const handleResetBubble = (): void => {
     console.log('[Reset bubble]');
-    // resetBubble();
+    socket().emit('resetBubble');
   };
 
   const handleResetActions = (): void => {
     console.log('[Reset actions]');
-    // resetActions();
+    socket().emit('resetActions');
   };
 
   return (

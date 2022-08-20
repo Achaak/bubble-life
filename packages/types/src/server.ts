@@ -63,6 +63,7 @@ import type {
   SetHappiness,
   SetHealth,
   SetSaturation,
+  SetShowFPS,
   SetTiredness,
   SetWeight,
   TransferActionFromCancelListToCurrent,
@@ -224,6 +225,9 @@ export interface CommonEvents {
   addInventoryItem: (params: AddInventoryItem) => void;
   removeInventoryItem: (params: RemoveInventoryItem) => void;
   hasInventoryItem: (params: HasInventoryItem) => void;
+
+  // Settings store
+  setShowFPS: (params: SetShowFPS) => void;
 }
 
 export type ServerToClientEvents = CommonEvents;
