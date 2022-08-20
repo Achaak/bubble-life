@@ -28,6 +28,7 @@ import {
   hasActionInWaitingListById,
   addActionInWaitingList,
   transferActionFromWaitingListToCurrent,
+  resetActions,
 } from '@bubble/store';
 import type { Action as ActionType, SocketEvents } from '@bubble/types';
 import dayjs from 'dayjs';
@@ -77,6 +78,7 @@ export class Actions {
       'transferActionFromWaitingListToCurrent',
       transferActionFromWaitingListToCurrent
     );
+    this.socket.on('resetActions', resetActions);
   }
 
   initActionsList = (): void => {
