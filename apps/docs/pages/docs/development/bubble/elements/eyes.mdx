@@ -1,4 +1,4 @@
-import Callout from 'nextra-theme-docs/callout'
+import Callout from 'nextra-theme-docs/callout';
 
 # Eyes Element
 
@@ -9,26 +9,25 @@ Add a eyes to the list of eyes.
 ### Use in app module
 
 ```typescript
-import { addEyesInList } from '@bubble/store'
+import { addEyesInList } from '@bubble/store';
 
 addEyesInList({
   id: 'eyesId',
   importance: 1,
   name: 'EyesName',
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('addEyesInList', {
+socket().emit('addEyesInList', {
   id: 'eyesId',
   importance: 1,
   name: 'EyesName',
-})
+});
 ```
 
 #### Parameters
@@ -48,22 +47,21 @@ Remove a eyes from the list of eyes.
 ### Use in app module
 
 ```typescript
-import { removeEyesInList } from '@bubble/store'
+import { removeEyesInList } from '@bubble/store';
 
 removeEyesInList({
   id: 'eyesId',
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('removeEyesInList', {
+socket().emit('removeEyesInList', {
   id: 'eyesId',
-})
+});
 ```
 
 #### Parameters
@@ -81,49 +79,49 @@ Reset the eyes state.
 ### Use in app module
 
 ```typescript
-import { resetEyes } from '@bubble/store'
+import { resetEyes } from '@bubble/store';
 
-resetEyes()
+resetEyes();
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('resetEyes')
+socket().emit('resetEyes');
 ```
 
 ---
 
 ## setActionEyes()
 
-<Callout emoji="⚠️">This function must follow the nomenclature of the available elements.</Callout>
+<Callout emoji="⚠️">
+  This function must follow the nomenclature of the available elements.
+</Callout>
 
 Set the action eyes.
 
 ### Use in app module
 
 ```typescript
-import { setActionEyes } from '@bubble/store'
+import { setActionEyes } from '@bubble/store';
 
 setActionEyes({
   actionId: 'actionId',
   name: 'eyesName',
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('setActionEyes', {
+socket().emit('setActionEyes', {
   actionId: 'actionId',
   name: 'eyesName',
-})
+});
 ```
 
 #### Parameters
@@ -142,16 +140,15 @@ Reset the action eyes.
 ### Use in app module
 
 ```typescript
-import { resetActionEyes } from '@bubble/store'
+import { resetActionEyes } from '@bubble/store';
 
-resetActionEyes()
+resetActionEyes();
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('resetActionEyes')
+socket().emit('resetActionEyes');
 ```

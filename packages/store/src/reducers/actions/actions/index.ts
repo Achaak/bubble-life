@@ -27,6 +27,10 @@ export const resetActions = (): void => {
   store.dispatch(actionsActions.resetActions());
 };
 
+export const setActions = (actions: ActionsState): void => {
+  store.dispatch(actionsActions.setActions({ actions }));
+};
+
 export const hasActionByName = ({ name }: HasActionByName): boolean => {
   return (
     hasActionInWaitingListByName({ name }) ||

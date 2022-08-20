@@ -8,8 +8,12 @@ export * from './animations';
 export * from './inventory';
 export * from './message/index';
 
+export const getBubble = (): BubbleState => store.getState().bubble;
+
 export const resetBubble = (): void => {
   store.dispatch(bubbleActions.resetBubble());
 };
 
-export const getBubble = (): BubbleState => store.getState().bubble;
+export const setBubble = (bubble: BubbleState): void => {
+  store.dispatch(bubbleActions.setBubble({ bubble }));
+};

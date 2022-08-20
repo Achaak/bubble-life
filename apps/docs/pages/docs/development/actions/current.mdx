@@ -1,4 +1,4 @@
-import Callout from 'nextra-theme-docs/callout'
+import Callout from 'nextra-theme-docs/callout';
 
 # Current Actions
 
@@ -9,18 +9,17 @@ Reset the current action to null.
 ### Use in app module
 
 ```typescript
-import { resetCurrentAction } from '@bubble/store'
+import { resetCurrentAction } from '@bubble/store';
 
-resetCurrentAction()
+resetCurrentAction();
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('resetCurrentAction')
+socket().emit('resetCurrentAction');
 ```
 
 ---
@@ -32,22 +31,21 @@ Get if the current action is in the current action by name.
 ### Use in app module
 
 ```typescript
-import { hasActionInCurrentByName } from '@bubble/store'
+import { hasActionInCurrentByName } from '@bubble/store';
 
 hasActionInCurrentByName({
   name: 'ActionName',
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('hasActionInCurrentByName', {
+socket().emit('hasActionInCurrentByName', {
   name: 'ActionName',
-})
+});
 ```
 
 ---
@@ -59,22 +57,21 @@ Get if the current action is in the current action by id.
 ### Use in app module
 
 ```typescript
-import { hasActionInCurrentById } from '@bubble/store'
+import { hasActionInCurrentById } from '@bubble/store';
 
 hasActionInCurrentById({
   id: 'ActionId',
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('hasActionInCurrentById', {
+socket().emit('hasActionInCurrentById', {
   id: 'ActionId',
-})
+});
 ```
 
 ---
@@ -82,7 +79,8 @@ socket.emit('hasActionInCurrentById', {
 ## setCurrentAction()
 
 <Callout emoji="⚠️">
-  This function must follow the nomenclature of actions available in the core package.
+  This function must follow the nomenclature of actions available in the core
+  package.
 </Callout>
 
 Set the current action.
@@ -121,8 +119,7 @@ addActionInCancelList({
 ```typescript
 import { socket } from '@bubble/common'
 
-const socket = socket()
-socket.emit('addActionInCancelList', {
+socket().emit('addActionInCancelList', {
   id: "ActionId"
   name: "eat",
   start: new Date().getTime(),

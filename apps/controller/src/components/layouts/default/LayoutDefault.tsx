@@ -1,8 +1,10 @@
 import { IconByName } from '@bubble/ui';
 import { styled } from '@bubble/styles';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NameModal } from './NameModal';
+import { socket } from '@bubble/common';
+import { setActions, setBubble, setSettings } from '@bubble/store';
 
 const Container = styled('div', {
   padding: 16,
@@ -40,6 +42,14 @@ interface CustomProps {
 
 export const LayoutDefault: React.FC<CustomProps> = ({ children }) => {
   const router = useRouter();
+
+  useEffect(() => {
+    const s = socket();
+
+    s.on('actionsStore', setActions);
+    s.on('bubbleStore', setBubble);
+    s.on('settingsStore', setSettings);
+  }, []);
 
   return (
     <>

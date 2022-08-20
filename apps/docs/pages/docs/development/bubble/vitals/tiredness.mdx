@@ -7,22 +7,21 @@ Set the tiredness of the Bubble.
 ### Use in app module
 
 ```typescript
-import { setTiredness } from '@bubble/store'
+import { setTiredness } from '@bubble/store';
 
 setTiredness({
   value: 42,
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('setTiredness', {
+socket().emit('setTiredness', {
   value: 42,
-})
+});
 ```
 
 #### Parameters
@@ -40,18 +39,17 @@ Reset the tiredness of the Bubble.
 ### Use in app module
 
 ```typescript
-import { resetTiredness } from '@bubble/store'
+import { resetTiredness } from '@bubble/store';
 
-resetTiredness()
+resetTiredness();
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('resetTiredness')
+socket().emit('resetTiredness');
 ```
 
 ---
@@ -63,22 +61,21 @@ Add to the tiredness of the Bubble.
 ### Use in app module
 
 ```typescript
-import { addTiredness } from '@bubble/store'
+import { addTiredness } from '@bubble/store';
 
 addTiredness({
   value: 42,
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('addTiredness', {
+socket().emit('addTiredness', {
   value: 42,
-})
+});
 ```
 
 #### Parameters
@@ -96,22 +93,21 @@ Remove from the tiredness of the Bubble.
 ### Use in app module
 
 ```typescript
-import { removeTiredness } from '@bubble/store'
+import { removeTiredness } from '@bubble/store';
 
 removeTiredness({
   value: 42,
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('removeTiredness', {
+socket().emit('removeTiredness', {
   value: 42,
-})
+});
 ```
 
 #### Parameters

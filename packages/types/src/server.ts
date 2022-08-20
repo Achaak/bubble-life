@@ -7,6 +7,7 @@ import type {
   AddSleepActionInWaitingList,
 } from './core/index.js';
 import type {
+  ActionsState,
   AddActionInCancelList,
   AddActionInWaitingList,
   AddAnimationInList,
@@ -23,6 +24,7 @@ import type {
   AddSaturation,
   AddTiredness,
   AddWeight,
+  BubbleState,
   DeleteMemoryValue,
   HasActionById,
   HasActionByName,
@@ -64,6 +66,7 @@ import type {
   SetHealth,
   SetSaturation,
   SetShowFPS,
+  SettingsState,
   SetTiredness,
   SetWeight,
   TransferActionFromCancelListToCurrent,
@@ -74,6 +77,13 @@ import type {
 
 export interface CommonEvents {
   newUser: (value: { name: string }) => void;
+
+  // Store state
+  actionsStore: (value: ActionsState) => void;
+  bubbleStore: (value: BubbleState) => void;
+  settingsStore: (value: SettingsState) => void;
+
+  // Message
   message: (value: {
     content: string;
     start?: number;

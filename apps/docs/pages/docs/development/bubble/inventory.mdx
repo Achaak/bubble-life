@@ -7,24 +7,23 @@ Add an item to the inventory.
 ### Use in app module
 
 ```typescript
-import { addInventoryItem } from '@bubble/store'
+import { addInventoryItem } from '@bubble/store';
 
 addInventoryItem({
   type: 'InventoryItem',
   number: 1,
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('addInventoryItem', {
+socket().emit('addInventoryItem', {
   type: 'InventoryItem',
   number: 1,
-})
+});
 ```
 
 #### Parameters
@@ -43,24 +42,23 @@ Remove an item from the inventory.
 ### Use in app module
 
 ```typescript
-import { removeInventoryItem } from '@bubble/store'
+import { removeInventoryItem } from '@bubble/store';
 
 removeInventoryItem({
   type: 'InventoryItem',
   number: 1,
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('removeInventoryItem', {
+socket().emit('removeInventoryItem', {
   type: 'InventoryItem',
   number: 1,
-})
+});
 ```
 
 #### Parameters
@@ -79,24 +77,23 @@ Remove an item from the inventory.
 ### Use in app module
 
 ```typescript
-import { hasInventoryItem } from '@bubble/store'
+import { hasInventoryItem } from '@bubble/store';
 
 hasInventoryItem({
   type: 'InventoryItem',
   number: 1,
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('hasInventoryItem', {
+socket().emit('hasInventoryItem', {
   type: 'InventoryItem',
   number: 1,
-})
+});
 ```
 
 #### Parameters

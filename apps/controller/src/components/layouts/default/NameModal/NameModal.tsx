@@ -21,6 +21,7 @@ const Container = styled('div', {
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
+  zIndex: '$XXX-HIGH',
 
   variants: {
     visible: {

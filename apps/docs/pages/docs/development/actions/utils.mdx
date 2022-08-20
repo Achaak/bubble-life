@@ -9,9 +9,9 @@ Get actions state.
 Get if the given action is in the await list by name.
 
 ```typescript
-import { getActions } from '@bubble/store'
+import { getActions } from '@bubble/store';
 
-const { current, waitingList, cancelList } = getActions()
+const { current, waitingList, cancelList } = getActions();
 ```
 
 #### Return value
@@ -29,18 +29,17 @@ Reset actions state.
 ### Use in app module
 
 ```typescript
-import { getActions } from '@bubble/store'
+import { getActions } from '@bubble/store';
 
-resetActions()
+resetActions();
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('resetActions')
+socket().emit('resetActions');
 ```
 
 ---
@@ -52,22 +51,21 @@ Get if the given action is in the current, await list or cancel list by name.
 ### Use in app module
 
 ```typescript
-import { hasActionByName } from '@bubble/store'
+import { hasActionByName } from '@bubble/store';
 
 hasActionByName({
   name: 'ActionName',
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('hasActionByName', {
+socket().emit('hasActionByName', {
   name: 'ActionName',
-})
+});
 ```
 
 #### Parameters
@@ -91,22 +89,21 @@ Get if the given action is in the current, await list or cancel list by id.
 ### Use in app module
 
 ```typescript
-import { hasActionById } from '@bubble/store'
+import { hasActionById } from '@bubble/store';
 
 hasActionById({
   id: 'ActionId',
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('hasActionById', {
+socket().emit('hasActionById', {
   id: 'ActionId',
-})
+});
 ```
 
 #### Parameters
@@ -130,26 +127,25 @@ Update the memory value of the current, await list or cancel list action.
 ### Use in app module
 
 ```typescript
-import { updateMemoryValue } from '@bubble/store'
+import { updateMemoryValue } from '@bubble/store';
 
 updateMemoryValue({
   memoryId: 'MemoryId',
   actionId: 'ActionId',
   value: 'Value',
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('updateMemoryValue', {
+socket().emit('updateMemoryValue', {
   memoryId: 'MemoryId',
   actionId: 'ActionId',
   value: 'Value',
-})
+});
 ```
 
 #### Parameters
@@ -169,24 +165,23 @@ Delete the memory value of the current, await list or cancel list action.
 ### Use in app module
 
 ```typescript
-import { deleteMemoryValue } from '@bubble/store'
+import { deleteMemoryValue } from '@bubble/store';
 
 deleteMemoryValue({
   memoryId: 'MemoryId',
   actionId: 'ActionId',
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('deleteMemoryValue', {
+socket().emit('deleteMemoryValue', {
   memoryId: 'MemoryId',
   actionId: 'ActionId',
-})
+});
 ```
 
 #### Parameters

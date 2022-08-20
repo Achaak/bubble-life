@@ -7,18 +7,17 @@ Reset the animation to the Bubble
 ### Use in app module
 
 ```typescript
-import { resetAnimation } from '@bubble/store'
+import { resetAnimation } from '@bubble/store';
 
-resetAnimation()
+resetAnimation();
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('resetAnimation')
+socket().emit('resetAnimation');
 ```
 
 ---
@@ -30,26 +29,25 @@ Set the tiredness of the Bubble.
 ### Use in app module
 
 ```typescript
-import { addAnimationInList } from '@bubble/store'
+import { addAnimationInList } from '@bubble/store';
 
 addAnimationInList({
   id: 'id',
   importance: 1,
   name: 'AnimationName',
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('addAnimationInList', {
+socket().emit('addAnimationInList', {
   id: 'id',
   importance: 1,
   name: 'AnimationName',
-})
+});
 ```
 
 #### Parameters
@@ -69,22 +67,21 @@ Remove the animation from the list.
 ### Use in app module
 
 ```typescript
-import { removeAnimationInList } from '@bubble/store'
+import { removeAnimationInList } from '@bubble/store';
 
 removeAnimationInList({
   id: 'id',
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('removeAnimationInList', {
+socket().emit('removeAnimationInList', {
   id: 'id',
-})
+});
 ```
 
 #### Parameters
@@ -102,24 +99,23 @@ Set the action animation.
 ### Use in app module
 
 ```typescript
-import { setActionAnimation } from '@bubble/store'
+import { setActionAnimation } from '@bubble/store';
 
 setActionAnimation({
   actionId: 'actionId',
   name: 'AnimationName',
-})
+});
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('setActionAnimation', {
+socket().emit('setActionAnimation', {
   actionId: 'actionId',
   name: 'AnimationName',
-})
+});
 ```
 
 #### Parameters
@@ -138,16 +134,15 @@ Reset the action animation.
 ### Use in app module
 
 ```typescript
-import { resetActionAnimation } from '@bubble/store'
+import { resetActionAnimation } from '@bubble/store';
 
-resetActionAnimation()
+resetActionAnimation();
 ```
 
 ### Use in controller module
 
 ```typescript
-import { socket } from '@bubble/common'
+import { socket } from '@bubble/common';
 
-const socket = socket()
-socket.emit('resetActionAnimation')
+socket().emit('resetActionAnimation');
 ```
