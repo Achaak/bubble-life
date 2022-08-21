@@ -58,6 +58,7 @@ export class BubbleCore {
     });
 
     this.socket.on('resetBubble', resetBubble);
+    this.socket.on('reloadPage', () => window.location.reload());
   }
 
   handleEmitSocket = (timestamp: number): void => {

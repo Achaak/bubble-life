@@ -86,8 +86,6 @@ export const FPSStats: React.FC<FPSStatsProps> = () => {
 
   const { fps, max, length } = state;
 
-  console.log(length);
-
   return (
     <Container>
       <Span>{fps[length - 1]} FPS</Span>

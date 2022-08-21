@@ -1,13 +1,7 @@
-import { styled } from '@bubble/styles';
+import { InputContainer } from '@bubble/ui';
 import { Button } from '@bubble/ui';
 import { socket } from '@bubble/common';
 import React from 'react';
-
-const ContainerDOM = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
-  customRowGap: 16,
-});
 
 export interface ControllerProps {}
 
@@ -22,10 +16,28 @@ export const Controller: React.FC<ControllerProps> = () => {
     socket().emit('resetActions');
   };
 
+  const handleReloadPage = (): void => {
+    console.log('[Reload page]');
+    socket().emit('reloadPage');
+  };
+
   return (
-    <ContainerDOM>
-      <Button onClick={handleResetBubble}>Reset Bubble</Button>
-      <Button onClick={handleResetActions}>Reset Actions</Button>
-    </ContainerDOM>
+    <>
+      <InputContainer
+        label="Reset bubble"
+        description="Reset the bubble to its initial state"
+        input={<Button onClick={handleResetBubble}>Reset Bubble</Button>}
+      />
+      <InputContainer
+        label="Reset actions"
+        description="Reset the actions to their initial state"
+        input={<Button onClick={handleResetActions}>Reset Actions</Button>}
+      />
+      <InputContainer
+        label="Reload page"
+        description="Reload the page of the Bubble"
+        input={<Button onClick={handleReloadPage}>Reload Page</Button>}
+      />
+    </>
   );
 };

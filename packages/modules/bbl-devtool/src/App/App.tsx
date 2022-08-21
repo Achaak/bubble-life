@@ -22,10 +22,16 @@ export const App: React.FC<AppProps> = () => {
     resetActions();
   };
 
+  const reloadPage = (): void => {
+    console.log('[Reload page]');
+    window.location.reload();
+  };
+
   return (
     <ContainerDOM>
       <Button onClick={handleResetBubble}>Reset Bubble</Button>
       <Button onClick={handleResetActions}>Reset Actions</Button>
+      <Button onClick={reloadPage}>Reload Page</Button>
     </ContainerDOM>
   );
 };

@@ -78,6 +78,8 @@ import type {
 export interface CommonEvents {
   newUser: (value: { name: string }) => void;
 
+  reloadPage: () => void;
+
   // Store state
   actionsStore: (value: ActionsState) => void;
   bubbleStore: (value: BubbleState) => void;
