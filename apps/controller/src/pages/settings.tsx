@@ -28,7 +28,6 @@ const Settings: NextPageWithLayout = () => {
             onChange={handleShowFpsChange}
           />
         }
-        id="showFps"
       />
     </>
   );

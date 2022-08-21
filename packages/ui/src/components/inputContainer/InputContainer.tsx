@@ -25,19 +25,17 @@ export interface InputContainerProps {
   label: string;
   description?: string;
   input: React.ReactNode;
-  id?: string;
 }
 
 export const InputContainer: React.FC<InputContainerProps> = ({
   label,
   description,
   input,
-  id,
 }) => {
   return (
     <Container>
       <Left>
-        <Label htmlFor={id}>{label}</Label>
+        <Label>{label}</Label>
         {description && <Description>{description}</Description>}
       </Left>
       <Right>{input}</Right>
