@@ -5,6 +5,7 @@ import { Label } from '../Label/Label.js';
 
 const Container = styled('div', {
   display: 'flex',
+  margin: '8px 0',
 });
 
 const Left = styled('div', {

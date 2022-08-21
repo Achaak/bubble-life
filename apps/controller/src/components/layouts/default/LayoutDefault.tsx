@@ -23,12 +23,16 @@ const Content = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   marginTop: 16,
+  width: 1200,
+  maxWidth: '100%',
+  margin: '0 auto',
 });
 
 const Top = styled('div', {
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
+  marginBottom: 16,
 });
 
 const Title = styled('h1', {
