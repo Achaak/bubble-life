@@ -13,8 +13,6 @@ const Settings: NextPageWithLayout = () => {
     socket().emit('setShowFPS', bool);
   };
 
-  console.log(showFps);
-
   return (
     <>
       <InputContainer
