@@ -92,7 +92,7 @@ export class Message {
       message: { current, waitingList },
     } = getBubble();
 
-    // Verif current message
+    // Verify current message
     if (current) {
       if (current.start + current.duration < currentDate) {
         this.onEndMessage();

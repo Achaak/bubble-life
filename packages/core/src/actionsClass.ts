@@ -93,12 +93,8 @@ export class Actions {
   };
 
   update = (timestamp: number): void => {
-    const { waitingList, current, cancelList } = getActions();
-
     // CHECK CANCEL ACTIONS
-    if (cancelList.length > 0 || current) {
-      this.checkCancelList();
-    }
+    this.checkCancelList();
 
     // UPDATE ACTIONS
     for (const action of this.actions) {
@@ -106,9 +102,7 @@ export class Actions {
     }
 
     // CHECK AWAIT ACTIONS
-    if (waitingList.length > 0 || !!current) {
-      this.checkWaitingList();
-    }
+    this.checkWaitingList();
   };
 
   triggerActionFunction = ({
@@ -390,7 +384,7 @@ export class Actions {
 
     const { current, waitingList } = getActions();
 
-    // Verif current action
+    // Verify current action
     if (current) {
       if (current.start + current.duration < currentDate) {
         this.onEndAction();
