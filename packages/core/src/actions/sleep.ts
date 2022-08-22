@@ -17,6 +17,7 @@ import dayjs from 'dayjs';
 import { Action } from '../action.js';
 
 const TIREDNESS_INCREASE_DELAY = dateToMs({ seconds: 1 });
+const UPDATE_INTERVAL = dateToMs({ seconds: 1 });
 
 export const addSleepActionInWaitingList = ({
   start,
@@ -105,7 +106,7 @@ export class ActionSleep extends Action {
   }
 
   update = (timestamp: number): void => {
-    if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) {
+    if (timestamp - this.lastRender < UPDATE_INTERVAL) {
       return;
     }
 

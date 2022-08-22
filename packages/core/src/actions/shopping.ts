@@ -14,6 +14,8 @@ import dayjs from 'dayjs';
 
 import { Action } from '../action.js';
 
+const UPDATE_INTERVAL = dateToMs({ seconds: 1 });
+
 export const addShoppingActionInWaitingList = ({
   start,
   duration,
@@ -97,7 +99,7 @@ export class ActionShopping extends Action {
   }
 
   update = (timestamp: number): void => {
-    if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) {
+    if (timestamp - this.lastRender < UPDATE_INTERVAL) {
       return;
     }
 

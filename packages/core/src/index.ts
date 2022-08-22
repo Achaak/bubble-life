@@ -1,4 +1,4 @@
-import { socket } from '@bubble/common';
+import { dateToMs, socket } from '@bubble/common';
 import { getActions, getBubble, getSettings, resetBubble } from '@bubble/store';
 import type { SocketEvents } from '@bubble/types';
 import { Actions } from './actionsClass.js';
@@ -12,6 +12,8 @@ import { initWindow } from './window.js';
 
 export * from './actions/index.js';
 export * from './animations/index.js';
+
+const UPDATE_INTERVAL_EMIT_SOCKET = dateToMs({ seconds: 1 });
 
 export class BubbleCore {
   lastRender: number;
@@ -61,8 +63,8 @@ export class BubbleCore {
     this.socket.on('reloadPage', () => window.location.reload());
   }
 
-  handleEmitSocket = (timestamp: number): void => {
-    if (timestamp - this.lastRenderEmitSocket < 1000) {
+  updateEmitSocket = (timestamp: number): void => {
+    if (timestamp - this.lastRenderEmitSocket < UPDATE_INTERVAL_EMIT_SOCKET) {
       return;
     }
 
@@ -75,8 +77,6 @@ export class BubbleCore {
   };
 
   update = async (timestamp: number): Promise<void> => {
-    const a = getActions();
-    console.log(a);
     // ACTIONS
     this.actions.update(timestamp);
 
@@ -87,7 +87,7 @@ export class BubbleCore {
     this.message.update();
 
     // Emit socket
-    this.handleEmitSocket(timestamp);
+    this.updateEmitSocket(timestamp);
   };
 
   loop = (timestamp?: number): void => {

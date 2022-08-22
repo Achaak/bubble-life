@@ -17,6 +17,7 @@ import dayjs from 'dayjs';
 import { Action } from '../action.js';
 
 const TIREDNESS_INCREASE_DELAY = dateToMs({ seconds: 1 });
+const UPDATE_INTERVAL = dateToMs({ seconds: 1 });
 
 export const addNapActionInWaitingList = ({
   start,
@@ -108,13 +109,13 @@ export class ActionNap extends Action {
   }
 
   update = (timestamp: number): void => {
+    if (timestamp - this.lastRender < UPDATE_INTERVAL) {
+      return;
+    }
+
     const {
       vitals: { tiredness },
     } = getBubble();
-
-    if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) {
-      return;
-    }
 
     if (tiredness <= 0 && !hasActionByName({ name: 'nap' })) {
       addNapActionInWaitingListDefault();

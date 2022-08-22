@@ -19,6 +19,7 @@ import dayjs from 'dayjs';
 import { Action } from '../action.js';
 
 const SATURATION_INCREASE_DELAY = dateToMs({ seconds: 1 });
+const UPDATE_INTERVAL = dateToMs({ seconds: 1 });
 
 export const addEatActionInWaitingList = ({
   start,
@@ -104,13 +105,13 @@ export class ActionEat extends Action {
   }
 
   update = (timestamp: number): void => {
+    if (timestamp - this.lastRender < UPDATE_INTERVAL) {
+      return;
+    }
+
     const {
       vitals: { saturation },
     } = getBubble();
-
-    if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) {
-      return;
-    }
 
     if (saturation <= 0 && !hasActionByName({ name: 'eat' })) {
       addEatActionInWaitingListDefault();

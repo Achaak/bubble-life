@@ -17,6 +17,7 @@ import dayjs from 'dayjs';
 import { Action } from '../action.js';
 
 const HAPPINESS_INCREASE_DELAY = dateToMs({ seconds: 1 });
+const UPDATE_INTERVAL = dateToMs({ seconds: 1 });
 
 export const addPlayActionInWaitingList = ({
   start,
@@ -102,13 +103,13 @@ export class ActionPlay extends Action {
   }
 
   update = (timestamp: number): void => {
+    if (timestamp - this.lastRender < UPDATE_INTERVAL) {
+      return;
+    }
+
     const {
       vitals: { happiness },
     } = getBubble();
-
-    if (timestamp - this.lastRender < dateToMs({ seconds: 1 })) {
-      return;
-    }
 
     if (happiness <= 0 && !hasActionByName({ name: 'play' })) {
       addPlayActionInWaitingListDefault();
