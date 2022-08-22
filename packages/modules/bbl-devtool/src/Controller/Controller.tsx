@@ -32,7 +32,7 @@ export const Controller: React.FC<ControllerProps> = () => {
         label="Happiness"
         input={
           <span>
-            {happiness}/{BubbleConfig.vitals.happiness.max}
+            {Math.round(happiness)}/{BubbleConfig.vitals.happiness.max}
           </span>
         }
       />
@@ -40,7 +40,7 @@ export const Controller: React.FC<ControllerProps> = () => {
         label="Health"
         input={
           <span>
-            {health}/{BubbleConfig.vitals.health.max}
+            {Math.round(health)}/{BubbleConfig.vitals.health.max}
           </span>
         }
       />
@@ -48,7 +48,7 @@ export const Controller: React.FC<ControllerProps> = () => {
         label="Saturation"
         input={
           <span>
-            {saturation}/{BubbleConfig.vitals.saturation.max}
+            {Math.round(saturation)}/{BubbleConfig.vitals.saturation.max}
           </span>
         }
       />
@@ -56,7 +56,7 @@ export const Controller: React.FC<ControllerProps> = () => {
         label="Tiredness"
         input={
           <span>
-            {tiredness}/{BubbleConfig.vitals.tiredness.max}
+            {Math.round(tiredness)}/{BubbleConfig.vitals.tiredness.max}
           </span>
         }
       />
@@ -64,8 +64,8 @@ export const Controller: React.FC<ControllerProps> = () => {
         label="Weight"
         input={
           <span>
-            min: {BubbleConfig.vitals.weight.min} / actual: {weight} / max:{' '}
-            {BubbleConfig.vitals.weight.max}
+            min: {BubbleConfig.vitals.weight.min} / actual: {Math.round(weight)}{' '}
+            / max: {BubbleConfig.vitals.weight.max}
           </span>
         }
       />

@@ -75,6 +75,8 @@ export class BubbleCore {
   };
 
   update = async (timestamp: number): Promise<void> => {
+    const a = getActions();
+    console.log(a);
     // ACTIONS
     this.actions.update(timestamp);
 
