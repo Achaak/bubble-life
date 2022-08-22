@@ -7,7 +7,7 @@ const HeaderContainer = styled('div', {});
 export const ModalInventoryHeader: React.FC = () => {
   return (
     <HeaderContainer>
-      <Title component="h1">Inventory</Title>
+      <Title component="h2">Inventory</Title>
     </HeaderContainer>
   );
 };

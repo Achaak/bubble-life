@@ -64,8 +64,15 @@ export const LayoutDefault: React.FC<CustomProps> = ({ children }) => {
           <Top>
             <IconByName
               name="bxs:chevron-left"
-              onClick={(): void => router.back()}
+              onClick={(): void => {
+                router.push('/');
+              }}
               size={32}
+              styles={{
+                container: {
+                  cursor: 'pointer',
+                },
+              }}
             />
             <Title>{router.asPath.replace('/', '')}</Title>
           </Top>

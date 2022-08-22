@@ -7,7 +7,7 @@ const HeaderContainer = styled('div', {});
 export const ModalActionsHeader: React.FC = () => {
   return (
     <HeaderContainer>
-      <Title component="h1">Actions</Title>
+      <Title component="h2">Actions</Title>
     </HeaderContainer>
   );
 };

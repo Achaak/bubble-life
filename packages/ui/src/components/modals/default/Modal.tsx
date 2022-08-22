@@ -128,14 +128,13 @@ const HeaderRight = styled('div', {
 
 const CloseBtn = styled('div', {
   cursor: 'pointer',
-  padding: 4,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   borderWidth: 3,
   borderStyle: 'solid',
   borderColor: '$WHITE',
-  br: 'lg',
+  br: 'md',
 });
 
 const Header = styled('div', {
@@ -368,7 +367,7 @@ export const Modal: React.FC<ModalProps> = ({
             <HeaderRight>
               {hasCloseBtn && (
                 <CloseBtn onClick={handleClose}>
-                  <IconByName name="bx:x" size={32} />
+                  <IconByName name="bx:x" size={24} />
                 </CloseBtn>
               )}
             </HeaderRight>
