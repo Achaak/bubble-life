@@ -16,8 +16,8 @@
     "@bubble/ui": "workspace:*",
     "@bubble/styles": "workspace:*",
     "next": "12.2.5",
-    "nextra": "^2.0.0-alpha.48",
-    "nextra-theme-docs": "^2.0.0-alpha.48",
+    "nextra": "2.0.0-beta.5",
+    "nextra-theme-docs": "2.0.0-beta.5",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
