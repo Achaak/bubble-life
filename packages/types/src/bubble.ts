@@ -58,6 +58,12 @@ export interface BubbleConfigType {
       recover: number;
       recoverMargin: number;
     };
+    care: {
+      duration: number;
+      durationMargin: number;
+      recover: number;
+      recoverMargin: number;
+    };
     shopping: {
       duration: number;
       durationMargin: number;

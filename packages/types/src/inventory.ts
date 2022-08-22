@@ -1,4 +1,4 @@
-export type InventoryItem = 'food';
+export type InventoryItem = 'food' | 'medication';
 
 export interface InventoryItemStock {
   type: InventoryItem;

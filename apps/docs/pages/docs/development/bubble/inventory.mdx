@@ -72,7 +72,7 @@ socket().emit('removeInventoryItem', {
 
 ## hasInventoryItem()
 
-Remove an item from the inventory.
+Check if has an item in the inventory.
 
 ### Use in app module
 
@@ -102,3 +102,35 @@ socket().emit('hasInventoryItem', {
 | --------- | ------------------------------ | --------------- | ---------- |
 | type      | The type of the item to verify | `InventoryItem` | `required` |
 | number    | The number of items to verify  | `number`        | `required` |
+
+---
+
+## getStockInventoryItem()
+
+Get the stock of an item from the inventory.
+
+### Use in app module
+
+```typescript
+import { getStockInventoryItem } from '@bubble/store';
+
+getStockInventoryItem({
+  type: 'InventoryItem',
+});
+```
+
+### Use in controller module
+
+```typescript
+import { socket } from '@bubble/common';
+
+socket().emit('getStockInventoryItem', {
+  type: 'InventoryItem',
+});
+```
+
+#### Parameters
+
+| Parameter | Description                    | Type            | Default    |
+| --------- | ------------------------------ | --------------- | ---------- |
+| type      | The type of the item to verify | `InventoryItem` | `required` |

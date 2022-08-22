@@ -3,6 +3,7 @@ import {
   addInventoryItem,
   hasInventoryItem,
   removeInventoryItem,
+  getStockInventoryItem,
 } from '@bubble/store';
 import type { SocketEvents } from '@bubble/types';
 
@@ -17,5 +18,6 @@ export class Inventory {
     this.socket.on('addInventoryItem', addInventoryItem);
     this.socket.on('removeInventoryItem', removeInventoryItem);
     this.socket.on('hasInventoryItem', hasInventoryItem);
+    this.socket.on('getStockInventoryItem', getStockInventoryItem);
   }
 }

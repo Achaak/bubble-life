@@ -5,6 +5,7 @@ import type {
   AddPlayActionInWaitingList,
   AddShoppingActionInWaitingList,
   AddSleepActionInWaitingList,
+  AddCareActionInWaitingList,
 } from './core/index.js';
 import type {
   ActionsState,
@@ -35,6 +36,7 @@ import type {
   HasActionInWaitingListById,
   HasActionInWaitingListByName,
   HasInventoryItem,
+  GetStockInventoryItem,
   HasMessageInCurrentById,
   HasMessageInWaitingListById,
   RemoveActionFromCancelList,
@@ -96,6 +98,8 @@ export interface CommonEvents {
   // Actions core vitals
   addEatActionInWaitingList: (params: AddEatActionInWaitingList) => void;
   addEatActionInWaitingListDefault: () => void;
+  addCareActionInWaitingList: (params: AddCareActionInWaitingList) => void;
+  addCareActionInWaitingListDefault: () => void;
   addNapActionInWaitingList: (params: AddNapActionInWaitingList) => void;
   addNapActionInWaitingListDefault: () => void;
   addPlayActionInWaitingList: (params: AddPlayActionInWaitingList) => void;
@@ -237,6 +241,7 @@ export interface CommonEvents {
   addInventoryItem: (params: AddInventoryItem) => void;
   removeInventoryItem: (params: RemoveInventoryItem) => void;
   hasInventoryItem: (params: HasInventoryItem) => void;
+  getStockInventoryItem: (params: GetStockInventoryItem) => void;
 
   // Settings store
   setShowFPS: (params: SetShowFPS) => void;

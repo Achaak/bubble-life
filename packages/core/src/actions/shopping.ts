@@ -3,6 +3,7 @@ import { BubbleConfig } from '@bubble/configs';
 import {
   addActionInWaitingList,
   addInventoryItem,
+  getStockInventoryItem,
   hasActionByName,
   hasInventoryItem,
 } from '@bubble/store';
@@ -104,8 +105,10 @@ export class ActionShopping extends Action {
     }
 
     if (
-      !hasInventoryItem({ type: 'food', number: 1 }) &&
-      !hasActionByName({ name: 'shopping' })
+      (!hasInventoryItem({ type: 'food', number: 1 }) &&
+        !hasActionByName({ name: 'shopping' })) ||
+      (!hasInventoryItem({ type: 'medication', number: 1 }) &&
+        !hasActionByName({ name: 'shopping' }))
     ) {
       addShoppingActionInWaitingListDefault();
     }
@@ -122,7 +125,25 @@ export class ActionShopping extends Action {
   };
 
   handleEndShopping = (): void => {
-    addInventoryItem({ type: 'food', number: 3 });
+    const foodStock = getStockInventoryItem({ type: 'food' });
+    const foodRestock = 3;
+
+    if (foodStock < foodRestock) {
+      addInventoryItem({
+        type: 'food',
+        number: foodRestock - foodStock,
+      });
+    }
+
+    const medicationStock = getStockInventoryItem({ type: 'medication' });
+    const medicationRestock = 3;
+
+    if (medicationStock < medicationRestock) {
+      addInventoryItem({
+        type: 'medication',
+        number: medicationRestock - medicationStock,
+      });
+    }
   };
 
   handleCancelShopping = (): void => {

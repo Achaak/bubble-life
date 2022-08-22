@@ -2,6 +2,7 @@ import type {
   AddInventoryItem,
   HasInventoryItem,
   RemoveInventoryItem,
+  GetStockInventoryItem,
 } from '@bubble/types';
 import { getBubble } from './index';
 import { bubbleActions } from '../index';
@@ -22,4 +23,12 @@ export const hasInventoryItem = ({
   const { inventory } = getBubble();
 
   return inventory.some((item) => item.type === type && item.stock >= number);
+};
+
+export const getStockInventoryItem = ({
+  type,
+}: GetStockInventoryItem): number => {
+  const { inventory } = getBubble();
+
+  return inventory.find((item) => item.type === type)?.stock || 0;
 };
