@@ -19,19 +19,19 @@
   },
   "devDependencies": {
     "@bubble/scripts": "workspace:*",
-    "@bubble/tsconfig": "workspace:*",
     "@bubble/styles": "workspace:*",
+    "@bubble/tsconfig": "workspace:*",
     "@pnpm/sort-packages": "^3.0.7",
-    "@types/node": "^18.7.6",
-    "@types/react": "18.0.17",
+    "@types/node": "^18.7.14",
+    "@types/react": "18.0.18",
     "@types/react-dom": "18.0.6",
     "cross-env": "^7.0.3",
-    "eslint": "8.22.0",
+    "eslint": "8.23.0",
     "prettier": "2.7.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "tsup": "^6.2.2",
-    "typescript": "4.7.4"
+    "tsup": "^6.2.3",
+    "typescript": "4.8.2"
   },
   "dependencies": {
     "@bubble/configs": "workspace:*",

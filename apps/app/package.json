@@ -13,12 +13,12 @@
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.18.9",
-    "@bubble/styles": "workspace:*",
     "@bubble/common": "workspace:*",
     "@bubble/configs": "workspace:*",
     "@bubble/core": "workspace:*",
     "@bubble/modules": "workspace:*",
     "@bubble/store": "workspace:*",
+    "@bubble/styles": "workspace:*",
     "@bubble/translate": "workspace:*",
     "@bubble/types": "workspace:*",
     "@bubble/ui": "workspace:*",
@@ -32,22 +32,22 @@
   "devDependencies": {
     "@bubble/scripts": "workspace:*",
     "@bubble/tsconfig": "workspace:*",
-    "@types/node": "^18.7.6",
-    "@types/react": "18.0.17",
+    "@types/node": "^18.7.14",
+    "@types/react": "18.0.18",
     "@types/react-dom": "^18.0.6",
     "@types/shortid": "^0.0.29",
     "cross-env": "^7.0.3",
     "dotenv-flow": "^3.2.0",
-    "electron": "20.0.2",
+    "electron": "20.1.0",
     "electron-builder": "^23.3.3",
-    "eslint": "^8.22.0",
+    "eslint": "^8.23.0",
     "next": "^12.2.5",
     "next-compose-plugins": "^2.2.1",
     "next-transpile-modules": "^9.0.0",
-    "nextron": "^8.1.0",
+    "nextron": "^8.2.0",
     "prettier": "^2.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "typescript": "4.7.4"
+    "typescript": "4.8.2"
   }
 }

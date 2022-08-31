@@ -13,8 +13,8 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "dependencies": {
-    "@bubble/ui": "workspace:*",
     "@bubble/styles": "workspace:*",
+    "@bubble/ui": "workspace:*",
     "next": "12.2.5",
     "nextra": "2.0.0-beta.5",
     "nextra-theme-docs": "2.0.0-beta.5",
@@ -24,12 +24,12 @@
   "devDependencies": {
     "@bubble/scripts": "workspace:*",
     "@bubble/tsconfig": "workspace:*",
-    "@types/node": "^18.7.6",
-    "@types/react": "18.0.17",
+    "@types/node": "^18.7.14",
+    "@types/react": "18.0.18",
     "cross-env": "^7.0.3",
-    "eslint": "^8.22.0",
+    "eslint": "^8.23.0",
     "next-transpile-modules": "^9.0.0",
     "prettier": "^2.7.1",
-    "typescript": "4.7.4"
+    "typescript": "4.8.2"
   }
 }

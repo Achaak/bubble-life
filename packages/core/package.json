@@ -19,13 +19,13 @@
     "@bubble/scripts": "workspace:*",
     "@bubble/tsconfig": "workspace:*",
     "@pnpm/sort-packages": "^3.0.7",
-    "@types/node": "^18.7.6",
+    "@types/node": "^18.7.14",
     "@types/shortid": "^0.0.29",
     "cross-env": "^7.0.3",
-    "eslint": "^8.22.0",
+    "eslint": "^8.23.0",
     "prettier": "2.7.1",
-    "tsup": "^6.2.2",
-    "typescript": "4.7.4"
+    "tsup": "^6.2.3",
+    "typescript": "4.8.2"
   },
   "dependencies": {
     "@bubble/common": "workspace:*",
