@@ -1,13 +1,13 @@
 import { AppModules } from '@bubble/modules';
 import { styled } from '@bubble/styles';
-import { Bubble } from '@src/components/Bubble';
-import { Stats } from '@src/components/Stats';
-import { DefaultLayout } from '@src/components/layouts/default';
+import { Bubble } from '@/components/Bubble';
+import { Stats } from '@/components/Stats';
+import { DefaultLayout } from '@/components/layouts/default';
 import React from 'react';
 
 import type { NextPageWithLayout } from './_app';
 import { selectShowFPS, useAppSelector } from '@bubble/store';
-import { FPSStats } from '@src/components/FPSStats';
+import { FPSStats } from '@/components/FPSStats';
 
 const Overlay = styled('div', {
   position: 'fixed',

@@ -9,14 +9,6 @@ const withTM = require('next-transpile-modules')([
 const plugins = [withTM];
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.target = 'electron-renderer';
-    }
-
-    return config;
-  },
-};
+const nextConfig = {};
 
 module.exports = withPlugins(plugins, nextConfig);
