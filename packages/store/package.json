@@ -14,22 +14,22 @@
   "devDependencies": {
     "@bubble/scripts": "workspace:*",
     "@bubble/tsconfig": "workspace:*",
-    "@pnpm/sort-packages": "^3.0.7",
-    "@reduxjs/toolkit": "^1.8.4",
-    "@types/node": "^18.7.6",
+    "@pnpm/sort-packages": "^4.0.3",
+    "@reduxjs/toolkit": "^1.9.1",
+    "@types/node": "^18.11.18",
     "@types/shortid": "^0.0.29",
     "cross-env": "^7.0.3",
-    "eslint": "^8.22.0",
-    "prettier": "2.7.1",
+    "eslint": "^8.31.0",
+    "prettier": "2.8.1",
     "redux": "^4.2.0",
     "redux-persist": "^6.0.0",
-    "typescript": "4.7.4"
+    "typescript": "4.9.4"
   },
   "dependencies": {
     "@bubble/configs": "workspace:*",
     "@bubble/types": "workspace:*",
     "react": "^18.2.0",
-    "react-redux": "^8.0.2",
+    "react-redux": "^8.0.5",
     "shortid": "^2.2.16"
   }
 }

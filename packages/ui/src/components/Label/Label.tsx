@@ -6,7 +6,7 @@ export type { LabelProps } from '@pikas-ui/text';
 export const Label: React.FC<LabelProps> = ({ style, ...props }) => {
   return (
     <LabelPikasUI
-      style={{
+      css={{
         color: '$WHITE',
         ...style,
       }}

@@ -160,7 +160,7 @@ export const Controller: React.FC<ControllerProps> = () => {
         }
       />
       <Separator
-        style={{
+        css={{
           margin: '8px 0',
         }}
       />

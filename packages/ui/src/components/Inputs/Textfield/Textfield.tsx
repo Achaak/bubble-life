@@ -3,28 +3,28 @@ import { Textfield as TextfieldPikasUI } from '@pikas-ui/textfield';
 import { forwardRef } from 'react';
 
 export {
-  TextfieldGap,
-  TextfieldPadding,
-  TextfieldType,
+  textfieldGap,
+  textfieldPadding,
+  textfieldType,
 } from '@pikas-ui/textfield';
 export type {
-  TextfieldGapType,
-  TextfieldPaddingType,
+  TextfieldGap,
+  TextfieldPadding,
   TextfieldProps,
-  TextfieldStylesType,
-  TextfieldTypeType,
+  TextfieldCSS,
+  TextfieldType,
 } from '@pikas-ui/textfield';
 
 export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
-  ({ styles, ...props }, ref) => {
+  ({ css, ...props }, ref) => {
     return (
       <TextfieldPikasUI
         ref={ref}
-        styles={{
-          ...styles,
+        css={{
+          ...css,
           label: {
             color: '$WHITE',
-            ...styles?.label,
+            ...css?.label,
           },
         }}
         {...props}

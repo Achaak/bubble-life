@@ -1,4 +1,4 @@
-import type { CSS } from '@pikas-ui/styles';
+import type { PikasCSS } from '@pikas-ui/styles';
 import { styled } from '@pikas-ui/styles';
 import React from 'react';
 
@@ -66,7 +66,7 @@ export const TextVariantType = {
 export interface TextProps {
   component: keyof typeof TextComponentType;
   variant?: keyof typeof TextVariantType;
-  style?: CSS;
+  style?: PikasCSS;
   href?: string;
   dangerouslySetInnerHTML?: {
     __html: string;

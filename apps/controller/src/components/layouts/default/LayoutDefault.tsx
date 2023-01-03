@@ -68,7 +68,7 @@ export const LayoutDefault: React.FC<CustomProps> = ({ children }) => {
                 router.push('/');
               }}
               size={32}
-              styles={{
+              css={{
                 container: {
                   cursor: 'pointer',
                 },

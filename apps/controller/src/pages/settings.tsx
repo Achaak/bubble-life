@@ -23,7 +23,7 @@ const Settings: NextPageWithLayout = () => {
             key={`show-fps-${showFps}`}
             id="showFps"
             defaultChecked={showFps}
-            onChange={handleShowFpsChange}
+            onCheckedChange={handleShowFpsChange}
           />
         }
       />

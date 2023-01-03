@@ -9,7 +9,7 @@ export const Description: React.FC<DescriptionProps> = ({
 }) => {
   return (
     <DescriptionPikasUI
-      style={{
+      css={{
         color: '$WHITE_LIGHT',
         ...style,
       }}

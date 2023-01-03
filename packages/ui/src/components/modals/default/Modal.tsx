@@ -1,5 +1,5 @@
 import { IconByName } from '@pikas-ui/icons';
-import type { CSS } from '@pikas-ui/styles';
+import type { PikasCSS } from '@pikas-ui/styles';
 import { styled } from '@pikas-ui/styles';
 import * as Dialog from '@radix-ui/react-dialog';
 import React, { useEffect, useState } from 'react';
@@ -251,10 +251,10 @@ export interface ModalProps {
   onClose: () => void;
   hasCloseBtn?: boolean;
   styles?: {
-    container?: CSS;
-    header?: CSS;
-    content?: CSS;
-    footer?: CSS;
+    container?: PikasCSS;
+    header?: PikasCSS;
+    content?: PikasCSS;
+    footer?: PikasCSS;
   };
   closeClickOutside?: boolean;
   onOpen?: () => void;

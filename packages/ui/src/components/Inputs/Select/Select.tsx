@@ -1,23 +1,24 @@
 import type { SelectProps } from '@pikas-ui/select';
 import { Select as SelectPikasUI } from '@pikas-ui/select';
 
-export { SelectDirections, SelectPadding } from '@pikas-ui/select';
+export { selectDirections, selectPadding } from '@pikas-ui/select';
 export type {
-  SelectDirectionsType,
-  SelectItemType,
-  SelectPaddingType,
+  SelectDirections,
+  SelectItem,
+  SelectPadding,
   SelectProps,
-  SelectStylesType,
+  SelectCSS,
+  SelectRef,
 } from '@pikas-ui/select';
 
-export const Select: React.FC<SelectProps> = ({ styles, ...props }) => {
+export const Select: React.FC<SelectProps> = ({ css, ...props }) => {
   return (
     <SelectPikasUI
-      styles={{
-        ...styles,
+      css={{
+        ...css,
         label: {
           color: '$WHITE',
-          ...styles?.label,
+          ...css?.label,
         },
       }}
       {...props}

@@ -1,4 +1,4 @@
-import type { CSS } from '@pikas-ui/styles';
+import type { PikasCSS } from '@pikas-ui/styles';
 import { styled } from '@pikas-ui/styles';
 import React from 'react';
 
@@ -62,7 +62,7 @@ export interface TitleProps {
   dangerouslySetInnerHTML?: {
     __html: string;
   };
-  style?: CSS;
+  style?: PikasCSS;
   id?: string;
   children?: React.ReactNode;
 }

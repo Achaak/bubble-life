@@ -13,23 +13,23 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "dependencies": {
-    "@bubble/ui": "workspace:*",
     "@bubble/styles": "workspace:*",
-    "next": "12.2.5",
-    "nextra": "2.0.0-beta.5",
-    "nextra-theme-docs": "2.0.0-beta.5",
+    "@bubble/ui": "workspace:*",
+    "next": "13.1.1",
+    "nextra": "2.0.3",
+    "nextra-theme-docs": "2.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@bubble/scripts": "workspace:*",
     "@bubble/tsconfig": "workspace:*",
-    "@types/node": "^18.7.6",
-    "@types/react": "18.0.17",
+    "@types/node": "^18.11.18",
+    "@types/react": "18.0.26",
     "cross-env": "^7.0.3",
-    "eslint": "^8.22.0",
-    "next-transpile-modules": "^9.0.0",
-    "prettier": "^2.7.1",
-    "typescript": "4.7.4"
+    "eslint": "^8.31.0",
+    "next-transpile-modules": "^10.0.0",
+    "prettier": "^2.8.1",
+    "typescript": "4.9.4"
   }
 }

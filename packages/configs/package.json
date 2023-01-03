@@ -18,12 +18,12 @@
   "devDependencies": {
     "@bubble/scripts": "workspace:*",
     "@bubble/tsconfig": "workspace:*",
-    "@pnpm/sort-packages": "^3.0.7",
+    "@pnpm/sort-packages": "^4.0.3",
     "cross-env": "^7.0.3",
-    "eslint": "^8.22.0",
-    "prettier": "^2.7.1",
-    "tsup": "^6.2.2",
-    "typescript": "4.7.4"
+    "eslint": "^8.31.0",
+    "prettier": "^2.8.1",
+    "tsup": "^6.5.0",
+    "typescript": "4.9.4"
   },
   "dependencies": {
     "@bubble/types": "workspace:*"
