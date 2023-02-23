@@ -24,8 +24,8 @@ export const BubbleConfig: BubbleConfigType = {
       decrease: 1, // Every 1s
     },
     health: {
-      default: 12000,
-      max: 12000,
+      default: 200000,
+      max: 200000,
       decrease: 1, // Every 1s
     },
   },
@@ -51,6 +51,12 @@ export const BubbleConfig: BubbleConfigType = {
       recover: 0.5, // Between 0 and 1
       recoverMargin: 0.1, // Between 0 and 1
     },
+    care: {
+      duration: 20, // Minutes
+      durationMargin: 5, // Minutes
+      recover: 0.5, // Between 0 and 1
+      recoverMargin: 0.1, // Between 0 and 1
+    },
     shopping: {
       duration: 20, // minutes
       durationMargin: 5, // minutes
@@ -73,6 +79,10 @@ export const BubbleConfig: BubbleConfigType = {
   defaultInventory: [
     {
       type: 'food',
+      stock: 1,
+    },
+    {
+      type: 'medication',
       stock: 1,
     },
   ],

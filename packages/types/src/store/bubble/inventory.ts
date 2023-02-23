@@ -8,3 +8,7 @@ export type HasInventoryItem = {
   type: InventoryItem;
   number: number;
 };
+
+export type GetStockInventoryItem = {
+  type: InventoryItem;
+};

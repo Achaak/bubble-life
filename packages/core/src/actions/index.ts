@@ -1,3 +1,4 @@
+import { ActionCare } from './care.js';
 import { ActionEat } from './eat.js';
 import { ActionNap } from './nap.js';
 import { ActionPlay } from './play.js';
@@ -16,4 +17,5 @@ export const ActionsList = [
   ActionNap,
   ActionShopping,
   ActionPlay,
+  ActionCare,
 ];
